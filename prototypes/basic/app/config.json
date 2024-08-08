@@ -1,4 +1,4 @@
 {
-  "serviceName": "Service name goes here",
+  "serviceName": "Import spreadsheet data",
   "uploadPath": "/tmp/proto/basic"
 }
