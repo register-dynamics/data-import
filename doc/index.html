@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Register Dynamics Data Importer</title>
+    <link href="./govuk-frontend-5.5.0.min.css" rel="stylesheet">
+    <style type="text/css">
+        .rd-service-card {
+            width: 200px;
+            height: 250px;
+            border: 2px solid lightgray;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .rd-service-card-inner {
+            width: 500%;
+            transform: scale(0.2);
+            transform-origin: top left;
+            height: 500%;
+            font-size: 3rem;
+            color: lightgray;
+        }
+
+        .rd-service-card [class^="govuk-heading"] {
+            font-size: 200%;
+            margin-bottom: 1em;
+            color: black;
+        }
+
+        .rd-service-card .govuk-heading-xl {
+            font-size: 300%;
+        }
+
+        .rd-service-card p:last-of-type {
+            margin-bottom: 3em;
+        }
+
+        .rd-service-card .govuk-main-wrapper>[class^="govuk"]:not([class^="govuk-heading"], [class^="govuk-panel"]) {
+            transform: scale(3);
+            transform-origin: top left;
+        }
+
+        .rd-service-card.later,
+        .later+.rd-service-text {
+            opacity: 0.4;
+        }
+
+        .rd-service-steps {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            column-gap: 3em;
+            row-gap: 3em;
+        }
+
+        code {
+            color: #d13118;
+            background-color: #f3f2f1;
+            font-size: 1rem;
+            line-height: 1.25;
+        }
+    </style>
+</head>
+
+<body class="govuk-template__body">
+    <a href="#main-content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
+    <header class="govuk-header">
+        <div class="govuk-header__container govuk-width-container">
+            <div class="govuk-header__logo">
+                <a href="#" class="govuk-header__link govuk-header__link--homepage">Data Importer</a>
+            </div>
+        </div>
+    </header>
+    <div class="govuk-width-container">
+        <main class="govuk-main-wrapper" id="main-content">
+            <h1 class="govuk-heading-xl">How to upload data</h1>
+            <section class="rd-service-steps">
+                <div class="rd-service-card">
+                    <div class="rd-service-card-inner">
+                        <div class="govuk-header">
+                            <div class="govuk-header__container govuk-width-container">
+                                <div class="govuk-header__logo">
+                                    <a href="#" class="govuk-header__link govuk-header__link--homepage"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="govuk-main-wrapper">
+                            <h1 class="govuk-heading-xl">Register a tribble</h1>
+                            <p>████████████████</p>
+                            <p>████████████████</p>
+                            <p>████████</p>
+                            <a role="button" draggable="false" class="govuk-button govuk-button--start"
+                                data-module="govuk-button">
+                                Start now
+                                <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5"
+                                    height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+                                    <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="rd-service-text">
+                    <h2 class="govuk-heading-m">Start the user journey</h2>
+                    <p class="govuk-body">Explain to users that they are about to upload data, and what data will be
+                        required.</p>
+                </div>
+                <div class="rd-service-card">
+                    <div class="rd-service-card-inner">
+                        <div class="govuk-header">
+                            <div class="govuk-header__container govuk-width-container">
+                                <div class="govuk-header__logo">
+                                    <a href="#" class="govuk-header__link govuk-header__link--homepage"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="govuk-main-wrapper">
+                            <h1 class="govuk-heading-m">Upload a file</h1>
+                            <p>████████████████</p>
+                            <p>████████████████</p>
+                            <p>████████</p>
+                            <div class="govuk-form-group">
+                                <label class="govuk-label" for="file-upload-1">
+                                    Upload a file
+                                </label>
+                                <input class="govuk-file-upload" id="file-upload-1" name="fileUpload1" type="file">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rd-service-text">
+                    <h2 class="govuk-heading-m">User selects a spreadsheet</h2>
+                    <p class="govuk-body">Use the <a
+                            href="https://design-system.service.gov.uk/components/file-upload/">GOV.UK Design System
+                            file upload component</a>
+                        to get the user to select a file.</p>
+                </div>
+                <div class="rd-service-card">
+                    <div class="rd-service-card-inner">
+                        <div class="govuk-header">
+                            <div class="govuk-header__container govuk-width-container">
+                                <div class="govuk-header__logo">
+                                    <a href="#" class="govuk-header__link govuk-header__link--homepage"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="govuk-main-wrapper">
+                            <h1 class="govuk-heading-m">Select a worksheet</h1>
+                            <div class="govuk-form-group">
+                                <fieldset class="govuk-fieldset">
+                                    <legend class="govuk-fieldset__legend">
+                                        <p class="govuk-fieldset__heading">
+                                            Which sheet should be used?
+                                        </p>
+                                    </legend>
+                                    <div class="govuk-radios" data-module="govuk-radios">
+                                        <div class="govuk-radios__item">
+                                            <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive"
+                                                type="radio" value="england">
+                                            <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+                                                Introduction
+                                            </label>
+                                        </div>
+                                        <div class="govuk-radios__item">
+                                            <input class="govuk-radios__input" id="whereDoYouLive-2"
+                                                name="whereDoYouLive" type="radio" value="scotland">
+                                            <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+                                                Data
+                                            </label>
+                                        </div>
+                                        <div class="govuk-radios__item">
+                                            <input class="govuk-radios__input" id="whereDoYouLive-3"
+                                                name="whereDoYouLive" type="radio" value="wales">
+                                            <label class="govuk-label govuk-radios__label" for="whereDoYouLive-3">
+                                                Summary
+                                            </label>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rd-service-text">
+                    <h2 class="govuk-heading-m">User selects a worksheet (optional)</h2>
+                    <p class="govuk-body">If the file type supports multiple sheets (i.e. it is a Microsoft Excel (XLSX)
+                        file or OpenDocument Sheets (ODS) file), use the <a
+                            href="https://design-system.service.gov.uk/components/radios/">GOV.UK Design System
+                            radios component</a> to get the user to select one of the sheets.</p>
+                    <p class="govuk-body">Users often include explanatory information, summaries, pivot tables or charts
+                        on extra sheets. Your service should allow them to ignore these.</p>
+                </div>
+                <div class="rd-service-card later">
+                    <div class="rd-service-card-inner">
+                        <div class="govuk-header">
+                            <div class="govuk-header__container govuk-width-container">
+                                <div class="govuk-header__logo">
+                                    <a href="#" class="govuk-header__link govuk-header__link--homepage"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="govuk-main-wrapper">
+                            <h1 class="govuk-heading-m">Select your data</h1>
+                            <p>████████████████</p>
+                            <p>TODO</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="rd-service-text">
+                    <h2 class="govuk-heading-m">User selects column headers (coming soon)</h2>
+                    <p class="govuk-body">Use the <a>sheet view component</a> in <code>select-columns</code> mode to
+                        display the contents of the selected spreadsheet and ask the user to select column headers.</p>
+                    <p class="govuk-body">Spreadsheets often have extra titles above the first row of headers that
+                        should be ignored.
+                        Data may also not start in the first column as users often leave blank columns to provide
+                        padding.</p>
+                </div>
+                <div class="rd-service-card later">
+                    <div class="rd-service-card-inner">
+                        <div class="govuk-header">
+                            <div class="govuk-header__container govuk-width-container">
+                                <div class="govuk-header__logo">
+                                    <a href="#" class="govuk-header__link govuk-header__link--homepage"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="govuk-main-wrapper">
+                            <h1 class="govuk-heading-m">Select your data</h1>
+                            <p>████████████████</p>
+                            <p>TODO</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="rd-service-text">
+                    <h2 class="govuk-heading-m">User selects bottom of sheet (coming soon)</h2>
+                    <p class="govuk-body">Use the <a>sheet view component</a> in <code>select-bottom</code> mode to
+                        display the contents of the selected spreadsheet and ask the user to select where rows end.</p>
+                    <p class="govuk-body">Spreadsheets often have extra summary rows after the last row of data that
+                        should be ignored.</p>
+                </div>
+                <div class="rd-service-card">
+                    <div class="rd-service-card-inner">
+                        <div class="govuk-header">
+                            <div class="govuk-header__container govuk-width-container">
+                                <div class="govuk-header__logo">
+                                    <a href="#" class="govuk-header__link govuk-header__link--homepage"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="govuk-main-wrapper">
+                            <h1 class="govuk-heading-m">Identify your columns</h1>
+                            <p>████████████████</p>
+                            <p>TODO</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="rd-service-text">
+                    <h2 class="govuk-heading-m">User maps input columns to required names</h2>
+                    <p class="govuk-body">Use the <a>sheet view component</a> in <code>mapping</code> mode to
+                        select which columns in the input spreadsheet correspond to required data for your service.</p>
+                    <p class="govuk-body">Spreadsheets often have extra columns
+                        (such as "notes") in amongst the columns of interest so
+                        users can select to ignore columns. Each required column can
+                        be mapped to a single input column.
+                    </p>
+                </div>
+                <div class="rd-service-card">
+                    <div class="rd-service-card-inner">
+                        <div class="govuk-header">
+                            <div class="govuk-header__container govuk-width-container">
+                                <div class="govuk-header__logo">
+                                    <a href="#" class="govuk-header__link govuk-header__link--homepage"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="govuk-main-wrapper">
+                            <h1 class="govuk-heading-m">Review your data</h1>
+                            <p>████████████████</p>
+                            <div class="govuk-form-group">
+                                <div class="govuk-warning-text">
+                                    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                                    <strong class="govuk-warning-text__text">
+                                        <span class="govuk-visually-hidden">Warning</span>
+                                        There are 35 invalid rows.
+                                    </strong>
+                                </div>
+                                <button class="govuk-button govuk-button--secondary">Go back</button>
+                                <button class="govuk-button govuk-button--warning">Select new file</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rd-service-text">
+                    <h2 class="govuk-heading-m">User reviews rejected rows</h2>
+                    <p class="govuk-body">Use the <a>sheet view component</a> in <code>review</code> mode to
+                        display the results of row validation and highlight any rows that weren't considered valid.</p>
+                    <p class="govuk-body">The sheet view component will display a summary of the number of rows it
+                        contains, and how many are not valid.</p>
+                    <p class="govuk-body">The user should then be able to go back to modify any options that might fix
+                        the issue or upload a different spreadsheet with any broken rows fixed.
+                    <p>
+                </div>
+                <div class="rd-service-card">
+                    <div class="rd-service-card-inner">
+                        <div class="govuk-header">
+                            <div class="govuk-header__container govuk-width-container">
+                                <div class="govuk-header__logo">
+                                    <a href="#" class="govuk-header__link govuk-header__link--homepage"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="govuk-main-wrapper">
+                            <div class="govuk-panel govuk-panel--confirmation">
+                                <h1 class="govuk-panel__title">
+                                    Upload complete
+                                </h1>
+                                <div class="govuk-panel__body">
+                                    You applied for <strong>456</strong> licenses
+                                </div>
+                            </div>
+                            <p>████████████████</p>
+                            <p>████████████████</p>
+                            <p>████████</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="rd-service-text">
+                    <h2 class="govuk-heading-m">User receives receipt of upload</h2>
+                    <p class="govuk-body">Use the <a
+                            href="https://design-system.service.gov.uk/components/panel/">GOV.UK Design
+                            System Panel
+                            component</a>
+                        to provide confirmation that the upload was successfully received and is being processed.
+                    </p>
+                    <p class="govuk-body">
+                        The panel component should include any relevant statistics that reassure the user that the
+                        correct action is being taken, such as the number of operations that will be carried out in
+                        response or the number of affected items.
+                    </p>
+                </div>
+            </section>
+        </main>
+    </div>
+    <footer class="govuk-footer">
+        <div class="govuk-width-container">
+            <div class="govuk-footer__meta">
+                <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+                    <svg aria-hidden="true" focusable="false" class="govuk-footer__licence-logo"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 483.2 195.7" height="17" width="41">
+                        <path fill="currentColor"
+                            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145" />
+                    </svg>
+                    <span class="govuk-footer__licence-description">
+                        All content is available under the
+                        <a class="govuk-footer__link"
+                            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+                            rel="license">Open Government Licence v3.0</a>, except where otherwise stated
+                    </span>
+                </div>
+                <div class="govuk-footer__meta-item">
+                    <a class="govuk-footer__link govuk-footer__copyright-logo">
+                        &copy; Register Dynamics 2024
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
