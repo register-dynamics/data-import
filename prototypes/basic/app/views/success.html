@@ -1,9 +1,14 @@
-{% extends "layouts/main.html" %} {% from
-"govuk/components/file-upload/macro.njk" import govukFileUpload %} {% block
-pageTitle %} – {{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block
-beforeContent %} {{ govukBackLink({ text: "Back", href:
-"javascript:window.history.back()" }) }} {% endblock %} {% block content %}
+{% extends "layouts/main.html" %}
 
+{% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
+
+{% block pageTitle %} – {{ serviceName }} – GOV.UK Prototype Kit {% endblock %}
+
+{% block beforeContent %}
+    {{ govukBackLink({ text: "Back", href: "javascript:window.history.back()" }) }}
+{% endblock %}
+
+{% block content %}
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-l">File uploaded!</h1>
