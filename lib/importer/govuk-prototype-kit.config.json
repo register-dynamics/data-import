@@ -1,0 +1,9 @@
+{
+  "templates": [
+    {
+      "name": "Upload a file",
+      "path": "/templates/upload.html",
+      "type": "nunjucks"
+    }
+  ]
+}
