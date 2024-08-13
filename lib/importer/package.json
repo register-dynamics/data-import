@@ -9,6 +9,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "node-xlsx": "^0.24.0"
+    "node-xlsx": "^0.24.0",
+    "multer": "^1.4.5-lts.1"
   }
 }

@@ -2,23 +2,18 @@
 // For guidance on how to create routes see:
 // https://prototype-kit.service.gov.uk/docs/create-routes
 //
-
 const upload = require("./upload.js");
+const importer = require("importer");
 const govukPrototypeKit = require("govuk-prototype-kit");
 const router = govukPrototypeKit.requests.setupRouter();
 
 const uploader = upload.uploader;
 
 router.post("/upload", uploader.single("file"), (request, response) => {
-  const file = request.file;
-  if (!file) {
-    response.render("upload.html", { error: "Please attach a file" });
-    return;
-  }
+  session = importer.CreateSession(request);
 
-  const err = upload.validateUpload(file);
-  if (err != undefined) {
-    response.render("upload.html", { error: err });
+  if (session.error) {
+    response.render("upload.html", { error: session.error });
     return;
   }
 

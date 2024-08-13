@@ -19,18 +19,6 @@ const storage = multer.diskStorage({
 
 const uploader = multer({ storage });
 
-function validateUpload(file) {
-  if (
-    file.mimetype !=
-    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-  ) {
-    return "Uploaded file was not an XLSX file";
-  }
-
-  return undefined;
-}
-
 module.exports = {
   uploader,
-  validateUpload,
 };
