@@ -4,6 +4,26 @@
       "name": "Upload a file",
       "path": "/templates/upload.html",
       "type": "nunjucks"
+    },
+    {
+      "name": "Select a sheet",
+      "path": "/templates/select_sheet.html",
+      "type": "nunjucks"
+    },
+    {
+      "name": "Select header row",
+      "path": "/templates/select_header.html",
+      "type": "nunjucks"
+    },
+    {
+      "name": "Select footer rows",
+      "path": "/templates/select_footer.html",
+      "type": "nunjucks"
+    },
+    {
+      "name": "Review options",
+      "path": "/templates/review.html",
+      "type": "nunjucks"
     }
   ]
 }
