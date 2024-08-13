@@ -1,0 +1,20 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %} – {{ serviceName }} – GOV.UK Prototype Kit {% endblock %}
+{% block beforeContent %}
+    {{ govukBackLink({ text: "Back", href: "javascript:window.history.back()" }) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Select which sheet</h1>
+    </div>
+
+    <form action="." method="post">
+        <div class="govuk-button-group">
+        {{ govukButton({ text: "Next" }) }}
+        </div>
+    </form>
+</div>
+{% endblock %}
