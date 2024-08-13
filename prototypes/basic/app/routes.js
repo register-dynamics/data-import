@@ -17,5 +17,8 @@ router.post("/upload", uploader.single("file"), (request, response) => {
     return;
   }
 
+  console.log(session.id);
+  console.log(importer.ListSessions());
+
   response.render("success.html");
 });
