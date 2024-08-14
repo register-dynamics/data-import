@@ -8,9 +8,27 @@
 {% block content %}
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-l">Select which sheet</h1>
-
         <form action="." method="post">
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                  <h1 class="govuk-fieldset__heading">
+                    Which sheet do you wish to import?
+                  </h1>
+                </legend>
+                <div class="govuk-radios" data-module="govuk-radios">
+                  {% for sheet in sheets %}
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="{{sheet}}" name="{{sheet}}" type="radio" value="{{sheet}}">
+                    <label class="govuk-label govuk-radios__label" for="{{sheet}}">
+                      {{sheet}}
+                    </label>
+                  </div>
+                  {% endfor %}
+                </div>
+              </fieldset>
+            </div>
+
             <div class="govuk-button-group">
             {{ govukButton({ text: "Next" }) }}
             </div>
