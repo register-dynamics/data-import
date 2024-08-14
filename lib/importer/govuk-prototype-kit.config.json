@@ -11,13 +11,8 @@
       "type": "nunjucks"
     },
     {
-      "name": "Select header row",
-      "path": "/templates/select_header.html",
-      "type": "nunjucks"
-    },
-    {
-      "name": "Select footer rows",
-      "path": "/templates/select_footer.html",
+      "name": "Map headers",
+      "path": "/templates/mapping.html",
       "type": "nunjucks"
     },
     {
