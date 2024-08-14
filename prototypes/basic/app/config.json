@@ -1,4 +1,5 @@
 {
   "serviceName": "Import spreadsheet data",
-  "uploadPath": "/tmp/proto/basic"
+  "uploadPath": "/tmp/proto/basic",
+  "fields": ["First name", "Family name", "Age", "Town", "Country"]
 }
