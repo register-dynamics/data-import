@@ -6,22 +6,22 @@
       "type": "nunjucks"
     },
     {
-      "name": "Select a sheet",
+      "name": "Select a worksheet",
       "path": "/templates/select_sheet.html",
       "type": "nunjucks"
     },
     {
-      "name": "Map headers",
+      "name": "Identify your columns",
       "path": "/templates/mapping.html",
       "type": "nunjucks"
     },
     {
-      "name": "Review options",
+      "name": "Review your data",
       "path": "/templates/review.html",
       "type": "nunjucks"
     },
     {
-      "name": "Upload success",
+      "name": "Upload complete",
       "path": "/templates/success.html",
       "type": "nunjucks"
     }
