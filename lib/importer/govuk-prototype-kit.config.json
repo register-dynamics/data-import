@@ -24,6 +24,11 @@
       "name": "Review options",
       "path": "/templates/review.html",
       "type": "nunjucks"
+    },
+    {
+      "name": "Upload success",
+      "path": "/templates/success.html",
+      "type": "nunjucks"
     }
   ]
 }
