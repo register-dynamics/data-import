@@ -2,13 +2,15 @@
 
 {% block pageTitle %} – {{ serviceName }} – GOV.UK Prototype Kit {% endblock %}
 {% block beforeContent %}
-    {{ govukBackLink({ text: "Back", href: "javascript:window.history.back()" }) }}
+{{ govukBackLink({ text: "Back", href: "javascript:window.history.back()" }) }}
 {% endblock %}
 
 {% block content %}
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-l">Review your data</h1>
+
+        <pre>{{objects}}</pre>
 
         <form action="." method="post">
             <div class="govuk-button-group">
