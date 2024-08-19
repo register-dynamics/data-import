@@ -18,6 +18,7 @@
                 id: "file-upload",
                 name: "file",
                 label: { text: "Upload an XLSX file"},
+                attributes: { "accept": ".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"},
                 errorMessage: { text: error } if error else false })
                 }}
             </div>
