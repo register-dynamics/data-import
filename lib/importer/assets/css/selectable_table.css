@@ -125,7 +125,7 @@ table.selectable select {
 
 table.selectable tr {
     height: 100%;
-    cursor: url('Cursor-Arrow-Right.svg') 16.5 6.5, auto
+    cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="17.3" height="13.3"><path d="M.5 4.7h10V1l6 5.7-6 5.4V8.9H.4Z" stroke="%23fff" stroke-width=".5"/></svg>') 16.5 6.5, auto
 }
 
 table.selectable tr.disabled>* {
