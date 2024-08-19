@@ -2,28 +2,34 @@
   "templates": [
     {
       "name": "Upload a file",
-      "path": "/templates/upload.html",
+      "path": "/templates/importer/upload.html",
       "type": "nunjucks"
     },
     {
       "name": "Select a worksheet",
-      "path": "/templates/select_sheet.html",
+      "path": "/templates/importer/select_sheet.html",
       "type": "nunjucks"
     },
     {
       "name": "Identify your columns",
-      "path": "/templates/mapping.html",
+      "path": "/templates/importer/mapping.html",
       "type": "nunjucks"
     },
     {
       "name": "Review your data",
-      "path": "/templates/review.html",
+      "path": "/templates/importer/review.html",
       "type": "nunjucks"
     },
     {
       "name": "Upload complete",
-      "path": "/templates/success.html",
+      "path": "/templates/importer/success.html",
       "type": "nunjucks"
     }
+  ],
+  "assets": [
+    "/assets"
+  ],
+  "nunjucksPaths": [
+    "/templates"
   ]
 }

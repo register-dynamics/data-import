@@ -1,10 +1,11 @@
-{% extends "layouts/main.html" %}
+{% extends "importer/base.html" %}
 
 {% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
 
-{% block pageTitle %} – {{ serviceName }} – GOV.UK Prototype Kit {% endblock %}
+<!-- {% block pageTitle %} – {{ serviceName }} – GOV.UK Prototype Kit {% endblock %} -->
+
 {% block beforeContent %}
-    {{ govukBackLink({ text: "Back", href: "javascript:window.history.back()" }) }}
+{{ govukBackLink({ text: "Back", href: "javascript:window.history.back()" }) }}
 {% endblock %}
 
 {% block content %}
@@ -15,10 +16,10 @@
         <form action="/upload" method="POST" enctype="multipart/form-data">
             <div>
                 {{ govukFileUpload({
-                    id: "file-upload",
-                    name: "file",
-                    label: { text: "Upload an XLSX file"},
-                    errorMessage: { text: error } })
+                id: "file-upload",
+                name: "file",
+                label: { text: "Upload an XLSX file"},
+                errorMessage: { text: error } })
                 }}
             </div>
             <div class="govuk-button-group">

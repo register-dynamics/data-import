@@ -1,23 +1,23 @@
-{% extends "layouts/main.html" %}
+{% extends "importer/base.html" %}
 
 {% block pageTitle %} – {{ serviceName }} – GOV.UK Prototype Kit {% endblock %}
 {% block beforeContent %}
-    {{ govukBackLink({ text: "Back", href: "javascript:window.history.back()" }) }}
+{{ govukBackLink({ text: "Back", href: "javascript:window.history.back()" }) }}
 {% endblock %}
 
 {% macro mapping_select(name, fields=[]) %}
-    <div class="govuk-grid-column-two-thirds" style="margin-bottom: 1em;">
-        <label class="govuk-label govuk-label--s" style="float:left" for="{{name}}">
-            {{ name }}
-        </label>
+<div class="govuk-grid-column-two-thirds" style="margin-bottom: 1em;">
+    <label class="govuk-label govuk-label--s" style="float:left" for="{{name}}">
+        {{ name }}
+    </label>
 
-        <select class="govuk-select" style="float: right;" name="{{name}}">
-            <option name=""></option>
-            {% for field in fields %}
-                <option value="{{field}}">{{field}}</option>
-            {% endfor %}
-        </select>
-    </div>
+    <select class="govuk-select" style="float: right;" name="{{name}}">
+        <option name=""></option>
+        {% for field in fields %}
+        <option value="{{field}}">{{field}}</option>
+        {% endfor %}
+    </select>
+</div>
 {% endmacro %}
 
 {% block content %}
@@ -27,7 +27,7 @@
 
         <form action="." method="post">
             {% for heading in headings %}
-                {{ mapping_select(heading, fields) }}
+            {{ mapping_select(heading, fields) }}
             {% endfor %}
 
             <div class="govuk-grid-column-two-thirds">

@@ -1,8 +1,8 @@
-{% extends "layouts/main.html" %}
+{% extends "importer/base.html" %}
 
 {% block pageTitle %} – {{ serviceName }} – GOV.UK Prototype Kit {% endblock %}
 {% block beforeContent %}
-    {{ govukBackLink({ text: "Back", href: "javascript:window.history.back()" }) }}
+{{ govukBackLink({ text: "Back", href: "javascript:window.history.back()" }) }}
 {% endblock %}
 
 {% block content %}
