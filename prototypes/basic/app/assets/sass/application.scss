@@ -4,3 +4,14 @@
 // 
 
 // Add extra styles here
+
+
+pre {
+    border: solid 2px #666;
+    padding: 1em;
+    background: #eee;
+    border-radius: 16;
+    box-shadow: 0px 0px 16px #ddd;
+    max-height: 400px;
+    overflow-y: scroll;
+}
