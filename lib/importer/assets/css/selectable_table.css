@@ -20,7 +20,8 @@ table.selectable td {
     border-left-width: 0px;
     border-top-width: 0px;
     border-bottom-width: 1px;
-    border-right-width: 1px
+    border-right-width: 1px;
+    white-space: pre-wrap;
 }
 
 table.selectable th *,
