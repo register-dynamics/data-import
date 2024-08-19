@@ -18,7 +18,7 @@
                 id: "file-upload",
                 name: "file",
                 label: { text: "Upload an XLSX file"},
-                errorMessage: { text: error } })
+                errorMessage: { text: error } if error else false })
                 }}
             </div>
             <div class="govuk-button-group">
