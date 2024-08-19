@@ -5,6 +5,7 @@ prototype:
 ifndef NAME
     $(error Need a value for NAME, e.g., make prototype NAME=value)
 endif
+	@cd lib/importer && npm install
 	@mkdir -p prototypes/${NAME}
 	@cd prototypes/${NAME} && npx govuk-prototype-kit@latest create && npm install ../../lib/importer
 	@echo "\
