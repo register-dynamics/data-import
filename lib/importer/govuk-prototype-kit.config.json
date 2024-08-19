@@ -25,5 +25,8 @@
       "path": "/templates/success.html",
       "type": "nunjucks"
     }
+  ],
+  "assets": [
+    "/assets"
   ]
 }

@@ -1,0 +1,317 @@
+table.selectable {
+    border-radius: 10px;
+    background: #eee;
+    border: 1px solid rgb(212, 212, 212);
+    border-spacing: 0;
+    line-height: 20px
+}
+
+table.selectable col:not(:first-child) {
+    min-width: 120px
+}
+
+table.selectable th,
+table.selectable td {
+    height: 100%;
+    padding: 5px 5px;
+    text-align: left;
+    cursor: cell;
+    border: 1px solid rgb(212, 212, 212);
+    border-left-width: 0px;
+    border-top-width: 0px;
+    border-bottom-width: 1px;
+    border-right-width: 1px
+}
+
+table.selectable th *,
+table.selectable td * {
+    box-sizing: border-box;
+    font-family: inherit;
+    cursor: inherit
+}
+
+table.selectable th a,
+table.selectable td a {
+    color: rgb(50, 120, 255);
+    cursor: pointer
+}
+
+table.selectable th select,
+table.selectable th button,
+table.selectable th input[type='checkbox'],
+table.selectable th input[type='file'],
+table.selectable td select,
+table.selectable td button,
+table.selectable td input[type='checkbox'],
+table.selectable td input[type='file'] {
+    cursor: auto
+}
+
+table.selectable th:focus-within,
+table.selectable th input:focus,
+table.selectable td:focus-within,
+table.selectable td input:focus {
+    cursor: auto
+}
+
+table.selectable th.selected,
+table.selectable td.selected {
+    background-color: rgb(198, 198, 198);
+    border-color: rgb(165, 165, 165)
+}
+
+table.selectable th.selected.left,
+table.selectable td.selected.left {
+    border-left: 2px solid rgb(0, 70, 30);
+    padding-left: 3px
+}
+
+table.selectable th.selected.top,
+table.selectable td.selected.top {
+    border-top: 2px solid rgb(0, 70, 30);
+    padding-top: 3px
+}
+
+table.selectable th.selected.bottom,
+table.selectable td.selected.bottom {
+    border-bottom: 2px solid rgb(0, 70, 30);
+    padding-bottom: 4px
+}
+
+table.selectable th.selected.right,
+table.selectable td.selected.right {
+    border-right: 2px solid rgb(0, 70, 30);
+    padding-right: 4px
+}
+
+table.selectable th.selected.left:first-child,
+table.selectable td.selected.left:first-child {
+    padding-left: 4px
+}
+
+table.selectable th:first-child,
+table.selectable td:first-child {
+    border-left: 1px solid rgb(212, 212, 212)
+}
+
+table.selectable th:last-child,
+table.selectable td:last-child {
+    border-right: none
+}
+
+table.selectable th:last-child.selected.right,
+table.selectable td:last-child.selected.right {
+    padding-right: 3px
+}
+
+table.selectable input,
+table.selectable textarea,
+table.selectable select,
+table.selectable button {
+    width: 100%;
+    font: inherit
+}
+
+table.selectable textarea {
+    resize: none
+}
+
+table.selectable select {
+    margin-left: -2px;
+    width: calc((98%) + (3px));
+    height: calc((1em) + (5px))
+}
+
+table.selectable tr {
+    height: 100%;
+    cursor: url('Cursor-Arrow-Right.svg') 16.5 6.5, auto
+}
+
+table.selectable tr.disabled>* {
+    background-color: #eee
+}
+
+table.selectable tr.edited>.changed {
+    background-color: rgba(213, 227, 255, 1.0)
+}
+
+table.selectable tr.edited::before {
+    content: "\2022";
+    color: rgb(50, 120, 255)
+}
+
+table.selectable tr.added>.changed {
+    background-color: rgba(0, 242, 104, 0.3)
+}
+
+table.selectable tr.added::before {
+    content: "+";
+    color: rgb(0, 70, 30)
+}
+
+table.selectable tr.deleted>.changed {
+    background-color: rgba(242, 61, 31, 0.3)
+}
+
+table.selectable tr.deleted::before {
+    content: "–";
+    color: rgb(115, 30, 20)
+}
+
+table.selectable tr.highlight>.changed {
+    background-color: rgba(255, 229, 185, 1.0)
+}
+
+table.selectable tr.highlight::before {
+    color: rgb(255, 180, 50)
+}
+
+table.selectable tr::before {
+    content: "";
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1.5em;
+    font-weight: bold;
+    min-width: 20px;
+    width: 20px;
+    padding-bottom: 2px
+}
+
+table.selectable tr td:empty::before {
+    content: "";
+    display: inline-block;
+    height: 15px
+}
+
+table.selectable tr.separator {
+    position: relative
+}
+
+table.selectable tr.separator::before {
+    height: 0.5em
+}
+
+table.selectable tr.separator::after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 0.75em;
+    width: calc((100%) - (20px));
+    border-bottom: 1px solid #ccc
+}
+
+table.selectable tr.separator+tr.separator::before,
+table.selectable tr.separator+tr.separator::after {
+    content: none
+}
+
+table.selectable tr input[type='text'],
+table.selectable tr input[type='url'],
+table.selectable tr textarea,
+table.selectable tr select {
+    background: none;
+    border: none
+}
+
+table.selectable:not(.editable) tbody:empty::before {
+    content: "There is no data in this Register yet.";
+    margin-top: 20px;
+    display: block;
+    position: absolute;
+    font-weight: bold;
+    text-align: center;
+    background: #ffeded;
+    border: 1px solid rgb(212, 212, 212);
+    border-radius: 10px;
+    padding: 0.5em;
+    width: 100%;
+    box-sizing: border-box
+}
+
+table.selectable tbody td,
+table.selectable tbody td.selected.focus {
+    background-color: white
+}
+
+table.selectable tbody tr.target td {
+    background-color: rgb(255, 180, 50)
+}
+
+table.selectable tbody tr.target td:first-child {
+    font-weight: bold
+}
+
+table.selectable tbody tr:last-child td {
+    border-bottom: none
+}
+
+table.selectable tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 10px
+}
+
+table.selectable tbody tr:last-child td.selected.bottom {
+    padding-bottom: 3px
+}
+
+table.selectable thead {
+    font-weight: normal
+}
+
+table.selectable thead tr:first-child th:last-child {
+    border-top-right-radius: 10px
+}
+
+table.selectable thead th,
+table.selectable thead th.selected.focus {
+    background-color: #eee
+}
+
+table.selectable thead th {
+    font-weight: normal
+}
+
+table.selectable thead tr[data-key=field]>th {
+    font-weight: 700
+}
+
+table.selectable thead tr:last-child>th {
+    vertical-align: top;
+    border-bottom: 4px double #ddd
+}
+
+table.selectable thead tr:last-child>th.selected.bottom {
+    padding-bottom: 7px
+}
+
+table.selectable thead tr[data-key=text]>*:empty::after {
+    content: "No description for this column yet.";
+    display: block;
+    color: #6e6e6e
+}
+
+.has-header table.selectable {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0
+}
+
+.has-footer table.selectable {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0
+}
+
+@media screen and (max-width: 960px) {
+    table.selectable.data {
+        width: 100%
+    }
+
+    table.selectable.data tbody:empty::before {
+        width: calc(((100%) - (2px)) - (80px))
+    }
+
+    table.selectable.data tbody:empty::after {
+        content: "";
+        display: block;
+        height: calc((18px) + (4em))
+    }
+}

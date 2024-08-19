@@ -60,6 +60,28 @@
             font-size: 1rem;
             line-height: 1.25;
         }
+
+        table.selectable {
+            color: lightgrey;
+            width: 33%;
+            border: solid 1px #aaa;
+            font-size: small;
+        }
+
+        table.selectable th {
+            background-color: lightgray;
+            color: darkgray;
+            text-align: left;
+        }
+
+        table.selectable td {
+            color: darkgray;
+            text-align: left;
+        }
+
+        .validation-error {
+            background-color: lightpink;
+        }
     </style>
 </head>
 
@@ -276,13 +298,38 @@
                         </div>
                         <div class="govuk-main-wrapper">
                             <h1 class="govuk-heading-m">Review your data</h1>
-                            <p>████████████████</p>
                             <div class="govuk-form-group">
-                                <div class="govuk-warning-text">
+                                <table class="selectable">
+                                    <thead>
+                                        <tr>
+                                            <th>A</th>
+                                            <th>B</th>
+                                            <th>C</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>aaa</td>
+                                            <td>bbb</td>
+                                            <td>ccc</td>
+                                        </tr>
+                                        <tr class='validation-error'>
+                                            <td>zzz</td>
+                                            <td>yyy</td>
+                                            <td>xxx</td>
+                                        </tr>
+                                        <tr class='validation-error'>
+                                            <td>mmm</td>
+                                            <td>nnn</td>
+                                            <td>ooo</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="govuk-warning-text" style="margin-top: 4px;">
                                     <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
                                     <strong class="govuk-warning-text__text">
                                         <span class="govuk-visually-hidden">Warning</span>
-                                        There are 35 invalid rows.
+                                        There are 2 invalid rows.
                                     </strong>
                                 </div>
                                 <button class="govuk-button govuk-button--secondary">Go back</button>
@@ -293,10 +340,10 @@
                 </div>
                 <div class="rd-service-text">
                     <h2 class="govuk-heading-m">User reviews rejected rows</h2>
-                    <p class="govuk-body">Use the <a>sheet view component</a> in <code>review</code> mode to
+                    <p class="govuk-body">Use the <a>table view component</a> in <code>review</code> mode to
                         display the results of row validation and highlight any rows that weren't considered valid.</p>
-                    <p class="govuk-body">The sheet view component will display a summary of the number of rows it
-                        contains, and how many are not valid.</p>
+                    <p class="govuk-body">The component will also display a summary of the number of
+                        rows it contains, and how many are not valid.</p>
                     <p class="govuk-body">The user should then be able to go back to modify any options that might fix
                         the issue or upload a different spreadsheet with any broken rows fixed.
                     <p>
