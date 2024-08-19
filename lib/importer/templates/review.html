@@ -1,5 +1,16 @@
 {% extends "layouts/main.html" %}
 
+{% block head %}
+{{ super() }}
+
+<link href="/plugin-assets/importer/assets/css/selectable_table.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="/plugin-assets/importer/assets/js/selectable_polyfills.js"></script>
+<script type="text/javascript" src="/plugin-assets/importer/assets/js/selectable_table.js"></script>
+<script type="text/javascript" src="/plugin-assets/importer/assets/js/class_list.js"></script>
+<script type="text/javascript" src="/plugin-assets/importer/assets/js/keys.js"></script>
+{% endblock %}
+
+
 {% block pageTitle %} – {{ serviceName }} – GOV.UK Prototype Kit {% endblock %}
 {% block beforeContent %}
 {{ govukBackLink({ text: "Back", href: "javascript:window.history.back()" }) }}
@@ -10,7 +21,25 @@
     <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-l">Review your data</h1>
 
-        <pre>{{objects}}</pre>
+
+        <table class="selectable">
+            <thead>
+                {% for h in headers %}
+                <th>{{h}}</th>
+                {% endfor %}
+            </thead>
+            <tbody>
+                {% for row in rows %}
+                <tr>
+                    {% for cell in row %}
+                    <td>{{cell}}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+
 
         <form action="." method="post">
             <div class="govuk-button-group">
