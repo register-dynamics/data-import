@@ -10,6 +10,8 @@
 <script type="text/javascript" src="/plugin-assets/importer/assets/js/keys.js"></script>
 {% endblock %}
 
+{% from "importer/macros/table_view.njk" import importerTableView %}
+
 
 {% block pageTitle %} – {{ serviceName }} – GOV.UK Prototype Kit {% endblock %}
 {% block beforeContent %}
@@ -21,25 +23,7 @@
     <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-l">Review your data</h1>
 
-
-        <table class="selectable govuk-body">
-            <thead>
-                {% for h in headers %}
-                <th>{{h}}</th>
-                {% endfor %}
-            </thead>
-            <tbody>
-                {% for row in rows %}
-                <tr>
-                    {% for cell in row %}
-                    <td>{{cell}}</td>
-                    {% endfor %}
-                </tr>
-                {% endfor %}
-            </tbody>
-
-        </table>
-
+        {{ importerTableView(headers, rows) }}
 
         <form action="." method="post">
             <div class="govuk-button-group">

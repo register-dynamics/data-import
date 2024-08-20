@@ -1,0 +1,23 @@
+
+
+{% macro importerTableView(headings, rows) %}
+<table class="selectable govuk-body">
+    <thead>
+        <tr>
+        {% for h in headings %}
+            <th>{{h}}</th>
+        {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in rows %}
+        <tr>
+            {% for cell in row %}
+            <td>{{cell}}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endmacro %}

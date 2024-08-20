@@ -1,0 +1,17 @@
+
+{% macro importerFieldMapper(headings, fields) %}
+    {% for h in headings %}
+        <div class="govuk-grid-column-two-thirds" style="margin-bottom: 1em;">
+            <label class="govuk-label govuk-label--s" style="float:left" for="{{h.name}}">
+                {{ h.name }}
+            </label>
+
+            <select class="govuk-select" style="float: right;" name="{{h.index}}">
+                <option name=""></option>
+                {% for field in fields %}
+                <option value="{{field}}">{{field}}</option>
+                {% endfor %}
+            </select>
+        </div>
+    {% endfor %}
+{% endmacro %}
