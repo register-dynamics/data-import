@@ -28,5 +28,22 @@
   ],
   "assets": [
     "/assets"
+  ],
+  "nunjucksPaths": [
+    "/nunjucks/"
+  ],
+  "nunjucksMacros": [
+    {
+      "macroName": "importerSheetSelector",
+      "importFrom": "importer/macros/sheet_selector.njk"
+    },
+    {
+      "macroName": "importerFieldMapper",
+      "importFrom": "importer/macros/field_mapper.njk"
+    },
+    {
+      "macroName": "importerTableView",
+      "importFrom": "importer/macros/table_view.njk"
+    }
   ]
 }

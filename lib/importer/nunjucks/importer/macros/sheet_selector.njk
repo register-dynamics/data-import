@@ -1,0 +1,12 @@
+
+{% macro importerSheetSelector(sheets) %}
+  {% for sheet in sheets %}
+  <div class="govuk-radios__item">
+    <input class="govuk-radios__input" id="{{sheet}}" name="sheet" type="radio" value="{{sheet}}" {% if
+      selected==sheet %}checked{% endif %}>
+    <label class="govuk-label govuk-radios__label" for="{{sheet}}">
+      {{sheet}}
+    </label>
+  </div>
+  {% endfor %}
+{% endmacro %}

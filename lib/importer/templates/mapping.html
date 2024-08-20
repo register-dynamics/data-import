@@ -5,20 +5,7 @@
 {{ govukBackLink({ text: "Back", href: "javascript:window.history.back()" }) }}
 {% endblock %}
 
-{% macro mapping_select(h, fields=[]) %}
-<div class="govuk-grid-column-two-thirds" style="margin-bottom: 1em;">
-    <label class="govuk-label govuk-label--s" style="float:left" for="{{h.name}}">
-        {{ h.name }}
-    </label>
-
-    <select class="govuk-select" style="float: right;" name="{{h.index}}">
-        <option name=""></option>
-        {% for field in fields %}
-        <option value="{{field}}">{{field}}</option>
-        {% endfor %}
-    </select>
-</div>
-{% endmacro %}
+{% from "importer/macros/field_mapper.njk" import importerFieldMapper %}
 
 {% block content %}
 <div class="govuk-grid-row">
@@ -28,9 +15,8 @@
         <h2 class="govuk-heading-m">{{sheet}}</h2>
 
         <form action="." method="post">
-            {% for heading in headings %}
-            {{ mapping_select(heading, fields) }}
-            {% endfor %}
+
+            {{ importerFieldMapper(headings, fields) }}
 
             <div class="govuk-grid-column-two-thirds">
                 <div class="govuk-button-group">
