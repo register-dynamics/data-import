@@ -14,9 +14,9 @@
 
         <h2 class="govuk-heading-m">{{sheet}}</h2>
 
-        <form action="." method="post">
+        <form action="{{ importerMapDataPath('/review') }}" method="post">
 
-            {{ importerFieldMapper(headings, fields) }}
+            {{ importerFieldMapper(data) }}
 
             <div class="govuk-grid-column-two-thirds">
                 <div class="govuk-button-group">

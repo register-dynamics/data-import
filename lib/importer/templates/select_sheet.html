@@ -10,7 +10,7 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form action="." method="post">
+    <form action="{{ importerSelectSheetPath('/mapping') }}" method="post">
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
@@ -19,7 +19,7 @@
             </h1>
           </legend>
           <div class="govuk-radios" data-module="govuk-radios">
-            {{ importerSheetSelector(sheets, selected) }}
+            {{ importerSheetSelector(data) }}
           </div>
         </fieldset>
       </div>
