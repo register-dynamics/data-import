@@ -17,8 +17,16 @@
 {% macro importerFieldMapper(data) %}
     {% set fields = data['importer.session']['fields'] %}
     {% set headings = importerGetHeaders(data) %}
+    {% set error = headings.error %}
 
-    {% for h in headings %}
+    {% if error %}
+    <p id="mapping-error" class="govuk-error-message">
+      <span class="govuk-visually-hidden">Error:</span> {{ error.text }}
+    </p>
+    {% endif %}
+
+
+    {% for h in headings.data %}
         <div class="govuk-grid-column-two-thirds" style="margin-bottom: 1em;">
             <label class="govuk-label govuk-label--s" style="float:left" for="{{h.name}}">
                 {{ h.name }}
