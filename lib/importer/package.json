@@ -1,5 +1,5 @@
 {
-  "name": "@register-dynamics/importer",
+  "name": "importer",
   "version": "0.1.1",
   "repository": {
     "type": "git",
