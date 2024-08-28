@@ -6,8 +6,8 @@
   },
   "dependencies": {
     "@govuk-prototype-kit/common-templates": "2.0.1",
+    "@register-dynamics/importer": "file:../../lib/importer",
     "govuk-frontend": "5.4.1",
-    "govuk-prototype-kit": "13.16.2",
-    "importer": "file:../../lib/importer"
+    "govuk-prototype-kit": "13.16.2"
   }
 }
