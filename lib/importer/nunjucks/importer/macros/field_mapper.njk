@@ -1,6 +1,32 @@
 
-{% macro importerFieldMapper(headings, fields) %}
-    {% for h in headings %}
+{# 
+    importerFieldMapper shows each column heading from the current 
+    spreadsheet alongside a drop-down containing each of the fields 
+    for our target object.  This allows the user to choose a target 
+    object field for each column to select how the column->field 
+    mapping should be applied.
+
+    The resulting data to be submitted to the 'importerMapDataPath' 
+    will be a map of column indices to target field names.
+    
+    It accepts a data object which is taken from the prototype kit's 
+    session data which is made available on every page, and contains the 
+    data submitted from forms to the backend, and also the current 
+    data import session.
+#}
+{% macro importerFieldMapper(data) %}
+    {% set fields = data['importer.session']['fields'] %}
+    {% set headings = importerGetHeaders(data) %}
+    {% set error = headings.error %}
+
+    {% if error %}
+    <p id="mapping-error" class="govuk-error-message">
+      <span class="govuk-visually-hidden">Error:</span> {{ error.text }}
+    </p>
+    {% endif %}
+
+
+    {% for h in headings.data %}
         <div class="govuk-grid-column-two-thirds" style="margin-bottom: 1em;">
             <label class="govuk-label govuk-label--s" style="float:left" for="{{h.name}}">
                 {{ h.name }}

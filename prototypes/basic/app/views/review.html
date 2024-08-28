@@ -23,9 +23,9 @@
     <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-l">Review your data</h1>
 
-        {{ importerTableView(headers, rows) }}
+        {{ importerTableView(data) }}
 
-        <form action="." method="post">
+        <form action="{{ importerReviewDataPath('/success') }}" method="post">
             <div class="govuk-button-group">
                 {{ govukButton({ text: "Submit" }) }}
             </div>

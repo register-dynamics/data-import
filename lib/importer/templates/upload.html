@@ -12,14 +12,15 @@
     <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-l">Upload your data</h1>
 
-        <form action="/upload" method="POST" enctype="multipart/form-data">
+        <form action="{{importerUploadPath('/select_sheet')}}" method="POST" enctype="multipart/form-data">
             <div>
                 {{ govukFileUpload({
-                id: "file-upload",
-                name: "file",
-                label: { text: "Upload an XLSX file"},
-                attributes: { "accept": ".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"},
-                errorMessage: { text: error } if error else false })
+                    id: "file-upload",
+                    name: "file",
+                    label: { text: "Upload an XLSX file"},
+                    attributes: { "accept": ".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"},
+                    errorMessage: importerError(data)
+                })
                 }}
             </div>
             <div class="govuk-button-group">
@@ -28,5 +29,6 @@
         </form>
     </div>
 </div>
+
 
 {% endblock %}

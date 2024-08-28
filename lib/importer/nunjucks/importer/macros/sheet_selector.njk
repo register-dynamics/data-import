@@ -1,12 +1,53 @@
 
-{% macro importerSheetSelector(sheets, selectedSheet) %}
-  {% for sheet in sheets %}
-  <div class="govuk-radios__item">
-    <input class="govuk-radios__input" id="{{sheet}}" name="sheet" type="radio" value="{{sheet}}" {% if
+{#
+    importerSheetSelector generates a radio button list which allows the 
+    user to choose which sheet is to be used to upload data. If there is 
+    only a single sheet then it is selected by default.
+
+    The list of sheet names is retrieved from the current spreadsheet 
+    being uploaded, and will always contain at least one sheet.
+
+    It accepts a data object which is taken from the prototype kit's 
+    session data which is made available on every page, and contains the 
+    data submitted from forms to the backend, and also the current 
+    data import session.
+
+    legend is the text that should be used for the legend part of the 
+    radio buttons, if none is supplied, then a legend is not added.
+#}
+{% macro importerSheetSelector(data, legend) %}
+  {% set selectedSheet = data['importer.session'].sheet %}
+  {% set sheets = data['importer.session'].sheets %}
+  {% set error = importerError(data) %}
+
+  <div class="govuk-form-group {% if error %}govuk-form-group--error{% endif %}">
+    <fieldset class="govuk-fieldset" aria-describedby="upload-error">
+    
+    {% if legend %}
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        {{ legend }}
+      </h1>
+    </legend>
+    {% endif %}
+    
+    {% if error %}
+    <p id="upload-error" class="govuk-error-message">
+      <span class="govuk-visually-hidden">Error:</span> {{ error.text }}
+    </p>
+    {% endif %}
+    
+    <div class="govuk-radios" data-module="govuk-radios">
+        {% for sheet in sheets %}
+        <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="{{sheet}}" name="sheet" type="radio" value="{{ sheet }}"  {% if
       selectedSheet==sheet %}checked{% endif %}>
-    <label class="govuk-label govuk-radios__label" for="{{sheet}}">
-      {{sheet}}
-    </label>
-  </div>
-  {% endfor %}
+        <label class="govuk-label govuk-radios__label" for="{{sheet}}">
+          {{sheet}}
+        </label>
+      </div>
+        {% endfor %}
+    </div>
+  </fieldset>
+</div>
 {% endmacro %}

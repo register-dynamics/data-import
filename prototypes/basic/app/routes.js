@@ -8,4 +8,4 @@ const router = govukPrototypeKit.requests.setupRouter();
 const cfg = require("govuk-prototype-kit/lib/config");
 const importer = require("importer");
 
-importer.Initialise(cfg.getConfig(), router);
+importer.Initialise(cfg.getConfig(), router, govukPrototypeKit);
