@@ -1,6 +1,11 @@
 {
-  "name": "importer",
-  "version": "1.0.0",
+  "name": "@register-dynamics/importer",
+  "version": "0.1.0",
+  "repository": "https://github.com/register-dynamics/data-import.git",
+  "owner": "register-dynamics",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "main": "index.js",
   "scripts": {
     "test": "jest"
