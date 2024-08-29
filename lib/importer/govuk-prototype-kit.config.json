@@ -48,6 +48,10 @@
     {
       "macroName": "importerTableViewAssets",
       "importFrom": "importer/macros/table_assets.njk"
+    },
+    {
+      "macroName": "importerRowSelector",
+      "importFrom": "importer/macros/row_selector.njk"
     }
   ]
 }
