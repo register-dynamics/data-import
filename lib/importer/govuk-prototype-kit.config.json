@@ -44,6 +44,10 @@
     {
       "macroName": "importerTableView",
       "importFrom": "importer/macros/table_view.njk"
+    },
+    {
+      "macroName": "importerTableViewAssets",
+      "importFrom": "importer/macros/table_assets.njk"
     }
   ]
 }
