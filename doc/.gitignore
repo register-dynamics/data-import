@@ -1,0 +1,16 @@
+selectable_table.css
+class_list.js
+keys.js
+selectable_polyfills.js
+selectable_table.js
+docs.css
+init.js
+govuk-frontend.min.js
+auto-store-data.js
+kit.js
+application.js
+application.css
+component-table-view.html
+index.html
+pattern-tabular-data.html
+assets.mk
