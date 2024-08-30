@@ -4,85 +4,23 @@
 <head>
     <meta charset="utf-8">
     <title>Register Dynamics Data Importer</title>
-    <link href="./govuk-frontend-5.5.0.min.css" rel="stylesheet">
-    <style type="text/css">
-        .rd-service-card {
-            width: 200px;
-            height: 250px;
-            border: 2px solid lightgray;
-            padding: 10px;
-            box-sizing: border-box;
-        }
-
-        .rd-service-card-inner {
-            width: 500%;
-            transform: scale(0.2);
-            transform-origin: top left;
-            height: 500%;
-            font-size: 3rem;
-            color: lightgray;
-        }
-
-        .rd-service-card [class^="govuk-heading"] {
-            font-size: 200%;
-            margin-bottom: 1em;
-            color: black;
-        }
-
-        .rd-service-card .govuk-heading-xl {
-            font-size: 300%;
-        }
-
-        .rd-service-card p:last-of-type {
-            margin-bottom: 3em;
-        }
-
-        .rd-service-card .govuk-main-wrapper>[class^="govuk"]:not([class^="govuk-heading"], [class^="govuk-panel"]) {
-            transform: scale(3);
-            transform-origin: top left;
-        }
-
-        .rd-service-card.later,
-        .later+.rd-service-text {
-            opacity: 0.4;
-        }
-
-        .rd-service-steps {
-            display: grid;
-            grid-template-columns: 200px 1fr;
-            column-gap: 3em;
-            row-gap: 3em;
-        }
-
-        code {
-            color: #d13118;
-            background-color: #f3f2f1;
-            font-size: 1rem;
-            line-height: 1.25;
-        }
-
-        table.selectable {
-            color: lightgrey;
-            width: 33%;
-            border: solid 1px #aaa;
-            font-size: small;
-        }
-
-        table.selectable th {
-            background-color: lightgray;
-            color: darkgray;
-            text-align: left;
-        }
-
-        table.selectable td {
-            color: darkgray;
-            text-align: left;
-        }
-
-        .validation-error {
-            background-color: lightpink;
+    <link href="/public/stylesheets/application.css" rel="stylesheet" type="text/css" />
+    <link href="../css/selectable_table.css" rel="stylesheet" type="text/css" />
+    <link href="./docs.css" rel="stylesheet" type="text/css" />
+    <style type="text/css" data-plugin-only>
+        [data-static-only] {
+            display: none;
         }
     </style>
+    <link data-plugin-only rel="icon" sizes="48x48"
+        href="/manage-prototype/dependencies/govuk-frontend/dist/govuk/assets/images/favicon.ico">
+    <link data-plugin-only rel="icon" sizes="any"
+        href="/manage-prototype/dependencies/govuk-frontend/dist/govuk/assets/images/favicon.svg" type="image/svg+xml">
+    <link data-plugin-only rel="mask-icon"
+        href="/manage-prototype/dependencies/govuk-frontend/dist/govuk/assets/images/govuk-icon-mask.svg"
+        color="#0b0c0c">
+    <link data-plugin-only rel="apple-touch-icon"
+        href="/manage-prototype/dependencies/govuk-frontend/dist/govuk/assets/images/govuk-icon-180.png">
 </head>
 
 <body class="govuk-template__body">
@@ -90,13 +28,49 @@
     <header class="govuk-header">
         <div class="govuk-header__container govuk-width-container">
             <div class="govuk-header__logo">
-                <a href="#" class="govuk-header__link govuk-header__link--homepage">Data Importer</a>
+                <a href="/manage-prototype" data-plugin-only class="govuk-header__link govuk-header__link--homepage">
+                    <svg focusable="false" role="img" class="govuk-header__logotype" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 148 30" height="30" width="148" aria-label="GOV.UK">
+                        <title>GOV.UK</title>
+                        <path
+                            d="M22.6 10.4c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4m-5.9 6.7c-.9.4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4m10.8-3.7c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s0 2-1 2.4m3.3 4.8c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4M17 4.7l2.3 1.2V2.5l-2.3.7-.2-.2.9-3h-3.4l.9 3-.2.2c-.1.1-2.3-.7-2.3-.7v3.4L15 4.7c.1.1.1.2.2.2l-1.3 4c-.1.2-.1.4-.1.6 0 1.1.8 2 1.9 2.2h.7c1-.2 1.9-1.1 1.9-2.1 0-.2 0-.4-.1-.6l-1.3-4c-.1-.2 0-.2.1-.3m-7.6 5.7c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s0 2 1 2.4m-5 3c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s.1 2 1 2.4m-3.2 4.8c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s0 2 1 2.4m14.8 11c4.4 0 8.6.3 12.3.8 1.1-4.5 2.4-7 3.7-8.8l-2.5-.9c.2 1.3.3 1.9 0 2.7-.4-.4-.8-1.1-1.1-2.3l-1.2 4c.7-.5 1.3-.8 2-.9-1.1 2.5-2.6 3.1-3.5 3-1.1-.2-1.7-1.2-1.5-2.1.3-1.2 1.5-1.5 2.1-.1 1.1-2.3-.8-3-2-2.3 1.9-1.9 2.1-3.5.6-5.6-2.1 1.6-2.1 3.2-1.2 5.5-1.2-1.4-3.2-.6-2.5 1.6.9-1.4 2.1-.5 1.9.8-.2 1.1-1.7 2.1-3.5 1.9-2.7-.2-2.9-2.1-2.9-3.6.7-.1 1.9.5 2.9 1.9l.4-4.3c-1.1 1.1-2.1 1.4-3.2 1.4.4-1.2 2.1-3 2.1-3h-5.4s1.7 1.9 2.1 3c-1.1 0-2.1-.2-3.2-1.4l.4 4.3c1-1.4 2.2-2 2.9-1.9-.1 1.5-.2 3.4-2.9 3.6-1.9.2-3.4-.8-3.5-1.9-.2-1.3 1-2.2 1.9-.8.7-2.3-1.2-3-2.5-1.6.9-2.2.9-3.9-1.2-5.5-1.5 2-1.3 3.7.6 5.6-1.2-.7-3.1 0-2 2.3.6-1.4 1.8-1.1 2.1.1.2.9-.3 1.9-1.5 2.1-.9.2-2.4-.5-3.5-3 .6 0 1.2.3 2 .9l-1.2-4c-.3 1.1-.7 1.9-1.1 2.3-.3-.8-.2-1.4 0-2.7l-2.9.9C1.3 23 2.6 25.5 3.7 30c3.7-.5 7.9-.8 12.3-.8m28.3-11.6c0 .9.1 1.7.3 2.5.2.8.6 1.5 1 2.2.5.6 1 1.1 1.7 1.5.7.4 1.5.6 2.5.6.9 0 1.7-.1 2.3-.4s1.1-.7 1.5-1.1c.4-.4.6-.9.8-1.5.1-.5.2-1 .2-1.5v-.2h-5.3v-3.2h9.4V28H55v-2.5c-.3.4-.6.8-1 1.1-.4.3-.8.6-1.3.9-.5.2-1 .4-1.6.6s-1.2.2-1.8.2c-1.5 0-2.9-.3-4-.8-1.2-.6-2.2-1.3-3-2.3-.8-1-1.4-2.1-1.8-3.4-.3-1.4-.5-2.8-.5-4.3s.2-2.9.7-4.2c.5-1.3 1.1-2.4 2-3.4.9-1 1.9-1.7 3.1-2.3 1.2-.6 2.6-.8 4.1-.8 1 0 1.9.1 2.8.3.9.2 1.7.6 2.4 1s1.4.9 1.9 1.5c.6.6 1 1.3 1.4 2l-3.7 2.1c-.2-.4-.5-.9-.8-1.2-.3-.4-.6-.7-1-1-.4-.3-.8-.5-1.3-.7-.5-.2-1.1-.2-1.7-.2-1 0-1.8.2-2.5.6-.7.4-1.3.9-1.7 1.5-.5.6-.8 1.4-1 2.2-.3.8-.4 1.9-.4 2.7zM71.5 6.8c1.5 0 2.9.3 4.2.8 1.2.6 2.3 1.3 3.1 2.3.9 1 1.5 2.1 2 3.4s.7 2.7.7 4.2-.2 2.9-.7 4.2c-.4 1.3-1.1 2.4-2 3.4-.9 1-1.9 1.7-3.1 2.3-1.2.6-2.6.8-4.2.8s-2.9-.3-4.2-.8c-1.2-.6-2.3-1.3-3.1-2.3-.9-1-1.5-2.1-2-3.4-.4-1.3-.7-2.7-.7-4.2s.2-2.9.7-4.2c.4-1.3 1.1-2.4 2-3.4.9-1 1.9-1.7 3.1-2.3 1.2-.5 2.6-.8 4.2-.8zm0 17.6c.9 0 1.7-.2 2.4-.5s1.3-.8 1.7-1.4c.5-.6.8-1.3 1.1-2.2.2-.8.4-1.7.4-2.7v-.1c0-1-.1-1.9-.4-2.7-.2-.8-.6-1.6-1.1-2.2-.5-.6-1.1-1.1-1.7-1.4-.7-.3-1.5-.5-2.4-.5s-1.7.2-2.4.5-1.3.8-1.7 1.4c-.5.6-.8 1.3-1.1 2.2-.2.8-.4 1.7-.4 2.7v.1c0 1 .1 1.9.4 2.7.2.8.6 1.6 1.1 2.2.5.6 1.1 1.1 1.7 1.4.6.3 1.4.5 2.4.5zM88.9 28 83 7h4.7l4 15.7h.1l4-15.7h4.7l-5.9 21h-5.7zm28.8-3.6c.6 0 1.2-.1 1.7-.3.5-.2 1-.4 1.4-.8.4-.4.7-.8.9-1.4.2-.6.3-1.2.3-2v-13h4.1v13.6c0 1.2-.2 2.2-.6 3.1s-1 1.7-1.8 2.4c-.7.7-1.6 1.2-2.7 1.5-1 .4-2.2.5-3.4.5-1.2 0-2.4-.2-3.4-.5-1-.4-1.9-.9-2.7-1.5-.8-.7-1.3-1.5-1.8-2.4-.4-.9-.6-2-.6-3.1V6.9h4.2v13c0 .8.1 1.4.3 2 .2.6.5 1 .9 1.4.4.4.8.6 1.4.8.6.2 1.1.3 1.8.3zm13-17.4h4.2v9.1l7.4-9.1h5.2l-7.2 8.4L148 28h-4.9l-5.5-9.4-2.7 3V28h-4.2V7zm-27.6 16.1c-1.5 0-2.7 1.2-2.7 2.7s1.2 2.7 2.7 2.7 2.7-1.2 2.7-2.7-1.2-2.7-2.7-2.7z">
+                        </path>
+                    </svg>
+                </a>
+                <a href="/" data-static-only class="govuk-header__link govuk-header__link--homepage">Tabular Data
+                    Importer</a>
+            </div>
+            <div class="govuk-header__content">
+                <a href="/manage-prototype" data-plugin-only class="govuk-header__link govuk-header__service-name">
+                    Prototype Kit
+                </a>
             </div>
         </div>
     </header>
+
     <div class="govuk-width-container">
+        <nav class="govuk-breadcrumbs" aria-label="Breadcrumb">
+            <ol class="govuk-breadcrumbs__list">
+                <li class="govuk-breadcrumbs__list-item">
+                    <a class="govuk-breadcrumbs__link" href="./index.html">Home</a>
+                </li>
+                <li class="govuk-breadcrumbs__list-item">
+                    <span class="govuk-breadcrumbs__link">Patterns</a>
+                </li>
+                <li class="govuk-breadcrumbs__list-item">
+                    <a class="govuk-breadcrumbs__link" href="#">Tabular data</a>
+                </li>
+            </ol>
+        </nav>
+
         <main class="govuk-main-wrapper" id="main-content">
-            <h1 class="govuk-heading-xl">How to upload data</h1>
+            <span class="govuk-caption-xl">Ask users for</span>
+            <h1 class="govuk-heading-xl">Tabular data</h1>
+            <p class="govuk-body">
+                Ask users to supply a spreadsheet of data, select the data from their spreadsheet that is relevant to
+                your service, and review that the supplied data matches the service's expectations.
+            </p>
+
             <section class="rd-service-steps">
                 <div class="rd-service-card">
                     <div class="rd-service-card-inner">
@@ -157,6 +131,11 @@
                             href="https://design-system.service.gov.uk/components/file-upload/">GOV.UK Design System
                             file upload component</a>
                         to get the user to select a file.</p>
+                    <a href="/manage-prototype/templates/install?package=%40register-dynamics%2Fimporter&template=%2Ftemplates%2Fupload.html"
+                        role="button" data-plugin-only draggable="false" class="govuk-button govuk-button--secondary"
+                        data-module="govuk-button">
+                        Create from template
+                    </a>
                 </div>
                 <div class="rd-service-card">
                     <div class="rd-service-card-inner">
@@ -212,6 +191,11 @@
                             radios component</a> to get the user to select one of the sheets.</p>
                     <p class="govuk-body">Users often include explanatory information, summaries, pivot tables or charts
                         on extra sheets. Your service should allow them to ignore these.</p>
+                    <a href="/manage-prototype/templates/install?package=%40register-dynamics%2Fimporter&template=%2Ftemplates%2Fselect_sheet.html"
+                        role="button" data-plugin-only draggable="false" class="govuk-button govuk-button--secondary"
+                        data-module="govuk-button">
+                        Create from template
+                    </a>
                 </div>
                 <div class="rd-service-card later">
                     <div class="rd-service-card-inner">
@@ -231,7 +215,8 @@
                 </div>
                 <div class="rd-service-text">
                     <h2 class="govuk-heading-m">User selects column headers (coming soon)</h2>
-                    <p class="govuk-body">Use the <a>sheet view component</a> in <code>select-columns</code> mode to
+                    <p class="govuk-body">Use the <a href="./component-table-view.html">sheet view component</a> in
+                        <code>select-columns</code> mode to
                         display the contents of the selected spreadsheet and ask the user to select column headers.</p>
                     <p class="govuk-body">Spreadsheets often have extra titles above the first row of headers that
                         should be ignored.
@@ -256,7 +241,8 @@
                 </div>
                 <div class="rd-service-text">
                     <h2 class="govuk-heading-m">User selects bottom of sheet (coming soon)</h2>
-                    <p class="govuk-body">Use the <a>sheet view component</a> in <code>select-bottom</code> mode to
+                    <p class="govuk-body">Use the <a href="./component-table-view.html">sheet view component</a> in
+                        <code>select-bottom</code> mode to
                         display the contents of the selected spreadsheet and ask the user to select where rows end.</p>
                     <p class="govuk-body">Spreadsheets often have extra summary rows after the last row of data that
                         should be ignored.</p>
@@ -279,13 +265,18 @@
                 </div>
                 <div class="rd-service-text">
                     <h2 class="govuk-heading-m">User maps input columns to required names</h2>
-                    <p class="govuk-body">Use the <a>sheet view component</a> in <code>mapping</code> mode to
+                    <p class="govuk-body">Use the <a href="component-table-view.html">sheet view component</a> in
+                        <code>mapping</code> mode to
                         select which columns in the input spreadsheet correspond to required data for your service.</p>
                     <p class="govuk-body">Spreadsheets often have extra columns
                         (such as "notes") in amongst the columns of interest so
                         users can select to ignore columns. Each required column can
-                        be mapped to a single input column.
-                    </p>
+                        be mapped to a single input column.</p>
+                    <a href="/manage-prototype/templates/install?package=%40register-dynamics%2Fimporter&template=%2Ftemplates%2Fmapping.html"
+                        role="button" data-plugin-only draggable="false" class="govuk-button govuk-button--secondary"
+                        data-module="govuk-button">
+                        Create from template
+                    </a>
                 </div>
                 <div class="rd-service-card">
                     <div class="rd-service-card-inner">
@@ -299,7 +290,7 @@
                         <div class="govuk-main-wrapper">
                             <h1 class="govuk-heading-m">Review your data</h1>
                             <div class="govuk-form-group">
-                                <table class="selectable">
+                                <table class="selectable govuk-body">
                                     <thead>
                                         <tr>
                                             <th>A</th>
@@ -340,13 +331,18 @@
                 </div>
                 <div class="rd-service-text">
                     <h2 class="govuk-heading-m">User reviews rejected rows</h2>
-                    <p class="govuk-body">Use the <a>table view component</a> in <code>review</code> mode to
+                    <p class="govuk-body">Use the <a href="component-table-view.html">table view component</a> in
+                        <code>review</code> mode to
                         display the results of row validation and highlight any rows that weren't considered valid.</p>
                     <p class="govuk-body">The component will also display a summary of the number of
                         rows it contains, and how many are not valid.</p>
                     <p class="govuk-body">The user should then be able to go back to modify any options that might fix
-                        the issue or upload a different spreadsheet with any broken rows fixed.
-                    <p>
+                        the issue or upload a different spreadsheet with any broken rows fixed.</p>
+                    <a href="/manage-prototype/templates/install?package=%40register-dynamics%2Fimporter&template=%2Ftemplates%2Freview.html"
+                        role="button" data-plugin-only draggable="false" class="govuk-button govuk-button--secondary"
+                        data-module="govuk-button">
+                        Create from template
+                    </a>
                 </div>
                 <div class="rd-service-card">
                     <div class="rd-service-card-inner">
@@ -383,8 +379,12 @@
                     <p class="govuk-body">
                         The panel component should include any relevant statistics that reassure the user that the
                         correct action is being taken, such as the number of operations that will be carried out in
-                        response or the number of affected items.
-                    </p>
+                        response or the number of affected items.</p>
+                    <a href="/manage-prototype/templates/install?package=%40register-dynamics%2Fimporter&template=%2Ftemplates%2Fsuccess.html"
+                        role="button" data-plugin-only draggable="false" class="govuk-button govuk-button--secondary"
+                        data-module="govuk-button">
+                        Create from template
+                    </a>
                 </div>
             </section>
         </main>
@@ -406,7 +406,8 @@
                     </span>
                 </div>
                 <div class="govuk-footer__meta-item">
-                    <a class="govuk-footer__link govuk-footer__copyright-logo">
+                    <a href="https://www.register-dynamics.co.uk"
+                        class="govuk-footer__link govuk-footer__copyright-logo rd-logo">
                         &copy; Register Dynamics 2024
                     </a>
                 </div>
