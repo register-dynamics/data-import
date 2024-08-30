@@ -1,0 +1,56 @@
+name: Pages
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: prototypes/basic/package-lock.json
+      - name: Setup hq
+        run: |
+          curl -sL https://github.com/ludovicianul/hq/releases/download/hq-1.3.2/hq_linux_amd64_1.3.2.tar.gz --output - | tar -xzv
+      - name: Build site
+        run: |
+          pushd ./lib/importer
+          npm install
+          popd
+
+          pushd ./prototypes/basic
+          npm install
+          coproc npm run dev &
+          while ! (echo >/dev/tcp/localhost/3000); do sleep 1; done
+          popd
+
+          pushd ./doc
+          export HQ=$(realpath ../hq)
+          make all
+          make all
+          popd
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3.0.1
+        with:
+          path: ./doc
+
+  deploy:
+    needs: build
+    if: ${{ github.ref == 'refs/heads/main' }}
+
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment originates from an appropriate source
+
+    environment:
+      name: Github Pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
