@@ -1,11 +1,12 @@
 
 
-{% macro importerTableView(data) %}
+{% macro importerTableView(data, hideHeader=false) %}
     {% set obj = importerMappedData(data) %}
     {% set headers = obj.headers %}
     {% set rows = obj.rows %}
 
     <table class="selectable govuk-body" data-persist-selection="true">
+        {% if not hideHeader %}
         <thead>
             <tr>
             {% for h in headers %}
@@ -13,6 +14,7 @@
             {% endfor %}
             </tr>
         </thead>
+        {% endif %}
         <tbody>
             {% for row in rows %}
             <tr>

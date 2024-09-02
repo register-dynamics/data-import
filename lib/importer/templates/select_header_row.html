@@ -1,0 +1,25 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %} – {{ serviceName }} – GOV.UK Prototype Kit {% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({ text: "Back", href: "javascript:window.history.back()" }) }}
+{% endblock %}
+
+{% from "importer/macros/range_selector.njk" import importerRangeSelector %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <form action="{{ importerSelectSheetPath('/mapping') }}" method="post">
+            <div class="govuk-form-group">
+                {{ importerRangeSelector(data) }}
+            </div>
+
+            <div class="govuk-button-group">
+                {{ govukButton({ text: "Next" }) }}
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

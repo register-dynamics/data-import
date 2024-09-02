@@ -57,6 +57,10 @@
     {
       "macroName": "importerTableView",
       "importFrom": "importer/macros/table_view.njk"
+    },
+    {
+      "macroName": "importerRangeSelector",
+      "importFrom": "importer/macros/range_selector.njk"
     }
   ]
 }
