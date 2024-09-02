@@ -5,7 +5,7 @@
     {% set headers = obj.headers %}
     {% set rows = obj.rows %}
 
-    <table class="selectable govuk-body">
+    <table class="selectable govuk-body" data-persist-selection="true">
         {% if not hideHeader %}
         <thead>
             <tr>
