@@ -1,4 +1,3 @@
-{% from "importer/macros/table_view.njk" import importerTableView %}
 
 {% macro importerRangeSelector(data, start=0, end=10) %}
     {% set rows = importerGetRows(data, start, end) %}
