@@ -1,4 +1,9 @@
 PLATFORM := $(shell uname)
+ifeq (${PLATFORM}, Darwin)
+SED_INPLACE_FLAG = -i ''
+endif
+SED_INPLACE_FLAG ?= -i
+
 HQ ?= $(shell which hq)
 ifeq (${HQ},)
 $(error "No hq on the PATH? https://github.com/ludovicianul/hq/releases/tag/hq-1.3.2")
@@ -25,15 +30,12 @@ assets.mk: assets.txt
 
 .PHONY: all
 all: ${OBJECTS} | assets.txt # Rewrite all of the asset paths to be local now.
-ifeq (${PLATFORM}, "Darwin")
 	for ASSET in $$(cat assets.txt); do \
-		sed -i '' -e "s:$$ASSET:$$(basename $$ASSET):" ${OBJECTS}; \
+		sed ${SED_INPLACE_FLAG} -e "s:$$ASSET:$$(basename $$ASSET):" ${OBJECTS}; \
 	done
-else
-	for ASSET in $$(cat assets.txt); do \
-		sed -i "s:$$ASSET:$$(basename $$ASSET):" ${OBJECTS}; \
+	for PATCH in $$(find . -name '*.patch'); do \
+		patch --forward --dry-run $$(basename $$PATCH .patch) $$PATCH && patch --forward $$(basename $$PATCH .patch) $$PATCH || true; \
 	done
-endif
 include assets.mk
 
 # We can generate the .gitignore from all of the things we know we are going to
