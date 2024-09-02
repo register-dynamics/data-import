@@ -1,0 +1,4 @@
+2c2
+< import * as GOVUKFrontend from '../govuk/govuk-frontend.min.js'
+---
+> import * as GOVUKFrontend from './govuk-frontend.min.js'
