@@ -4,6 +4,8 @@
     {% set obj = importerMappedData(data) %}
     {% set headers = obj.headers %}
     {% set rows = obj.rows %}
+    {% set moreRowsAvailable = obj.extraRecordCount > 0 %}
+    {% set moreRowsCount = obj.extraRecordCount %}
 
     <table class="selectable govuk-body" data-persist-selection="true">
         {% if not hideHeader %}
@@ -24,6 +26,15 @@
             </tr>
             {% endfor %}
         </tbody>
+        {% if moreRowsAvailable %}
+        <tfoot>
+          <tr>
+            <td colspan="{{headers.length}}">
+              {{moreRowsCount}} other rows below
+            </td>
+          </tr>
+        </tfoot>
+        {% endif %}
     </table>
 
 {% endmacro %}
