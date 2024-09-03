@@ -15,9 +15,11 @@
     legend is the text that should be used for the legend part of the
     radio buttons, if none is supplied, then a legend is not added.
 #}
+{% from "importer/macros/table_view.njk" import importerTableView %}
+
 {% macro importerSheetSelector(data, legend) %}
   {% set selectedSheet = data['importer.session'].sheet %}
-  {% set sheets = data['importer.session'].sheets %}
+  {% set sheets = importSheetPreview(data) %}
   {% set tableRowIndex = sheets.length + 2 %}
   {% set error = importerError(data) %}
 
@@ -40,7 +42,6 @@
   }
   </style>
 
-
   <div class="govuk-form {% if error %}govuk-form-group--error{% endif %}">
     <div class="govuk-form-group ">
       {% if legend %}
@@ -60,13 +61,16 @@
       <div class="govuk-radios rd-sheet-preview" data-module="govuk-radios">
         {% for sheet in sheets %}
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="{{sheet}}" name="sheet" type="radio" value="{{sheet}}" {% if selectedSheet==sheet %}checked="checked"{% endif %} >
+          <input class="govuk-radios__input" id="{{sheet.name}}" name="sheet" type="radio" value="{{sheet.name}}" {% if selectedSheet==sheet.name %}checked="checked"{% endif %} >
 
           <label class="govuk-label govuk-radios__label" for="{{sheet}}">
-          {{sheet}}
+          {{sheet.name}}
           </label>
 
-          <div class="selectable">{{sheet}} preview</div>
+          <div class="selectable">
+            {{ importerTableView(sheet.data, hideHeader=false) }}
+
+          </div>
         </div> <!-- .govuk-radios__item  -->
         {% endfor %}
       </div> <!-- .govuk-radios  -->

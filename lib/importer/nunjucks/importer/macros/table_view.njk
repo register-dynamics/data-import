@@ -1,11 +1,10 @@
 
 
 {% macro importerTableView(data, hideHeader=false) %}
-    {% set obj = importerMappedData(data) %}
-    {% set headers = obj.headers %}
-    {% set rows = obj.rows %}
-    {% set moreRowsAvailable = obj.extraRecordCount > 0 %}
-    {% set moreRowsCount = obj.extraRecordCount %}
+    {% set headers = data.headers %}
+    {% set rows = data.rows %}
+    {% set moreRowsAvailable = data.extraRecordCount > 0 %}
+    {% set moreRowsCount = data.extraRecordCount %}
 
     <table class="selectable govuk-body" data-persist-selection="true">
         {% if not hideHeader %}
