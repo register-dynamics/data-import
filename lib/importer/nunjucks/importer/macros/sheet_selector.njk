@@ -18,7 +18,7 @@
 {% macro importerSheetSelector(data, legend) %}
   {% set selectedSheet = data['importer.session'].sheet %}
   {% set sheets = data['importer.session'].sheets %}
-  {% set tableRowIndex = sheets.length + 1 %}
+  {% set tableRowIndex = sheets.length + 2 %}
   {% set error = importerError(data) %}
 
   <style>
@@ -27,26 +27,22 @@
     display: grid;
     grid-template-columns: 44px 1fr;
   }
-  .rd-sheet-preview :not(input, label, .selectable, p) {
+
+  .rd-sheet-preview:not(input,label,div.selectable) {
     display: contents;
   }
 
-  .rd-sheet-preview .selectable {
-    grid-column: 1 / -1;
-  }
+  div.selectable { display: none; border: solid 1px blue; }
 
-  .selectable { display: none; }
-
-  input[type="radio"]:checked ~ .selectable {
-    grid-row: {{ tableRowIndex }};
+  input[type="radio"]:checked ~ div.selectable {
+    grid-row: 4 / -1;
     display: block;
   }
   </style>
 
+
   <div class="govuk-form {% if error %}govuk-form-group--error{% endif %}">
     <div class="govuk-form-group ">
-      <fieldset class="govuk-fieldset" aria-describedby="upload-error">
-
       {% if legend %}
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
         <h1 class="govuk-fieldset__heading">
@@ -64,7 +60,7 @@
       <div class="govuk-radios rd-sheet-preview" data-module="govuk-radios">
         {% for sheet in sheets %}
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="{{sheet}}" name="sheet" type="radio" value="{{sheet}}" {% if selectedSheet==sheet %}checked="checked"{% endif %} data-table-index="{{loop.index0}}"/>
+          <input class="govuk-radios__input" id="{{sheet}}" name="sheet" type="radio" value="{{sheet}}" {% if selectedSheet==sheet %}checked="checked"{% endif %} >
 
           <label class="govuk-label govuk-radios__label" for="{{sheet}}">
           {{sheet}}
@@ -74,7 +70,6 @@
         </div> <!-- .govuk-radios__item  -->
         {% endfor %}
       </div> <!-- .govuk-radios  -->
-    </fieldset>
   </div>
 </div>
 
