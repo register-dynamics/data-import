@@ -247,7 +247,7 @@ table.selectable tbody tr:last-child td {
     border-bottom: none
 }
 
-table.selectable tbody tr:last-child td:last-child {
+table.selectable tbody:last-child tr:last-child td:last-child {
     border-bottom-right-radius: 10px
 }
 
@@ -259,7 +259,8 @@ table.selectable thead {
     font-weight: normal
 }
 
-table.selectable thead tr:first-child th:last-child {
+table.selectable thead tr:first-child th:last-child,
+table.selectable tbody:first-child tr:first-child td:last-child {
     border-top-right-radius: 10px
 }
 
