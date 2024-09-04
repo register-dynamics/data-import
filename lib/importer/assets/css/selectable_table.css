@@ -22,6 +22,7 @@ table.selectable td {
     border-bottom-width: 1px;
     border-right-width: 1px;
     white-space: pre-wrap;
+    font-variant-numeric: tabular-nums;
 }
 
 table.selectable th *,
