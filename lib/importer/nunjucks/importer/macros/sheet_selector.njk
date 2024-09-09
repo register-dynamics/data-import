@@ -24,26 +24,7 @@
   {% set error = importerError(data) %}
 
   <style>
-  .rd-sheet-preview {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 44px 1fr;
-  }
-
-  .rd-sheet-preview:not(input,label,div.selectable) {
-    display: contents;
-  }
-
-  div.selectable { display: none; overflow-x: scroll}
-
-  input[type="radio"]:checked ~ div.selectable {
-    grid-row: 4 / -1;
-    display: block;
-  }
-
-  #previews {
-    margin-top: 2em;
-  }
+  div.selectable { display: none; overflow-x: auto}
   </style>
 
   <div class="govuk-form {% if error %}govuk-form-group--error{% endif %}">
@@ -75,7 +56,7 @@
   </div>
 </div>
 
-<div id="previews">
+<div id="previews" class="govuk-!-margin-top-6">
   {% for sheet in sheets %}
     <div class="selectable">
       {% if sheet.data.rows == null %}
