@@ -14,7 +14,7 @@
     data submitted from forms to the backend, and also the current
     data import session.
 #}
-{% macro importerFieldMapper(data, caption='Choose which field each column maps to', columnTitle='Column', examplesTitle='Example values', fieldsTitle='Fields') %}
+{% macro importerFieldMapper(data, caption='', columnTitle='Column', examplesTitle='Example values', fieldsTitle='Fields') %}
     {% set fields = data['importer.session']['fields'] %}
     {% set headings = importerGetHeaders(data) %}
     {% set error = headings.error %}
