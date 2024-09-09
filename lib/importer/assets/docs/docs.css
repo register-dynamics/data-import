@@ -51,6 +51,7 @@
     grid-template-columns: 200px 1fr;
     column-gap: 3em;
     row-gap: 3em;
+    margin-bottom: 3em;
 }
 
 code {
@@ -58,6 +59,7 @@ code {
     background-color: #f3f2f1;
     font-size: 1rem;
     line-height: 1.25;
+    display: inline-block;
 }
 
 table.selectable {
