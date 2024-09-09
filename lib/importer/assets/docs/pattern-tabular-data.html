@@ -83,9 +83,9 @@
                         </div>
                         <div class="govuk-main-wrapper">
                             <h1 class="govuk-heading-xl">Register a tribble</h1>
-                            <p>████████████████</p>
-                            <p>████████████████</p>
-                            <p>████████</p>
+                            <p class="fake">████████████████</p>
+                            <p class="fake">████████████████</p>
+                            <p class="fake">████████</p>
                             <a role="button" draggable="false" class="govuk-button govuk-button--start"
                                 data-module="govuk-button">
                                 Start now
@@ -113,9 +113,9 @@
                         </div>
                         <div class="govuk-main-wrapper">
                             <h1 class="govuk-heading-m">Upload a file</h1>
-                            <p>████████████████</p>
-                            <p>████████████████</p>
-                            <p>████████</p>
+                            <p class="fake">████████████████</p>
+                            <p class="fake">████████████████</p>
+                            <p class="fake">████████</p>
                             <div class="govuk-form-group">
                                 <label class="govuk-label" for="file-upload-1">
                                     Upload a file
@@ -185,19 +185,20 @@
                 </div>
                 <div class="rd-service-text">
                     <h2 class="govuk-heading-m">User selects a worksheet (optional)</h2>
+                    <p class="govuk-body">Users often include explanatory information, summaries, pivot tables or charts
+                        on extra sheets. Your service should allow them to ignore these.</p>
                     <p class="govuk-body">If the file type supports multiple sheets (i.e. it is a Microsoft Excel (XLSX)
                         file or OpenDocument Sheets (ODS) file), use the <a
                             href="https://design-system.service.gov.uk/components/radios/">GOV.UK Design System
                             radios component</a> to get the user to select one of the sheets.</p>
-                    <p class="govuk-body">Users often include explanatory information, summaries, pivot tables or charts
-                        on extra sheets. Your service should allow them to ignore these.</p>
+                    <p class="govuk-body">You can skip this step if the file only contains one sheet.</p>
                     <a href="/manage-prototype/templates/install?package=%40register-dynamics%2Fimporter&template=%2Ftemplates%2Fselect_sheet.html"
                         role="button" data-plugin-only draggable="false" class="govuk-button govuk-button--secondary"
                         data-module="govuk-button">
                         Create from template
                     </a>
                 </div>
-                <div class="rd-service-card later">
+                <div class="rd-service-card">
                     <div class="rd-service-card-inner">
                         <div class="govuk-header">
                             <div class="govuk-header__container govuk-width-container">
@@ -208,22 +209,52 @@
                         </div>
                         <div class="govuk-main-wrapper">
                             <h1 class="govuk-heading-m">Select your data</h1>
-                            <p>████████████████</p>
-                            <p>TODO</p>
+                            <div class="govuk-form-group">
+                                <table class="selectable govuk-body">
+                                    <tbody>
+                                        <tr>
+                                            <td class="selected top left bottom">A</td>
+                                            <td class="selected top bottom">B</td>
+                                            <td class="selected top right bottom">C</td>
+                                        </tr>
+                                        <tr>
+                                            <td>aaa</td>
+                                            <td>bbb</td>
+                                            <td>ccc</td>
+                                        </tr>
+                                        <tr>
+                                            <td>zzz</td>
+                                            <td>yyy</td>
+                                            <td>xxx</td>
+                                        </tr>
+                                        <tr>
+                                            <td>mmm</td>
+                                            <td>nnn</td>
+                                            <td>ooo</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="rd-service-text">
-                    <h2 class="govuk-heading-m">User selects column headers (coming soon)</h2>
-                    <p class="govuk-body">Use the <a href="./component-table-view.html">sheet view component</a> in
-                        <code>select-columns</code> mode to
-                        display the contents of the selected spreadsheet and ask the user to select column headers.</p>
-                    <p class="govuk-body">Spreadsheets often have extra titles above the first row of headers that
+                    <h2 class="govuk-heading-m">User selects column headers</h2>
+                    <p class="govuk-body">Users often add extra titles above the first row of headers that
                         should be ignored.
                         Data may also not start in the first column as users often leave blank columns to provide
                         padding.</p>
+                    <p class="govuk-body">Use the <a href="./component-table-view.html">table view component</a>
+                        in to display the contents of the selected spreadsheet and
+                        ask the user to select column headers.
+                    </p>
+                    <a href="/manage-prototype/templates/install?package=%40register-dynamics%2Fimporter&template=%2Ftemplates%2Fselect_header_row.html"
+                        role="button" data-plugin-only draggable="false" class="govuk-button govuk-button--secondary"
+                        data-module="govuk-button">
+                        Create from template
+                    </a>
                 </div>
-                <div class="rd-service-card later">
+                <div class="rd-service-card">
                     <div class="rd-service-card-inner">
                         <div class="govuk-header">
                             <div class="govuk-header__container govuk-width-container">
@@ -234,18 +265,51 @@
                         </div>
                         <div class="govuk-main-wrapper">
                             <h1 class="govuk-heading-m">Select your data</h1>
-                            <p>████████████████</p>
-                            <p>TODO</p>
+                            <div class="govuk-form-group">
+                                <table class="selectable govuk-body">
+                                    <thead>
+                                        <tr>
+                                            <th>A</th>
+                                            <th>B</th>
+                                            <th>C</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>aaa</td>
+                                            <td>bbb</td>
+                                            <td>ccc</td>
+                                        </tr>
+                                        <tr>
+                                            <td>zzz</td>
+                                            <td>yyy</td>
+                                            <td>xxx</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="selected top left bottom">mmm</td>
+                                            <td class="selected top bottom">nnn</td>
+                                            <td class="selected top right bottom">ooo</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="rd-service-text">
-                    <h2 class="govuk-heading-m">User selects bottom of sheet (coming soon)</h2>
-                    <p class="govuk-body">Use the <a href="./component-table-view.html">sheet view component</a> in
-                        <code>select-bottom</code> mode to
-                        display the contents of the selected spreadsheet and ask the user to select where rows end.</p>
-                    <p class="govuk-body">Spreadsheets often have extra summary rows after the last row of data that
-                        should be ignored.</p>
+                    <h2 class="govuk-heading-m">User selects bottom of their data</h2>
+                    <p class="govuk-body">Users often include extra summary rows
+                        (such as "subtotals") after the last row of data that should
+                        be ignored.</p>
+                    <p class="govuk-body">Use the <a href="./component-table-view.html">table view component</a>
+                        to display the contents of the selected spreadsheet and
+                        ask the user to select where rows end.
+                    </p>
+                    <a href="/manage-prototype/templates/install?package=%40register-dynamics%2Fimporter&template=%2Ftemplates%2Fselect_footer_row.html"
+                        role="button" data-plugin-only draggable="false" class="govuk-button govuk-button--secondary"
+                        data-module="govuk-button">
+                        Create from template
+                    </a>
                 </div>
                 <div class="rd-service-card">
                     <div class="rd-service-card-inner">
@@ -258,20 +322,50 @@
                         </div>
                         <div class="govuk-main-wrapper">
                             <h1 class="govuk-heading-m">Identify your columns</h1>
-                            <p>████████████████</p>
-                            <p>TODO</p>
+                            <div class="govuk-grid-column-two-thirds" style="margin-bottom: 1em;">
+                                <label class="govuk-label govuk-label--s fake"
+                                    style="float:left">████████████████</label>
+                                <select class="govuk-select" style="float: right;" name="0"></select>
+                            </div>
+                            <div class="govuk-grid-column-two-thirds" style="margin-bottom: 1em;">
+                                <label class="govuk-label govuk-label--s fake"
+                                    style="float:left">████████████████</label>
+                                <select class="govuk-select" style="float: right;" name="0"></select>
+                            </div>
+                            <div class="govuk-grid-column-two-thirds" style="margin-bottom: 1em;">
+                                <label class="govuk-label govuk-label--s fake"
+                                    style="float:left">████████████████</label>
+                                <select class="govuk-select" style="float: right;" name="0"></select>
+                            </div>
+                            <div class="govuk-grid-column-two-thirds" style="margin-bottom: 1em;">
+                                <label class="govuk-label govuk-label--s fake"
+                                    style="float:left">████████████████</label>
+                                <select class="govuk-select" style="float: right;" name="0"></select>
+                            </div>
+                            <div class="govuk-grid-column-two-thirds" style="margin-bottom: 1em;">
+                                <label class="govuk-label govuk-label--s fake"
+                                    style="float:left">████████████████</label>
+                                <select class="govuk-select" style="float: right;" name="0"></select>
+                            </div>
+                            <div class="govuk-grid-column-two-thirds" style="margin-bottom: 1em;">
+                                <label class="govuk-label govuk-label--s fake"
+                                    style="float:left">████████████████</label>
+                                <select class="govuk-select" style="float: right;" name="0"></select>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="rd-service-text">
                     <h2 class="govuk-heading-m">User maps input columns to required names</h2>
-                    <p class="govuk-body">Use the <a href="component-table-view.html">sheet view component</a> in
-                        <code>mapping</code> mode to
-                        select which columns in the input spreadsheet correspond to required data for your service.</p>
-                    <p class="govuk-body">Spreadsheets often have extra columns
-                        (such as "notes") in amongst the columns of interest so
-                        users can select to ignore columns. Each required column can
-                        be mapped to a single input column.</p>
+                    <p class="govuk-body">Uesrs often include extra columns
+                        (such as "notes") in amongst the columns of interest. Your
+                        service should allow users to ignore these. They may also
+                        pick different names for columns depending on their other
+                        needs.</p>
+                    <p class="govuk-body">Use a set of select dropdowns to allow
+                        the user to select which columns in the input spreadsheet
+                        correspond to required data for your service.
+                    </p>
                     <a href="/manage-prototype/templates/install?package=%40register-dynamics%2Fimporter&template=%2Ftemplates%2Fmapping.html"
                         role="button" data-plugin-only draggable="false" class="govuk-button govuk-button--secondary"
                         data-module="govuk-button">
@@ -331,13 +425,16 @@
                 </div>
                 <div class="rd-service-text">
                     <h2 class="govuk-heading-m">User reviews rejected rows</h2>
-                    <p class="govuk-body">Use the <a href="component-table-view.html">table view component</a> in
-                        <code>review</code> mode to
-                        display the results of row validation and highlight any rows that weren't considered valid.</p>
+                    <p class="govuk-body">Use the <a href="component-table-view.html">table view component</a>
+                        to display the results of row validation and highlight any
+                        rows that weren't considered valid.
+                    </p>
                     <p class="govuk-body">The component will also display a summary of the number of
                         rows it contains, and how many are not valid.</p>
-                    <p class="govuk-body">The user should then be able to go back to modify any options that might fix
-                        the issue or upload a different spreadsheet with any broken rows fixed.</p>
+                    <p class="govuk-body">Users should then be able to go back to modify any options that might fix
+                        the issue or upload a different spreadsheet with any broken rows fixed. Depending on your
+                        service, you may also allow users to proceed with the valid rows and come back later to upload
+                        new rows to replace the invalid ones.</p>
                     <a href="/manage-prototype/templates/install?package=%40register-dynamics%2Fimporter&template=%2Ftemplates%2Freview.html"
                         role="button" data-plugin-only draggable="false" class="govuk-button govuk-button--secondary"
                         data-module="govuk-button">
@@ -362,9 +459,9 @@
                                     You applied for <strong>456</strong> licenses
                                 </div>
                             </div>
-                            <p>████████████████</p>
-                            <p>████████████████</p>
-                            <p>████████</p>
+                            <p class="fake">████████████████</p>
+                            <p class="fake">████████████████</p>
+                            <p class="fake">████████</p>
                         </div>
                     </div>
                 </div>

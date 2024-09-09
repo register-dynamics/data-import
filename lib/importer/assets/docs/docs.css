@@ -12,7 +12,6 @@
     transform-origin: top left;
     height: 500%;
     font-size: 3rem;
-    color: lightgray;
 }
 
 .rd-service-card [class^="govuk-heading"] {
@@ -25,11 +24,19 @@
     font-size: 300%;
 }
 
+.rd-service-card .fake {
+    color: lightgray;
+}
+
 .rd-service-card p:last-of-type {
     margin-bottom: 3em;
 }
 
-.rd-service-card .govuk-main-wrapper>[class^="govuk"]:not([class^="govuk-heading"], [class^="govuk-panel"]) {
+.rd-service-card .govuk-main-wrapper>[class^="govuk"]:not(
+    [class^="govuk-heading"],
+    [class^="govuk-panel"],
+    [class^="govuk-grid-column"]
+) {
     transform: scale(3);
     transform-origin: top left;
 }
