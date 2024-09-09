@@ -76,20 +76,19 @@
 <script>
 const previews = Array.from(document.getElementById("previews").children);
 
-// Preview any default selected options
-const currentlySelected = document.querySelector('input[type="radio"]:checked');
-if (currentlySelected && currentlySelected.dataset.previewIndex) {
-  previews[parseInt(currentlySelected.dataset.previewIndex)].style.display = "block";
-}
-
 const preview = (elem) => {
   let index = parseInt(elem.dataset.previewIndex ?? -1);
   if (index < 0) {
     return;
   }
 
-  previews.forEach((p) => {p.style.display = "none"})
-  previews[index].style.display = "block";;
+  previews.forEach((p) => {p.style.display = "none"});
+  previews[index].style.display = "block";
 }
+
+{# Show the preview any default selected options when the page loads #}
+const currentlySelected = document.querySelector('input[type="radio"]:checked');
+preview(currentlySelected);
+
 </script>
 {% endmacro %}
