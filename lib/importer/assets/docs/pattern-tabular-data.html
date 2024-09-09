@@ -66,7 +66,7 @@
         <main class="govuk-main-wrapper" id="main-content">
             <span class="govuk-caption-xl">Ask users for</span>
             <h1 class="govuk-heading-xl">Tabular data</h1>
-            <p class="govuk-body">
+            <p>
                 Ask users to supply a spreadsheet of data, select the data from their spreadsheet that is relevant to
                 your service, and review that the supplied data matches the service's expectations.
             </p>
@@ -99,7 +99,7 @@
                 </div>
                 <div class="rd-service-text">
                     <h2 class="govuk-heading-m">Start the user journey</h2>
-                    <p class="govuk-body">Explain to users that they are about to upload data, and what data will be
+                    <p>Explain to users that they are about to upload data, and what data will be
                         required.</p>
                 </div>
                 <div class="rd-service-card">
@@ -126,8 +126,9 @@
                     </div>
                 </div>
                 <div class="rd-service-text">
+                    <a name="upload-a-file"></a>
                     <h2 class="govuk-heading-m">User selects a spreadsheet</h2>
-                    <p class="govuk-body">Use the <a
+                    <p>Use the <a
                             href="https://design-system.service.gov.uk/components/file-upload/">GOV.UK Design System
                             file upload component</a>
                         to get the user to select a file.</p>
@@ -185,13 +186,13 @@
                 </div>
                 <div class="rd-service-text">
                     <h2 class="govuk-heading-m">User selects a worksheet (optional)</h2>
-                    <p class="govuk-body">Users often include explanatory information, summaries, pivot tables or charts
+                    <p>Users often include explanatory information, summaries, pivot tables or charts
                         on extra sheets. Your service should allow them to ignore these.</p>
-                    <p class="govuk-body">If the file type supports multiple sheets (i.e. it is a Microsoft Excel (XLSX)
+                    <p>If the file type supports multiple sheets (i.e. it is a Microsoft Excel (XLSX)
                         file or OpenDocument Sheets (ODS) file), use the <a
                             href="https://design-system.service.gov.uk/components/radios/">GOV.UK Design System
                             radios component</a> to get the user to select one of the sheets.</p>
-                    <p class="govuk-body">You can skip this step if the file only contains one sheet.</p>
+                    <p>You can skip this step if the file only contains one sheet.</p>
                     <a href="/manage-prototype/templates/install?package=%40register-dynamics%2Fimporter&template=%2Ftemplates%2Fselect_sheet.html"
                         role="button" data-plugin-only draggable="false" class="govuk-button govuk-button--secondary"
                         data-module="govuk-button">
@@ -240,11 +241,11 @@
                 </div>
                 <div class="rd-service-text">
                     <h2 class="govuk-heading-m">User selects column headers</h2>
-                    <p class="govuk-body">Users often add extra titles above the first row of headers that
+                    <p>Users often add extra titles above the first row of headers that
                         should be ignored.
                         Data may also not start in the first column as users often leave blank columns to provide
                         padding.</p>
-                    <p class="govuk-body">Use the <a href="./component-table-view.html">table view component</a>
+                    <p>Use the <a href="./component-table-view.html">table view component</a>
                         in to display the contents of the selected spreadsheet and
                         ask the user to select column headers.
                     </p>
@@ -298,10 +299,10 @@
                 </div>
                 <div class="rd-service-text">
                     <h2 class="govuk-heading-m">User selects bottom of their data</h2>
-                    <p class="govuk-body">Users often include extra summary rows
+                    <p>Users often include extra summary rows
                         (such as "subtotals") after the last row of data that should
                         be ignored.</p>
-                    <p class="govuk-body">Use the <a href="./component-table-view.html">table view component</a>
+                    <p>Use the <a href="./component-table-view.html">table view component</a>
                         to display the contents of the selected spreadsheet and
                         ask the user to select where rows end.
                     </p>
@@ -357,12 +358,12 @@
                 </div>
                 <div class="rd-service-text">
                     <h2 class="govuk-heading-m">User maps input columns to required names</h2>
-                    <p class="govuk-body">Uesrs often include extra columns
+                    <p>Uesrs often include extra columns
                         (such as "notes") in amongst the columns of interest. Your
                         service should allow users to ignore these. They may also
                         pick different names for columns depending on their other
                         needs.</p>
-                    <p class="govuk-body">Use a set of select dropdowns to allow
+                    <p>Use a set of select dropdowns to allow
                         the user to select which columns in the input spreadsheet
                         correspond to required data for your service.
                     </p>
@@ -425,13 +426,13 @@
                 </div>
                 <div class="rd-service-text">
                     <h2 class="govuk-heading-m">User reviews rejected rows</h2>
-                    <p class="govuk-body">Use the <a href="component-table-view.html">table view component</a>
+                    <p>Use the <a href="component-table-view.html">table view component</a>
                         to display the results of row validation and highlight any
                         rows that weren't considered valid.
                     </p>
-                    <p class="govuk-body">The component will also display a summary of the number of
+                    <p>The component will also display a summary of the number of
                         rows it contains, and how many are not valid.</p>
-                    <p class="govuk-body">Users should then be able to go back to modify any options that might fix
+                    <p>Users should then be able to go back to modify any options that might fix
                         the issue or upload a different spreadsheet with any broken rows fixed. Depending on your
                         service, you may also allow users to proceed with the valid rows and come back later to upload
                         new rows to replace the invalid ones.</p>
@@ -467,13 +468,13 @@
                 </div>
                 <div class="rd-service-text">
                     <h2 class="govuk-heading-m">User receives receipt of upload</h2>
-                    <p class="govuk-body">Use the <a
+                    <p>Use the <a
                             href="https://design-system.service.gov.uk/components/panel/">GOV.UK Design
                             System Panel
                             component</a>
                         to provide confirmation that the upload was successfully received and is being processed.
                     </p>
-                    <p class="govuk-body">
+                    <p>
                         The panel component should include any relevant statistics that reassure the user that the
                         correct action is being taken, such as the number of operations that will be carried out in
                         response or the number of affected items.</p>
@@ -484,6 +485,79 @@
                     </a>
                 </div>
             </section>
+
+            <h2 class="govuk-heading-l">Link your data submission pages together</h2>
+            <p>
+                Each page you create from a template needs to be linked to the
+                next page in the user journey. The Prototype Kit documentation
+                explains how to <a
+                    href="https://prototype-kit.service.gov.uk/docs/make-first-prototype/link-pages-together">
+                    link simple pages together</a>.
+            </p>
+            <p>
+                The templates above where the user uploads data, chooses a
+                worksheet, selects headers or footers, or identifies columns use
+                a <code>&lt;form&gt;</code> tag to link pages together. The
+                <code>action</code> on the <code>&lt;form&gt;</code> tag
+                contains a special value that allows the data the user has
+                submitted to be processed before sending them to the next page.
+            </p>
+            <p>
+                For each page you create from one of the above templates:
+            </p>
+            <ol class="govuk-list govuk-list--number">
+                <li>Open the page that you just created</li>
+                <li>Find the line with the <code>&lt;form&gt;</code> tag which has
+                an <code>action</code> attribute that looks like
+                <code>action="&lcub;&lcub;importerSomethingPath&lpar;'/next-page'&rpar;&rcub;&rcub;"</code></li>
+                <li>Change the path in the single quotes to be the next page the user should go to</li>
+            </ol>
+            <p>
+                For example, if you have just created a page from the <a
+                href="#upload-a-file">Upload a file</a> template and want the
+                next page to be <code>/my-custom-page</code>, change the
+                <code>&lt;form&gt;</code> tag in your new page to be:
+                <pre>&lt;form action="&lcub;&lcub;importerUploadPath&lpar;'/my-custom-page'&rpar;&rcub;&rcub;" method="POST" enctype="multipart/form-data"&gt;</pre>
+            </p>
+            <p>
+                Alternatively, use the default names for data submission pages
+                which will link to them from the previous page without any
+                required changes.
+            </p>
+            <table class="govuk-table">
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header">Template</th>
+                        <th scope="col" class="govuk-table__header">Default name</th>
+                    </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">Upload a file</th>
+                        <td class="govuk-table__cell"><code>/upload</code></td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">Select a worksheet</th>
+                        <td class="govuk-table__cell"><code>/select-sheet</code></td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">Select header rows</th>
+                        <td class="govuk-table__cell"><code>/select-header-row</code></td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">Identify your columns</th>
+                        <td class="govuk-table__cell"><code>/mapping</code></td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">Review your data</th>
+                        <td class="govuk-table__cell"><code>/review</code></td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">Upload complete</th>
+                        <td class="govuk-table__cell"><code>/success</code></td>
+                    </tr>
+                </tbody>
+            </table>
         </main>
     </div>
     <footer class="govuk-footer">
