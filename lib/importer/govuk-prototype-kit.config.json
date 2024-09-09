@@ -15,6 +15,16 @@
       "type": "nunjucks"
     },
     {
+      "name": "Select header rows",
+      "path": "/templates/select_header_row.html",
+      "type": "nunjucks"
+    },
+    {
+      "name": "Select footer rows",
+      "path": "/templates/select_footer_row.html",
+      "type": "nunjucks"
+    },
+    {
       "name": "Identify your columns",
       "path": "/templates/mapping.html",
       "type": "nunjucks"
