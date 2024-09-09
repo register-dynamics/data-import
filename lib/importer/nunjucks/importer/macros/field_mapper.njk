@@ -14,7 +14,7 @@
     data submitted from forms to the backend, and also the current
     data import session.
 #}
-{% macro importerFieldMapper(data) %}
+{% macro importerFieldMapper(data, caption='Choose which field each column maps to', columnTitle='Column', examplesTitle='Example values', fieldsTitle='Fields') %}
     {% set fields = data['importer.session']['fields'] %}
     {% set headings = importerGetHeaders(data) %}
     {% set error = headings.error %}
@@ -26,21 +26,36 @@
     {% endif %}
 
 
+<table class="govuk-table">
+  {% if caption %}
+  <caption class="govuk-table__caption govuk-table__caption--m">{{caption}}</caption>
+  {% endif %}
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">{{columnTitle}}</th>
+      <th scope="col" class="govuk-table__header">{{examplesTitle}}</th>
+      <th scope="col" class="govuk-table__header" style="padding-left: 1.5em">{{fieldsTitle}}</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
     {% for h in headings.data %}
-        <div class="govuk-grid-column-two-thirds">
-            <label class="govuk-label govuk-label--s" style="float:left" for="{{h.name}}">
-                {{ h.name }}
-            </label>
-
-            <select class="govuk-select" style="float: right;" name="{{h.index}}">
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">{{ h.name }}</th>
+      <td class="govuk-table__cell">{{ h.examples }}</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric">
+         <select class="govuk-select" style="float: right;" name="{{h.index}}">
                 <option name=""></option>
                 {% for field in fields %}
                 <option value="{{field}}">{{field}}</option>
                 {% endfor %}
             </select>
-        </div>
-        <div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-6 govuk-hint" >
-            Sample values: {{ h.examples }}
-        </div>
+      </td>
+    </tr>
     {% endfor %}
+  </tbody>
+</table>
+
+
+
+
 {% endmacro %}
