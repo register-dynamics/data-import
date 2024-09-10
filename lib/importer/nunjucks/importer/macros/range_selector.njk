@@ -1,6 +1,5 @@
 
-{% macro importerRangeSelector(data, start=0, end=10) %}
-    {% set rows = importerGetRows(data, start, end) %}
+{% macro importerRangeSelector(rows, start=0, end=10) %}
 
 <div>
     <input type="hidden" name="importer:selection:TLRow" id="importer:selection:TLRow"/>

@@ -71,6 +71,10 @@
       "importFrom": "importer/macros/table_view.njk"
     },
     {
+      "macroName": "importerHeaderSelector",
+      "importFrom": "importer/macros/header_selector.njk"
+    },
+    {
       "macroName": "importerRangeSelector",
       "importFrom": "importer/macros/range_selector.njk"
     }
