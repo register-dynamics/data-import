@@ -6,6 +6,10 @@ table.selectable {
     line-height: 20px
 }
 
+table.selectable caption {
+    text-align: inherit;
+}
+
 table.selectable col:not(:first-child) {
     min-width: 120px
 }

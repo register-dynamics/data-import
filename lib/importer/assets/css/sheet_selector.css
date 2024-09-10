@@ -1,0 +1,16 @@
+.rd-sheet-selector-previews {
+    display: grid;
+}
+
+.rd-sheet-selector-previews>* {
+    visibility: hidden;
+    z-index: -1;
+    overflow-x: auto;
+    grid-row: 1;
+    grid-column: 1;
+}
+
+.rd-sheet-selector-previews .selected {
+    visibility: visible;
+    z-index: 0;
+}
