@@ -51,7 +51,7 @@
     <div class="govuk-width-container">
         <main class="govuk-main-wrapper" id="main-content">
             <h1 class="govuk-heading-xl">Tabular Data Importer</h1>
-            <p class="govuk-body">
+            <p>
                 The Tabular Data Importer is a set of components and patterns for asking users for data as a
                 spreadsheet. These patterns are useful when users need to provide a lot of information at once to a
                 service and are likely to be drawing the information from an existing source.</p>
@@ -69,24 +69,25 @@
             <h2 class="govuk-heading-l">Components</h2>
             <ul class="govuk-list">
                 <li><a class="govuk-link" href="./component-table-view.html">Table view</a></li>
+                <li><a class="govuk-link" href="./component-sheet-selector.html">Sheet selector</a></li>
             </ul>
 
             <h2 class="govuk-heading-l">Getting started</h2>
-            <p class="govuk-body">
+            <p>
                 The Importer is available as a software package that can be installed into the Prototype Kit.
             </p>
             <h3 class="govuk-heading-m">Installation</h3>
             <div data-static-only>
-                <p class="govuk-body">Install the plugin by typing:</p>
+                <p>Install the plugin by typing:</p>
                 <pre>npm install 'https://gitpkg.vercel.app/register-dynamics/data-import/lib/importer?main'</pre>
-                <p class="govuk-body">Then run the Prototype Kit and visit the "Manage Prototype" section to get help on
+                <p>Then run the Prototype Kit and visit the "Manage Prototype" section to get help on
                     using the Importer.</p>
             </div>
             <p data-plugin-only class="govuk-body">
                 <span class="govuk-tag govuk-tag--green">Installed</span>
                 You have already installed the plugin and it is ready to be used in this prototype.
             </p>
-            <p class="govuk-body">Now add these lines to the bottom of <code>app/routes.js</code> to configure the
+            <p>Now add these lines to the bottom of <code>app/routes.js</code> to configure the
                 prototype to receive and
                 process
                 spreadsheets:</p>
@@ -95,7 +96,7 @@ const cfg = require("govuk-prototype-kit/lib/config");
 importer.Initialise(cfg.getConfig(), router, govukPrototypeKit);</pre>
 
             <h3 class="govuk-heading-m">Configuration</h3>
-            <p class="govuk-body">Finally, add some fields to <code>app/config.js</code> that the user will be asked for
+            <p>Finally, add some fields to <code>app/config.js</code> that the user will be asked for
                 when using the
                 "Identify columns" template:</p>
             <pre>"fields": [
@@ -103,7 +104,9 @@ importer.Initialise(cfg.getConfig(), router, govukPrototypeKit);</pre>
     "Name",
     "Speciality"
 ]</pre>
-            <p class="govuk-body">You are now ready to use the Tabular Data Importer.</p>
+            <p>You are now ready to use the Tabular Data
+                Importer. You can get started by following a <a href="./pattern-tabular-data.html">pattern for
+                    requesting tabular data</a>.</p>
         </main>
     </div>
     <footer class="govuk-footer">
