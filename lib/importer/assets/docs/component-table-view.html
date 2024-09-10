@@ -76,7 +76,7 @@
         <main class="govuk-main-wrapper" id="main-content">
             <span class="govuk-caption-xl">Components</span>
             <h1 class="govuk-heading-xl">Table view</h1>
-            <p class="govuk-body">Display data as a table in rows and columns.</p>
+            <p>Display data as a table in rows and columns.</p>
 
             <table class="govuk-body selectable" style="width: 100%">
                 <thead>
@@ -192,7 +192,7 @@
                     </li>
                 </ul>
                 <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="html">
-                    <p class="govuk-body">Lay out your data using a normal HTML <code>&lt;table&gt;</code> and apply the
+                    <p>Lay out your data using a normal HTML <code>&lt;table&gt;</code> and apply the
                         class <code>selectable</code>.</p>
                     <pre>&lt;table class=&quot;govuk-body selectable&quot;&gt;
     &lt;thead&gt;
@@ -220,26 +220,61 @@
 &lt;/table&gt;</pre>
                 </div>
                 <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="nunjucks">
-                    <p class="govuk-body">In the Prototype Kit, call the <code>importerTableView</code> macro to
+                    <p>In the Prototype Kit, call the <code>importerTableView</code> macro to
                         automatically display a table of previously uploaded data.</p>
                     <pre>{% from "importer/macros/table_view.njk" import importerTableView %}
 {{ importerTableView(data) }}</pre>
+                    <p>The macro accepts the following options:</p>
+                    <table class="govuk-table">
+                        <caption class="govuk-table__caption"><code>importerTableView</code> options</caption>
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header" scope="col">Name</th>
+                                <th class="govuk-table__header" scope="col">Type</th>
+                                <th class="govuk-table__header" scope="col">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header" scope="row">data</th>
+                                <td class="govuk-table__cell">Prototype Kit session</td>
+                                <td class="govuk-table__cell">The automatically
+                                    populated <code>data</code> variable containing
+                                    the user's uploaded sheet and options.</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header" scope="row">hideHeader</th>
+                                <td class="govuk-table__cell">True or false (optional, default: false)</td>
+                                <td class="govuk-table__cell">Whether the
+                                    headers that the user has selected should be
+                                    hidden or visible.</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header" scope="row">caption</th>
+                                <td class="govuk-table__cell">Text (optional, default: blank)</td>
+                                <td class="govuk-table__cell">The caption that
+                                    should be added to describe the content of the
+                                    table view.</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
             <h2 class="govuk-heading-l">When to use this component</h2>
-            <p class="govuk-body">Use this component to:</p>
+            <p>Use this component to:</p>
             <ul class="govuk-list govuk-list--bullet">
                 <li>show a preview of data to help the user pick the right file or worksheet</li>
                 <li>display a subset of data that requires manual review</li>
             </ul>
 
             <h2 class="govuk-heading-l">When to not use this component</h2>
-            <p class="govuk-body">Do not use this component to display all of the user's data for them to review. Asking
+            <p>Do not use this component to display all of the user's data for them to review. Asking
                 the users to review data is not an effective way to catch mistakes if the data is larger than a few
                 cells. Instead, display summary statistics about the submitted data relevant to the user journey.</p>
-            <p class="govuk-body">Do not use this component to display data not submitted by the user. Instead, use
-                another Design System component or a regular table.</p>
+            <p>Do not use this component to display data not submitted by the
+                user. Instead, use the <a href="https://design-system.service.gov.uk/components/table/">GOV.UK
+                    Design System Table component</a> or a regular table.</p>
         </main>
     </div>
     <footer class="govuk-footer">
