@@ -2,7 +2,7 @@
 
 {% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
 
-{% block pageTitle %} – {{ serviceName }} – GOV.UK Prototype Kit {% endblock %}
+{% block pageTitle %} {{ serviceName }} – GOV.UK Prototype Kit {% endblock %}
 {% block beforeContent %}
 {{ govukBackLink({ text: "Back", href: "javascript:window.history.back()" }) }}
 {% endblock %}
@@ -15,11 +15,11 @@
         <form action="{{importerUploadPath('/select_sheet')}}" method="POST" enctype="multipart/form-data">
             <div>
                 {{ govukFileUpload({
-                    id: "file-upload",
-                    name: "file",
-                    label: { text: "Upload an XLSX file"},
-                    attributes: { "accept": ".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"},
-                    errorMessage: importerError(data)
+                id: "file-upload",
+                name: "file",
+                label: { text: "Upload an XLSX file"},
+                attributes: { "accept": ".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"},
+                errorMessage: importerError(data)
                 })
                 }}
             </div>
