@@ -1,0 +1,8 @@
+
+{% from "importer/macros/range_selector.njk" import importerRangeSelector %}
+
+{% macro importerFooterSelector(data, start=0, end=10) %}
+    {% set rows = importerGetRows(data, start, end) %}
+
+    {{ importerRangeSelector(rows) }}
+{% endmacro %}
