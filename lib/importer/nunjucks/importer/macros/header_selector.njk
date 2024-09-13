@@ -1,8 +1,8 @@
 
 {% from "importer/macros/range_selector.njk" import importerRangeSelector %}
 
-{% macro importerHeaderSelector(data, count=10) %}
-    {% set rows = importerGetRows(data, count) %}
+{% macro importerHeaderSelector(data, start, count=10) %}
+    {% set rows = importerGetRows(data, start, count) %}
 
     {{ importerRangeSelector(rows) }}
 {% endmacro %}
