@@ -1,8 +1,8 @@
-# data-import
+# Data Design Kit
 
 This repository contains code to aid in the user testing of the data import process, composed of
 
-* A library (lib/importer) providing functions to work with spreadsheets 
+* A library (lib/importer) providing functions to work with spreadsheets
 
 * A makefile providing an action to create a new prototype
 
