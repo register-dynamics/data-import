@@ -1,19 +1,29 @@
 {% extends "layouts/main.html" %}
 
-{% block pageTitle %} – {{ serviceName }} – GOV.UK Prototype Kit {% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+{% block pageTitle %} {{ serviceName }} – GOV.UK Prototype Kit {% endblock %}
 
 {% block beforeContent %}
 {{ govukBackLink({ text: "Back", href: "javascript:window.history.back()" }) }}
 {% endblock %}
 
-{% from "importer/macros/range_selector.njk" import importerRangeSelector %}
+{% from "importer/macros/header_selector.njk" import importerHeaderSelector %}
 
 {% block content %}
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-        <form action="{{ importerSelectSheetPath('/mapping') }}" method="post">
+    <div class="govuk-grid-column-three-quarters">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+                Select cells containing column headings
+            </h1>
+        </legend>
+
+        <form action="{{ importerSelectHeaderPath('/select_footer_row') }}" method="post">
             <div class="govuk-form-group">
-                {{ importerRangeSelector(data) }}
+                {{ importerHeaderSelector(data, 0, 10) }}
             </div>
 
             <div class="govuk-button-group">

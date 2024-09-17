@@ -1,0 +1,8 @@
+
+{% from "importer/macros/range_selector.njk" import importerRangeSelector %}
+
+{% macro importerFooterSelector(data, count=10) %}
+    {% set rows = importerGetTrailingRows(data, count) %}
+
+    {{ importerRangeSelector(rows) }}
+{% endmacro %}
