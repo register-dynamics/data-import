@@ -17,8 +17,10 @@
                 {{ govukFileUpload({
                 id: "file-upload",
                 name: "file",
-                label: { text: "Upload an XLSX file"},
-                attributes: { "accept": ".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"},
+                label: { text: "Upload an XLSX, ODS, or CSV file"},
+                attributes: { "accept":
+                ".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,.csv,text/csv,application/vnd.oasis.opendocument.spreadsheet,.ods",
+                },
                 errorMessage: importerError(data)
                 })
                 }}
