@@ -1,0 +1,19 @@
+
+
+{#
+    Shows errors generated when attempting to
+    perform a mapping
+#}
+{% macro importerMappingErrorList(data) %}
+    {% set errors = importerMappingErrors(data) %}
+    {% if errors %}
+    <div>
+        <h2 class="govuk-heading-m">Errors</h2>
+        <ul>
+            {% for error in errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    <div>
+    {% endif %}
+{% endmacro %}

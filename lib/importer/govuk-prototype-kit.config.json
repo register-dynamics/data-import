@@ -83,8 +83,12 @@
       "importFrom": "importer/macros/range_selector.njk"
     },
     {
-      "macroName": "importerMappingReview",
-      "importFrom": "importer/macros/mapping_review.njk"
+      "macroName": "importerMappingWarningList",
+      "importFrom": "importer/macros/mapping_warning_list.njk"
+    },
+    {
+      "macroName": "importerMappingErrorList",
+      "importFrom": "importer/macros/mapping_error_list.njk"
     }
   ]
 }
