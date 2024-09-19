@@ -81,6 +81,10 @@
     {
       "macroName": "importerRangeSelector",
       "importFrom": "importer/macros/range_selector.njk"
+    },
+    {
+      "macroName": "importerMappingReview",
+      "importFrom": "importer/macros/mapping_review.njk"
     }
   ]
 }

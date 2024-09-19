@@ -1,5 +1,5 @@
 {% extends "layouts/main.html" %}
-{% from "importer/macros/table_view.njk" import importerTableView %}
+{% from "importer/macros/mapping_review.njk" import importerMappingReview %}
 
 
 {% block pageTitle %} {{ serviceName }} – GOV.UK Prototype Kit {% endblock %}
@@ -11,6 +11,8 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-l">Review your data</h1>
+
+        {{ importerMappingReview(data) }}
 
         <form action="{{ importerReviewDataPath('/success') }}" method="post">
             <div class="govuk-button-group">
