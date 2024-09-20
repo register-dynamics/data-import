@@ -69,10 +69,6 @@
             <div data-static-only>
                 <p>Install the plugin by typing:</p>
                 <pre>npm install 'https://gitpkg.vercel.app/register-dynamics/data-import/lib/importer?main'</pre>
-                <p>Then run the Prototype Kit and visit <a
-                        href="http://localhost:3000/plugin-assets/%40register-dynamics%2Fimporter/assets/docs/start.html">the
-                        internal documentation</a>
-                    to get help using the Data Design Kit.</p>
             </div>
             <p data-plugin-only class="govuk-body">
                 <span class="govuk-tag govuk-tag--green">Installed</span>
@@ -86,7 +82,6 @@
 const cfg = require("govuk-prototype-kit/lib/config");
 importer.Initialise(cfg.getConfig(), router, govukPrototypeKit);</pre>
             </p>
-
             <h2 class="govuk-heading-l">Configuration</h2>
             <p>Finally, add some fields to <code>app/config.js</code> that the user will be asked for
                 when using the
@@ -100,9 +95,17 @@ importer.Initialise(cfg.getConfig(), router, govukPrototypeKit);</pre>
     ]
 }</pre>
             </p>
-            <p>You are now ready to use the Data Design Kit. You can get started by following a <a
-                    href="./pattern-tabular-data.html">pattern for
-                    requesting tabular data</a>.</p>
+
+
+            <p>You are now ready to use the Data Design Kit.
+                <span data-static-only>Run the Prototype Kit and visit <a
+                        href="http://localhost:3000/plugin-assets/%40register-dynamics%2Fimporter/assets/docs/start.html">the
+                        internal documentation</a>
+                    to get started using the Data Design Kit.</span>
+                <span data-plugin-only>You can get started by following a <a href="./pattern-tabular-data.html">pattern
+                        for
+                        requesting tabular data</a>.</span>
+            </p>
 
             <h2 class="govuk-heading-l">Link your data submission pages together</h2>
             <p>
