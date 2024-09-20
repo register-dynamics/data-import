@@ -91,3 +91,12 @@ table.selectable tr.validation-error:last-child::before {
     background-size: 100% 100%;
     background-position-y: -18px;
 }
+
+.feature:not(:nth-last-child(2 of .feature), :nth-last-child(1 of .feature))::after {
+    border-bottom: 1px solid #000;
+    content: "";
+    width: 50%;
+    display: block;
+    margin-left: 25%;
+    margin-top: 2em;
+}

@@ -3,11 +3,10 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Data Design Kit by Register Dynamics</title>
+    <title>Get started – Data Design Kit by Register Dynamics</title>
     <link href="/public/stylesheets/application.css" rel="stylesheet" type="text/css" />
     <link href="../css/selectable_table.css" rel="stylesheet" type="text/css" />
     <link href="./docs.css" rel="stylesheet" type="text/css" />
-    <link href="../css/x-govuk-masthead.css" rel="stylesheet" type="text/css" />
     <style type="text/css" data-plugin-only>
         [data-static-only] {
             display: none;
@@ -48,85 +47,135 @@
         </div>
     </header>
 
-    <div class="x-govuk-masthead x-govuk-masthead--large" style="margin-top: -10px">
-        <div class="govuk-width-container">
-            <div class="govuk-grid-row">
-                <div class="govuk-grid-column-two-thirds-from-desktop">
-                    <h1 class="x-govuk-masthead__title">
-                        Design services that excel with spreadsheets
-                    </h1>
-                    <p class="x-govuk-masthead__description" style="text-wrap: balance;">
-                        Easily build services that crunch spreadsheets with
-                        ready-made components and patterns.
-                    </p>
-                    <a href="./start.html" role="button" draggable="false"
-                        class="govuk-button govuk-button--inverse govuk-button--start" data-module="govuk-button">
-                        Get started
-                        <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5"
-                            height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
-                            <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="govuk-width-container">
-        <main class="govuk-main-wrapper" id="main-content" style="display: grid; grid-template-columns: 1fr 1fr">
-            <div class="govuk-panel feature">
-                <h2 class="govuk-heading-l">Test with real data</h2>
-                <p>Quickly build high-fidelity prototypes that test realistic spreadsheet journeys</p>
-            </div>
-            <div class="govuk-panel feature">
-                <h2 class="govuk-heading-l">Design confidently</h2>
-                <p>Rely on accessible and user-tested components or patterns for designing smarter with data</p>
-            </div>
-            <div class="govuk-panel feature">
-                <h2 class="govuk-heading-l">Put users first</h2>
-                <p>Give the best support to users in batch input, bulk upload and data submission journeys</p>
-            </div>
-            <div class="govuk-panel feature">
-                <h2 class="govuk-heading-l">Focus on your service</h2>
-                <p>Remove the risk and uncertainty from data upload journeys and focus where it matters</p>
-            </div>
-            <div class="govuk-panel feature">
-                <h2 class="govuk-heading-l">Develop easily</h2>
-                <p>Handle multiple worksheets, merged cells, titles and footers with only a few lines of code</p>
-            </div>
-            <div class="govuk-panel feature">
-                <h2 class="govuk-heading-l">Get to MVP quickly</h2>
-                <p>Pre-built journeys accelerate prototyping and development</p>
-            </div>
-            <div class="govuk-section-break govuk-section-break--l govuk-section-break--visible" style="grid-column: span 2;"></div>
-            <div>
-                <h2 class="govuk-heading-m">Explore patterns and components</h2>
-                <h2 class="govuk-heading-s">Patterns</h2>
-                <h3 class="govuk-caption-m">Ask users for:</h3>
-                <ul class="govuk-list">
-                    <li><a class="govuk-link" href="./pattern-tabular-data.html">Tabular data</a></li>
-                </ul>
+        <nav class="govuk-breadcrumbs" aria-label="Breadcrumb">
+            <ol class="govuk-breadcrumbs__list">
+                <li class="govuk-breadcrumbs__list-item">
+                    <a class="govuk-breadcrumbs__link" href="./index.html">Home</a>
+                </li>
+                <li class="govuk-breadcrumbs__list-item">
+                    <a class="govuk-breadcrumbs__link" href="./start.html">Get started</a>
+                </li>
+            </ol>
+        </nav>
 
-                <h2 class="govuk-heading-s">Components</h2>
-                <ul class="govuk-list">
-                    <li><a class="govuk-link" href="./component-table-view.html">Table view</a></li>
-                    <li><a class="govuk-link" href="./component-sheet-selector.html">Sheet selector</a></li>
-                </ul>
-            </div>
-            <div>
-                <h2 class="govuk-heading-m">About the Data Design Kit</h2>
+        <main class="govuk-main-wrapper" id="main-content">
+            <h1 class="govuk-heading-xl">Get started</h1>
             <p>
-                The Data Design Kit is a set of components and patterns for asking users for data as a
-                spreadsheet. These patterns are useful when users need to provide a lot of information at once to a
-                service and are likely to be drawing the information from an existing source.</p>
-            <p>They can be used as part of the Prototype Kit and also in
-                production use as part of a real service. Their designs are
-                compatible with the GOV.UK Design System.
+                The Data Design Kit is available as a plugin that can be installed
+                into the Prototype Kit.
             </p>
-                <p>This kit is built and maintained by the team at
-                    <a href="https://www.register-dynamics.co.uk">Register Dynamics</a>.
-                </p>
+            <h2 class="govuk-heading-l">Installation</h2>
+            <div data-static-only>
+                <p>Install the plugin by typing:</p>
+                <pre>npm install 'https://gitpkg.vercel.app/register-dynamics/data-import/lib/importer?main'</pre>
+                <p>Then run the Prototype Kit and visit the "Manage Prototype" section to get help on
+                    using the Importer.</p>
             </div>
+            <p data-plugin-only class="govuk-body">
+                <span class="govuk-tag govuk-tag--green">Installed</span>
+                You have already installed the plugin and it is ready to be used in this prototype.
+            </p>
+            <p>Now add these lines to the bottom of <code>app/routes.js</code> to configure the
+                prototype to receive and
+                process
+                spreadsheets:
+            <pre>const importer = require("@register-dynamics/importer");
+const cfg = require("govuk-prototype-kit/lib/config");
+importer.Initialise(cfg.getConfig(), router, govukPrototypeKit);</pre>
+            </p>
+
+            <h2 class="govuk-heading-l">Configuration</h2>
+            <p>Finally, add some fields to <code>app/config.js</code> that the user will be asked for
+                when using the
+                "Identify columns" template:
+            <pre>{
+    "serviceName": "Your service name",
+    "fields": [
+        "Code",
+        "Name",
+        "Speciality"
+    ]
+}</pre>
+            </p>
+            <p>You are now ready to use the Data Design Kit. You can get started by following a <a
+                    href="./pattern-tabular-data.html">pattern for
+                    requesting tabular data</a>.</p>
+
+            <h2 class="govuk-heading-l">Link your data submission pages together</h2>
+            <p>
+                Each page you create from a template needs to be linked to the
+                next page in the user journey. The Prototype Kit documentation
+                explains how to <a
+                    href="https://prototype-kit.service.gov.uk/docs/make-first-prototype/link-pages-together">
+                    link simple pages together</a>.
+            </p>
+            <p>
+                The Data Design Kit templates where the user uploads data,
+                chooses a worksheet, selects headers or footers, or identifies
+                columns use a <code>&lt;form&gt;</code> tag to link pages
+                together. The
+                <code>action</code> on the <code>&lt;form&gt;</code> tag
+                contains a special value that allows the data the user has
+                submitted to be processed before sending them to the next page.
+            </p>
+            <p>
+                For each page you create from one of the templates:
+            </p>
+            <ol class="govuk-list govuk-list--number">
+                <li>Open the page that you just created</li>
+                <li>Find the line with the <code>&lt;form&gt;</code> tag which has
+                    an <code>action</code> attribute that looks like
+                    <code>action="&lcub;&lcub;importerSomethingPath&lpar;'/next-page'&rpar;&rcub;&rcub;"</code>
+                </li>
+                <li>Change the path in the single quotes to be the next page the user should go to</li>
+            </ol>
+            <p>
+                For example, if you have just created a page from the <a href="#upload-a-file">Upload a file</a>
+                template and want the
+                next page to be <code>/my-custom-page</code>, change the
+                <code>&lt;form&gt;</code> tag in your new page to be:
+            <pre>&lt;form action="&lcub;&lcub;importerUploadPath&lpar;'/my-custom-page'&rpar;&rcub;&rcub;" method="POST" enctype="multipart/form-data"&gt;</pre>
+            </p>
+            <p>
+                Alternatively, use the default names for data submission pages
+                which will link to them from the previous page without any
+                required changes.
+            </p>
+            <table class="govuk-table">
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header">Template</th>
+                        <th scope="col" class="govuk-table__header">Default name</th>
+                    </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">Upload a file</th>
+                        <td class="govuk-table__cell"><code>/upload</code></td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">Select a worksheet</th>
+                        <td class="govuk-table__cell"><code>/select-sheet</code></td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">Select header rows</th>
+                        <td class="govuk-table__cell"><code>/select-header-row</code></td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">Identify your columns</th>
+                        <td class="govuk-table__cell"><code>/mapping</code></td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">Review your data</th>
+                        <td class="govuk-table__cell"><code>/review</code></td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">Upload complete</th>
+                        <td class="govuk-table__cell"><code>/success</code></td>
+                    </tr>
+                </tbody>
+            </table>
         </main>
     </div>
     <footer class="govuk-footer">

@@ -189,8 +189,7 @@
                         on extra sheets. Your service should allow them to ignore these.</p>
                     <p>If the file type supports multiple sheets (i.e. it is a Microsoft Excel (XLSX)
                         file or OpenDocument Sheets (ODS) file), use the <a
-                            href="https://design-system.service.gov.uk/components/radios/">GOV.UK Design System
-                            radios component</a> to get the user to select one of the sheets.</p>
+                            href="./component-sheet-selector.html">sheet selector component</a> to get the user to select one of the sheets.</p>
                     <p>You can skip this step if the file only contains one sheet.</p>
                     <a href="/manage-prototype/templates/install?package=%40register-dynamics%2Fimporter&template=%2Ftemplates%2Fselect_sheet.html"
                         role="button" data-plugin-only draggable="false" class="govuk-button govuk-button--secondary"
@@ -484,79 +483,6 @@
                     </a>
                 </div>
             </section>
-
-            <h2 class="govuk-heading-l">Link your data submission pages together</h2>
-            <p>
-                Each page you create from a template needs to be linked to the
-                next page in the user journey. The Prototype Kit documentation
-                explains how to <a
-                    href="https://prototype-kit.service.gov.uk/docs/make-first-prototype/link-pages-together">
-                    link simple pages together</a>.
-            </p>
-            <p>
-                The templates above where the user uploads data, chooses a
-                worksheet, selects headers or footers, or identifies columns use
-                a <code>&lt;form&gt;</code> tag to link pages together. The
-                <code>action</code> on the <code>&lt;form&gt;</code> tag
-                contains a special value that allows the data the user has
-                submitted to be processed before sending them to the next page.
-            </p>
-            <p>
-                For each page you create from one of the above templates:
-            </p>
-            <ol class="govuk-list govuk-list--number">
-                <li>Open the page that you just created</li>
-                <li>Find the line with the <code>&lt;form&gt;</code> tag which has
-                an <code>action</code> attribute that looks like
-                <code>action="&lcub;&lcub;importerSomethingPath&lpar;'/next-page'&rpar;&rcub;&rcub;"</code></li>
-                <li>Change the path in the single quotes to be the next page the user should go to</li>
-            </ol>
-            <p>
-                For example, if you have just created a page from the <a
-                href="#upload-a-file">Upload a file</a> template and want the
-                next page to be <code>/my-custom-page</code>, change the
-                <code>&lt;form&gt;</code> tag in your new page to be:
-                <pre>&lt;form action="&lcub;&lcub;importerUploadPath&lpar;'/my-custom-page'&rpar;&rcub;&rcub;" method="POST" enctype="multipart/form-data"&gt;</pre>
-            </p>
-            <p>
-                Alternatively, use the default names for data submission pages
-                which will link to them from the previous page without any
-                required changes.
-            </p>
-            <table class="govuk-table">
-                <thead class="govuk-table__head">
-                    <tr class="govuk-table__row">
-                        <th scope="col" class="govuk-table__header">Template</th>
-                        <th scope="col" class="govuk-table__header">Default name</th>
-                    </tr>
-                </thead>
-                <tbody class="govuk-table__body">
-                    <tr class="govuk-table__row">
-                        <th scope="row" class="govuk-table__header">Upload a file</th>
-                        <td class="govuk-table__cell"><code>/upload</code></td>
-                    </tr>
-                    <tr class="govuk-table__row">
-                        <th scope="row" class="govuk-table__header">Select a worksheet</th>
-                        <td class="govuk-table__cell"><code>/select-sheet</code></td>
-                    </tr>
-                    <tr class="govuk-table__row">
-                        <th scope="row" class="govuk-table__header">Select header rows</th>
-                        <td class="govuk-table__cell"><code>/select-header-row</code></td>
-                    </tr>
-                    <tr class="govuk-table__row">
-                        <th scope="row" class="govuk-table__header">Identify your columns</th>
-                        <td class="govuk-table__cell"><code>/mapping</code></td>
-                    </tr>
-                    <tr class="govuk-table__row">
-                        <th scope="row" class="govuk-table__header">Review your data</th>
-                        <td class="govuk-table__cell"><code>/review</code></td>
-                    </tr>
-                    <tr class="govuk-table__row">
-                        <th scope="row" class="govuk-table__header">Upload complete</th>
-                        <td class="govuk-table__cell"><code>/success</code></td>
-                    </tr>
-                </tbody>
-            </table>
         </main>
     </div>
     <footer class="govuk-footer">

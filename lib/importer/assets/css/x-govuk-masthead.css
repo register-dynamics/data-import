@@ -1,0 +1,133 @@
+/*
+https://github.com/x-govuk/govuk-prototype-components/blob/c846eb79a7348cccdf9f7d8d285c2ddd030fa8e4/x-govuk/components/masthead/_masthead.scss
+
+The MIT License
+
+Copyright (c) 2022 X-GOVUK
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+of the Software, and to permit persons to whom the Software is furnished to do
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+.x-govuk-masthead {
+    padding-bottom: 15px;
+    background-color: #1d70b8;
+    color: #ffffff;
+    padding-top: 0.1px;
+  }
+  @media (min-width: 40.0625em) {
+    .x-govuk-masthead {
+      padding-bottom: 20px;
+    }
+  }
+
+  .x-govuk-masthead__title {
+    font-family: "GDS Transport", arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 1.09375;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  @media print {
+    .x-govuk-masthead__title {
+      font-family: sans-serif;
+    }
+  }
+  @media (min-width: 40.0625em) {
+    .x-govuk-masthead__title {
+      font-size: 3rem;
+      line-height: 1.0416666667;
+    }
+  }
+  @media print {
+    .x-govuk-masthead__title {
+      font-size: 32pt;
+      line-height: 1.15;
+    }
+  }
+  @media (min-width: 40.0625em) {
+    .x-govuk-masthead__title {
+      margin-bottom: 30px;
+    }
+  }
+  @media (min-width: 40.0625em) {
+    .x-govuk-masthead__title {
+      margin-top: 30px;
+    }
+  }
+
+  .x-govuk-masthead__description {
+    font-family: "GDS Transport", arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    font-size: 1.125rem;
+    line-height: 1.1111111111;
+    margin-bottom: 20px;
+    color: #ffffff;
+  }
+  @media print {
+    .x-govuk-masthead__description {
+      font-family: sans-serif;
+    }
+  }
+  @media (min-width: 40.0625em) {
+    .x-govuk-masthead__description {
+      font-size: 1.5rem;
+      line-height: 1.25;
+    }
+  }
+  @media print {
+    .x-govuk-masthead__description {
+      font-size: 18pt;
+      line-height: 1.15;
+    }
+  }
+  @media (min-width: 40.0625em) {
+    .x-govuk-masthead__description {
+      margin-bottom: 30px;
+    }
+  }
+  .x-govuk-masthead__description a:link, .x-govuk-masthead__description a:visited {
+    color: #ffffff;
+  }
+  .x-govuk-masthead__description a:hover, .x-govuk-masthead__description a:active {
+    color: rgba(255, 255, 255, 0.99);
+  }
+  .x-govuk-masthead__description a:focus {
+    color: #0b0c0c;
+  }
+
+  .x-govuk-masthead__image {
+    padding-top: 20px;
+  }
+  @media (min-width: 40.0625em) {
+    .x-govuk-masthead__image {
+      padding-top: 30px;
+    }
+  }
+  .x-govuk-masthead__image img {
+    max-width: 100%;
+  }
+  @media (max-width: 48.0525em) {
+    .x-govuk-masthead__image {
+      display: none;
+    }
+  }
