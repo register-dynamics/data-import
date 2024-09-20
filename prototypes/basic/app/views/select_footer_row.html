@@ -17,8 +17,16 @@
     <div class="govuk-grid-column-three-quarters">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading">
-                Select cells containing footer data
+                Select cells containing footers, counts or totals
             </h1>
+            <p>
+                Select any extra information after the rows if your sheet
+                contains it. It won't be used for this service.
+            </p>
+            <p>
+                You can skip this step if your sheet doesn't contain any extra
+                information.
+            </p>
         </legend>
 
         <form action="{{ importerSelectFooterPath('/mapping') }}" method="post">
