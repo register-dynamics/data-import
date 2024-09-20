@@ -15,12 +15,13 @@
         <form action="{{importerUploadPath('/select_sheet')}}" method="POST" enctype="multipart/form-data">
             <div>
                 {{ govukFileUpload({
-                        id: "file-upload",
-                        name: "file",
-                        label: { text: "Upload an XLSX file"},
-                        attributes: { "accept": ".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"},
-                        errorMessage: importerError(data)
-                    })
+                id: "file-upload",
+                name: "file",
+                label: { text: "Upload an XLSX, ODS, or CSV file"},
+                attributes: { "accept":
+                ".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,.csv,text/csv,application/vnd.oasis.opendocument.spreadsheet,.ods"},
+                errorMessage: importerError(data)
+                })
                 }}
             </div>
             <div class="govuk-button-group">
