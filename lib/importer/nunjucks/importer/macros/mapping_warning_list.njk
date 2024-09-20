@@ -1,0 +1,19 @@
+
+
+{#
+    Shows warnings generated when attempting to
+    perform a mapping
+#}
+{% macro importerMappingWarningList(data) %}
+    {% set warnings = importerMappingWarnings(data) %}
+    {% if warnings %}
+    <div>
+        <h2 class="govuk-heading-m">Warnings</h2>
+        <ul>
+            {% for warning in warnings %}
+            <li>{{ warning }}</li>
+            {% endfor %}
+        </ul>
+    <div>
+    {% endif %}
+{% endmacro %}

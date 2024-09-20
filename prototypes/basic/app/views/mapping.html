@@ -19,7 +19,7 @@
 
         <h2 class="govuk-heading-m">{{sheet}}</h2>
 
-        <form action="{{ importerMapDataPath('/success') }}" method="post">
+        <form action="{{ importerMapDataPath('/success', '/review') }}" method="post">
 
             {{ importerFieldMapper(data) }}
 

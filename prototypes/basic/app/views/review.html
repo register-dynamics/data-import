@@ -1,5 +1,6 @@
 {% extends "layouts/main.html" %}
-{% from "importer/macros/table_view.njk" import importerTableView %}
+{% from "importer/macros/mapping_warning_list.njk" import importerMappingWarningList %}
+{% from "importer/macros/mapping_error_list.njk" import importerMappingErrorList %}
 
 
 {% block pageTitle %} {{ serviceName }} – GOV.UK Prototype Kit {% endblock %}
@@ -12,11 +13,10 @@
     <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-l">Review your data</h1>
 
-        <form action="{{ importerReviewDataPath('/success') }}" method="post">
-            <div class="govuk-button-group">
-                {{ govukButton({ text: "Submit" }) }}
-            </div>
-        </form>
+        {{ importerMappingWarningList(data) }}
+
+        {{ importerMappingErrorList(data) }}
+
     </div>
 </div>
 {% endblock %}
