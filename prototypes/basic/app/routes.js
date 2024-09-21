@@ -5,7 +5,9 @@
 const govukPrototypeKit = require("govuk-prototype-kit");
 const router = govukPrototypeKit.requests.setupRouter();
 
-const cfg = require("govuk-prototype-kit/lib/config");
-const importer = require("@register-dynamics/importer");
 
+// Below 3 lines added by the Data Design Kit plugin.
+// If you uninstall the plugin, remove the 3 lines below.
+const importer = require("@register-dynamics/importer");
+const cfg = require("govuk-prototype-kit/lib/config");
 importer.Initialise(cfg.getConfig(), router, govukPrototypeKit);
