@@ -9,3 +9,17 @@ playwright requires specific browser instances to be installed, and these can be
 ```
 npx playwright install
 ```
+
+## Running tests
+
+You can run the UI tests with
+
+```
+npm test
+```
+
+To test a specific file, you can use a partial filename after --, such as
+
+```
+npm test -- tribble
+```
