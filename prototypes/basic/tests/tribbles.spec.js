@@ -1,5 +1,7 @@
 import { test, expect } from '@playwright/test';
 
+import * as fixtures from "./helpers/fixtures";
+
 import { UploadPage } from './helpers/upload_page';
 import { SheetSelectorPage } from './helpers/sheet_selector_page';
 
@@ -20,12 +22,11 @@ test('trouble with tribbles', async ({ page }) => {
     // Upload a file
     await expect(page).toHaveURL(/.upload/)
 
-    const tribblesFile = path.join(__dirname, "../../../fixtures", 'tribbles.xlsx')
     const uploadPage = new UploadPage(page)
     const browseButton = await uploadPage.browseButton()
 
     await browseButton.click();
-    await browseButton.setInputFiles(tribblesFile);
+    await browseButton.setInputFiles(fixtures.getFixture('tribbles.xlsx'));
     await uploadPage.submit();
 
     // ---------------------------------------------------------------------------
