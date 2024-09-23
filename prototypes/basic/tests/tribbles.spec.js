@@ -4,7 +4,8 @@ import * as fixtures from "./helpers/fixtures";
 
 import { UploadPage } from './helpers/upload_page';
 import { SheetSelectorPage } from './helpers/sheet_selector_page';
-
+import { HeaderSelectorPage } from './helpers/header_selector_page';
+import { FooterSelectorPage } from './helpers/footer_selector_page'
 
 const path = require('node:path');
 
@@ -13,6 +14,11 @@ const sheetPreviewVisibility = new Map([
     [1, "visible"],
     [2, "hidden"]
 ]);
+
+// Take a screenshot to help with debugging
+const screenshot = async(page, name) => {
+    await page.screenshot({ path: name, fullPage: true });
+}
 
 test('trouble with tribbles', async ({ page }) => {
     await page.goto('/');
@@ -56,17 +62,16 @@ test('trouble with tribbles', async ({ page }) => {
     // We will use Name->Markings as our selection
     await expect(page).toHaveURL(/.select_header_row/)
 
-    const headerTbl = await page.locator("table").nth(0);
-    const startCell = await headerTbl.locator("tbody tr").nth(2).locator("td").nth(0)
-    const endCell = await headerTbl.locator("tbody tr").nth(2).locator("td").nth(5)
-    await startCell.dragTo(endCell)
-    await page.getByRole('button', { name: 'Next' }).click();
+    const headers = new HeaderSelectorPage(page)
+    await headers.select([2,0], [2,5])
+    await headers.submit()
 
     // ---------------------------------------------------------------------------
     // Do not choose a footer row, just click Skip
     await expect(page).toHaveURL(/.select_footer_row/)
 
-    await page.getByRole('button', { name: 'Skip' }).click();
+    const footers = new FooterSelectorPage(page)
+    await footers.skip()
 
     // ---------------------------------------------------------------------------
     // Perform the mapping after checking the previews here are what we expect
