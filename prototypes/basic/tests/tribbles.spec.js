@@ -1,5 +1,8 @@
 import { test, expect } from '@playwright/test';
 
+import { UploadPage } from './helpers/upload_page';
+
+
 const path = require('node:path');
 
 const sheetPreviewVisibility = new Map([
@@ -11,14 +14,18 @@ const sheetPreviewVisibility = new Map([
 test('trouble with tribbles', async ({ page }) => {
     await page.goto('/');
     await page.getByText('Start now').click();
-    await expect(page).toHaveURL(/.upload/)
 
     // ---------------------------------------------------------------------------
     // Upload a file
+    await expect(page).toHaveURL(/.upload/)
+
     const tribblesFile = path.join(__dirname, "../../../fixtures", 'tribbles.xlsx')
-    await page.locator('input[name="file"]').click();
-    await page.locator('input[name="file"]').setInputFiles(tribblesFile);
-    await page.getByRole('button', { name: 'Upload' }).click();
+    const uploadPage = new UploadPage(page)
+    const browseButton = await uploadPage.browseButton()
+
+    await browseButton.click();
+    await browseButton.setInputFiles(tribblesFile);
+    await uploadPage.submit();
 
     // ---------------------------------------------------------------------------
     // Select sheet
