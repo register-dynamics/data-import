@@ -6,6 +6,7 @@ import { UploadPage } from './helpers/upload_page';
 import { SheetSelectorPage } from './helpers/sheet_selector_page';
 import { HeaderSelectorPage } from './helpers/header_selector_page';
 import { FooterSelectorPage } from './helpers/footer_selector_page'
+import { MappingPage } from './helpers/mapping_page'
 
 const path = require('node:path');
 
@@ -77,37 +78,28 @@ test('trouble with tribbles', async ({ page }) => {
     // Perform the mapping after checking the previews here are what we expect
     await expect(page).toHaveURL(/.mapping/)
 
+    const mapping = new MappingPage(page)
+
     const expectedColumns = ["Name", "Date of birth", "Time of birth", "Weight", "Colour", "Markings"]
-    const expectedExamples = new Map([
-        [0, "Alex, Drew, Emm, Jamie, Kris"],
-        [4, "Beige, Black, Brown, Maroon, Pink"],
-        [5, "Blob on top, N/A, Splotches, Yes,"],
-    ])
+    const expectedExamples = [
+        "Alex, Drew, Emm, Jamie, Kris",
+        "1-1-24, 1-5-24, 2-3-24, 2-4-24, 3-5-24",
+        "15:05, 1:00, 4:34, 6:01, 9:55",
+        "4.9, 5.5, 6, 6.5, 8.4",
+        "Beige, Black, Brown, Maroon, Pink",
+        "Blob on top, N/A, Splotches, Yes,"
+    ]
 
-    const mappingTbl = await page.locator("table").nth(0)
+    const colNames = await mapping.getColumnNames()
+    expect(colNames).toStrictEqual(expectedColumns)
 
-    // Check the columns names (these are the headers we selected previously)
-    let rowCount = await mappingTbl.locator("tbody tr").count()
-    for(;rowCount>0;rowCount--) {
-        let index = rowCount - 1;
+    const examples = await mapping.getExamples()
+    expect(examples).toStrictEqual(expectedExamples)
 
-        // First cell is a th not a td
-        let colText = await mappingTbl.locator("tbody tr").nth(index).locator("th").nth(0).textContent();
-        expect(expectedColumns.pop()).toBe(colText)
-
-        if (expectedExamples.has(index)) {
-            let exampleText = await mappingTbl.locator("tbody tr").nth(index).locator("td").nth(0).textContent();
-            expect(exampleText).toBe(expectedExamples.get(index))
-        }
-    }
-    expect(expectedColumns).toStrictEqual([])
-
-    // Single selection matching the value or label
-    await page.locator("[name='0']").selectOption("Code")
-    await page.locator("[name='4']").selectOption("Name")
-    await page.locator("[name='5']").selectOption("Speciality")
-
-    await page.getByRole('button', { name: 'Submit' }).click();
+    await mapping.setMapping('Name', 'Code')
+    await mapping.setMapping('Colour', 'Name')
+    await mapping.setMapping('Markings', 'Speciality')
+    await mapping.submit()
 
     // ---------------------------------------------------------------------------
     // Should be on the success page
