@@ -44,13 +44,11 @@ test('trouble with tribbles', async ({ page }) => {
     }
 
     // Check the data is present in the sheet previews
-    const data = sheets.getTableData(1)
-
-
-    const tbl = await page.locator("table").nth(1);
-    const firstCell = await tbl.locator("tbody tr").nth(0).locator("td").nth(0).textContent()
+    const previewRow = await sheets.getTableRow(1, 0)
+    const firstCell = await previewRow.locator("td").nth(0).textContent()
     expect(firstCell).toBe("My lovely tribbles")
-    await page.getByRole('button', { name: 'Next' }).click();
+
+    await sheets.submit()
 
     // ---------------------------------------------------------------------------
     // Select some cells for a header row

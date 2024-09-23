@@ -21,8 +21,8 @@ export class SheetSelectorPage {
         );
     }
 
-    getTableData = async(idx) => {
-        return [];
+    getTableRow = async(tableIdx, rowIdx ) => {
+        return await this.p.locator("table").nth(tableIdx).locator("tbody tr").nth(rowIdx)
     }
 
     submit = async() => {
