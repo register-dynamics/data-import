@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 import { UploadPage } from './helpers/upload_page';
+import { SheetSelectorPage } from './helpers/sheet_selector_page';
 
 
 const path = require('node:path');
@@ -31,18 +32,21 @@ test('trouble with tribbles', async ({ page }) => {
     // Select sheet
     await expect(page).toHaveURL(/.select_sheet/)
 
-    await page.getByLabel('My lovely tribbles').check();
-    expect(page.getByLabel('My lovely tribbles')).toBeChecked();
+    const sheets = new SheetSelectorPage(page);
+
+    const radioButton = await sheets.getRadio('My lovely tribbles')
+    await radioButton.check()
+    expect(radioButton).toBeChecked();
 
     // Check sheet preview visibility, we only expect one to be shown
     for (let [idx, expected] of sheetPreviewVisibility) {
-        let hiddenTableDisplay = await page.locator("table").nth(idx).evaluate((el) => {
-            return window.getComputedStyle(el).getPropertyValue('visibility');
-        });
-        expect(hiddenTableDisplay).toBe(expected)
+        expect(await sheets.getTableProperty(idx, 'visibility')).toBe(expected)
     }
 
     // Check the data is present in the sheet previews
+    const data = sheets.getTableData(1)
+
+
     const tbl = await page.locator("table").nth(1);
     const firstCell = await tbl.locator("tbody tr").nth(0).locator("td").nth(0).textContent()
     expect(firstCell).toBe("My lovely tribbles")
