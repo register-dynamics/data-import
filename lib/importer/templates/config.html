@@ -1,0 +1,89 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %} {{ serviceName }} – GOV.UK Prototype Kit {% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({ text: "Back", href: "javascript:window.history.back()" }) }}
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Configure plugin</h1>
+
+    {% if flash %}
+      {% if flash.mode == 'error' %}
+        <div class="govuk-error-summary" data-module="govuk-error-summary">
+          <div role="alert">
+            <h2 class="govuk-error-summary__title">
+              flash.title
+            </h2>
+            <div class="govuk-error-summary__body">
+              <ul class="govuk-list govuk-error-summary__list">
+                <li>
+                  {{ flash.message}}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      {% else %}
+        <div class="govuk-notification-banner govuk-notification-banner--{{flash.mode}}" role="alert"
+          aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+          <div class="govuk-notification-banner__header">
+            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+              Success
+            </h2>
+          </div>
+          <div class="govuk-notification-banner__content">
+            <h3 class="govuk-notification-banner__heading">
+              {{ flash.title }}
+            </h3>
+            <p class="govuk-body">{{flash.message}}</p>
+          </div>
+        </div>
+      {% endif %}
+    {% endif %}
+
+    <div class="govuk-tabs" data-module="govuk-tabs">
+      <h2 class="govuk-tabs__title">
+        Contents
+      </h2>
+
+      <ul class="govuk-tabs__list">
+        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+          <a class="govuk-tabs__tab" href="#target-data">
+            Target data
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#upload-steps">
+            Upload steps
+          </a>
+        </li>
+      </ul>
+      <div class="govuk-tabs__panel" id="target-data">
+        <form action="/manage-prototype/register-dynamics/importer/config/fields" method="post">
+          Target data
+
+          <div class="govuk-button-group">
+            {{ govukButton({ text: "Submit" }) }}
+          </div>
+        </form>
+
+      </div>
+      <div class="govuk-tabs__panel" id="upload-steps">
+        <form action="/manage-prototype/register-dynamics/importer/config/steps" method="post">
+          Upload steps
+
+          <div class="govuk-button-group">
+            {{ govukButton({ text: "Submit" }) }}
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
