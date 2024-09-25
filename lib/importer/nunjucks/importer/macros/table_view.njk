@@ -1,6 +1,5 @@
 
-
-{% macro importerTableView(data, hideHeader=false, caption=false) %}
+{% macro importerTableView(data, caption=false, hideHeader=false ) %}
     {% set headers = data.headers %}
     {% set rows = data.rows %}
     {% set moreRowsAvailable = data.extraRecordCount > 0 %}
@@ -8,7 +7,9 @@
 
     <table class="selectable govuk-body" data-persist-selection="true">
         {% if caption %}
-        <caption class="govuk-hint">{{caption}}</caption>
+          <caption
+            class="govuk-table__caption govuk-table__caption--m"
+            style="white-space: nowrap; overflow: hidden;">{{caption}}</caption>
         {% endif %}
         {% if not hideHeader %}
         <thead>

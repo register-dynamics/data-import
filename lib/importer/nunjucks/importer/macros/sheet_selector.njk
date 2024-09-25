@@ -59,8 +59,8 @@
             Sheet '{{ sheet.name }}' is empty
             </div>
           {% else %}
-            {% set caption %}First {{sheet.data.rows | length}} rows of '{{sheet.name}}'{% endset %}
-            {{ importerTableView(sheet.data, hideHeader=true, caption=caption) }}
+            {% set caption = importerGetTableCaption(data, "First", 10, sheet.name) %}
+            {{ importerTableView(sheet.data, caption=caption, hideHeader=true) }}
           {% endif %}
         </div>
       {% endfor %}

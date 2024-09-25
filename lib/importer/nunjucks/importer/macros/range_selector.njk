@@ -1,5 +1,5 @@
 
-{% macro importerRangeSelector(rows) %}
+{% macro importerRangeSelector(rows, caption) %}
 
 <div>
     <input type="hidden" name="importer:selection:TLRow" id="importer:selection:TLRow"/>
@@ -8,8 +8,12 @@
     <input type="hidden" name="importer:selection:BRCol" id="importer:selection:BRCol"/>
 </div>
 
-
     <table class="selectable govuk-body" data-persist-selection="true">
+        {% if caption %}
+        <caption
+          class="govuk-table__caption govuk-table__caption--m"
+          style="white-space: nowrap; overflow: hidden;">{{caption}}</caption>
+        {% endif %}
         <tbody>
             {% for row in rows %}
             <tr>
@@ -27,6 +31,4 @@
             {% endfor %}
         </tbody>
     </table>
-
-
 {% endmacro %}
