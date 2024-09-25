@@ -3,6 +3,7 @@
 
 {% macro importerFooterSelector(data, count=10) %}
     {% set rows = importerGetTrailingRows(data, count) %}
+    {% set caption = importerGetTableCaption(data, "Last", count) %}
 
-    {{ importerRangeSelector(rows) }}
+    {{ importerRangeSelector(rows, caption) }}
 {% endmacro %}
