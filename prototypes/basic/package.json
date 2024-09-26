@@ -2,12 +2,17 @@
   "scripts": {
     "dev": "govuk-prototype-kit dev",
     "serve": "govuk-prototype-kit serve",
-    "start": "govuk-prototype-kit start"
+    "start": "govuk-prototype-kit start",
+    "test": "npx playwright test"
   },
   "dependencies": {
     "@govuk-prototype-kit/common-templates": "2.0.1",
     "@register-dynamics/importer": "file:../../lib/importer",
     "govuk-frontend": "5.4.1",
-    "govuk-prototype-kit": "13.16.2"
+    "govuk-prototype-kit": "13.16.2",
+    "playwright": "^1.47.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.47.1"
   }
 }
