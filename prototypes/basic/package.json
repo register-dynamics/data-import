@@ -14,5 +14,8 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.47.1"
+  },
+  "overrides": {
+    "sass": "1.77.6"
   }
 }
