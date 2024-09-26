@@ -25,12 +25,6 @@ jobs:
       run: npx playwright install --with-deps
     - name: Run Playwright tests
       run: npx playwright test
-    - name: Run ls on results
-      run: ls -al ./test-results
-      if: always()
-    - name: Run ls on cwd
-      run: ls -al .
-      if: always()
     - uses: actions/upload-artifact@v4
       if: always()
       with:
