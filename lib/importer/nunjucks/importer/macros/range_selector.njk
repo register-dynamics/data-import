@@ -8,15 +8,23 @@
     <input type="hidden" name="importer:selection:BRCol" id="importer:selection:BRCol"/>
 </div>
 
-    <table class="selectable govuk-body" data-persist-selection="true">
+    <table
+     class="selectable govuk-body"
+     data-persist-selection="true"
+     role="grid"
+     {% if caption %}
+       aria-labelledby="tablecaption"
+     {% endif %}
+     >
         {% if caption %}
-        <caption
-          class="govuk-table__caption govuk-table__caption--m"
-          style="white-space: nowrap; overflow: hidden;">{{caption}}</caption>
+          <caption
+            id="tablecaption"
+            class="govuk-table__caption govuk-table__caption--m"
+            style="white-space: nowrap; overflow: hidden;">{{caption}}</caption>
         {% endif %}
-        <tbody>
+        <tbody role="rowgroup">
             {% for row in rows %}
-            <tr>
+            <tr role="row">
                 {% for cell in row %}
                 <td
                   {% if cell.colspan %}
