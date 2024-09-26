@@ -2,7 +2,7 @@ import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
     testDir: './tests',
-    reporter: process.env.CI ? ['github', 'junit'] : 'line',
+    reporter: process.env.CI ? [['github'], ['junit', {outputFile: "./test-results/results.xml"}]] : 'line',
     use: {
         baseURL: 'http://127.0.0.1:3000',
     },
