@@ -1,0 +1,10 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/prototypes/basic"
+  schedule:
+    interval: "weekly"
+- package-ecosystem: npm
+  directory: "/lib/importer"
+  schedule:
+    interval: "weekly"
