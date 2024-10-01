@@ -53,6 +53,7 @@
   ],
   "stylesheets": [
     "/assets/css/sheet_selector.css",
+    "/assets/css/range_selector.css",
     "/assets/css/selectable_table.css"
   ],
   "nunjucksPaths": [
