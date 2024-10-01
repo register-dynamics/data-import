@@ -5,5 +5,7 @@
     {% set rows = importerGetTrailingRows(data, count) %}
     {% set caption = importerGetTableCaption(data, "Last", count) %}
 
-    {{ importerRangeSelector(rows, caption) }}
+    <div class="rd-range-selector">
+        {{ importerRangeSelector(rows, caption) }}
+    </div>
 {% endmacro %}

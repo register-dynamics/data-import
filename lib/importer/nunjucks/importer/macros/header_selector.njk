@@ -5,5 +5,7 @@
     {% set rows = importerGetRows(data, start, count) %}
     {% set caption = importerGetTableCaption(data, "First", count) %}
 
-    {{ importerRangeSelector(rows, caption) }}
+    <div class="rd-range-selector">
+        {{ importerRangeSelector(rows, caption) }}
+    </div>
 {% endmacro %}
