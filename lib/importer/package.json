@@ -13,6 +13,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "lint": "npx eslint ./*.js",
     "postinstall": "node ./scripts/install-router.js"
   },
   "author": "",
@@ -23,6 +24,10 @@
     "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.2/xlsx-0.20.2.tgz"
   },
   "devDependencies": {
+    "@eslint/js": "^9.11.1",
+    "eslint": "^9.11.1",
+    "eslint-plugin-jest": "^28.8.3",
+    "globals": "^15.10.0",
     "jest": "^29.7.0"
   }
 }
