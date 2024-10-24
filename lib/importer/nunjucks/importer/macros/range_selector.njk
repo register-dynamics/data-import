@@ -11,7 +11,7 @@
     <div class="rd-range-selector">
       <table class="selectable govuk-body"
              data-persist-selection="true"
-             role="grid"
+             role="grid" aria-multiselectable="true"
              {% if caption %}
              aria-labelledby="tablecaption"
              {% endif %}  
@@ -23,7 +23,7 @@
               {% for row in rows %}
               <tr role="row">
                   {% for cell in row %}
-                  <td
+                  <td aria-selected="false"
                     {% if cell.colspan %}
                       colspan="{{ cell.colspan }}"
                     {% endif %}
