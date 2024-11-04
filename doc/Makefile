@@ -43,7 +43,7 @@ include assets.mk
 # We can generate the .gitignore from all of the things we know we are going to
 # end up with in the root dir.
 .gitignore: assets.txt
-	(cat $^; printf '%s\n' ${OBJECTS}; echo assets.mk) | xargs -n1 basename > $@
+	(cat $^; printf '%s\n' ${OBJECTS}; echo assets.mk; echo assets.txt) | xargs -n1 basename > $@
 all: .gitignore
 
 # Download the page and remove any elements marked only for plugin use.
