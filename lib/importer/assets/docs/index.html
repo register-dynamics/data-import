@@ -12,6 +12,12 @@
         [data-static-only] {
             display: none;
         }
+        div#header {
+            background-image: url("./logo.png");
+            background-repeat: no-repeat;
+            background-position: right;
+            background-size: contain;
+        }
     </style>
     <link data-plugin-only rel="icon" sizes="48x48"
         href="/manage-prototype/dependencies/govuk-frontend/dist/govuk/assets/images/favicon.ico">
@@ -50,7 +56,7 @@
 
     <div class="x-govuk-masthead x-govuk-masthead--large" style="margin-top: -10px">
         <div class="govuk-width-container">
-            <div class="govuk-grid-row">
+            <div class="govuk-grid-row" id="header">
                 <div class="govuk-grid-column-two-thirds-from-desktop">
                     <h1 class="x-govuk-masthead__title">
                         Collect data for your GOV.UK service in minutes
