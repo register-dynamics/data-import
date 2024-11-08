@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Data Design Kit by Register Dynamics</title>
+    <title>Data Upload Design Kit by Register Dynamics</title>
     <link href="/public/stylesheets/application.css" rel="stylesheet" type="text/css" />
     <link href="../css/selectable_table.css" rel="stylesheet" type="text/css" />
     <link href="./docs.css" rel="stylesheet" type="text/css" />
@@ -11,6 +11,25 @@
     <style type="text/css" data-plugin-only>
         [data-static-only] {
             display: none;
+        }
+    </style>
+    <style type="text/css">
+        div#title {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: center;
+            align-content: center;
+        }
+        div#title-text {
+            flex-grow: 2;
+        }
+        div#title-logo {
+            flex-grow: 1;
+        }
+        div#title-logo img {
+            width: 100%;
         }
     </style>
     <link data-plugin-only rel="icon" sizes="48x48"
@@ -38,7 +57,7 @@
                         </path>
                     </svg>
                 </a>
-                <a href="/data-import/" data-static-only class="govuk-header__link govuk-header__link--homepage">Data Design Kit</a>
+                <a href="/data-import/" data-static-only class="govuk-header__link govuk-header__link--homepage">Data Upload Design Kit</a>
             </div>
             <div class="govuk-header__content">
                 <a href="/manage-prototype" data-plugin-only class="govuk-header__link govuk-header__service-name">
@@ -49,14 +68,14 @@
     </header>
 
     <div class="x-govuk-masthead x-govuk-masthead--large" style="margin-top: -10px">
-        <div class="govuk-width-container">
-            <div class="govuk-grid-row">
+        <div class="govuk-width-container" id="title">
+            <div class="govuk-grid-row" id="title-text">
                 <div class="govuk-grid-column-two-thirds-from-desktop">
                     <h1 class="x-govuk-masthead__title">
                         Collect data for your GOV.UK service in minutes
                     </h1>
                     <p class="x-govuk-masthead__description" style="text-wrap: balance;">
-                        Use this Data Upload Kit to prototype ways to enable users to give you their data in bulk, quickly and easily
+                        Use this Data Upload Design Kit to prototype ways to enable users to give you their data in bulk, quickly and easily
                     </p>
                     <a href="./start.html" role="button" draggable="false"
                         class="govuk-button govuk-button--inverse govuk-button--start" data-module="govuk-button">
@@ -67,6 +86,9 @@
                         </svg>
                     </a>
                 </div>
+            </div>
+            <div id="title-logo">
+              <img src="logo.png">
             </div>
         </div>
     </div>
@@ -122,9 +144,9 @@
                 </ul>
             </div>
             <div>
-                <h2 class="govuk-heading-m">About the Data Design Kit</h2>
+                <h2 class="govuk-heading-m">About the Data Upload Design Kit</h2>
             <p>
-                The Data Design Kit is a set of components and patterns for asking users for data as a
+                The Data Upload Design Kit is a set of components and patterns for asking users for data as a
                 spreadsheet. These patterns are useful when users need to provide a lot of information at once to a
                 service and are likely to be drawing the information from an existing source.</p>
             <p>They can be used as part of the Prototype Kit and also in
