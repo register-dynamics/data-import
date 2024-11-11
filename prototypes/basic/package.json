@@ -13,7 +13,7 @@
     "playwright": "^1.48.1"
   },
   "devDependencies": {
-    "@playwright/test": "^1.48.1"
+    "@playwright/test": "^1.48.2"
   },
   "overrides": {
     "sass": "1.77.6"
