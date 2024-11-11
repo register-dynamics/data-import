@@ -10,7 +10,7 @@
     "@register-dynamics/importer": "file:../../lib/importer",
     "govuk-frontend": "5.6.0",
     "govuk-prototype-kit": "13.16.2",
-    "playwright": "^1.48.1"
+    "playwright": "^1.48.2"
   },
   "devDependencies": {
     "@playwright/test": "^1.48.1"
