@@ -4,31 +4,36 @@
 
 {% block pageTitle %} {{ serviceName }} – GOV.UK Prototype Kit {% endblock %}
 {% block beforeContent %}
-{{ govukBackLink({ text: "Back", href: "javascript:window.history.back()" }) }}
+    {{ govukBackLink({ text: "Back", href: "javascript:window.history.back()" }) }}
 {% endblock %}
 
 {% block content %}
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-l">Upload your data</h1>
+    {% if importerUploadPath %}
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">Upload your data</h1>
 
-        <form action="{{importerUploadPath('/select_sheet')}}" method="POST" enctype="multipart/form-data">
-            <div>
-                {{ govukFileUpload({
-                id: "file-upload",
-                name: "file",
-                label: { text: "Upload an XLSX, ODS, or CSV file"},
-                attributes: { "accept": ".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,.csv,text/csv,application/vnd.oasis.opendocument.spreadsheet,.ods"},
-                errorMessage: importerError(data)
-                })
-                }}
-            </div>
-            <div class="govuk-button-group">
-                {{ govukButton({ text: "Upload" }) }}
-            </div>
-        </form>
-    </div>
+            <form action="{{importerUploadPath('/select_sheet')}}" method="POST" enctype="multipart/form-data">
+                <div>
+                    {{
+                        govukFileUpload({
+                            id: "file-upload",
+                            name: "file",
+                            label: { text: "Upload an XLSX, ODS, or CSV file"},
+                            attributes: { "accept":
+                            ".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,.csv,text/csv,application/vnd.oasis.opendocument.spreadsheet,.ods"},
+                            errorMessage: importerError(data)
+                        })
+                    }}
+                </div>
+                <div class="govuk-button-group">
+                    {{ govukButton({ text: "Upload" }) }}
+                </div>
+            </form>
+        </div>
+    {% else %}
+        {% import "./previews/upload.html" as preview %}
+        {{ preview.show() }}
+    {% endif %}
 </div>
-
-
 {% endblock %}
