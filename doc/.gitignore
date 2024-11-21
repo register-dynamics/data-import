@@ -8,6 +8,7 @@ selectable_polyfills.js
 selectable_table.js
 sheet_selector.js
 logo.png
+mainpage-screenshots.png
 govuk-frontend.min.js
 init.js
 auto-store-data.js
@@ -19,5 +20,6 @@ component-table-view.html
 index.html
 pattern-tabular-data.html
 start.html
+what-it-is.html
 assets.mk
 assets.txt
