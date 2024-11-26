@@ -94,7 +94,7 @@ table.selectable tr.validation-error:last-child::before {
 
 .feature {
     border: 3px solid #f3f2f1;
-    margin: 0.5em;
+    margin: 0;
     padding: 0.1em;
 }
 
@@ -205,26 +205,4 @@ a.sub-navigation-link:not(:hover):not(:active) {
 }
 a.sub-navigation-link:not(:focus):hover {
   color: #006688;
-}
-
-#title-logo {
-    margin-top: 3em;
-}
-
-#title-logo img {
-}
-
-.text-with-image {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 1em;
-}
-
-.text-with-image .text {
-    flex-grow: 1;
-}
-
-.text-with-image .image {
-    flex-grow: 1;
 }

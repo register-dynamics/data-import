@@ -12,6 +12,29 @@
             display: none;
         }
     </style>
+    <style type="text/css">
+        div.text-with-image {
+          margin-right: auto;
+          margin-left: auto;
+          max-width: 960px;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          justify-content: space-between;
+          align-items: start;
+          align-content: center;
+          gap: 1em;
+        }
+        div.text-with-image .text {
+        }
+        div.text-with-image .image {
+            flex-shrink: 0;
+            width: 60%;
+        }
+        div.text-with-image .image img {
+            width: 100%;
+        }
+    </style>
     <link data-plugin-only rel="icon" sizes="48x48"
         href="/manage-prototype/dependencies/govuk-frontend/dist/govuk/assets/images/favicon.ico">
     <link data-plugin-only rel="icon" sizes="any"
@@ -62,26 +85,45 @@
         <main class="govuk-main-wrapper" id="main-content">
             <h1 class="govuk-heading-xl">Get started</h1>
             <p>
-                The Data Design Kit is available as a plugin that can be installed
-                into the Prototype Kit.
+                The Data Upload Design Kit is available as a plugin that can be
+                installed into the Prototype Kit.
             </p>
-            <h2 class="govuk-heading-l">Installation</h2>
-            <div data-static-only>
-                <p>Install the plugin by typing:</p>
-                <pre>npm install 'https://gitpkg.vercel.app/register-dynamics/data-import/lib/importer?main'</pre>
+            <div class="text-with-image">
+              <div class="text">
+                <p>
+                  It offers a set of ready-made templates for creating a simple data
+                  upload journey for users. This means that the often time-consuming
+                  and difficult task of collecting vast amounts of data from different
+                  people can be managed in a matter of minutes.
+                </p>
+                <p>
+                  Templates are fully customisable and all components and patterns
+                  are compatible with the GOV.UK Design System.
+                </p>
+              </div>
+              <div class="image">
+                <img src="get-started-screenshots.png" />
+              </div>
             </div>
-            <p data-plugin-only class="govuk-body">
-                <span class="govuk-tag govuk-tag--green">Installed</span>
-                You have already installed the plugin and it is ready to be used in this prototype.
+            <h2 class="govuk-heading-l">How to Install it</h2>
+            <p>
+              To start using this plugin, it first needs to be installed onto
+              your machine. It can be installed directly into the GOV.UK
+              Prototype Kit.
             </p>
-            <p>Installing the plugin will automatically append lines to your
-                <code>app/routes.js</code> file to configure the prototype to
-                receive and process spreadsheets.
+            <div data-static-only>
+              <p>
+                Open up your preferred command line, which you previously used to create a gov.uk prototype, and type the following:
+              </p>
+              <pre>npm install 'https://gitpkg.vercel.app/register-dynamics/data-import/lib/importer?main'</pre>
+            </div>
+            <p>
+              After running this command new routes will automatically be added
+              to your prototype’s app/routes.js file. You will then need to
+              configure the plugin, which can be done by editing the
+              app/config.json to look something like the following, replacing
+              the fields with the headings for the data you are interested in.
             </p>
-            <h2 class="govuk-heading-l">Configuration</h2>
-            <p>Finally, add some fields to <code>app/config.json</code> that the user will be asked for
-                when using the
-                "Identify columns" template:
             <pre>{
     "serviceName": "Your service name",
     "fields": [
@@ -90,8 +132,6 @@
         "Speciality"
     ]
 }</pre>
-            </p>
-
 
             <p>You are now ready to use the Data Design Kit.
                 <span data-static-only>Run the Prototype Kit and visit <a

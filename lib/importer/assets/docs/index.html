@@ -14,23 +14,45 @@
         }
     </style>
     <style type="text/css">
-        div#title {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            justify-content: space-between;
-            align-items: center;
-            align-content: center;
-        }
-        div#title-text {
-            flex-grow: 2;
-        }
-        div#title-logo {
-            flex-grow: 1;
-        }
-        div#title-logo img {
-            width: 100%;
-        }
+      div#title {
+          margin-right: auto;
+          margin-left: auto;
+          max-width: 960px;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          justify-content: space-between;
+          align-items: center;
+          align-content: center;
+      }
+      div#title-text {
+      }
+      div#title-logo {
+          width: 50vw;
+      }
+      div#title-logo img {
+          width: 100%;
+      }
+
+      div#intro {
+          margin-right: auto;
+          margin-left: auto;
+          max-width: 960px;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          justify-content: space-between;
+          align-items: center;
+          align-content: center;
+      }
+      div#intro-text {
+      }
+      div#intro-image {
+          width: 30vw;
+      }
+      div#intro-image img {
+          width: 100%;
+      }
     </style>
     <link data-plugin-only rel="icon" sizes="48x48"
         href="/manage-prototype/dependencies/govuk-frontend/dist/govuk/assets/images/favicon.ico">
@@ -68,35 +90,33 @@
     </header>
 
     <div class="x-govuk-masthead x-govuk-masthead--large" style="margin-top: -10px">
-        <div class="govuk-width-container" id="title">
-            <div class="govuk-grid-row" id="title-text">
-                <div class="govuk-grid-column-one-half-from-desktop">
-                    <h1 class="x-govuk-masthead__title">
-                        Collect data for your GOV.UK service in minutes
-                    </h1>
-                    <p class="x-govuk-masthead__description" style="text-wrap: balance;">
-                        Use this Data Upload Design Kit to prototype ways to enable users to give you their data in bulk, quickly and easily
-                    </p>
-                    <a href="./start.html" role="button" draggable="false"
-                        class="govuk-button govuk-button--inverse govuk-button--start" data-module="govuk-button">
-                        Get started
-                        <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5"
-                            height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
-                            <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-                        </svg>
-                    </a>
-                </div>
-                <div class="govuk-grid-column-one-half-from-desktop" id="title-logo">
-                  <img src="logo.png" />
-                </div>
-            </div>
+        <div id="title">
+          <div id="title-text">
+            <h1 class="x-govuk-masthead__title">
+              Collect data for your <br/>
+              GOV.UK service in minutes
+            </h1>
+            <p class="x-govuk-masthead__description" style="text-wrap: balance;">
+              Use this Data Upload Design Kit to prototype ways to enable users to give you their data in bulk, quickly and easily
+            </p>
+            <a href="./start.html" role="button" draggable="false"
+               class="govuk-button govuk-button--inverse govuk-button--start" data-module="govuk-button">
+              Get started
+              <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5"
+                   height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+                <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+              </svg>
+            </a>
+          </div>
+          <div id="title-logo">
+            <img src="logo.png" />
+          </div>
         </div>
     </div>
 
     <div class="govuk-width-container">
-      <main class="govuk-main-wrapper" id="main-content">
-        <div class="text-with-image">
-          <div class="text">
+      <div id="intro">
+        <div id="intro-text">
             <h2 class="govuk-heading-m">Gather data easily</h2>
 
             <p>Use ready-made components and
@@ -106,13 +126,16 @@
             <p>Upload and preview any spreadsheet
               (Excel, Google sheets, CSV) without the
               need to adapt it.</p>
-          </div>
-          <div class="image">
-            <img src="mainpage-screenshots.png" />
-          </div>
-          
         </div>
-        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr">
+        <div id="intro-image">
+            <img src="mainpage-screenshots.png" />
+        </div>
+      </div>
+    </div>
+
+    <div class="govuk-width-container">
+      <main class="govuk-main-wrapper" id="main-content">
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; grid-gap: 1em;">
             <div class="govuk-panel feature">
                 <h2 class="govuk-heading-l">Free</h2>
                 <p>It is quick to set up and is completely free</p>
@@ -142,12 +165,11 @@
             <div class="govuk-section-break govuk-section-break--l govuk-section-break--visible" style="grid-column: span 3;"></div>
             <div>
                 <h2 class="govuk-heading-m">Explore patterns and components</h2>
-                <h2 class="govuk-heading-s">Patterns</h2>
-                <h3 class="govuk-caption-m">Ask users for:</h3>
+                <h2 class="govuk-heading-s">Introduction</h2>
                 <ul class="govuk-list">
                   <li><a class="govuk-link" href="./what-it-is.html">What it is</a></li>
                   <li><a class="govuk-link" href="./how-it-works.html">How it works</a></li>
-                  <li><a class="govuk-link" href="./get-started.html">Get started</a></li>
+                  <li><a class="govuk-link" href="./start.html">Get started</a></li>
                   <li><a class="govuk-link" href="./articles.html">Articles</a></li>
                 </ul>
 
