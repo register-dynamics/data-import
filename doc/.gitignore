@@ -16,8 +16,10 @@ auto-store-data.js
 kit.js
 application.js
 application.css
+articles.html
 component-sheet-selector.html
 component-table-view.html
+how-it-works.html
 index.html
 pattern-tabular-data.html
 start.html

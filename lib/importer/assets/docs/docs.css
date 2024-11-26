@@ -102,9 +102,26 @@ table.selectable tr.validation-error:last-child::before {
     text-align: left;
 }
 
+nav.sub-navigation {
+    font-family: system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.1428571429;
+}
+
+h3.sub-navigation-heading {
+    font-family: system-ui, sans-serif;
+    font-weight: 400;
+    color: black;
+    margin: 0;
+    padding: 10px 15px 10px 0;
+}
+
 @media (min-width: 40.0625em) {
     nav.sub-navigation {
-        font-size: 1rem;
+        font-size: 1.1875rem;
         line-height: 1.25;
     }
 
@@ -112,23 +129,6 @@ table.selectable tr.validation-error:last-child::before {
         font-size: 1.1875rem;
         line-height: 1.3157894737;
     }
-}
-
-nav.sub-navigation {
-    font-family: system-ui, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-weight: 400;
-    font-size: 0.875rem;
-    line-height: 1.1428571429;
-}
-
-h3.sub-navigation-heading {
-    font-family: system-ui, sans-serif;
-    font-weight: 400;
-    color: #505a5f;
-    margin: 0;
-    padding: 10px 15px 10px 0;
 }
 
 ul.sub-navigation-section {
@@ -149,14 +149,14 @@ li.sub-navigation-item[aria-current] {
 
 li.sub-navigation-item-current {
     background-color: #ffffff;
-    border-left: 4px solid #2288aa;
+    border-left: 4px solid #1d70b8;
     margin-left: -14px;
     padding-left: 10px;
+    font-weight: bold;
 }
 
 a.sub-navigation-link {
     font-family: system-ui, sans-serif;
-    font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: #505a5f;
@@ -186,10 +186,10 @@ a.sub-navigation-link:focus {
   box-decoration-break: clone;
 }
 a.sub-navigation-link:link {
-  color: #006688;
+  color: #1d70b8;
 }
 a.sub-navigation-link:visited {
-  color: #006688;
+  color: #1d70b8;
 }
 a.sub-navigation-link:hover {
   color: #004466;
@@ -205,4 +205,18 @@ a.sub-navigation-link:not(:hover):not(:active) {
 }
 a.sub-navigation-link:not(:focus):hover {
   color: #006688;
+}
+div#static-header {
+    padding-bottom: 1em;
+}
+
+
+pre {
+    border: solid 2px #666;
+    padding: 1em;
+    background: #eee;
+    border-radius: 16;
+    box-shadow: 0px 0px 16px #ddd;
+    max-height: 400px;
+    overflow-y: scroll;
 }
