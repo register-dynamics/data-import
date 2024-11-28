@@ -1,0 +1,30 @@
+{
+    "name": "Data Upload Design Kit",
+    "acronym": "DUDK",
+    "url": "https://register-dynamics.github.io/data-import/",
+    "components": [
+        {
+            "name": "Sheet selector",
+            "url": "https://register-dynamics.github.io/data-import/component-sheet-selector.html",
+            "keywords": [ "spreadsheet" ]
+        },
+        {
+            "name": "Table view",
+            "url": "https://register-dynamics.github.io/data-import/component-table-view.html",
+            "keywords": [ "spreadsheet" ]
+        }
+    ],
+    "patterns": [
+        {
+            "name": "Tabular data",
+            "href": "https://register-dynamics.github.io/data-import/pattern-tabular-data.html",
+            "category": "Ask users for"
+        }
+    ],
+    "concept": [
+        {
+            "id": "spreadsheet",
+            "synonyms": [ "table", "workbook", "worksheet" ]
+        }
+    ]
+}
