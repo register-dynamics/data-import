@@ -3,13 +3,36 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Get started – Data Design Kit by Register Dynamics</title>
+    <title>Get started – Data Upload Design Kit by Register Dynamics</title>
     <link href="/public/stylesheets/application.css" rel="stylesheet" type="text/css" />
     <link href="../css/selectable_table.css" rel="stylesheet" type="text/css" />
     <link href="./docs.css" rel="stylesheet" type="text/css" />
     <style type="text/css" data-plugin-only>
         [data-static-only] {
             display: none;
+        }
+    </style>
+    <style type="text/css">
+        div.text-with-image {
+          margin-right: auto;
+          margin-left: auto;
+          max-width: 960px;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          justify-content: space-between;
+          align-items: start;
+          align-content: center;
+          gap: 1em;
+        }
+        div.text-with-image .text {
+        }
+        div.text-with-image .image {
+            flex-shrink: 0;
+            width: 50%;
+        }
+        div.text-with-image .image img {
+            width: 100%;
         }
     </style>
     <link data-plugin-only rel="icon" sizes="48x48"
@@ -27,8 +50,8 @@
     <a href="#main-content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
     <header class="govuk-header">
         <div class="govuk-header__container govuk-width-container">
-            <div class="govuk-header__logo">
-                <a href="/manage-prototype" data-plugin-only class="govuk-header__link govuk-header__link--homepage">
+            <div class="govuk-header__logo" data-plugin-only>
+                <a href="/manage-prototype" class="govuk-header__link govuk-header__link--homepage">
                     <svg focusable="false" role="img" class="govuk-header__logotype" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 148 30" height="30" width="148" aria-label="GOV.UK">
                         <title>GOV.UK</title>
@@ -37,7 +60,9 @@
                         </path>
                     </svg>
                 </a>
-                <a href="/" data-static-only class="govuk-header__link govuk-header__link--homepage">Data Design Kit</a>
+            </div>
+            <div id="static-header" data-static-only>
+                <a href="./index.html" class="govuk-header__link govuk-header__link--homepage">Data Upload Design Kit</a>
             </div>
             <div class="govuk-header__content">
                 <a href="/manage-prototype" data-plugin-only class="govuk-header__link govuk-header__service-name">
@@ -60,29 +85,68 @@
         </nav>
 
         <main class="govuk-main-wrapper" id="main-content">
-            <h1 class="govuk-heading-xl">Get started</h1>
-            <p>
-                The Data Design Kit is available as a plugin that can be installed
-                into the Prototype Kit.
-            </p>
-            <h2 class="govuk-heading-l">Installation</h2>
-            <div data-static-only>
-                <p>Install the plugin by typing:</p>
-                <pre>npm install 'https://gitpkg.vercel.app/register-dynamics/data-import/lib/importer?main'</pre>
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-quarter-from-desktop">
+              <nav class="sub-navigation" aria-labelledby="sub-navigation-heading">
+                <h2 id="sub-navigation-heading" class="govuk-visually-hidden">Pages in this section</h2>
+                <h3 class="sub-navigation-heading">Introduction</h3>
+                <ul class="sub-navigation-section">
+                  <li class="sub-navigation-item false"><a class="sub-navigation-link" href="./what-it-is.html">What it is</a></li>
+                  <li class="sub-navigation-item false"><a class="sub-navigation-link" href="./how-it-works.html">How it works</a></li>
+                  <li class="sub-navigation-item sub-navigation-item-current"><a aria-current="true" class="sub-navigation-link" href="./start.html">Get started</a></li>
+                  <li class="sub-navigation-item false"><a class="sub-navigation-link" href="./articles.html">Articles</a></li>
+                </ul>
+                <h3 class="sub-navigation-heading">Patterns and Components</h3>
+                <ul class="sub-navigation-section">
+                  <li class="sub-navigation-item false"><a class="sub-navigation-link" href="./pattern-tabular-data.html">Tabular data</a></li>
+                  <li class="sub-navigation-item false"><a class="sub-navigation-link" href="./component-table-view.html">Table view</a></li>
+                  <li class="sub-navigation-item false"><a class="sub-navigation-link" href="./component-sheet-selector.html">Sheet selector</a></li>
+                </ul>
+              </nav>
             </div>
-            <p data-plugin-only class="govuk-body">
-                <span class="govuk-tag govuk-tag--green">Installed</span>
-                You have already installed the plugin and it is ready to be used in this prototype.
-            </p>
-            <p>Installing the plugin will automatically append lines to your
-                <code>app/routes.js</code> file to configure the prototype to
-                receive and process spreadsheets.
-            </p>
-            <h2 class="govuk-heading-l">Configuration</h2>
-            <p>Finally, add some fields to <code>app/config.json</code> that the user will be asked for
-                when using the
-                "Identify columns" template:
-            <pre>{
+            <div class="govuk-grid-column-three-quarters-from-desktop">
+              <article class="app-prose">
+              <h1 class="govuk-heading-xl">Get started</h1>
+              <p>
+                The Data Upload Design Kit is available as a plugin that can be
+                installed into the <a href="https://prototype-kit.service.gov.uk/">GOV.UK Prototype Kit</a>.
+              </p>
+              <div class="text-with-image">
+                <div class="text">
+                  <p>
+                    It offers a set of ready-made templates for creating a simple data
+                    upload journey for users. This means that the often time-consuming
+                    and difficult task of collecting vast amounts of data from different
+                    people can be managed in a matter of minutes.
+                  </p>
+                  <p>
+                    Templates are fully customisable and all components and patterns
+                    are compatible with the <a href="https://design-system.service.gov.uk/">GOV.UK Design System</a>.
+                  </p>
+                </div>
+                <div class="image">
+                  <img src="get-started-screenshots.png" />
+                </div>
+              </div>
+              <h2 class="govuk-heading-l">How to Install it</h2>
+              <p>
+                To start using this plugin, it first needs to be installed onto
+                your machine. It can be installed directly into the GOV.UK
+                Prototype Kit.
+              </p>
+              <div data-static-only>
+                <p>
+                  Open up your preferred command line, which you previously used to create a GOV.UK Prototype, and type the following:
+              </p>
+              <pre>npm install 'https://gitpkg.vercel.app/register-dynamics/data-import/lib/importer?main'</pre>
+              <p>
+                After running this command new routes will automatically be added
+                to your prototype’s <code>app/routes.js</code> file. You will then need to
+                configure the plugin, which can be done by editing the
+                <code>app/config.json</code> to look something like the following, replacing
+                the fields with the headings for the data you are interested in.
+              </p>
+              <pre>{
     "serviceName": "Your service name",
     "fields": [
         "Code",
@@ -90,14 +154,13 @@
         "Speciality"
     ]
 }</pre>
-            </p>
+            </div>
 
-
-            <p>You are now ready to use the Data Design Kit.
-                <span data-static-only>Run the Prototype Kit and visit <a
+            <p>You are now ready to use the Data Upload Design Kit.
+                <span data-static-only>Run the GOV.UK Prototype Kit and visit <a
                         href="http://localhost:3000/plugin-assets/%40register-dynamics%2Fimporter/assets/docs/start.html">the
-                        internal documentation</a>
-                    to get started using the Data Design Kit.</span>
+                        internal documentation</a> (which you will be able to view whilst logged into the GOV.UK Prototype Kit)
+                    to get started using the Data Upload Design Kit.</span>
                 <span data-plugin-only>You can get started by following a <a href="./pattern-tabular-data.html">pattern
                         for
                         requesting tabular data</a>.</span>
@@ -106,13 +169,13 @@
             <h2 class="govuk-heading-l">Link your data submission pages together</h2>
             <p>
                 Each page you create from a template needs to be linked to the
-                next page in the user journey. The Prototype Kit documentation
+                next page in the user journey. The GOV.UK Prototype Kit documentation
                 explains how to <a
                     href="https://prototype-kit.service.gov.uk/docs/make-first-prototype/link-pages-together">
                     link simple pages together</a>.
             </p>
             <p>
-                The Data Design Kit templates where the user uploads data,
+                The Data Upload Design Kit templates where the user uploads data,
                 chooses a worksheet, selects headers or footers, or identifies
                 columns use a <code>&lt;form&gt;</code> tag to link pages
                 together. The
@@ -181,6 +244,9 @@
                     </tr>
                 </tbody>
             </table>
+            </article>
+          </div>
+          </div>
         </main>
     </div>
     <footer class="govuk-footer">

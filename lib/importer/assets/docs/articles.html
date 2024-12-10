@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Data Upload Design Kit by Register Dynamics</title>
+    <title>Data Upload Design Kit: Articles</title>
     <link href="/public/stylesheets/application.css" rel="stylesheet" type="text/css" />
     <link href="../css/selectable_table.css" rel="stylesheet" type="text/css" />
     <link href="./docs.css" rel="stylesheet" type="text/css" />
@@ -14,47 +14,24 @@
         }
     </style>
     <style type="text/css">
-      div#title {
-          margin-right: auto;
-          margin-left: auto;
-          max-width: 960px;
+      ul#article-list {
+          list-style-type: none;
+          padding: 0;
+      }
+      ul#article-list li {
           display: flex;
           flex-direction: row;
           flex-wrap: nowrap;
-          justify-content: space-between;
-          align-items: center;
-          align-content: center;
+          align-items: start;
+          gap: 1em;
       }
-      div#title-text {
+      ul#article-list li a.image {
+          width: 30%;
       }
-      div#title-logo {
-          width: 60vw;
-          margin-right: -2em;
-      }
-      div#title-logo img {
+      ul#article-list li a.image img {
           width: 100%;
       }
-
-      div#intro {
-          margin-right: auto;
-          margin-left: auto;
-          margin-top: 2em;
-          max-width: 960px;
-          display: flex;
-          flex-direction: row;
-          flex-wrap: nowrap;
-          justify-content: space-between;
-          align-items: center;
-          align-content: center;
-      }
-      div#intro-text {
-          padding-right: 4em;
-      }
-      div#intro-image {
-          width: 30vw;
-      }
-      div#intro-image img {
-          width: 100%;
+      ul#article-list li p {
       }
     </style>
     <link data-plugin-only rel="icon" sizes="48x48"
@@ -94,106 +71,53 @@
         </div>
     </header>
 
-    <div class="x-govuk-masthead x-govuk-masthead--large" style="margin-top: -10px">
-        <div id="title">
-          <div id="title-text">
-            <h1 class="x-govuk-masthead__title">
-              Collect data for your <br/>
-              GOV.UK service in minutes
-            </h1>
-            <p class="x-govuk-masthead__description" style="text-wrap: balance;">
-              Use this Data Upload Design Kit to prototype ways to enable users to give you their data in bulk, quickly and easily
-            </p>
-            <a href="./start.html" role="button" draggable="false"
-               class="govuk-button govuk-button--inverse govuk-button--start" data-module="govuk-button">
-              Get started
-              <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5"
-                   height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
-                <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-              </svg>
-            </a>
-          </div>
-          <div id="title-logo">
-            <img src="logo.png" />
-          </div>
-        </div>
-    </div>
-
     <div class="govuk-width-container">
-      <div id="intro">
-        <div id="intro-text">
-            <h2 class="govuk-heading-l">Gather data easily</h2>
-
-            <p>Use ready-made components and
-              patterns to create a bulk data upload
-              journey easily</p>
-
-            <p>Upload and preview any spreadsheet
-              (Excel, Google sheets, CSV) without the
-              need to adapt it.</p>
-        </div>
-        <div id="intro-image">
-            <img src="mainpage-screenshots.png" />
-        </div>
+      <div class="govuk-breadcrumbs">
+        <ol class="govuk-breadcrumbs__list">
+          <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="./index.html">Home</a>
+          </li>
+          <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="./articles.html">Articles</a>
+          </li>
+        </ol>
       </div>
-    </div>
+      <main id="main-content" class="govuk-main-wrapper">
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-quarter-from-desktop">
+            <nav class="sub-navigation" aria-labelledby="sub-navigation-heading">
+              <h2 id="sub-navigation-heading" class="govuk-visually-hidden">Pages in this section</h2>
+              <h3 class="sub-navigation-heading">Introduction</h3>
+              <ul class="sub-navigation-section">
+                <li class="sub-navigation-item false"><a class="sub-navigation-link" href="./what-it-is.html">What it is</a></li>
+                <li class="sub-navigation-item false"><a class="sub-navigation-link" href="./how-it-works.html">How it works</a></li>
+                <li class="sub-navigation-item false"><a class="sub-navigation-link" href="./start.html">Get started</a></li>
+                <li class="sub-navigation-item sub-navigation-item-current"><a aria-current="true" class="sub-navigation-link" href="./articles.html">Articles</a></li>
+              </ul>
+              <h3 class="sub-navigation-heading">Patterns and Components</h3>
+              <ul class="sub-navigation-section">
+                <li class="sub-navigation-item false"><a class="sub-navigation-link" href="./pattern-tabular-data.html">Tabular data</a></li>
+                <li class="sub-navigation-item false"><a class="sub-navigation-link" href="./component-table-view.html">Table view</a></li>
+                <li class="sub-navigation-item false"><a class="sub-navigation-link" href="./component-sheet-selector.html">Sheet selector</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="govuk-grid-column-three-quarters-from-desktop">
+            <article class="app-prose">
+              <h1 class="govuk-heading-xl">Articles</h1>
 
-    <div class="govuk-width-container">
-      <main class="govuk-main-wrapper" id="main-content">
-        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; grid-gap: 1em;">
-            <div class="govuk-panel feature">
-                <h2 class="govuk-heading-l">Free</h2>
-                <p>It is quick to set up and is completely free</p>
-            </div>
-            <div class="govuk-panel feature">
-                <h2 class="govuk-heading-l">Flexible</h2>
-                <p>Customise the templates, pages and data points to suit your specific needs</p>
-            </div>
-            <div class="govuk-panel feature">
-                <h2 class="govuk-heading-l">Accessible and Secure</h2>
-                <p>Follow accessibility requirements and the latest cyber security standards</p>
-            </div>
+              <p>Here are some articles that offer more information about the <a href="index.html">Data Upload Design Kit</a>:</p>
 
-            <div class="govuk-panel feature">
-                <h2 class="govuk-heading-l">See live data</h2>
-                <p>Preview and manipulate the data as it gets uploaded (including across multiple spreadsheets)</p>
-            </div>
-            <div class="govuk-panel feature">
-                <h2 class="govuk-heading-l">Develop easily</h2>
-                <p>Enable developers to handle complex spreadshets with just a few simple lines of code</p>
-            </div>
-            <div class="govuk-panel feature">
-                <h2 class="govuk-heading-l">Go Faster</h2>
-                <p>Optimise and accelerate data gathering, ready for your live service</p>
-            </div>
-
-            <div class="govuk-section-break govuk-section-break--l govuk-section-break--visible" style="grid-column: span 3;"></div>
-            <div>
-                <h2 class="govuk-heading-s">Introduction</h2>
-                <ul class="govuk-list">
-                  <li><a class="govuk-link" href="./what-it-is.html">What it is</a></li>
-                  <li><a class="govuk-link" href="./how-it-works.html">How it works</a></li>
-                  <li><a class="govuk-link" href="./start.html">Get started</a></li>
-                  <li><a class="govuk-link" href="./articles.html">Articles</a></li>
-                </ul>
-
-                <h2 class="govuk-heading-s">Patterns and Components</h2>
-                <ul class="govuk-list">
-                    <li><a class="govuk-link" href="./pattern-tabular-data.html">Tabular data</a></li>
-                    <li><a class="govuk-link" href="./component-table-view.html">Table view</a></li>
-                    <li><a class="govuk-link" href="./component-sheet-selector.html">Sheet selector</a></li>
-                </ul>
-            </div>
-            <div style="grid-column: span 2;">
-                <h2 class="govuk-heading-m">About the Data Upload Design Kit</h2>
-                <p>
-                  The Data Upload Design Kit is a free tool that offers a quick and easy way to gather data in bulk, from users. It works with the <a href="https://prototype-kit.service.gov.uk/docs/">GOV.UK Prototype Kit</a> and consists of a set of components and patterns for asking users for data as a spreadsheet. </p>
-            <p>These patterns and components are most useful when capturing a lot of information at once and when drawing from an existing source. They can be used as part of the GOV.UK Prototype Kit, in production as part of a real service and their designs are compatible with the GOV.UK Design System.
-            </p>
-                <p>This kit is built and maintained by the team at
-                    <a href="https://www.register-dynamics.co.uk">Register Dynamics</a>. For help using the tool please contact: <a href="mailto:hello@register-dynamics.co.uk">hello@register-dynamics.co.uk</a>.
-                </p>
-            </div>
+              <ul id="article-list">
+                <li>
+                  <a href="https://www.register-dynamics.co.uk/blog/collect-data-for-your-govuk-service-in-minutes-using-our-data-upload-design-kit" class="image">
+                    <img src="logo.png" />
+                  </a>
+                  <p><a href="https://www.register-dynamics.co.uk/blog/collect-data-for-your-govuk-service-in-minutes-using-our-data-upload-design-kit">Collect data for your GOV.UK service in minutes using our Data Upload Design Kit</a></p>
+                </li>
+              </ul>
+            </article>
+          </div>
         </div>
       </main>
     </div>
