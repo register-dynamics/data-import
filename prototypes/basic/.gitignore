@@ -1,6 +1,9 @@
 # Node.js ignores
 node_modules/
 
+# Test results
+test-results/
+
 # Prototype ignores - per-user
 .tmp/
 .env

@@ -1,5 +1,5 @@
 
-{% macro importerRangeSelector(rows) %}
+{% macro importerRangeSelector(rows, caption) %}
 
 <div>
     <input type="hidden" name="importer:selection:TLRow" id="importer:selection:TLRow"/>
@@ -8,25 +8,27 @@
     <input type="hidden" name="importer:selection:BRCol" id="importer:selection:BRCol"/>
 </div>
 
-
-    <table class="selectable govuk-body" data-persist-selection="true">
-        <tbody>
-            {% for row in rows %}
-            <tr>
-                {% for cell in row %}
-                <td
-                  {% if cell.colspan %}
-                    colspan="{{ cell.colspan }}"
-                  {% endif %}
-                  {% if cell.rowspan %}
-                    rowspan="{{ cell.rowspan }}"
-                  {% endif %}
-                >{{cell.value}}</td>
-                {% endfor %}
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-
-
+    <div class="rd-range-selector">
+      <table class="selectable govuk-body" data-persist-selection="true">
+          {% if caption %}
+          <caption class="govuk-table__caption govuk-table__caption--m">{{caption}}</caption>
+          {% endif %}
+          <tbody>
+              {% for row in rows %}
+              <tr>
+                  {% for cell in row %}
+                  <td
+                    {% if cell.colspan %}
+                      colspan="{{ cell.colspan }}"
+                    {% endif %}
+                    {% if cell.rowspan %}
+                      rowspan="{{ cell.rowspan }}"
+                    {% endif %}
+                  >{{cell.value}}</td>
+                  {% endfor %}
+              </tr>
+              {% endfor %}
+          </tbody>
+      </table>
+    </div>
 {% endmacro %}

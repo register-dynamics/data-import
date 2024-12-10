@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Sheet selector – Data Design Kit by Register Dynamics</title>
+    <title>Sheet selector – Data Upload Design Kit by Register Dynamics</title>
     <link href="/public/stylesheets/application.css" rel="stylesheet" type="text/css" />
     <link href="../css/sheet_selector.css" rel="stylesheet" type="text/css" />
     <link href="../css/selectable_table.css" rel="stylesheet" type="text/css" />
@@ -39,8 +39,8 @@
     <a href="#main-content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
     <header class="govuk-header">
         <div class="govuk-header__container govuk-width-container">
-            <div class="govuk-header__logo">
-                <a href="/manage-prototype" data-plugin-only class="govuk-header__link govuk-header__link--homepage">
+            <div class="govuk-header__logo" data-plugin-only>
+                <a href="/manage-prototype" class="govuk-header__link govuk-header__link--homepage">
                     <svg focusable="false" role="img" class="govuk-header__logotype" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 148 30" height="30" width="148" aria-label="GOV.UK">
                         <title>GOV.UK</title>
@@ -49,7 +49,9 @@
                         </path>
                     </svg>
                 </a>
-                <a href="/" data-static-only class="govuk-header__link govuk-header__link--homepage">Data Design Kit</a>
+            </div>
+            <div id="static-header" data-static-only>
+                <a href="./index.html" class="govuk-header__link govuk-header__link--homepage">Data Upload Design Kit</a>
             </div>
             <div class="govuk-header__content">
                 <a href="/manage-prototype" data-plugin-only class="govuk-header__link govuk-header__service-name">
@@ -75,6 +77,28 @@
         </nav>
 
         <main class="govuk-main-wrapper" id="main-content">
+                    <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-quarter-from-desktop">
+              <nav class="sub-navigation" aria-labelledby="sub-navigation-heading">
+                <h2 id="sub-navigation-heading" class="govuk-visually-hidden">Pages in this section</h2>
+                <h3 class="sub-navigation-heading">Introduction</h3>
+                <ul class="sub-navigation-section">
+                  <li class="sub-navigation-item false"><a class="sub-navigation-link" href="./what-it-is.html">What it is</a></li>
+                  <li class="sub-navigation-item false"><a class="sub-navigation-link" href="./how-it-works.html">How it works</a></li>
+                  <li class="sub-navigation-item false"><a class="sub-navigation-link" href="./start.html">Get started</a></li>
+                  <li class="sub-navigation-item false"><a class="sub-navigation-link" href="./articles.html">Articles</a></li>
+                </ul>
+                <h3 class="sub-navigation-heading">Patterns and Components</h3>
+                <ul class="sub-navigation-section">
+                  <li class="sub-navigation-item false"><a class="sub-navigation-link" href="./pattern-tabular-data.html">Tabular data</a></li>
+                  <li class="sub-navigation-item false"><a class="sub-navigation-link" href="./component-table-view.html">Table view</a></li>
+                  <li class="sub-navigation-item sub-navigation-item-current"><a aria-current="true" class="sub-navigation-link" href="./component-sheet-selector.html">Sheet selector</a></li>
+                </ul>
+              </nav>
+            </div>
+            <div class="govuk-grid-column-three-quarters-from-desktop">
+              <article class="app-prose">
+
             <span class="govuk-caption-xl">Components</span>
             <h1 class="govuk-heading-xl">Sheet selector</h1>
             <p>Ask the user to pick one from multiple worksheets in a spreadsheet they uploaded.</p>
@@ -113,9 +137,9 @@
                 <div class="rd-sheet-selector-previews">
                     <div class="selectable" aria-hidden="true">
                         <table class="govuk-body selectable" style="width: 100%">
-                            <div class="govuk-hint">
+                            <caption class="govuk-table__caption govuk-table__caption--m">
                                 First 10 rows of 'Commodities'
-                            </div>
+                            </caption>
                             <tbody>
                                 <tr>
                                     <td>Commodity code</td>
@@ -211,10 +235,9 @@
                         </table>
                     </div>
                     <div class="selectable" aria-hidden="true">
-                        <div class="govuk-hint">
-                            First 7 rows of 'Footnotes'
-                        </div>
                         <table class="govuk-body selectable" style="width: 100%;">
+                            <caption class="govuk-table__caption govuk-table__caption--m">First 7 rows of 'Footnotes'
+                            </caption>
                             <tbody>
                                 <tr>
                                     <td>Footnode type</td>
@@ -233,37 +256,46 @@
                                 <tr>
                                     <td>DS</td>
                                     <td>110</td>
-                                    <td>This suspension only applies to 1,4,7,10-Tetraazacyclododecane (CAS RN 294-90-6)</td>
+                                    <td>This suspension only applies to 1,4,7,10-Tetraazacyclododecane (CAS RN 294-90-6)
+                                    </td>
                                     <td>2022-01-01</td>
                                     <td>2024-08-31</td>
                                 </tr>
                                 <tr>
                                     <td>DS</td>
                                     <td>111</td>
-                                    <td>This suspension only applies to Colourant C.I. Disperse Yellow 241(CAS RN 83249-52-9) and preparations based thereon with a colourant C.I. Disperse Yellow 241content of 97% or more by weight falling under this commodity code</td>
+                                    <td>This suspension only applies to Colourant C.I. Disperse Yellow 241(CAS RN
+                                        83249-52-9) and preparations based thereon with a colourant C.I. Disperse Yellow
+                                        241content of 97% or more by weight falling under this commodity code</td>
                                     <td>2022-01-01</td>
                                     <td>2024-08-31</td>
                                 </tr>
                                 <tr>
                                     <td>DS</td>
                                     <td>112</td>
-                                    <td>This suspension only applies to Colourant C.I Direct Black 168, in powder form for leather dyeing (CAS RN 85631-88-5) and preparations based thereon with a colourant C.I. Direct Black 168content by weight of 75% or more</td>
+                                    <td>This suspension only applies to Colourant C.I Direct Black 168, in powder form
+                                        for leather dyeing (CAS RN 85631-88-5) and preparations based thereon with a
+                                        colourant C.I. Direct Black 168content by weight of 75% or more</td>
                                     <td>2022-01-01</td>
                                     <td>2024-08-31</td>
                                 </tr>
                                 <tr>
                                     <td>DS</td>
                                     <td>113</td>
-                                    <td>This suspension only applies to Colourant C.I. Vat Blue 1(CAS RN 482-89-3) and preparations based thereon with a colourant C.I. Vat Blue 1content of 94% or more by weight falling under this commodity code</td>
+                                    <td>This suspension only applies to Colourant C.I. Vat Blue 1(CAS RN 482-89-3) and
+                                        preparations based thereon with a colourant C.I. Vat Blue 1content of 94% or
+                                        more by weight falling under this commodity code</td>
                                     <td>2022-01-01</td>
                                     <td>2024-08-31</td>
                                 </tr>
                                 <tr>
                                     <td>DS</td>
                                     <td>114</td>
-                                    <td>This suspension only applies to: Preparation, consisting of a suspension of tepraloxydim (ISO), containing by weight:
-    &bull; 30% or more of tepraloxydim (ISO), and
-    &bull; not more than 70% of a petroleum fraction consisting of aromatic hydrocarbons</td>
+                                    <td>This suspension only applies to: Preparation, consisting of a suspension of
+                                        tepraloxydim (ISO), containing by weight:
+                                        &bull; 30% or more of tepraloxydim (ISO), and
+                                        &bull; not more than 70% of a petroleum fraction consisting of aromatic
+                                        hydrocarbons</td>
                                     <td>2022-01-01</td>
                                     <td>2024-08-31</td>
                                 </tr>
@@ -272,52 +304,65 @@
                     </div>
                     <div class="selectable" aria-hidden="true">
                         <table class="govuk-body selectable" style="width: 100%;">
-                            <caption class="govuk-hint" style="text-align: inherit;">
+                            <caption class="govuk-table__caption govuk-table__caption--m">
                                 First 7 rows of 'Certificates'
                             </caption>
                             <tbody>
-                                <tr><td>Certificate type</td>
-                                <td>Certificate ID</td>
-                                <td>Description</td>
-                                <td>Valid from</td>
-                                <td>Valid until</td>
+                                <tr>
+                                    <td>Certificate type</td>
+                                    <td>Certificate ID</td>
+                                    <td>Description</td>
+                                    <td>Valid from</td>
+                                    <td>Valid until</td>
                                 </tr>
-                                <tr><td>9</td>
-                                <td>99L</td>
-                                <td>CDS universal waiver</td>
-                                <td>2022-01-29</td>
-                                <td>2023-09-30</td>
+                                <tr>
+                                    <td>9</td>
+                                    <td>99L</td>
+                                    <td>CDS universal waiver</td>
+                                    <td>2022-01-29</td>
+                                    <td>2023-09-30</td>
                                 </tr>
-                                <tr><td>Y</td>
-                                <td>061</td>
-                                <td>Reference to Annex 5-A of Council Decision (EU) 2017/37 (OJ L 11)</td>
-                                <td>2017-09-21</td>
-                                <td>2018-03-02</td>
+                                <tr>
+                                    <td>Y</td>
+                                    <td>061</td>
+                                    <td>Reference to Annex 5-A of Council Decision (EU) 2017/37 (OJ L 11)</td>
+                                    <td>2017-09-21</td>
+                                    <td>2018-03-02</td>
                                 </tr>
-                                <tr><td>Y</td>
-                                <td>035</td>
-                                <td>Multi-component integrated circuits (MCOs) according to Annex I, Part One, Section II, letter G of Regulation (EEC) No 2658/87</td>
-                                <td>2016-07-01</td>
-                                <td>2016-12-31</td>
+                                <tr>
+                                    <td>Y</td>
+                                    <td>035</td>
+                                    <td>Multi-component integrated circuits (MCOs) according to Annex I, Part One,
+                                        Section II, letter G of Regulation (EEC) No 2658/87</td>
+                                    <td>2016-07-01</td>
+                                    <td>2016-12-31</td>
                                 </tr>
-                                <tr><td>Y</td>
-                                <td>059</td>
-                                <td>Preparations or mixtures not containing acesulfame potassium (potassium salt of 6-methyl- 1,2,3-oxathiazin-4(3H)-one 2,2-dioxide; CAS RN 55589-62-3)</td>
-                                <td>2015-05-22</td>
-                                <td>2016-12-31</td>
+                                <tr>
+                                    <td>Y</td>
+                                    <td>059</td>
+                                    <td>Preparations or mixtures not containing acesulfame potassium (potassium salt of
+                                        6-methyl- 1,2,3-oxathiazin-4(3H)-one 2,2-dioxide; CAS RN 55589-62-3)</td>
+                                    <td>2015-05-22</td>
+                                    <td>2016-12-31</td>
                                 </tr>
-                                <tr><td>U</td>
-                                <td>098</td>
-                                <td>Declaration of origin (Annex II of Commission Implementing Regulation (EU) 2015/787)</td>
-                                <td>2015-05-22</td>
-                                <td>2016-12-31</td>
+                                <tr>
+                                    <td>U</td>
+                                    <td>098</td>
+                                    <td>Declaration of origin (Annex II of Commission Implementing Regulation (EU)
+                                        2015/787)</td>
+                                    <td>2015-05-22</td>
+                                    <td>2016-12-31</td>
                                 </tr>
-                                <tr><td>Y</td>
-                                <td>060</td>
-                                <td>Peparations or mixtures containing acesulfame potassium (potassium salt of 6-methyl- 1,2,3-oxathiazin-4(3H)-one 2,2-dioxide; CAS RN 55589-62-3) with the same origin as the preparations or mixtures themselves</td>
-                                <td>2015-05-22</td>
-                                <td>2016-12-31</td>
-                                </tr></tbody>
+                                <tr>
+                                    <td>Y</td>
+                                    <td>060</td>
+                                    <td>Peparations or mixtures containing acesulfame potassium (potassium salt of
+                                        6-methyl- 1,2,3-oxathiazin-4(3H)-one 2,2-dioxide; CAS RN 55589-62-3) with the
+                                        same origin as the preparations or mixtures themselves</td>
+                                    <td>2015-05-22</td>
+                                    <td>2016-12-31</td>
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
                 </div>
@@ -341,22 +386,22 @@
                 </ul>
                 <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="html">
                     <p>Create radio buttons for each sheet using the <a
-                    href="https://design-system.service.gov.uk/components/radios/">GOV.UK
-                    Design System Radios component</a> and then lay out up to 10
-                    rows of data for each sheet using <a
-                    href="component-table-view.html">Table view
-                    components</a>.</p>
+                            href="https://design-system.service.gov.uk/components/radios/">GOV.UK
+                            Design System Radios component</a> and then lay out up to 10
+                        rows of data for each sheet using <a href="component-table-view.html">Table view
+                            components</a>.</p>
 
                     <p>Add the <code>rd-sheet-preview</code> class to the
-                    <code>govuk-radios</code> container. Add a
-                    <code>data-preview-index</code> attribute to each
-                    <code>&lt;input type="radio"&gt;</code> which should be the
-                    index of the table view to display when this radio button is
-                    checked.</p>
+                        <code>govuk-radios</code> container. Add a
+                        <code>data-preview-index</code> attribute to each
+                        <code>&lt;input type="radio"&gt;</code> which should be the
+                        index of the table view to display when this radio button is
+                        checked.
+                    </p>
 
                     <p>You can pre-populate a default sheet to be displayed by
-                    adding the <code>checked</code> attribute to its
-                    corresponding radio button.</p>
+                        adding the <code>checked</code> attribute to its
+                        corresponding radio button.</p>
 
                     <pre>&lt;div class="govuk-radios rd-sheet-preview" data-module="govuk-radios"&gt;
     &lt;div class="govuk-radios__item"&gt;
@@ -370,9 +415,10 @@
 &lt;/div&gt;</pre>
 
                     <p>Wrap the table views in an element with class
-                    <code>rd-sheet-selector-previews</code>. Use a
-                    <code>&lt;caption&gt;</code> element to display how many
-                    rows from the sheet are being shown.</p>
+                        <code>rd-sheet-selector-previews</code>. Use a
+                        <code>&lt;caption&gt;</code> element to display how many
+                        rows from the sheet are being shown.
+                    </p>
 
                     <pre>&lt;div class="rd-sheet-selector-previews"&gt;
     &lt;div&gt;
@@ -401,13 +447,14 @@
                                 <th class="govuk-table__header" scope="row">data</th>
                                 <td class="govuk-table__cell">Prototype Kit session</td>
                                 <td class="govuk-table__cell">The automatically
-                                populated <code>data</code> variable containing
-                                the user's uploaded sheet and options.</td>
+                                    populated <code>data</code> variable containing
+                                    the user's uploaded sheet and options.</td>
                             </tr>
                             <tr class="govuk-table__row">
                                 <th class="govuk-table__header" scope="row">legend</th>
                                 <td class="govuk-table__cell">Text (optional, default: blank)</td>
-                                <td class="govuk-table__cell">The heading to describe the purpose of the radio buttons.</td>
+                                <td class="govuk-table__cell">The heading to describe the purpose of the radio buttons.
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -417,37 +464,42 @@
             <h2 class="govuk-heading-l">When to use this component</h2>
             <p>Use this component when users can only submit a single sheet of data to the service.</p>
             <p>It is sometimes still helpful to show the selector even when the
-            user's uploaded file contains a single sheet, as the data preview
-            helps confirm that they have selected the correct file.</p>
+                user's uploaded file contains a single sheet, as the data preview
+                helps confirm that they have selected the correct file.</p>
 
             <h2 class="govuk-heading-l">When to not use this component</h2>
             <p>Do not use this component to display all of the user's data from
-            each sheet. Up to 10 rows are usually sufficient for users to
-            identify the correct sheet.
+                each sheet. Up to 10 rows are usually sufficient for users to
+                identify the correct sheet.
             </p>
 
             <h2 class="govuk-heading-l">Accessibility</h2>
             <p>The design of the sheet selector includes some accessibility features:</p>
             <ul class="govuk-list govuk-list--bullet">
                 <li>Vertical space is reserved for the tallest sheet preview
-                which prevents vertical shift of the rest of the page when the
-                sheet selection is changed. <a
-                href="https://www.w3.org/WAI/WCAG21/Understanding/animation-from-interactions">Avoiding motion of elements is
-                important for users with vestibular
-                disorders (WCAG 2.1)</a>.</li>
+                    which prevents vertical shift of the rest of the page when the
+                    sheet selection is changed. <a
+                        href="https://www.w3.org/WAI/WCAG21/Understanding/animation-from-interactions">Avoiding motion
+                        of elements is
+                        important for users with vestibular
+                        disorders (WCAG 2.1)</a>.</li>
                 <li>Previews of unselected sheets are hidden using a CSS
-                <code>visibility: hidden</code> rule to <a
-                href="https://developer.mozilla.org/en-US/docs/Web/CSS/visibility#accessibility">prevent
-                their content being announced by screen readers</a>.</li>
+                    <code>visibility: hidden</code> rule to <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/CSS/visibility#accessibility">prevent
+                        their content being announced by screen readers</a>.
+                </li>
                 <li>The number of rows and sheet name of each preview is
-                captioned using a
-                <code>&lt;caption&gt;</code>
-                which provides <a
-                href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption">an
-                accessible description</a>.</li>
-                <li>Sheet previews are shown using the accessible <a
-                href="component-table-view.html">Table view component</a>.</li>
+                    captioned using a
+                    <code>&lt;caption&gt;</code>
+                    which provides <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption">an
+                        accessible description</a>.
+                </li>
+                <li>Sheet previews are shown using the accessible <a href="component-table-view.html">Table view
+                        component</a>.</li>
             </ul>
+              </article>
+            </div>
+                    </div>
         </main>
     </div>
     <footer class="govuk-footer">

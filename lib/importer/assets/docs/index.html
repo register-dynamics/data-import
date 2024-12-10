@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Data Design Kit by Register Dynamics</title>
+    <title>Data Upload Design Kit by Register Dynamics</title>
     <link href="/public/stylesheets/application.css" rel="stylesheet" type="text/css" />
     <link href="../css/selectable_table.css" rel="stylesheet" type="text/css" />
     <link href="./docs.css" rel="stylesheet" type="text/css" />
@@ -12,6 +12,50 @@
         [data-static-only] {
             display: none;
         }
+    </style>
+    <style type="text/css">
+      div#title {
+          margin-right: auto;
+          margin-left: auto;
+          max-width: 960px;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          justify-content: space-between;
+          align-items: center;
+          align-content: center;
+      }
+      div#title-text {
+      }
+      div#title-logo {
+          width: 60vw;
+          margin-right: -2em;
+      }
+      div#title-logo img {
+          width: 100%;
+      }
+
+      div#intro {
+          margin-right: auto;
+          margin-left: auto;
+          margin-top: 2em;
+          max-width: 960px;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          justify-content: space-between;
+          align-items: center;
+          align-content: center;
+      }
+      div#intro-text {
+          padding-right: 4em;
+      }
+      div#intro-image {
+          width: 30vw;
+      }
+      div#intro-image img {
+          width: 100%;
+      }
     </style>
     <link data-plugin-only rel="icon" sizes="48x48"
         href="/manage-prototype/dependencies/govuk-frontend/dist/govuk/assets/images/favicon.ico">
@@ -28,8 +72,8 @@
     <a href="#main-content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
     <header class="govuk-header">
         <div class="govuk-header__container govuk-width-container">
-            <div class="govuk-header__logo">
-                <a href="/manage-prototype" data-plugin-only class="govuk-header__link govuk-header__link--homepage">
+            <div class="govuk-header__logo" data-plugin-only>
+                <a href="/manage-prototype" class="govuk-header__link govuk-header__link--homepage">
                     <svg focusable="false" role="img" class="govuk-header__logotype" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 148 30" height="30" width="148" aria-label="GOV.UK">
                         <title>GOV.UK</title>
@@ -38,7 +82,9 @@
                         </path>
                     </svg>
                 </a>
-                <a href="/" data-static-only class="govuk-header__link govuk-header__link--homepage">Data Design Kit</a>
+            </div>
+            <div id="static-header" data-static-only>
+                <a href="./index.html" class="govuk-header__link govuk-header__link--homepage">Data Upload Design Kit</a>
             </div>
             <div class="govuk-header__content">
                 <a href="/manage-prototype" data-plugin-only class="govuk-header__link govuk-header__service-name">
@@ -49,85 +95,107 @@
     </header>
 
     <div class="x-govuk-masthead x-govuk-masthead--large" style="margin-top: -10px">
-        <div class="govuk-width-container">
-            <div class="govuk-grid-row">
-                <div class="govuk-grid-column-two-thirds-from-desktop">
-                    <h1 class="x-govuk-masthead__title">
-                        Design services that excel with spreadsheets
-                    </h1>
-                    <p class="x-govuk-masthead__description" style="text-wrap: balance;">
-                        Easily build services that crunch spreadsheets with
-                        ready-made components and patterns.
-                    </p>
-                    <a href="./start.html" role="button" draggable="false"
-                        class="govuk-button govuk-button--inverse govuk-button--start" data-module="govuk-button">
-                        Get started
-                        <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5"
-                            height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
-                            <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-                        </svg>
-                    </a>
-                </div>
-            </div>
+        <div id="title">
+          <div id="title-text">
+            <h1 class="x-govuk-masthead__title">
+              Collect data for your <br/>
+              GOV.UK service in minutes
+            </h1>
+            <p class="x-govuk-masthead__description" style="text-wrap: balance;">
+              Use this Data Upload Design Kit to prototype ways to enable users to give you their data in bulk, quickly and easily
+            </p>
+            <a href="./start.html" role="button" draggable="false"
+               class="govuk-button govuk-button--inverse govuk-button--start" data-module="govuk-button">
+              Get started
+              <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5"
+                   height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+                <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+              </svg>
+            </a>
+          </div>
+          <div id="title-logo">
+            <img src="logo.png" />
+          </div>
         </div>
     </div>
 
     <div class="govuk-width-container">
-        <main class="govuk-main-wrapper" id="main-content" style="display: grid; grid-template-columns: 1fr 1fr">
+      <div id="intro">
+        <div id="intro-text">
+            <h2 class="govuk-heading-l">Gather data easily</h2>
+
+            <p>Use ready-made components and
+              patterns to create a bulk data upload
+              journey easily</p>
+
+            <p>Upload and preview any spreadsheet
+              (Excel, Google sheets, CSV) without the
+              need to adapt it.</p>
+        </div>
+        <div id="intro-image">
+            <img src="mainpage-screenshots.png" />
+        </div>
+      </div>
+    </div>
+
+    <div class="govuk-width-container">
+      <main class="govuk-main-wrapper" id="main-content">
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; grid-gap: 1em;">
             <div class="govuk-panel feature">
-                <h2 class="govuk-heading-l">Test with real data</h2>
-                <p>Quickly build high-fidelity prototypes that test realistic spreadsheet journeys</p>
+                <h2 class="govuk-heading-l">Free</h2>
+                <p>It is quick to set up and is completely free</p>
             </div>
             <div class="govuk-panel feature">
-                <h2 class="govuk-heading-l">Design confidently</h2>
-                <p>Rely on accessible and user-tested components or patterns for designing smarter with data</p>
+                <h2 class="govuk-heading-l">Flexible</h2>
+                <p>Customise the templates, pages and data points to suit your specific needs</p>
             </div>
             <div class="govuk-panel feature">
-                <h2 class="govuk-heading-l">Put users first</h2>
-                <p>Give the best support to users in batch input, bulk upload and data submission journeys</p>
+                <h2 class="govuk-heading-l">Accessible and Secure</h2>
+                <p>Follow accessibility requirements and the latest cyber security standards</p>
             </div>
+
             <div class="govuk-panel feature">
-                <h2 class="govuk-heading-l">Focus on your service</h2>
-                <p>Remove the risk and uncertainty from data upload journeys and focus where it matters</p>
+                <h2 class="govuk-heading-l">See live data</h2>
+                <p>Preview and manipulate the data as it gets uploaded (including across multiple spreadsheets)</p>
             </div>
             <div class="govuk-panel feature">
                 <h2 class="govuk-heading-l">Develop easily</h2>
-                <p>Handle multiple worksheets, merged cells, titles and footers with only a few lines of code</p>
+                <p>Enable developers to handle complex spreadshets with just a few simple lines of code</p>
             </div>
             <div class="govuk-panel feature">
-                <h2 class="govuk-heading-l">Get to MVP quickly</h2>
-                <p>Pre-built journeys accelerate prototyping and development</p>
+                <h2 class="govuk-heading-l">Go Faster</h2>
+                <p>Optimise and accelerate data gathering, ready for your live service</p>
             </div>
-            <div class="govuk-section-break govuk-section-break--l govuk-section-break--visible" style="grid-column: span 2;"></div>
+
+            <div class="govuk-section-break govuk-section-break--l govuk-section-break--visible" style="grid-column: span 3;"></div>
             <div>
-                <h2 class="govuk-heading-m">Explore patterns and components</h2>
-                <h2 class="govuk-heading-s">Patterns</h2>
-                <h3 class="govuk-caption-m">Ask users for:</h3>
+                <h2 class="govuk-heading-s">Introduction</h2>
                 <ul class="govuk-list">
-                    <li><a class="govuk-link" href="./pattern-tabular-data.html">Tabular data</a></li>
+                  <li><a class="govuk-link" href="./what-it-is.html">What it is</a></li>
+                  <li><a class="govuk-link" href="./how-it-works.html">How it works</a></li>
+                  <li><a class="govuk-link" href="./start.html">Get started</a></li>
+                  <li><a class="govuk-link" href="./articles.html">Articles</a></li>
                 </ul>
 
-                <h2 class="govuk-heading-s">Components</h2>
+                <h2 class="govuk-heading-s">Patterns and Components</h2>
                 <ul class="govuk-list">
+                    <li><a class="govuk-link" href="./pattern-tabular-data.html">Tabular data</a></li>
                     <li><a class="govuk-link" href="./component-table-view.html">Table view</a></li>
                     <li><a class="govuk-link" href="./component-sheet-selector.html">Sheet selector</a></li>
                 </ul>
             </div>
-            <div>
-                <h2 class="govuk-heading-m">About the Data Design Kit</h2>
-            <p>
-                The Data Design Kit is a set of components and patterns for asking users for data as a
-                spreadsheet. These patterns are useful when users need to provide a lot of information at once to a
-                service and are likely to be drawing the information from an existing source.</p>
-            <p>They can be used as part of the Prototype Kit and also in
-                production use as part of a real service. Their designs are
-                compatible with the GOV.UK Design System.
+            <div style="grid-column: span 2;">
+                <h2 class="govuk-heading-m">About the Data Upload Design Kit</h2>
+                <p>
+                  The Data Upload Design Kit is a free tool that offers a quick and easy way to gather data in bulk, from users. It works with the <a href="https://prototype-kit.service.gov.uk/docs/">GOV.UK Prototype Kit</a> and consists of a set of components and patterns for asking users for data as a spreadsheet. </p>
+            <p>These patterns and components are most useful when capturing a lot of information at once and when drawing from an existing source. They can be used as part of the GOV.UK Prototype Kit, in production as part of a real service and their designs are compatible with the GOV.UK Design System.
             </p>
                 <p>This kit is built and maintained by the team at
-                    <a href="https://www.register-dynamics.co.uk">Register Dynamics</a>.
+                    <a href="https://www.register-dynamics.co.uk">Register Dynamics</a>. For help using the tool please contact: <a href="mailto:hello@register-dynamics.co.uk">hello@register-dynamics.co.uk</a>.
                 </p>
             </div>
-        </main>
+        </div>
+      </main>
     </div>
     <footer class="govuk-footer">
         <div class="govuk-width-container">

@@ -1,10 +1,21 @@
 
+update-deps:
+	@echo "***************************"
+	@echo "** Updating importer lib **"
+	@echo "***************************"
+	@cd lib/importer && npm install
+	@echo "***********************************"
+	@echo "** Default development prototype **"
+	@echo "***********************************"
+	@cd prototypes/basic && npm install
+
 
 .PHONY: prototype
-prototype:
 ifndef NAME
-    $(error Need a value for NAME, e.g., make prototype NAME=value)
-endif
+prototype:
+	$(error Need a value for NAME, e.g., make prototype NAME=value)
+else
+prototype:
 	@cd lib/importer && npm install
 	@mkdir -p prototypes/${NAME}
 	@cd prototypes/${NAME} && npx govuk-prototype-kit@latest create && npm install ../../lib/importer
@@ -17,3 +28,5 @@ endif
 	    cd prototypes/${NAME}\n\
 	    npm run dev\n\
 	"
+endif
+

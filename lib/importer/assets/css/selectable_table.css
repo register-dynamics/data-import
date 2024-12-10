@@ -8,6 +8,8 @@ table.selectable {
 
 table.selectable caption {
     text-align: inherit;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 table.selectable col:not(:first-child) {
