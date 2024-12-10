@@ -29,13 +29,14 @@ table.selectable td {
     border-right-width: 1px;
     white-space: pre-wrap;
     font-variant-numeric: tabular-nums;
+    min-width: 10em;
 }
 
 table.selectable th *,
 table.selectable td * {
     box-sizing: border-box;
     font-family: inherit;
-    cursor: inherit
+    cursor: inherit;
 }
 
 table.selectable th a,
