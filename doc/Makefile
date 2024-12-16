@@ -18,7 +18,7 @@ OBJECTS := $(subst ../lib/importer/assets/docs/,./,${SOURCES})
 assets.txt: ${SOURCES}
 	(echo $^ | xargs -n1 | xargs -I INPUT ${HQ} -r '[data-plugin-only]' -f INPUT -a src 'script[src]'; \
 	 echo $^ | xargs -n1 | xargs -I INPUT ${HQ} -r '[data-plugin-only]' -f INPUT -a href 'link[rel=stylesheet]'; \
-         echo ${IMAGES} | sed 's_\.\./lib/importer/assets/docs/_./_') | \
+         echo ${IMAGES} | xargs -n1 | sed 's_\.\./lib/importer/assets/docs/_./_') | \
 		sort -u | grep . > $@
 
 # Now build a Makefile dependency include, specifying the correct download

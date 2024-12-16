@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Data Design Kit by Register Dynamics</title>
+    <title>Data Upload Design Kit by Register Dynamics</title>
     <link href="/public/stylesheets/application.css" rel="stylesheet" type="text/css" />
     <link href="../css/selectable_table.css" rel="stylesheet" type="text/css" />
     <link href="./docs.css" rel="stylesheet" type="text/css" />
@@ -27,8 +27,8 @@
     <a href="#main-content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
     <header class="govuk-header">
         <div class="govuk-header__container govuk-width-container">
-            <div class="govuk-header__logo">
-                <a href="/manage-prototype" data-plugin-only class="govuk-header__link govuk-header__link--homepage">
+            <div class="govuk-header__logo" data-plugin-only>
+                <a href="/manage-prototype" class="govuk-header__link govuk-header__link--homepage">
                     <svg focusable="false" role="img" class="govuk-header__logotype" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 148 30" height="30" width="148" aria-label="GOV.UK">
                         <title>GOV.UK</title>
@@ -37,7 +37,9 @@
                         </path>
                     </svg>
                 </a>
-                <a href="/" data-static-only class="govuk-header__link govuk-header__link--homepage">Data Design Kit</a>
+            </div>
+            <div id="static-header" data-static-only>
+                <a href="./index.html" class="govuk-header__link govuk-header__link--homepage">Data Upload Design Kit</a>
             </div>
             <div class="govuk-header__content">
                 <a href="/manage-prototype" data-plugin-only class="govuk-header__link govuk-header__service-name">
@@ -62,7 +64,29 @@
             </ol>
         </nav>
 
-        <main class="govuk-main-wrapper" id="main-content">
+<main class="govuk-main-wrapper" id="main-content">
+            <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-quarter-from-desktop">
+              <nav class="sub-navigation" aria-labelledby="sub-navigation-heading">
+                <h2 id="sub-navigation-heading" class="govuk-visually-hidden">Pages in this section</h2>
+                <h3 class="sub-navigation-heading">Introduction</h3>
+                <ul class="sub-navigation-section">
+                  <li class="sub-navigation-item false"><a class="sub-navigation-link" href="./what-it-is.html">What it is</a></li>
+                  <li class="sub-navigation-item false"><a class="sub-navigation-link" href="./how-it-works.html">How it works</a></li>
+                  <li class="sub-navigation-item false"><a class="sub-navigation-link" href="./start.html">Get started</a></li>
+                  <li class="sub-navigation-item false"><a class="sub-navigation-link" href="./articles.html">Articles</a></li>
+                </ul>
+                <h3 class="sub-navigation-heading">Patterns and Components</h3>
+                <ul class="sub-navigation-section">
+                  <li class="sub-navigation-item sub-navigation-item-current"><a aria-current="true" class="sub-navigation-link" href="./pattern-tabular-data.html">Tabular data</a></li>
+                  <li class="sub-navigation-item false"><a class="sub-navigation-link" href="./component-table-view.html">Table view</a></li>
+                  <li class="sub-navigation-item false"><a class="sub-navigation-link" href="./component-sheet-selector.html">Sheet selector</a></li>
+                </ul>
+              </nav>
+            </div>
+            <div class="govuk-grid-column-three-quarters-from-desktop">
+              <article class="app-prose">
+
             <span class="govuk-caption-xl">Ask users for</span>
             <h1 class="govuk-heading-xl">Tabular data</h1>
             <p>
@@ -356,7 +380,7 @@
                 </div>
                 <div class="rd-service-text">
                     <h2 class="govuk-heading-m">User maps input columns to required names</h2>
-                    <p>Uesrs often include extra columns
+                    <p>Users often include extra columns
                         (such as "notes") in amongst the columns of interest. Your
                         service should allow users to ignore these. They may also
                         pick different names for columns depending on their other
@@ -483,6 +507,9 @@
                     </a>
                 </div>
             </section>
+              </article>
+            </div>
+            </div>
         </main>
     </div>
     <footer class="govuk-footer">
