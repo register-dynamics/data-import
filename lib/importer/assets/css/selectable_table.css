@@ -29,13 +29,15 @@ table.selectable td {
     border-right-width: 1px;
     white-space: pre-wrap;
     font-variant-numeric: tabular-nums;
+    min-width: 8em;
+    max-width: 15em;
 }
 
 table.selectable th *,
 table.selectable td * {
     box-sizing: border-box;
     font-family: inherit;
-    cursor: inherit
+    cursor: inherit;
 }
 
 table.selectable th a,
@@ -235,6 +237,10 @@ table.selectable:not(.editable) tbody:empty::before {
     padding: 0.5em;
     width: 100%;
     box-sizing: border-box
+}
+
+table.selectable td.selected.focus {
+    border: 2px solid blue;
 }
 
 table.selectable tbody td,
