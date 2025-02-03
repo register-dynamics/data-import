@@ -1,0 +1,9 @@
+TEST SPREADSHEET,,,,,,
+required string,required number,optional string,optional number,,,
+Name,Age,Egginess,Weight,,Valid?,Comment
+Boris,13,High,5.5,,TRUE,All fields present
+,,,,,FALSE,All fields blank; row will be silently ignored
+Nelly,10,,,,TRUE,Optional fields absent
+Sid,twelve,,,,FALSE,Invalid required number
+,nine,,,,FALSE,"Missing required string, invalid required number"
+Dave,15,,unknown,,TRUE,Invalid optional number
