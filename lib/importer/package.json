@@ -10,10 +10,10 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "jest",
-    "lint": "npx eslint ./*.js",
+    "test": "jest ./src/",
+    "lint": "npx eslint ./src/*.js",
     "postinstall": "node ./scripts/install-router.js"
   },
   "author": "",
