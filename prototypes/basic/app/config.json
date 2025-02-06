@@ -1,8 +1,4 @@
 {
   "serviceName": "Import spreadsheet data",
-  "fields": [
-    "Code",
-    "Name",
-    "Speciality"
-  ]
+  "fields": ["Code", "Name", "Speciality"]
 }
