@@ -22,7 +22,7 @@
   "dependencies": {
     "multer": "^1.4.5-lts.1",
     "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.2/xlsx-0.20.2.tgz",
-    "fs-extra": "3.0.1"
+    "fs-extra": "11.3.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
