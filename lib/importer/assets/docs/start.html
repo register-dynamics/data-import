@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Get started – Data Upload Design Kit by Register Dynamics</title>
     <link href="/public/stylesheets/application.css" rel="stylesheet" type="text/css" />
     <link href="../css/selectable_table.css" rel="stylesheet" type="text/css" />
@@ -13,26 +14,19 @@
         }
     </style>
     <style type="text/css">
-        div.text-with-image {
-          margin-right: auto;
-          margin-left: auto;
-          max-width: 960px;
-          display: flex;
-          flex-direction: row;
-          flex-wrap: nowrap;
-          justify-content: space-between;
-          align-items: start;
-          align-content: center;
-          gap: 1em;
+        .image {
+            float: right;
+            margin: 0 2em;
+            text-align: center;
         }
-        div.text-with-image .text {
+        .image img {
+            max-width: 300px;
         }
-        div.text-with-image .image {
-            flex-shrink: 0;
-            width: 50%;
-        }
-        div.text-with-image .image img {
-            width: 100%;
+        @media (max-width: 550px) {
+            .image {
+                float: none;
+                margin: 1em;
+            }
         }
     </style>
     <link data-plugin-only rel="icon" sizes="48x48"
@@ -111,8 +105,9 @@
                 The Data Upload Design Kit is available as a plugin that can be
                 installed into the <a href="https://prototype-kit.service.gov.uk/">GOV.UK Prototype Kit</a>.
               </p>
-              <div class="text-with-image">
-                <div class="text">
+                <div class="image">
+                    <img src="get-started-screenshots.png" />
+                </div>
                   <p>
                     It offers a set of ready-made templates for creating a simple data
                     upload journey for users. This means that the often time-consuming
@@ -123,12 +118,7 @@
                     Templates are fully customisable and all components and patterns
                     are compatible with the <a href="https://design-system.service.gov.uk/">GOV.UK Design System</a>.
                   </p>
-                </div>
-                <div class="image">
-                  <img src="get-started-screenshots.png" />
-                </div>
-              </div>
-              <h2 class="govuk-heading-l">How to Install it</h2>
+              <h2 class="govuk-heading-l">How to install it</h2>
               <p>
                 To start using this plugin, it first needs to be installed onto
                 your machine. It can be installed directly into the GOV.UK

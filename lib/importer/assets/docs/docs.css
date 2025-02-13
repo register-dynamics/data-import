@@ -92,13 +92,30 @@ table.selectable tr.validation-error:last-child::before {
     background-position-y: -18px;
 }
 
-.feature {
-    border: 3px solid #f3f2f1;
-    margin: 0;
-    padding: 0.1em;
+.feature-grid {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 1em;
+    row-gap: 1em;
+}
+
+@media (max-width: 550px) {
+    .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 300px) {
+    .feature-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
 
 .feature {
+    border: 3px solid #f3f2f1;
+    margin: 0;
+    padding: 0.5em;
     text-align: left;
 }
 
