@@ -3,12 +3,55 @@
 {% set pageName="Plugin Configuration" %}
 
 {% block content %}
-
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-full">
     <h1 class="govuk-heading-xl">
         Plugin Configuration
     </h1>
+
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-l">Data fields to map imported data to</h2>
+
+      <ul class="govuk-task-list">
+        {% for field in config.fields %}
+        <form action="config/field" method="post">
+          <input type="hidden" name="action" value="delete"/>
+          <input type="hidden" name="field" value="{{field}}"/>
+          <li class="govuk-task-list__item govuk-task-list__item--with-link">
+            <div class="govuk-task-list__name-and-hint">
+                {{field}}
+            </div>
+            <div class="govuk-task-list__status" id="company-details-1-status">
+              <button type="submit" class="govuk-button govuk-button--warning govuk-!-static-margin-bottom-0" data-module="govuk-button">Delete</button>
+            </div>
+          </li>
+        </form>
+        {% endfor %}
+      </ul>
+
+      <p>
+        <a class="govuk-link" href="config/field">Add another</a>
+      </p>
+
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <h2 class="govuk-heading-l">Storing uploaded spreadsheets</h2>
+
+      {% if config.uploadPathDefault %}
+        {% set current_upload = "[Temporary directory]" %}
+      {% else %}
+        {% set current_upload = config.uploadPath %}
+      {% endif %}
+
+        <label class="govuk-label" for="event-name">
+          Upload directory
+        </label>
+      </h1>
+
+        <input class="govuk-input" id="event-name" name="eventName" type="text" value="{{current_upload}}">
+    </div>
 
   </div>
 </div>
