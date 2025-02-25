@@ -9,5 +9,6 @@
     "Salary",
     "Contribution percentage",
     "Payment date"
-  ]
+  ],
+  "uploadPath": ""
 }
