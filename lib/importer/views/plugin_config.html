@@ -9,9 +9,57 @@
         Plugin Configuration
     </h1>
 
-    <div class="govuk-grid-column-two-thirds">
-      <h2 class="govuk-heading-l">Data fields to map imported data to</h2>
 
+    {% if message %}
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">
+        Configuration saved
+      </h1>
+      <div class="govuk-panel__body">
+        {{ message }}
+      </div>
+    </div>
+
+  {% endif %}
+
+
+
+    {% if error %}
+    <div class="govuk-error-summary" data-module="govuk-error-summary">
+      <div role="alert">
+        <h2 class="govuk-error-form_err">
+          There was a problem with your submission
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li>
+              <a href="#uploadPath">{{ error_summary }}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+
+    <div class="govuk-grid-column-two-thirds"></div>
+      <p class="govuk-body-l">
+        This page allows you to configure the plugin by specifying what the imported data
+        should look like after processing, and where uploaded spreadsheets should be stored.
+      </p>
+    </div>
+
+    <div class="govuk-grid-column-full">
+      <h2 class="govuk-heading-l">Data map</h2>
+
+      <p class="govuk-body">
+        When importing a spreadsheet, each row of the identified table will be mapped to a new record
+        which you can specify here. Once you have selected the table in the uploaded file you will be
+        asked to map each column to one of the fields defined here.
+      </p>
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
       <ul class="govuk-task-list">
         {% for field in config.fields %}
         <form action="config/field" method="post">
@@ -29,28 +77,67 @@
         {% endfor %}
       </ul>
 
-      <p>
-        <a class="govuk-link" href="config/field">Add another</a>
-      </p>
+
+      <div class="govuk-button-group">
+        <a class="govuk-button govuk-button--secondary" href="config/field">Add another</a>
+      </div>
 
     </div>
 
-    <div class="govuk-grid-column-two-thirds">
 
+    <div class="govuk-grid-column-full govuk-!-padding-top-6" >
       <h2 class="govuk-heading-l">Storing uploaded spreadsheets</h2>
 
-      {% if config.uploadPathDefault %}
-        {% set current_upload = "[Temporary directory]" %}
-      {% else %}
-        {% set current_upload = config.uploadPath %}
-      {% endif %}
+      <p class="govuk-body">
+        By default, uploaded spreadsheets are stored in an auto-determined temporary folder.
+        This means that you only need to modify this setting if you have an explicit need to
+        store the uploaded data elsewhere. In almost all cases you can ignore this section.
+      </p>
 
-        <label class="govuk-label" for="event-name">
-          Upload directory
-        </label>
-      </h1>
+      <form action="config/path" method="post">
+        <div class="govuk-form-group {% if error %}govuk-form-group--error{% endif %}">
+          <label class="govuk-label" for="upload-path">
+            Upload directory
+          </label>
 
-        <input class="govuk-input" id="event-name" name="eventName" type="text" value="{{current_upload}}">
+          {% if error %}
+          <p id="path_err" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> {{ error }}
+          </p>
+          {% endif %}
+
+
+          <input class="govuk-input" id="uploadPath" name="uploadPath" type="text" value="{{ config.uploadPath }}">
+        </div>
+        <div class="govuk-button-group">
+          <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">Update path</button>
+        </div>
+      </form>
+    </div>
+
+
+    <div class="govuk-grid-column-full govuk-!-padding-top-6" >
+      <h2 class="govuk-heading-l">Save changes</h2>
+
+      <p class="govuk-body">
+        Saving the changes to configuration will ensure that the next time you run the
+        prototype kit it will use this configuration. Once saved the application will
+        restart with the new configuration in place and any use of the prototype kit will
+        use the new settings.
+      </p>
+
+      <form action="config" method="post">
+        <div class="govuk-form-group {% if error %}govuk-form-group--error{% endif %}">
+          {% if error %}
+          <p id="path_err" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> {{ error }}
+          </p>
+          {% endif %}
+        </div>
+        <div class="govuk-button-group">
+          <button type="submit" class="govuk-button" data-module="govuk-button">Save configuration</button>
+        </div>
+      </form>
     </div>
 
   </div>

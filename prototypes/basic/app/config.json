@@ -1,4 +1,1 @@
-{
-  "serviceName": "Import spreadsheet data",
-  "fields": ["Code", "Name", "Speciality"]
-}
+{"serviceName":"Import spreadsheet data","fields":["Code","Name","Speciality"],"uploadPath":"/var/folders/xv/mmq61h251nd7lw9yhr6x67yr0000gn/T/reg-dyn-importer"}
