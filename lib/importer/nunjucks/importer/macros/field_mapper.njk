@@ -46,7 +46,7 @@
          <select class="govuk-select" style="float: right;" name="{{h.index}}">
                 <option name=""></option>
                 {% for field in fields %}
-                <option value="{{field}}">{{field}}</option>
+                <option value="{{field.name}}">{{field.name}}</option>
                 {% endfor %}
             </select>
       </td>
