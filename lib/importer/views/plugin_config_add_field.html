@@ -28,6 +28,17 @@
         Add a new field
     </h1>
 
+    <p class="govuk-body-l">
+      Each added field will be shown during the import to allow the user to
+      assign a specific column to it.
+    </p>
+
+    <p class="govuk-body">
+      When picking a name for the field you should choose something descriptive that your users
+      will understand when assigning it to a column. You should avoid punctuation although you may
+      use spaces and numbers in the name.
+    </p>
+
    <form action="/importer/config/field" method="post">
       <div class="govuk-form-group {% if error %}govuk-form-group--error{% endif %}">
         <label class="govuk-label" for="field-name">
