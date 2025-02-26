@@ -1,4 +1,1 @@
-{
-  "serviceName": "Import spreadsheet data",
-  "fields": ["Code", "Name", "Speciality"]
-}
+{"serviceName":"Import spreadsheet data","fields":["Code","Name","Speciality"],"uploadPath":""}
