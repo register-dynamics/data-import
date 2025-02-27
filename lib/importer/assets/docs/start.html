@@ -124,7 +124,7 @@
                 your machine. It can be installed directly into the GOV.UK
                 Prototype Kit.
               </p>
-              <div data-static-only>
+              <div>
                 <p>
                   Open up your preferred command line, which you previously used to create a GOV.UK Prototype, and type the following:
               </p>
@@ -135,13 +135,26 @@
                 configure the plugin, which can be done by editing the
                 <code>app/config.json</code> to look something like the following, replacing
                 the fields with the headings for the data you are interested in.
+                Alternatively you can manage your configuration file via the <a href="/importer/config">configuration tool</a>
               </p>
               <pre>{
     "serviceName": "Your service name",
     "fields": [
-        "Code",
-        "Name",
-        "Speciality"
+        {
+            "name": "Code",
+            "type": "number",
+            "required": true
+        },
+        {
+            "name": "Name",
+            "type": "string",
+            "required": true
+        },
+        {
+            "name": "Speciality",
+            "type": "string",
+            "required": false
+        },
     ]
 }</pre>
             </div>
