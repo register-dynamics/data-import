@@ -4,7 +4,20 @@
 
 {% block pageTitle %} {{ serviceName }} – GOV.UK Prototype Kit {% endblock %}
 {% block beforeContent %}
-{{ govukBackLink({ text: "Back", href: "javascript:window.history.back()" }) }}
+{{
+    govukBreadcrumbs({
+      items: [
+        {
+          text: "Home",
+          href: "/"
+        },
+        {
+            text: "Upload spreadsheet",
+            href: "/upload"
+        }
+      ]
+    })
+  }}
 {% endblock %}
 
 {% block content %}
@@ -12,12 +25,35 @@
     <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-l">Upload your data</h1>
 
+        <p class="govuk-body">
+          The expected pay period is from <strong>{{ "start" | lastMonthRange }}</strong> to <strong>{{ "end" | lastMonthRange }}</strong>,
+          and all of the dates in this file should be in that range (inclusive).
+          Any rows with dates outside of that range will not be processed.
+        </p>
+
+        <div class="govuk-inset-text">
+          <h1 class="govuk-heading-s">Check your dates</h1>
+          <p class="govuk-body">
+            Before you upload the data, you should check the dates are formatted as yyyy-mm-dd (e.g. 2025-02-28).
+          </p>
+        </div>
+
+        <p class="govuk-body">
+          The file you upload must be in one of the following formats, but you will be given the opportunity to choose which
+          sheet contains the data, and which columns contain the required fields.
+          <ul class="govuk-list govuk-list--bullet">
+            <li>Comma-separated values - CSV</li>
+            <li>Microsoft Office - XLSX or XLS</li>
+            <li>Open office document - ODS</li>
+          </ul>
+        </p>
+
         <form action="{{importerUploadPath('/select_sheet')}}" method="POST" enctype="multipart/form-data">
             <div>
                 {{ govukFileUpload({
                 id: "file-upload",
                 name: "file",
-                label: { text: "Upload an XLSX, ODS, or CSV file"},
+                label: { text: "Choose a file"},
                 attributes: { "accept":
                 ".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,.csv,text/csv,application/vnd.oasis.opendocument.spreadsheet,.ods"},
                 errorMessage: importerError(data)
@@ -25,7 +61,7 @@
                 }}
             </div>
             <div class="govuk-button-group">
-                {{ govukButton({ text: "Upload" }) }}
+                {{ govukButton({ text: "Upload data" }) }}
             </div>
         </form>
     </div>

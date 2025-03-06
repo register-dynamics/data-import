@@ -1,7 +1,7 @@
 //
 // For guidance on how to add CSS and SCSS see:
 // https://prototype-kit.service.gov.uk/docs/adding-css-javascript-and-images
-// 
+//
 
 // Add extra styles here
 
@@ -14,4 +14,14 @@ pre {
     box-shadow: 0px 0px 16px #ddd;
     max-height: 400px;
     overflow-y: scroll;
+}
+
+.contextual-sidebar {
+    border-top: 2px solid #1d70b8;
+    padding-top: 1em;
+}
+
+.contextual-sidebar .subsection {
+    border-top: 1px solid #b1b4b6;
+    padding-top: 1em;
 }

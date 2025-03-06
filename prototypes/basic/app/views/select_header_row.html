@@ -7,7 +7,28 @@
 {% block pageTitle %} {{ serviceName }} – GOV.UK Prototype Kit {% endblock %}
 
 {% block beforeContent %}
-{{ govukBackLink({ text: "Back", href: "javascript:window.history.back()" }) }}
+{{
+    govukBreadcrumbs({
+      items: [
+        {
+          text: "Home",
+          href: "/"
+        },
+        {
+            text: "Upload spreadsheet",
+            href: "/upload"
+        },
+        {
+          text: "Select sheet",
+          href: "/select_sheet"
+        },
+        {
+            text: "Select header row",
+            href: "/select_header_row"
+        }
+      ]
+    })
+  }}
 {% endblock %}
 
 {% from "importer/macros/header_selector.njk" import importerHeaderSelector %}
