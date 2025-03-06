@@ -4,5 +4,5 @@ test('has title', async ({ page }) => {
   await page.goto('/');
 
   // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Import spreadsheet data/);
+  await expect(page).toHaveTitle(/Upload monthly pension return/);
 });
