@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "@flydotio/dockerfile": "^0.7.4",
-    "@playwright/test": "^1.50.1"
+    "@playwright/test": "^1.51.0"
   },
   "overrides": {
     "sass": "1.77.6"
