@@ -91,5 +91,5 @@ test('tiny files', async ({ page }) => {
 
     // // ---------------------------------------------------------------------------
     // // Should be on the success page
-    await expect(page).toHaveURL(/.success/)
+    await expect(page).toHaveURL(/.review/)
 });

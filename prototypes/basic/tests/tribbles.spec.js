@@ -102,6 +102,6 @@ test('trouble with tribbles', async ({ page }) => {
     await mapping.submit()
 
     // ---------------------------------------------------------------------------
-    // Should be on the success page
-    await expect(page).toHaveURL(/.success/)
+    // Should be on the review page
+    await expect(page).toHaveURL(/.review/)
 });
