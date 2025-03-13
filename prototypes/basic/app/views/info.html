@@ -26,43 +26,83 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <p class="govuk-body">govuk-body</p>
-
     <p class="govuk-body">
-      <ul class="govuk-list govuk-list--bullet">
-        <li>apples</li>
-        <li>oranges</li>
-        <li>pears</li>
-      </ul>
+      Once you have uploaded your file, you will need to tell us which fields in your spreadsheet
+      are associated with the following fields:
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Title
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Optional - The employee's title
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            First name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Required - The first name of the employee
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Surname
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Required - The employee's family name
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Employee number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Optional - The employee's unique identifier, included in reports for your use
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Employment start date
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Required - The date your employee's employment began, in yyyy-mm-dd format.
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Salary
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Required - The employees salary for the current month, in GBP
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Contribution percentage
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Required - Percentage contribution by employer
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Payment date
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Required - The date that the employee received their salary for the current month
+          </dd>
+        </div>
+     </dl>
     </p>
 
-    <p class="govuk-body">govuk-body</p>
+    <p class="govuk-body">
+      Once you have selected the appropriate sheet, and told the system which is the header row,
+      you will be asked to associate each column in your headers with one of the values above.
+    </p>
   </div>
 </div>
-
-<div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-        <h2 id="help" class="govuk-heading-l">
-        Help
-        </h2>
-    </div>
-</div>
-
-<div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <p class="govuk-body">govuk-body</p>
-
-      <p class="govuk-body">
-        <ul class="govuk-list govuk-list--bullet">
-          <li>apples</li>
-          <li>oranges</li>
-          <li>pears</li>
-        </ul>
-      </p>
-
-      <p class="govuk-body">govuk-body</p>
-
-    </div>
-  </div>
 
 {% endblock %}
