@@ -46,7 +46,9 @@
                 needed for this service.
             </p>
             <p class="govuk-body">
-                If you don't choose a column name,
+                If you don't choose a column name, then the first row of the table will
+                be used as headers. Any blank cells in that row will be labelled as
+                "Untitled column" with a number that incrememts for each blank cell. e.g. "[Untitled column 1]"
         </legend>
 
         <form action="{{ importerSelectHeaderPath('/select_footer_row') }}" method="post">
