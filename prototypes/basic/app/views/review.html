@@ -2,6 +2,9 @@
 
 {% block pageTitle %} {{ serviceName }} – GOV.UK Prototype Kit {% endblock %}
 {% block beforeContent %}
+
+
+
 {{
     govukBreadcrumbs({
       items: [
@@ -62,6 +65,11 @@
         <p class="govuk-body">
             If the details above are correct you can continue to submit your return by clicking the 'Submit' button below.
         </p>
+
+        <p class="govuk-body">
+            If there were problems with the uploaded data, you should correct the issues and <a href="{{ importerStartPath('/upload') }}">re-upload the data</a>
+        </p>
+
 
         <form action="{{ importerReviewDataPath('/success') }}" method="post">
             <div class="govuk-button-group">
