@@ -1,4 +1,13 @@
 {
-  "serviceName": "Import spreadsheet data",
-  "fields": ["Code", "Name", "Speciality"]
+  "serviceName": "Upload monthly pension return",
+  "fields": [
+    "Title",
+    "First name",
+    "Surname",
+    "Employee number",
+    "Employment start date",
+    "Salary",
+    "Contribution percentage",
+    "Payment date"
+  ]
 }

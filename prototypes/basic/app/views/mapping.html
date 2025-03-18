@@ -1,8 +1,38 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %} {{ serviceName }} – GOV.UK Prototype Kit {% endblock %}
+
 {% block beforeContent %}
-{{ govukBackLink({ text: "Back", href: "javascript:window.history.back()" }) }}
+{{
+    govukBreadcrumbs({
+      items: [
+        {
+          text: "Home",
+          href: "/"
+        },
+        {
+            text: "Upload spreadsheet",
+            href: "/upload"
+        },
+        {
+          text: "Select sheet",
+          href: "/select_sheet"
+        },
+        {
+            text: "Select header row",
+            href: "/select_header_row"
+        },
+        {
+            text: "Select footer row",
+            href: "/select_footer_row"
+        },
+        {
+            text: "Identify columns",
+            href: "/mapping"
+        }
+      ]
+    })
+  }}
 {% endblock %}
 
 {% from "importer/macros/field_mapper.njk" import importerFieldMapper %}
@@ -11,15 +41,15 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
         <h1 class="govuk-heading-l">Identify columns</h1>
-        <p>
-            Select which columns in your sheet contain the information required
-            by this service. You can ignore any columns that contain information
+        <p class="govuk-body">
+            Select which columns from your sheet, which are shown on the left, contain the information required
+            by this service by choosing a value from the dropdown. You can ignore any columns that contain information
             that this service doesn't need.
         </p>
 
         <h2 class="govuk-heading-m">{{sheet}}</h2>
 
-        <form action="{{ importerMapDataPath('/success') }}" method="post">
+        <form action="{{ importerMapDataPath('/review') }}" method="post">
 
             {{ importerFieldMapper(data) }}
 

@@ -17,7 +17,7 @@ const sheetPreviewVisibility = new Map([
 ]);
 
 // Take a screenshot to help with debugging
-const screenshot = async(page, name) => {
+const screenshot = async (page, name) => {
     await page.screenshot({ path: name, fullPage: true });
 }
 
@@ -64,7 +64,7 @@ test('trouble with tribbles', async ({ page }) => {
     await expect(page).toHaveURL(/.select_header_row/)
 
     const headers = new HeaderSelectorPage(page)
-    await headers.select([2,0], [2,5])
+    await headers.select([2, 0], [2, 5])
     await headers.submit()
 
     // ---------------------------------------------------------------------------
@@ -96,12 +96,12 @@ test('trouble with tribbles', async ({ page }) => {
     const examples = await mapping.getExamples()
     expect(examples).toStrictEqual(expectedExamples)
 
-    await mapping.setMapping('Name', 'Code')
-    await mapping.setMapping('Colour', 'Name')
-    await mapping.setMapping('Markings', 'Speciality')
+    await mapping.setMapping('Name', 'Title')
+    await mapping.setMapping('Colour', 'First name')
+    await mapping.setMapping('Markings', 'Surname')
     await mapping.submit()
 
     // ---------------------------------------------------------------------------
-    // Should be on the success page
-    await expect(page).toHaveURL(/.success/)
+    // Should be on the review page
+    await expect(page).toHaveURL(/.review/)
 });

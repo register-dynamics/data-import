@@ -3,8 +3,26 @@
 {% from "importer/macros/sheet_selector.njk" import importerSheetSelector %}
 
 {% block pageTitle %} {{ serviceName }} – GOV.UK Prototype Kit {% endblock %}
+
 {% block beforeContent %}
-{{ govukBackLink({ text: "Back", href: "javascript:window.history.back()" }) }}
+{{
+    govukBreadcrumbs({
+      items: [
+        {
+          text: "Home",
+          href: "/"
+        },
+        {
+            text: "Upload spreadsheet",
+            href: "/upload"
+        },
+        {
+          text: "Select sheet",
+          href: "/select_sheet"
+        }
+      ]
+    })
+  }}
 {% endblock %}
 
 {% block content %}
@@ -18,6 +36,12 @@
               Which sheet do you wish to import?
             </h1>
           </legend>
+
+          <p class="govuk-body-l">
+            Select the name of the sheet below which will give you the opportunity to confirm that
+            it is the sheet containing the relevant data.
+          </p>
+
           <div class="govuk-radios" data-module="govuk-radios">
             {{ importerSheetSelector(data) }}
           </div>

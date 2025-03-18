@@ -11,7 +11,7 @@ import { MappingPage } from './helpers/mapping_page'
 const path = require('node:path');
 
 // Take a screenshot to help with debugging
-const screenshot = async(page, name) => {
+const screenshot = async (page, name) => {
     await page.screenshot({ path: name, fullPage: true });
 }
 
@@ -46,7 +46,7 @@ test('tiny files', async ({ page }) => {
     // // Check the data is present in the sheet previews
     const previewRow = await sheets.getTableRow(0, 0)
     const zerozero = await previewRow.locator("td").nth(0).textContent()
-    const zeroone =  await previewRow.locator("td").nth(1).textContent()
+    const zeroone = await previewRow.locator("td").nth(1).textContent()
     await expect(zerozero).toBe("A")
     await expect(zeroone).toBe("B")
 
@@ -58,7 +58,7 @@ test('tiny files', async ({ page }) => {
     await expect(page).toHaveURL(/.select_header_row/)
 
     const headers = new HeaderSelectorPage(page)
-    await headers.select([0,0], [0,1])
+    await headers.select([0, 0], [0, 1])
     await headers.submit()
 
     // // ---------------------------------------------------------------------------
@@ -71,7 +71,6 @@ test('tiny files', async ({ page }) => {
     // // ---------------------------------------------------------------------------
     // // Perform the mapping after checking the previews here are what we expect
     await expect(page).toHaveURL(/.mapping/)
-
     const mapping = new MappingPage(page)
 
     const expectedColumns = ["A", "B"]
@@ -86,11 +85,11 @@ test('tiny files', async ({ page }) => {
     const examples = await mapping.getExamples()
     expect(examples).toStrictEqual(expectedExamples)
 
-    await mapping.setMapping('A', 'Code')
-    await mapping.setMapping('B', 'Name')
+    await mapping.setMapping('A', 'Title')
+    await mapping.setMapping('B', 'Surname')
     await mapping.submit()
 
     // // ---------------------------------------------------------------------------
     // // Should be on the success page
-    await expect(page).toHaveURL(/.success/)
+    await expect(page).toHaveURL(/.review/)
 });
