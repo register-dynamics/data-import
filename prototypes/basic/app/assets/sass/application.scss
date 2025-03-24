@@ -5,6 +5,13 @@
 
 // Add extra styles here
 
+* {
+    font-family: Helvetica, Arial, sans-serif !important;
+}
+
+.govuk-header__logotype {
+    display: none;
+}
 
 pre {
     border: solid 2px #666;
