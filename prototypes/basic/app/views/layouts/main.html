@@ -7,14 +7,9 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 {% from "govuk/components/header/macro.njk" import govukHeader %}
 
 {% block header %}
-  {{ govukHeader({
-    homepageUrl: "/",
-    serviceName: serviceName,
-    serviceUrl: "/",
-    containerClasses: "govuk-width-container"
-  }) }}
+    {% include "./header.html" %}
 
-  <div class="govuk-grid-row govuk-width-container">
+    <div class="govuk-grid-row govuk-width-container">
     <div class="govuk-grid-column-one-third">&nbsp;</div>
     <div class="govuk-grid-column-full">
 
