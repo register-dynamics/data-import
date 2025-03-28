@@ -5,6 +5,7 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 
 {% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
 
+
 {% block pageTitle %}
   {% if pageName %}{{ pageName }} - {% endif %}{{ serviceName }}
 {% endblock %}
@@ -37,6 +38,10 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
   </div>
 
 
+{% endblock %}
+
+{% block footer %}
+    {% include "./footer.html" %}
 {% endblock %}
 
 {% extends "govuk-prototype-kit/layouts/unbranded.njk" %}
