@@ -4,36 +4,26 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 #}
 
 {% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
-{% from "govuk/components/header/macro.njk" import govukHeader %}
-
-{% block header %}
-  {{ govukHeader({
-    homepageUrl: "/",
-    serviceName: serviceName,
-    serviceUrl: "/",
-    containerClasses: "govuk-width-container"
-  }) }}
-
-  <div class="govuk-grid-row govuk-width-container">
-    <div class="govuk-grid-column-one-third">&nbsp;</div>
-    <div class="govuk-grid-column-full">
-
-  <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-    <div class="govuk-notification-banner__header">
-      <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-        Demonstration
-      </h2>
-    </div>
-    <div class="govuk-notification-banner__content">
-      <p class="govuk-notification-banner__heading">
-        This is a demonstration service for <a href="https://www.register-dynamics.co.uk/blog/why-services-suck-at-spreadsheets">"A thousand things at once: bulk transactions and data collection in digital services"</a> given at Services Week 2025
-      </p>
-    </div>
-  </div>
-  </div>
-  </div>
 
 
+{% block pageTitle %}
+  {% if pageName %}{{ pageName }} - {% endif %}{{ serviceName }}
 {% endblock %}
 
-{% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+
+{% block headIcons %}
+<link rel="icon" type="image/x-icon" href="https://images.squarespace-cdn.com/content/v1/63dd0010c6c6e91be50f08dc/ddddc1af-43ce-4b4f-b9c2-165c5f6188da/favicon.ico?format=100w">
+{% endblock %}
+
+{% block header %}
+    {% include "./header.html" %}
+    <div class="govuk-grid-row govuk-width-container">
+        {% include "./banner.html" %}
+  </div>
+{% endblock %}
+
+{% block footer %}
+    {% include "./footer.html" %}
+{% endblock %}
+
+{% extends "govuk-prototype-kit/layouts/unbranded.njk" %}
