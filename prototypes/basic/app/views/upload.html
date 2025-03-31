@@ -25,6 +25,14 @@
     <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-l">Upload your data</h1>
 
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-visually-hidden">Warning</span>
+            Do not upload any sensitive data to this service, it is for demonstration purposes only.
+          </strong>
+        </div>
+
         <p class="govuk-body">
           The expected pay period is from <strong>{{ "start" | lastMonthRange }}</strong> to <strong>{{ "end" | lastMonthRange }}</strong>,
           and all of the dates in this file should be in that range (inclusive).
