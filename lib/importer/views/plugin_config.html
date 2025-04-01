@@ -50,7 +50,7 @@
     </div>
 
     <div class="govuk-grid-column-full">
-      <h2 class="govuk-heading-l">Data map</h2>
+      <h2 class="govuk-heading-l">Column settings</h2>
 
       <p class="govuk-body">
         When importing a spreadsheet, each row of the identified table will be mapped to a new record
@@ -83,38 +83,6 @@
       </div>
 
     </div>
-
-
-    <div class="govuk-grid-column-full govuk-!-padding-top-6" >
-      <h2 class="govuk-heading-l">Storing uploaded spreadsheets</h2>
-
-      <p class="govuk-body">
-        By default, uploaded spreadsheets are stored in an auto-determined temporary folder.
-        This means that you only need to modify this setting if you have an explicit need to
-        store the uploaded data elsewhere. In almost all cases you can ignore this section.
-      </p>
-
-      <form action="config/path" method="post">
-        <div class="govuk-form-group {% if error %}govuk-form-group--error{% endif %}">
-          <label class="govuk-label" for="upload-path">
-            Upload directory
-          </label>
-
-          {% if error %}
-          <p id="path_err" class="govuk-error-message">
-            <span class="govuk-visually-hidden">Error:</span> {{ error }}
-          </p>
-          {% endif %}
-
-
-          <input class="govuk-input" id="uploadPath" name="uploadPath" type="text" value="{{ config.uploadPath }}">
-        </div>
-        <div class="govuk-button-group">
-          <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">Update path</button>
-        </div>
-      </form>
-    </div>
-
 
     <div class="govuk-grid-column-full govuk-!-padding-top-6" >
       <h2 class="govuk-heading-l">Save changes</h2>
