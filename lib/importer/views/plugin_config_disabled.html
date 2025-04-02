@@ -1,0 +1,23 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Plugin Configuration" %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <div class="govuk-panel govuk-panel--warning">
+      <h1 class="govuk-panel__title">
+        Configuration disabled
+      </h1>
+      <div class="govuk-panel__body">
+        The configuration page is only available when building the prototype
+        on your local system. Updating the configuration in production is not
+        enabled.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}
