@@ -98,10 +98,23 @@ test('trouble with tribbles', async ({ page }) => {
 
     await mapping.setMapping('Name', 'Title')
     await mapping.setMapping('Colour', 'First name')
-    await mapping.setMapping('Markings', 'Surname')
+    await mapping.setMapping('Weight', 'Salary')
     await mapping.submit()
 
     // ---------------------------------------------------------------------------
-    // Should be on the review page
+    // Should be on the review page and we want to check that the total number of rows,
+    // sum of salaries and avg of salaries is correct
     await expect(page).toHaveURL(/.review/)
+
+    let amounts = new Array()
+    let amountCount = await page.locator("ul.govuk-list--bullet li strong").count();
+    for (let idx = 0; idx < amountCount; idx++) {
+        let amt = await page.locator("ul.govuk-list--bullet li strong").nth(idx).textContent()
+        amounts.push(amt)
+    }
+
+    expect(amounts).toStrictEqual([
+        "6", "£36", "£6"
+    ])
+
 });
