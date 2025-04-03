@@ -54,6 +54,42 @@
         <input class="govuk-input" id="field-name" name="field" type="text">
       </div>
 
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="field-type">
+          Field type
+        </label>
+        <div id="type-hint" class="govuk-hint">
+          Select what type of field is expected
+        </div>
+        <select class="govuk-select" id="field-type" name="type">
+          <option value="text">Text</option>
+          <option value="number">Number</option>
+        </select>
+      </div>
+
+      <div class="govuk-form-group">
+        <div class="govuk-radios" data-module="govuk-radios">
+          <label class="govuk-label" for="field-type">
+            Required or Optional
+          </label>
+          <div id="type-hint" class="govuk-hint">
+            Choose whether the field is required or optional
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="field-required-optional" name="required" type="radio" value="false" selected="selected">
+            <label class="govuk-label govuk-radios__label" for="field-required-optional">
+              Optional
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="field-required-required" name="required" type="radio" value="true">
+            <label class="govuk-label govuk-radios__label" for="field-required-required">
+              Required
+            </label>
+          </div>
+        </div>
+      </div>
+
       <div class="govuk-button-group">
         <input type="submit" class="govuk-button" value="Add"/>
         <a class="govuk-link" href="/importer/config">Cancel</a>
