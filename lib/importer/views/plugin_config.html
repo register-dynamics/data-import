@@ -59,17 +59,27 @@
       </p>
     </div>
 
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
       <ul class="govuk-task-list">
         {% for field in config.fields %}
         <form action="config/field" method="post">
           <input type="hidden" name="action" value="delete"/>
-          <input type="hidden" name="field" value="{{field}}"/>
-          <li class="govuk-task-list__item govuk-task-list__item--with-link">
-            <div class="govuk-task-list__name-and-hint">
-                {{field}}
+          <input type="hidden" name="field" value="{{field.name}}"/>
+          <li class="govuk-task-list__item">
+            <div class="govuk-grid-column-one-quarter">
+                {{field.name}}
             </div>
-            <div class="govuk-task-list__status" id="company-details-1-status">
+
+            <div class="govuk-grid-column-one-quarter govuk-!-text-align-centre">
+              {{field.type}}
+            </div>
+
+            <div class="govuk-grid-column-one-quarter govuk-!-text-align-centre">
+              {% if field.required %}required{% else %}optional{% endif %}
+            </div>
+
+            <div class="govuk-grid-column-one-quarter govuk-!-text-align-right">
               <button type="submit" class="govuk-button govuk-button--warning govuk-!-static-margin-bottom-0" data-module="govuk-button">Delete</button>
             </div>
           </li>
@@ -83,6 +93,7 @@
       </div>
 
     </div>
+  </div>
 
     <div class="govuk-grid-column-full govuk-!-padding-top-6" >
       <h2 class="govuk-heading-l">Save changes</h2>
