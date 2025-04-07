@@ -1,14 +1,76 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %} {{ serviceName }} – GOV.UK Prototype Kit {% endblock %}
-{% block beforeContent %}
-{{ govukBackLink({ text: "Back", href: "javascript:window.history.back()" }) }}
-{% endblock %}
 
 {% block content %}
+{% set results = importerMappedData(data) %}
+
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-l">Review your data</h1>
+
+        <p class="govuk-body">
+            During import there were <strong>{{results.errorCount}}</strong> errors and <strong>{{results.warningCount}}</strong> warnings.
+        </p>
+
+        {% if results.errorCount != 0 %}
+        <table class="govuk-table">
+            <caption class="govuk-table__caption govuk-table__caption--m">Errors</caption>
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header">Row</th>
+                    <th scope="col" class="govuk-table__header">Error</th>
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body"></tbody>
+            {% for idx, error in results.errors %}
+            <tr class="govuk-table__row">
+                <td class="govuk-table__cell"> {{idx}} </td>
+                <td class="govuk-table__cell"> {{error}} </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+
+        {% if results.warningCount != 0 %}
+            <table class="govuk-table">
+                <caption class="govuk-table__caption govuk-table__caption--m">Warnings</caption>
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header">Row</th>
+                        <th scope="col" class="govuk-table__header">Warning</th>
+                    </tr>
+                </thead>
+                <tbody class="govuk-table__body"></tbody>
+                {% for idx, warning in results.warnings %}
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell"> {{idx}} </td>
+                    <td class="govuk-table__cell"> {{warning}} </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+
+        <p class="govuk-body">
+        The uploaded data contains the following data:
+
+            <ul class="govuk-list govuk-list--bullet">
+                <li><strong>{{ results.totalCount }}</strong> rows of data</li>
+                <li>a total salary commitment from the 'Salary' column of <strong>{{ data_sum(data, 'Salary') | currency }}</strong>.</li>
+                <li>an average salary from the 'Salary' column of <strong>{{ data_avg(data, 'Salary') | currency }}</strong>.</li>
+            </ul>
+        </p>
+
+        <p class="govuk-body">
+            If the details above are correct you can continue to submit your return by clicking the 'Submit' button below.
+        </p>
+
+        <p class="govuk-body">
+            If there were problems with the uploaded data, you should correct the issues and <a href="{{ importerStartPath('/upload') }}">re-upload the data</a>
+        </p>
+
 
         <form action="{{ importerReviewDataPath('/success') }}" method="post">
             <div class="govuk-button-group">
