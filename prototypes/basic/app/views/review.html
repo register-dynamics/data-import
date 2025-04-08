@@ -58,38 +58,32 @@
             <thead class="govuk-table__head">
                 <tr class="govuk-table__row">
                     <th scope="col" class="govuk-table__header">Row</th>
+                    <th scope="col" class="govuk-table__header">Field</th>
                     <th scope="col" class="govuk-table__header">Error</th>
                 </tr>
             </thead>
             <tbody class="govuk-table__body"></tbody>
-            {% for idx, error in results.errors %}
-            <tr class="govuk-table__row">
-                <td class="govuk-table__cell"> {{idx}} </td>
-                <td class="govuk-table__cell"> {{error}} </td>
-            </tr>
+            {% for idx, errors in results.errors %}
+                {% for e in errors %}
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell"> {{idx}} </td>
+                    <td class="govuk-table__cell">  {{e.field}} </td>
+                    <td class="govuk-table__cell"> {{e.message}} </td>
+                </tr>
+                {% endfor %}
             {% endfor %}
             </tbody>
         </table>
         {% endif %}
 
         {% if results.warningCount != 0 %}
-            <table class="govuk-table">
-                <caption class="govuk-table__caption govuk-table__caption--m">Warnings</caption>
-                <thead class="govuk-table__head">
-                    <tr class="govuk-table__row">
-                        <th scope="col" class="govuk-table__header">Row</th>
-                        <th scope="col" class="govuk-table__header">Warning</th>
-                    </tr>
-                </thead>
-                <tbody class="govuk-table__body"></tbody>
+        <p class="govuk-body">
+            <ul class="govuk-list govuk-list--bullet">
                 {% for idx, warning in results.warnings %}
-                <tr class="govuk-table__row">
-                    <td class="govuk-table__cell"> {{idx}} </td>
-                    <td class="govuk-table__cell"> {{warning}} </td>
-                </tr>
+                <li>Row {{ idx }}: {{ warning }}</li>
                 {% endfor %}
-                </tbody>
-            </table>
+              </ul>
+        </p>
         {% endif %}
 
         <p class="govuk-body">
