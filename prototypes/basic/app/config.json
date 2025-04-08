@@ -1,14 +1,46 @@
 {
   "serviceName": "Upload monthly pension return",
   "fields": [
-    "Title",
-    "First name",
-    "Surname",
-    "Employee number",
-    "Employment start date",
-    "Salary",
-    "Contribution percentage",
-    "Payment date"
+    {
+      "name": "Title",
+      "type": "text",
+      "required": false
+    },
+    {
+      "name": "First name",
+      "type": "text",
+      "required": false
+    },
+    {
+      "name": "Surname",
+      "type": "text",
+      "required": false
+    },
+    {
+      "name": "Employee number",
+      "type": "text",
+      "required": false
+    },
+    {
+      "name": "Employment start date",
+      "type": "text",
+      "required": false
+    },
+    {
+      "name": "Salary",
+      "type": "text",
+      "required": false
+    },
+    {
+      "name": "Contribution percentage",
+      "type": "text",
+      "required": false
+    },
+    {
+      "name": "Payment date",
+      "type": "text",
+      "required": false
+    }
   ],
   "uploadPath": ""
 }
