@@ -228,12 +228,18 @@ div#static-header {
 }
 
 
+code {
+    font-family: monospace !important;
+}
+
 pre {
+    font-family: monospace !important;
     border: solid 2px #666;
     padding: 1em;
     background: #eee;
-    border-radius: 16;
+    border-radius: 5px;
     box-shadow: 0px 0px 16px #ddd;
     max-height: 400px;
     overflow-y: scroll;
+    margin-bottom: 20px;
 }
