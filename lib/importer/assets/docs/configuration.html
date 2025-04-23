@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Get started – Data Upload Design Kit by Register Dynamics</title>
+    <title>Configuration – Data Upload Design Kit by Register Dynamics</title>
     <link href="/public/stylesheets/application.css" rel="stylesheet" type="text/css" />
     <link href="../css/selectable_table.css" rel="stylesheet" type="text/css" />
     <link href="./docs.css" rel="stylesheet" type="text/css" />
@@ -87,8 +87,8 @@
                 <ul class="sub-navigation-section">
                   <li class="sub-navigation-item false"><a class="sub-navigation-link" href="./what-it-is.html">What it is</a></li>
                   <li class="sub-navigation-item false"><a class="sub-navigation-link" href="./how-it-works.html">How it works</a></li>
-                  <li class="sub-navigation-item sub-navigation-item-current"><a aria-current="true" class="sub-navigation-link" href="./start.html">Get started</a></li>
-                  <li class="sub-navigation-item false"><a class="sub-navigation-link" href="./configuration.html">Configuration</a></li>
+                  <li class="sub-navigation-item false"><a class="sub-navigation-link" href="./start.html">Get started</a></li>
+                  <li class="sub-navigation-item sub-navigation-item-current"><a aria-current="true" class="sub-navigation-link" href="./configuration.html">Configuration</a></li>
                   <li class="sub-navigation-item false"><a class="sub-navigation-link" href="./articles.html">Articles</a></li>
                 </ul>
                 <h3 class="sub-navigation-heading">Patterns and Components</h3>
@@ -101,135 +101,187 @@
             </div>
             <div class="govuk-grid-column-three-quarters-from-desktop">
               <article class="app-prose">
-              <h1 class="govuk-heading-xl">Get started</h1>
+              <h1 class="govuk-heading-xl">Configuration</h1>
               <p>
-                The Data Upload Design Kit is available as a plugin that can be
-                installed into the <a href="https://prototype-kit.service.gov.uk/">GOV.UK Prototype Kit</a>.
-              </p>
-                <div class="image">
-                    <img src="get-started-screenshots.png" />
-                </div>
-                  <p>
-                    It offers a set of ready-made templates for creating a simple data
-                    upload journey for users. This means that the often time-consuming
-                    and difficult task of collecting vast amounts of data from different
-                    people can be managed in a matter of minutes.
-                  </p>
-                  <p>
-                    Templates are fully customisable and all components and patterns
-                    are compatible with the <a href="https://design-system.service.gov.uk/">GOV.UK Design System</a>.
-                  </p>
-              <h2 class="govuk-heading-l">How to install it</h2>
-              <p>
-                To start using this plugin, it first needs to be installed onto
-                your machine. It can be installed directly into the GOV.UK
-                Prototype Kit.
+                The Data Upload Design Kit can help you identify and validate
+                the data submitted by your users. You need to
+                <strong>configure</strong> the Kit by telling it what data you
+                are expecting.
               </p>
               <p>
-                  Open up your preferred command line, which you previously used to create a GOV.UK Prototype, and type the following:
+                You can configure the Kit using the
+                  <a data-plugin-only href="/importer/configuration">configuration page</a>
+                  <span data-static-only>configuration page</span>
+                or by manually changing the <code>app/config.json</code> file.
               </p>
-              <pre>npm install 'https://gitpkg.vercel.app/register-dynamics/data-import/lib/importer?main'</pre>
+
+              <h2 class="govuk-heading-l">Using the configuration page</h2>
+              <p data-static-only>
+                You can use the configuration page once you have <a
+                href="./start.html">installed</a> the Data Upload Design Kit
+                into a GOV.UK prototype and run the service in development mode.
+              </p>
               <p>
-                After running this command new routes will automatically be added
-                to your prototype’s <code>app/routes.js</code> file.
+                Visit the
+                  <a data-plugin-only href="/importer/config">configuration page</a>
+                  <span data-static-only>configuration page</span>
+                and change the list of data fields to match the data needed by
+                your service. You can remove existing fields or add new ones.
+              </p>
+              <p>
+                You can choose the type of data fields to automatically provide
+                validation and helpful messages to your users. The available
+                types are:
+              </p>
+              <table class="govuk-table">
+                  <thead class="govuk-table__head">
+                      <tr class="govuk-table__row">
+                          <th scope="col" class="govuk-table__header">Type</th>
+                          <th scope="col" class="govuk-table__header">Used for</th>
+                          <th scope="col" class="govuk-table__header">Validation applied</th>
+                      </tr>
+                  </thead>
+                  <tbody class="govuk-table__body">
+                      <tr class="govuk-table__row">
+                          <th scope="row" class="govuk-table__header">
+                            <code>text</code>
+                          </th>
+                          <td class="govuk-table__cell">
+                            Paragraphs or short sentences; or any field not
+                            covered by another type
+                          </td>
+                          <td class="govuk-table__cell">
+                            None
+                          </td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                          <th scope="row" class="govuk-table__header">
+                            <code>number</code>
+                          </th>
+                          <td class="govuk-table__cell">
+                            Numbers, including monetary values, with and without
+                            decimal places
+                          </td>
+                          <td class="govuk-table__cell">
+                            Supplied value can be unambiguously interpreted as a
+                            number (e.g. <code>1</code> or <code>−230</code> or <code>0.25</code>)
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+              <p>
+                You can also specify that a field is required or optional. Users
+                will receive an error if they submit any rows that have no value
+                for required fields.
+              </p>
+              <p>
+                Once you are done, save your changes. The new configuration will
+                be written to your <code>app/config.json</code> file. You can
+                <a
+                href="https://prototype-kit.service.gov.uk/docs/setting-up-git">commit
+                the file</a> to keep the changes and share them with others.
               </p>
 
-              <p data-static-only>Run the GOV.UK Prototype Kit and visit <a
-                      href="http://localhost:3000/plugin-assets/%40register-dynamics%2Fimporter/assets/docs/start.html">the
-                      internal documentation</a> (which you will be able to view whilst logged into the GOV.UK Prototype Kit)
-                  to get started using the Data Upload Design Kit.</p>
+            <h2 class="govuk-heading-l">Manually editing the config file</h2>
+            <p>
+                Your <code>app/config.json</code> file controls the features of
+                the Data Upload Design Kit. You can manually edit this file
+                instead of using the configuration page.
+            </p>
 
-              <p data-plugin-only>
-                You can now configure the plugin using the <a
-                href="/importer/config">configuration page</a>. Alternatively,
-                make changes to your <code>app/config.json</code> and manually
-                specify the configuration you need.
+            <h3 class="govuk-heading-m">Specifying data fields</h3>
+              <p>
+                The <code>fields</code> property of the configuration file
+                should be an array of objects that define the fields to be used
+                in the service.
               </p>
-
-              <p data-plugin-only>
-                You can get started by following a <a
-                href="./pattern-tabular-data.html">pattern for requesting
-                tabular data</a>.
+              <p>
+                Each object can have the following properties:
               </p>
+              <table class="govuk-table">
+                  <thead class="govuk-table__head">
+                      <tr class="govuk-table__row">
+                          <th scope="col" class="govuk-table__header">Property</th>
+                          <th scope="col" class="govuk-table__header">Meaning</th>
+                          <th scope="col" class="govuk-table__header">Possible values</th>
+                      </tr>
+                  </thead>
+                  <tbody class="govuk-table__body">
+                      <tr class="govuk-table__row">
+                          <th scope="row" class="govuk-table__header">
+                            <code>name</code>
+                          </th>
+                          <td class="govuk-table__cell">
+                            The name of a data field that will be shown to your users
+                          </td>
+                          <td class="govuk-table__cell">
+                            Any text contained in quotes. You should avoid punctuation although you
+                            may use spaces and numbers in the name. The name
+                            must be unique.
+                          </td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                          <th scope="row" class="govuk-table__header">
+                            <code>type</code>
+                          </th>
+                          <td class="govuk-table__cell">
+                            What type of data the field must contain.
+                          </td>
+                          <td class="govuk-table__cell">
+                            <code>"text"</code> or <code>"number"</code> (see above)
+                          </td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                          <th scope="row" class="govuk-table__header">
+                            <code>required</code>
+                          </th>
+                          <td class="govuk-table__cell">
+                            Whether data that does not contain this field will be rejected or not (see above)
+                          </td>
+                          <td class="govuk-table__cell">
+                            <code>true</code> for required fields or <code>false</code> for optional fields
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+              <p>
+              An example set of fields might be:
+              </p>
+              <pre>{
+    "fields": [
+        {
+            "name": "Code",
+            "type": "number",
+            "required": true
+        },
+        {
+            "name": "Name",
+            "type": "text",
+            "required": true
+        },
+        {
+            "name": "Speciality",
+            "type": "text",
+            "required": false
+        }
+    ]
+}</pre>
 
-            <h2 class="govuk-heading-l">Link your data submission pages together</h2>
+
+            <h3 class="govuk-heading-m">Specifying spreadsheet upload path</h3>
             <p>
-                Each page you create from a template needs to be linked to the
-                next page in the user journey. The GOV.UK Prototype Kit documentation
-                explains how to <a
-                    href="https://prototype-kit.service.gov.uk/docs/make-first-prototype/link-pages-together">
-                    link simple pages together</a>.
+              By default, any spreadsheets that your users upload will be stored
+              in a temporary directory. They may be deleted when the machine is
+              rebooted.
             </p>
             <p>
-                The Data Upload Design Kit templates where the user uploads data,
-                chooses a worksheet, selects headers or footers, or identifies
-                columns use a <code>&lt;form&gt;</code> tag to link pages
-                together. The
-                <code>action</code> on the <code>&lt;form&gt;</code> tag
-                contains a special value that allows the data the user has
-                submitted to be processed before sending them to the next page.
+              You can change the location of uploaded spreadsheets to be any
+              other directory by using the <code>uploadPath</code> configuration option.
             </p>
-            <p>
-                For each page you create from one of the templates:
-            </p>
-            <ol class="govuk-list govuk-list--number">
-                <li>Open the page that you just created</li>
-                <li>Find the line with the <code>&lt;form&gt;</code> tag which has
-                    an <code>action</code> attribute that looks like
-                    <code>action="&lcub;&lcub;importerSomethingPath&lpar;'/next-page'&rpar;&rcub;&rcub;"</code>
-                </li>
-                <li>Change the path in the single quotes to be the next page the user should go to</li>
-            </ol>
-            <p>
-                For example, if you have just created a page from the <a href="#upload-a-file">Upload a file</a>
-                template and want the
-                next page to be <code>/my-custom-page</code>, change the
-                <code>&lt;form&gt;</code> tag in your new page to be:
-            <pre>&lt;form action="&lcub;&lcub;importerUploadPath&lpar;'/my-custom-page'&rpar;&rcub;&rcub;" method="POST" enctype="multipart/form-data"&gt;</pre>
-            </p>
-            <p>
-                Alternatively, use the default names for data submission pages
-                which will link to them from the previous page without any
-                required changes.
-            </p>
-            <table class="govuk-table">
-                <thead class="govuk-table__head">
-                    <tr class="govuk-table__row">
-                        <th scope="col" class="govuk-table__header">Template</th>
-                        <th scope="col" class="govuk-table__header">Default name</th>
-                    </tr>
-                </thead>
-                <tbody class="govuk-table__body">
-                    <tr class="govuk-table__row">
-                        <th scope="row" class="govuk-table__header">Upload a file</th>
-                        <td class="govuk-table__cell"><code>/upload</code></td>
-                    </tr>
-                    <tr class="govuk-table__row">
-                        <th scope="row" class="govuk-table__header">Select a worksheet</th>
-                        <td class="govuk-table__cell"><code>/select_sheet</code></td>
-                    </tr>
-                    <tr class="govuk-table__row">
-                        <th scope="row" class="govuk-table__header">Select header rows</th>
-                        <td class="govuk-table__cell"><code>/select_header_row</code></td>
-                    </tr>
-                    <tr class="govuk-table__row">
-                        <th scope="row" class="govuk-table__header">Select footer rows</th>
-                        <td class="govuk-table__cell"><code>/select_footer_row</code></td>
-                    </tr>
-                    <tr class="govuk-table__row">
-                        <th scope="row" class="govuk-table__header">Identify your columns</th>
-                        <td class="govuk-table__cell"><code>/mapping</code></td>
-                    </tr>
-                    <tr class="govuk-table__row">
-                        <th scope="row" class="govuk-table__header">Review your data</th>
-                        <td class="govuk-table__cell"><code>/review</code></td>
-                    </tr>
-                    <tr class="govuk-table__row">
-                        <th scope="row" class="govuk-table__header">Upload complete</th>
-                        <td class="govuk-table__cell"><code>/success</code></td>
-                    </tr>
-                </tbody>
-            </table>
+            <p>An example might be:</p>
+            <pre>{
+    "uploadPath": "/tmp/my-spreadsheets"
+}</pre>
             </article>
           </div>
           </div>
