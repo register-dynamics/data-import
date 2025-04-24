@@ -22,7 +22,7 @@
                     <th scope="col" class="govuk-table__header">Error</th>
                 </tr>
             </thead>
-            <tbody class="govuk-table__body"></tbody>
+            <tbody class="govuk-table__body">
             {% for idx, error in results.errors %}
             <tr class="govuk-table__row">
                 <td class="govuk-table__cell"> {{idx}} </td>
@@ -42,7 +42,7 @@
                         <th scope="col" class="govuk-table__header">Warning</th>
                     </tr>
                 </thead>
-                <tbody class="govuk-table__body"></tbody>
+                <tbody class="govuk-table__body">
                 {% for idx, warning in results.warnings %}
                 <tr class="govuk-table__row">
                     <td class="govuk-table__cell"> {{idx}} </td>
