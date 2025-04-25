@@ -36,7 +36,7 @@
             <ul class="govuk-list govuk-error-summary__list">
               {% for e in error.extra %}
               <li>
-                <a href="#">{{ e }}</a>
+                <a href="#field-{{ e | slugify }}">{{ e }}</a>
               </li>
               {% endfor %}
             </ul>
@@ -61,7 +61,7 @@
       {% set hIndex = loop.index0 %}
       {% set currentValue = importerErrorMappingData(error, hIndex) %}
 
-    <tr class="govuk-table__row">
+    <tr class="govuk-table__row" id="field-{{ h.name | slugify }}">
       <th scope="row" class="govuk-table__header">{{ h.name }}</th>
       <td class="govuk-table__cell">{{ h.examples }}</td>
       <td class="govuk-table__cell govuk-table__cell--numeric">
