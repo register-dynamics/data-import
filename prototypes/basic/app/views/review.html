@@ -87,12 +87,15 @@
         {% endif %}
 
         <p class="govuk-body">
-        The uploaded data contains the following data:
+            The uploaded data contains the following data:
+
+            {% set sum_result = data_sum(data, 'Salary')%}
+            {% set avg_result = data_avg(data, 'Salary') %}
 
             <ul class="govuk-list govuk-list--bullet">
                 <li><strong>{{ results.totalCount }}</strong> rows of data</li>
-                <li>a total salary commitment from the 'Salary' column of <strong>{{ data_sum(data, 'Salary') | currency }}</strong>.</li>
-                <li>an average salary from the 'Salary' column of <strong>{{ data_avg(data, 'Salary') | currency }}</strong>.</li>
+                <li>a total salary commitment from the 'Salary' column of <strong>{{ sum_result.value | currency }}</strong> from {{ sum_result.count }} {{ sum_result.count | pluralize("value", "values") }}.</li>
+                <li>an average salary from the 'Salary' column of <strong>{{ avg_result.value | currency }}</strong> from {{avg_result.count}} {{ avg_result.count | pluralize("value", "values") }}.</li>
             </ul>
         </p>
 

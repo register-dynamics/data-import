@@ -1,6 +1,45 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %} {{ serviceName }} – GOV.UK Prototype Kit {% endblock %}
+{% block beforeContent %}
+
+
+
+{{
+    govukBreadcrumbs({
+      items: [
+        {
+          text: "Home",
+          href: "/"
+        },
+        {
+            text: "Upload spreadsheet",
+            href: "/upload"
+        },
+        {
+          text: "Select sheet",
+          href: "/select_sheet"
+        },
+        {
+            text: "Select header row",
+            href: "/select_header_row"
+        },
+        {
+            text: "Select footer row",
+            href: "/select_footer_row"
+        },
+        {
+            text: "Identify columns",
+            href: "/mapping"
+        },
+        {
+            text: "Review data",
+            href: "/review"
+        }
+      ]
+    })
+  }}
+{% endblock %}
 
 {% block content %}
 {% set results = importerMappedData(data) %}
@@ -19,47 +58,44 @@
             <thead class="govuk-table__head">
                 <tr class="govuk-table__row">
                     <th scope="col" class="govuk-table__header">Row</th>
+                    <th scope="col" class="govuk-table__header">Field</th>
                     <th scope="col" class="govuk-table__header">Error</th>
                 </tr>
             </thead>
             <tbody class="govuk-table__body">
-            {% for idx, error in results.errors %}
-            <tr class="govuk-table__row">
-                <td class="govuk-table__cell"> {{idx}} </td>
-                <td class="govuk-table__cell"> {{error}} </td>
-            </tr>
+            {% for idx, errors in results.errors %}
+                {% for e in errors %}
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell"> {{idx}} </td>
+                    <td class="govuk-table__cell">  {{e.field}} </td>
+                    <td class="govuk-table__cell"> {{e.message}} </td>
+                </tr>
+                {% endfor %}
             {% endfor %}
             </tbody>
         </table>
         {% endif %}
 
         {% if results.warningCount != 0 %}
-            <table class="govuk-table">
-                <caption class="govuk-table__caption govuk-table__caption--m">Warnings</caption>
-                <thead class="govuk-table__head">
-                    <tr class="govuk-table__row">
-                        <th scope="col" class="govuk-table__header">Row</th>
-                        <th scope="col" class="govuk-table__header">Warning</th>
-                    </tr>
-                </thead>
-                <tbody class="govuk-table__body">
+        <p class="govuk-body">
+            <ul class="govuk-list govuk-list--bullet">
                 {% for idx, warning in results.warnings %}
-                <tr class="govuk-table__row">
-                    <td class="govuk-table__cell"> {{idx}} </td>
-                    <td class="govuk-table__cell"> {{warning}} </td>
-                </tr>
+                <li>Row {{ idx }}: {{ warning }}</li>
                 {% endfor %}
-                </tbody>
-            </table>
+              </ul>
+        </p>
         {% endif %}
 
         <p class="govuk-body">
-        The uploaded data contains the following data:
+            The uploaded data contains the following data:
+
+            {% set sum_result = data_sum(data, 'Salary')%}
+            {% set avg_result = data_avg(data, 'Salary') %}
 
             <ul class="govuk-list govuk-list--bullet">
                 <li><strong>{{ results.totalCount }}</strong> rows of data</li>
-                <li>a total salary commitment from the 'Salary' column of <strong>{{ data_sum(data, 'Salary') | currency }}</strong>.</li>
-                <li>an average salary from the 'Salary' column of <strong>{{ data_avg(data, 'Salary') | currency }}</strong>.</li>
+                <li>a total salary commitment from the 'Salary' column of <strong>{{ sum_result.value | currency }}</strong> from {{ sum_result.count }} {{ sum_result.count | pluralize("value", "values") }}.</li>
+                <li>an average salary from the 'Salary' column of <strong>{{ avg_result.value | currency }}</strong> from {{avg_result.count}} {{ avg_result.count | pluralize("value", "values") }}.</li>
             </ul>
         </p>
 
