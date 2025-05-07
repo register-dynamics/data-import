@@ -49,7 +49,7 @@ To release a new version of the Data Upload Design Kit, resulting in the package
 Update the version field in the [package.json](./lib/importer/package.json).
 The major/minor/patch version should be updated as appropriate.  You should submit this change as a pull request.
 
-Make sure you also run the demo prototype so that it discovers the new local version, otherwise the demo will update in the next PR and you may end up with several developers trying to submit the same change.
+Make sure you also run the demo prototype so that it discovers the new local version, otherwise the demo will update in the next PR and you may end up with several developers trying to submit the same change. You can do this using `npm i` to update the prototype's dependency on the package.
 
 ### Merge into main
 
