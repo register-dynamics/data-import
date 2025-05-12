@@ -1,5 +1,6 @@
 {
   "serviceName": "Upload monthly pension return",
+  "sheetSelection": "manual",
   "fields": [
     {
       "name": "Title",
