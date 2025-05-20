@@ -1,8 +1,46 @@
 {
-  "serviceName": "Import spreadsheet data",
+  "serviceName": "Upload monthly pension return",
   "fields": [
-    "Code",
-    "Name",
-    "Speciality"
-  ]
+    {
+      "name": "Title",
+      "type": "text",
+      "required": false
+    },
+    {
+      "name": "First name",
+      "type": "text",
+      "required": false
+    },
+    {
+      "name": "Surname",
+      "type": "text",
+      "required": false
+    },
+    {
+      "name": "Employee number",
+      "type": "text",
+      "required": false
+    },
+    {
+      "name": "Employment start date",
+      "type": "text",
+      "required": false
+    },
+    {
+      "name": "Salary",
+      "type": "number",
+      "required": false
+    },
+    {
+      "name": "Contribution percentage",
+      "type": "text",
+      "required": false
+    },
+    {
+      "name": "Payment date",
+      "type": "text",
+      "required": false
+    }
+  ],
+  "uploadPath": ""
 }

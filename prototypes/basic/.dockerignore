@@ -1,0 +1,15 @@
+# Node.js ignores
+node_modules/
+
+# Test results
+test-results/
+
+# Prototype ignores - per-user
+.tmp/
+.env
+migrate.log
+usage-data-config.json
+
+# General ignores
+.DS_Store
+.idea

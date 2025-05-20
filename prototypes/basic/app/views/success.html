@@ -15,13 +15,27 @@
             Upload complete
           </h1>
           <div class="govuk-panel__body">
-            Your reference number<br><strong>{{session.id}}</strong>
+            Your reference number: <br><strong>{{ data['reference_number'] }}</strong>
           </div>
         </div>
-        <p class="govuk-body">You have successfully uploaded a spreadsheet</p>
+        <p class="govuk-body-l">You have successfully uploaded a spreadsheet</p>
         <h2 class="govuk-heading-m">What happens next</h2>
         <p class="govuk-body">
-          Data things
+          Data submitted through this service will be processed within the next
+          24 hours and shown on your organisation dashboard shortly afterwards.
+        </p>
+        <p class="govuk-body">
+          If you re-submit a modified version of this data within the next 28 days it will replace the current values,
+          after which you must contact us for support.
+        </p>
+        <p class="govuk-body">
+          If you have any queries about the process or the data uploaded, please quote your reference number in
+          any communications.
+        </p>
+
+        <p class="govuk-body">
+          To upload more data in another return, <a href="/">start again</a>
+
         </p>
       </div>
     </div>

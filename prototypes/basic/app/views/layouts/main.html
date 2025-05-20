@@ -3,4 +3,27 @@ For guidance on how to use layouts see:
 https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 #}
 
-{% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+
+{% block pageTitle %}
+  {% if pageName %}{{ pageName }} - {% endif %}{{ serviceName }}
+{% endblock %}
+
+
+{% block headIcons %}
+<link rel="icon" type="image/x-icon" href="https://images.squarespace-cdn.com/content/v1/63dd0010c6c6e91be50f08dc/ddddc1af-43ce-4b4f-b9c2-165c5f6188da/favicon.ico?format=100w">
+{% endblock %}
+
+{% block header %}
+    {% include "./header.html" %}
+    <div class="govuk-grid-row govuk-width-container">
+        {% include "./banner.html" %}
+  </div>
+{% endblock %}
+
+{% block footer %}
+    {% include "./footer.html" %}
+{% endblock %}
+
+{% extends "govuk-prototype-kit/layouts/unbranded.njk" %}

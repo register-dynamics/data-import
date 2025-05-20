@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Data Upload Design Kit by Register Dynamics</title>
     <link href="/public/stylesheets/application.css" rel="stylesheet" type="text/css" />
     <link href="../css/selectable_table.css" rel="stylesheet" type="text/css" />
@@ -12,50 +13,6 @@
         [data-static-only] {
             display: none;
         }
-    </style>
-    <style type="text/css">
-      div#title {
-          margin-right: auto;
-          margin-left: auto;
-          max-width: 960px;
-          display: flex;
-          flex-direction: row;
-          flex-wrap: nowrap;
-          justify-content: space-between;
-          align-items: center;
-          align-content: center;
-      }
-      div#title-text {
-      }
-      div#title-logo {
-          width: 60vw;
-          margin-right: -2em;
-      }
-      div#title-logo img {
-          width: 100%;
-      }
-
-      div#intro {
-          margin-right: auto;
-          margin-left: auto;
-          margin-top: 2em;
-          max-width: 960px;
-          display: flex;
-          flex-direction: row;
-          flex-wrap: nowrap;
-          justify-content: space-between;
-          align-items: center;
-          align-content: center;
-      }
-      div#intro-text {
-          padding-right: 4em;
-      }
-      div#intro-image {
-          width: 30vw;
-      }
-      div#intro-image img {
-          width: 100%;
-      }
     </style>
     <link data-plugin-only rel="icon" sizes="48x48"
         href="/manage-prototype/dependencies/govuk-frontend/dist/govuk/assets/images/favicon.ico">
@@ -95,85 +52,95 @@
     </header>
 
     <div class="x-govuk-masthead x-govuk-masthead--large" style="margin-top: -10px">
-        <div id="title">
-          <div id="title-text">
-            <h1 class="x-govuk-masthead__title">
-              Collect data for your <br/>
-              GOV.UK service in minutes
-            </h1>
-            <p class="x-govuk-masthead__description" style="text-wrap: balance;">
-              Use this Data Upload Design Kit to prototype ways to enable users to give you their data in bulk, quickly and easily
-            </p>
-            <a href="./start.html" role="button" draggable="false"
-               class="govuk-button govuk-button--inverse govuk-button--start" data-module="govuk-button">
-              Get started
-              <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5"
-                   height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
-                <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-              </svg>
-            </a>
-          </div>
-          <div id="title-logo">
-            <img src="logo.png" />
-          </div>
+        <div class="govuk-width-container">
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-one-half-from-desktop">
+                    <h1 class="x-govuk-masthead__title">
+                    Collect data for your
+                    GOV.UK service in minutes
+                    </h1>
+                    <p class="x-govuk-masthead__description" style="text-wrap: balance;">
+                    Use this Data Upload Design Kit to prototype ways to enable users to give you their data in bulk, quickly and easily
+                    </p>
+                    <a href="./start.html" role="button" draggable="false"
+                        class="govuk-button govuk-button--inverse govuk-button--start" data-module="govuk-button">
+                        Get started
+                        <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5"
+                            height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+                            <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+                        </svg>
+                    </a>
+                    <p class="x-govuk-masthead__description" style="font-size: 100%">
+                        You can also <a href="https://data-importer.register-dynamics.co.uk" target="_blank">try a demo service</a> built with this Kit.
+                    </p>
+                </div>
+                <div class="govuk-grid-column-one-half-from-desktop">
+                    <div class="x-govuk-masthead__image">
+                        <img src="logo.png" />
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="govuk-width-container">
-      <div id="intro">
-        <div id="intro-text">
-            <h2 class="govuk-heading-l">Gather data easily</h2>
+    <div class="govuk-width-container" style="margin-top: 2em">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds-from-desktop">
+                <h2 class="govuk-heading-l">Gather data easily</h2>
 
-            <p>Use ready-made components and
-              patterns to create a bulk data upload
-              journey easily</p>
+                <p>Use ready-made components and
+                patterns to create a bulk data upload
+                journey easily</p>
 
-            <p>Upload and preview any spreadsheet
-              (Excel, Google sheets, CSV) without the
-              need to adapt it.</p>
+                <p>Upload and preview any spreadsheet
+                (Excel, Google sheets, CSV) without the
+                need to adapt it.</p>
+            </div>
+            <div class="govuk-grid-column-one-third-from-desktop">
+                <img style="width: 100%; max-width: 315px" src="mainpage-screenshots.png" />
+            </div>
         </div>
-        <div id="intro-image">
-            <img src="mainpage-screenshots.png" />
-        </div>
-      </div>
     </div>
 
     <div class="govuk-width-container">
       <main class="govuk-main-wrapper" id="main-content">
-        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; grid-gap: 1em;">
+        <div class="feature-grid">
             <div class="govuk-panel feature">
-                <h2 class="govuk-heading-l">Free</h2>
+                <h2 class="govuk-heading-m">Free</h2>
                 <p>It is quick to set up and is completely free</p>
             </div>
             <div class="govuk-panel feature">
-                <h2 class="govuk-heading-l">Flexible</h2>
+                <h2 class="govuk-heading-m">Flexible</h2>
                 <p>Customise the templates, pages and data points to suit your specific needs</p>
             </div>
             <div class="govuk-panel feature">
-                <h2 class="govuk-heading-l">Accessible and Secure</h2>
+                <h2 class="govuk-heading-m">Accessible and secure</h2>
                 <p>Follow accessibility requirements and the latest cyber security standards</p>
             </div>
 
             <div class="govuk-panel feature">
-                <h2 class="govuk-heading-l">See live data</h2>
+                <h2 class="govuk-heading-m">See live data</h2>
                 <p>Preview and manipulate the data as it gets uploaded (including across multiple spreadsheets)</p>
             </div>
             <div class="govuk-panel feature">
-                <h2 class="govuk-heading-l">Develop easily</h2>
+                <h2 class="govuk-heading-m">Develop easily</h2>
                 <p>Enable developers to handle complex spreadshets with just a few simple lines of code</p>
             </div>
             <div class="govuk-panel feature">
-                <h2 class="govuk-heading-l">Go Faster</h2>
+                <h2 class="govuk-heading-m">Go faster</h2>
                 <p>Optimise and accelerate data gathering, ready for your live service</p>
             </div>
+        </div>
 
-            <div class="govuk-section-break govuk-section-break--l govuk-section-break--visible" style="grid-column: span 3;"></div>
-            <div>
+        <div class="govuk-section-break govuk-section-break--l govuk-section-break--visible"></div>
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-third-from-desktop">
                 <h2 class="govuk-heading-s">Introduction</h2>
                 <ul class="govuk-list">
                   <li><a class="govuk-link" href="./what-it-is.html">What it is</a></li>
                   <li><a class="govuk-link" href="./how-it-works.html">How it works</a></li>
                   <li><a class="govuk-link" href="./start.html">Get started</a></li>
+                  <li><a class="govuk-link" href="./configuration.html">Configuration</a></li>
                   <li><a class="govuk-link" href="./articles.html">Articles</a></li>
                 </ul>
 
@@ -184,7 +151,7 @@
                     <li><a class="govuk-link" href="./component-sheet-selector.html">Sheet selector</a></li>
                 </ul>
             </div>
-            <div style="grid-column: span 2;">
+            <div class="govuk-grid-column-two-thirds-from-desktop">
                 <h2 class="govuk-heading-m">About the Data Upload Design Kit</h2>
                 <p>
                   The Data Upload Design Kit is a free tool that offers a quick and easy way to gather data in bulk, from users. It works with the <a href="https://prototype-kit.service.gov.uk/docs/">GOV.UK Prototype Kit</a> and consists of a set of components and patterns for asking users for data as a spreadsheet. </p>
@@ -216,7 +183,7 @@
                 <div class="govuk-footer__meta-item">
                     <a href="https://www.register-dynamics.co.uk"
                         class="govuk-footer__link govuk-footer__copyright-logo rd-logo">
-                        &copy; Register Dynamics 2024
+                        &copy; Register Dynamics 2024-2025
                     </a>
                 </div>
             </div>

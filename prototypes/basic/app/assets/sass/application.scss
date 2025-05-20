@@ -1,10 +1,24 @@
 //
 // For guidance on how to add CSS and SCSS see:
 // https://prototype-kit.service.gov.uk/docs/adding-css-javascript-and-images
-// 
+//
 
 // Add extra styles here
 
+* {
+    font-family: Helvetica, Arial, sans-serif !important;
+}
+
+.rd-logo {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"><path fill="%236e777a" d="M221 559a50 50 0 0 1 20 19q8 13 8 30v15q0 17-8 30a50 50 0 0 1-20 19 61 61 0 0 1-29 7h-48V552h48a61 61 0 0 1 29 7Zm-48 97h19q12 0 19-8t8-21v-23q0-14-8-21t-19-8h-19Zm250-26v49h-29v-49l-43-78h32l26 51h1l27-51h29Zm186-9-6-9-4-8-1 1v74h-26V552h24l40 59 5 9 5 7h1v-75h26v127h-25Zm251 33h-50l-9 25h-27l46-127h33l46 127h-30Zm-42-22h35l-17-49h-1ZM221 880v-93h-1l-15 66h-30l-15-66h-1v93h-26V754h44l12 63h1l15-63h44v126Zm139-126h90v22h-31v81h31v23h-90v-23h31v-81h-31Zm242 97q8 8 20 8 13 0 19-7t6-22h26q0 16-6 28a43 43 0 0 1-18 18 55 55 0 0 1-26 6h-3a61 61 0 0 1-28-7 47 47 0 0 1-20-19q-7-12-7-30v-18q0-17 7-30a48 48 0 0 1 20-19 58 58 0 0 1 28-7h2a57 57 0 0 1 26 6 43 43 0 0 1 19 17q6 12 6 29h-27q0-15-6-22t-19-7q-11 0-19 7t-7 22v26q0 14 7 21Zm258-62a13 13 0 0 0-5-11q-6-4-15-4-10 0-16 4t-6 8a10 10 0 0 0 4 8 26 26 0 0 0 9 5l15 4a178 178 0 0 1 22 7 38 38 0 0 1 16 10q6 8 6 20 0 22-14 32t-38 10q-22 0-37-10t-14-29v-4h27v3a15 15 0 0 0 6 12q6 5 17 5 13 0 18-4t6-10a10 10 0 0 0-3-8 24 24 0 0 0-9-5l-15-4a187 187 0 0 1-23-7 38 38 0 0 1-15-11q-6-8-6-21 0-12 6-20a39 39 0 0 1 18-13 71 71 0 0 1 25-4q21 0 35 9t13 28v2h-27Z"/><path fill="%236e777a" d="M222 152q11 9 11 23 0 13-7 22t-17 11v1a32 32 0 0 1 16 13q6 9 6 21l1 16 3 8a12 12 0 0 0 5 3v5a24 24 0 0 1-9 2q-9 0-14-5t-5-21q0-16-7-24t-16-9h-33v58h-19V144h56q18 0 29 8Zm-66 9v40h37a21 21 0 0 0 15-6 18 18 0 0 0 6-14 18 18 0 0 0-5-14q-6-6-16-6Zm288-17-3 17h-65v39h59v17h-59v42h67l2 17h-88V144Zm196 4a42 42 0 0 1 17 17q6 11 6 25h-19q0-14-8-23t-23-8q-18 0-27 11t-9 31v18q0 20 9 31t27 11q16 0 24-9t8-26v-3h-37v-17h55v45a199 199 0 0 0 1 25h-11a117 117 0 0 1-4-16q-12 18-36 18-26 0-40-16t-14-43v-18q0-27 14-43t40-16q15 0 27 6Zm234-4v17h-38v98h38v17h-95v-17h38v-98h-38v-17ZM218 359q13 9 13 27v2h-19v-2a16 16 0 0 0-8-15q-7-5-19-5-14 0-22 5t-7 13a14 14 0 0 0 4 10 31 31 0 0 0 11 6l18 6a203 203 0 0 1 23 7 41 41 0 0 1 16 11q6 7 6 19 0 22-13 32t-37 10q-24 0-37-10t-13-30v-3h19v4q0 11 8 16t23 6q15 0 23-6t8-14q0-7-4-12a31 31 0 0 0-11-7l-19-5a210 210 0 0 1-23-8 37 37 0 0 1-15-10q-6-8-6-19 0-19 13-29t34-9q22 0 34 10Zm232-8v17h-41v115h-19V368h-42v-17Zm211 0-2 17h-65v39h59v17h-59v42h66l3 17h-88V351Zm208 8q11 9 11 23 0 13-7 22t-16 11v1a32 32 0 0 1 15 13q6 9 6 21l1 16 3 8a12 12 0 0 0 6 3v5a24 24 0 0 1-9 2q-10 0-15-5t-5-21q0-16-6-24t-16-9h-34v58h-19V351h56q18 0 29 8Zm-66 9v40h37a21 21 0 0 0 15-6 18 18 0 0 0 6-14 18 18 0 0 0-5-14q-6-6-15-6Z"/></svg>');
+    background-size: 100% 100%;
+    background-position-y: -18px;
+}
+
+
+.govuk-header__logotype {
+    display: none;
+}
 
 pre {
     border: solid 2px #666;
@@ -14,4 +28,19 @@ pre {
     box-shadow: 0px 0px 16px #ddd;
     max-height: 400px;
     overflow-y: scroll;
+}
+
+.contextual-sidebar {
+    border-top: 2px solid #1d70b8;
+    padding-top: 1em;
+}
+
+.contextual-sidebar .subsection {
+    border-top: 1px solid #b1b4b6;
+    padding-top: 1em;
+}
+
+.govuk-panel--warning {
+    color: #ffffff;
+    background: #f42d52;
 }

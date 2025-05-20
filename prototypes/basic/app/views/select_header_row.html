@@ -7,7 +7,28 @@
 {% block pageTitle %} {{ serviceName }} – GOV.UK Prototype Kit {% endblock %}
 
 {% block beforeContent %}
-{{ govukBackLink({ text: "Back", href: "javascript:window.history.back()" }) }}
+{{
+    govukBreadcrumbs({
+      items: [
+        {
+          text: "Home",
+          href: "/"
+        },
+        {
+            text: "Upload spreadsheet",
+            href: "/upload"
+        },
+        {
+          text: "Select sheet",
+          href: "/select_sheet"
+        },
+        {
+            text: "Select header row",
+            href: "/select_header_row"
+        }
+      ]
+    })
+  }}
 {% endblock %}
 
 {% from "importer/macros/header_selector.njk" import importerHeaderSelector %}
@@ -19,14 +40,15 @@
             <h1 class="govuk-heading-l">
                 Select cells containing column names
             </h1>
-            <p>
+            <p class="govuk-body-l">
                 Column names are the descriptive labels usually found at the top
-                of a column.
-            </p>
-            <p>
-                You can select a whole row or just the column names that are
+                of a column. You can select a whole row or just the column names that are
                 needed for this service.
             </p>
+            <p class="govuk-body">
+                If you don't choose a column name, then the first row of the table will
+                be used as headers. Any blank cells in that row will be labelled as
+                "Untitled column" with a number that incrememts for each blank cell. e.g. "[Untitled column 1]"
         </legend>
 
         <form action="{{ importerSelectHeaderPath('/select_footer_row') }}" method="post">

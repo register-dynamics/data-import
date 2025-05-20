@@ -1,0 +1,102 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Plugin Configuration - Add field" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  {% if error %}
+  <div class="govuk-error-summary" data-module="govuk-error-summary">
+    <div role="alert">
+      <h2 class="govuk-error-form_err">
+        There was a problem with your submission
+      </h2>
+      <div class="govuk-error-summary__body">
+        <ul class="govuk-list govuk-error-summary__list">
+          <li>
+            <a href="#form_err">{{ error_summary }}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-xl">
+        Add a new field
+    </h1>
+
+    <p class="govuk-body-l">
+      Each added field will be shown during the import to allow the user to
+      assign a specific column to it.
+    </p>
+
+    <p class="govuk-body">
+      When picking a name for the field you should choose something descriptive that your users
+      will understand when assigning it to a column. You should avoid punctuation although you may
+      use spaces and numbers in the name.
+    </p>
+
+   <form action="/importer/config/field" method="post">
+      <div class="govuk-form-group {% if error %}govuk-form-group--error{% endif %}">
+        <label class="govuk-label" for="field-name">
+          Name for the field
+        </label>
+
+        {% if error %}
+        <p id="form_err" class="govuk-error-message">
+          <span class="govuk-visually-hidden">Error:</span> {{ error }}
+        </p>
+        {% endif %}
+
+        <input class="govuk-input" id="field-name" name="field" type="text">
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="field-type">
+          Field type
+        </label>
+        <div id="type-hint" class="govuk-hint">
+          Select what type of field is expected
+        </div>
+        <select class="govuk-select" id="field-type" name="type">
+          <option value="text">Text</option>
+          <option value="number">Number</option>
+        </select>
+      </div>
+
+      <div class="govuk-form-group">
+        <div class="govuk-radios" data-module="govuk-radios">
+          <label class="govuk-label" for="field-type">
+            Required or Optional
+          </label>
+          <div id="type-hint" class="govuk-hint">
+            Choose whether the field is required or optional
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="field-required-optional" name="required" type="radio" value="false" selected="selected">
+            <label class="govuk-label govuk-radios__label" for="field-required-optional">
+              Optional
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="field-required-required" name="required" type="radio" value="true">
+            <label class="govuk-label govuk-radios__label" for="field-required-required">
+              Required
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="govuk-button-group">
+        <input type="submit" class="govuk-button" value="Add"/>
+        <a class="govuk-link" href="/importer/config">Cancel</a>
+      </div>
+   </form>
+  </div>
+</div>
+
+
+{% endblock %}
