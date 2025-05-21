@@ -1,1 +1,45 @@
-{"serviceName":"Upload monthly pension return","fields":[{"name":"Title","required":false,"type":"text"},{"name":"First name","required":false,"type":"text"},{"name":"Surname","required":false,"type":"text"},{"name":"Employee number","required":false,"type":"text"},{"name":"Employment start date","required":false,"type":"text"},{"name":"Salary","required":false,"type":"number"},{"name":"Contribution percentage","required":false,"type":"text"},{"name":"Payment date","required":false,"type":"text"}],"uploadPath":"/var/folders/xv/mmq61h251nd7lw9yhr6x67yr0000gn/T/reg-dyn-importer"}
+{
+    "serviceName": "Upload monthly pension return",
+    "fields": [
+        {
+            "name": "Title",
+            "required": false,
+            "type": "text"
+        },
+        {
+            "name": "First name",
+            "required": false,
+            "type": "text"
+        },
+        {
+            "name": "Surname",
+            "required": false,
+            "type": "text"
+        },
+        {
+            "name": "Employee number",
+            "required": false,
+            "type": "text"
+        },
+        {
+            "name": "Employment start date",
+            "required": false,
+            "type": "text"
+        },
+        {
+            "name": "Salary",
+            "required": false,
+            "type": "number"
+        },
+        {
+            "name": "Contribution percentage",
+            "required": false,
+            "type": "text"
+        },
+        {
+            "name": "Payment date",
+            "required": false,
+            "type": "text"
+        }
+    ]
+}
