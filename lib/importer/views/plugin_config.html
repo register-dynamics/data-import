@@ -93,7 +93,50 @@
       </div>
 
     </div>
-  </div>
+      <form action="config" method="post">
+
+    <div class="govuk-grid-column-full govuk-!-padding-top-6" >
+        <h2 class="govuk-heading-l"></h2>
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        Report usage data
+      </h1>
+    </legend>
+
+    <p class="govuk-body">
+      Allow Register Dynamics to collect usage data on your use of the Data Upload Design Kit.
+      When enabled, the Data Upload Design Kit will only report the following events with an
+      anonymous identifier specific to this prototype:
+      <ul class="govuk-list govuk-list--bullet">
+       <li>The Plugin was initialised</li>
+       <li>The Plugin was configured</li>
+      </ul>
+    </p>
+
+    <p class="govuk-body">
+      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="collectData" name="collectData" type="checkbox" value="true" {% if collectUsageData == true %}checked{% endif %}>
+          <label class="govuk-label govuk-checkboxes__label" for="collectData">
+            Allow collection of usage data
+          </label>
+        </div>
+      </div>
+    </p>
+
+
+    <p class="govuk-body">
+      If you don't want usage data to be collected, please consider
+      <a href="https://github.com/register-dynamics/data-import/discussions">dropping a note to us on Github</a>
+      to let us know how you're using the Kit. Thanks!
+    </p>
+  </fieldset>
+</div>
+    </div>
+
 
     <div class="govuk-grid-column-full govuk-!-padding-top-6" >
       <h2 class="govuk-heading-l">Save changes</h2>
@@ -105,7 +148,6 @@
         use the new settings.
       </p>
 
-      <form action="config" method="post">
         <div class="govuk-form-group {% if error %}govuk-form-group--error{% endif %}">
           {% if error %}
           <p id="path_err" class="govuk-error-message">
