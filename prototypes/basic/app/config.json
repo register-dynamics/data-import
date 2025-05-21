@@ -1,46 +1,45 @@
 {
-  "serviceName": "Upload monthly pension return",
-  "fields": [
-    {
-      "name": "Title",
-      "type": "text",
-      "required": false
-    },
-    {
-      "name": "First name",
-      "type": "text",
-      "required": false
-    },
-    {
-      "name": "Surname",
-      "type": "text",
-      "required": false
-    },
-    {
-      "name": "Employee number",
-      "type": "text",
-      "required": false
-    },
-    {
-      "name": "Employment start date",
-      "type": "text",
-      "required": false
-    },
-    {
-      "name": "Salary",
-      "type": "number",
-      "required": false
-    },
-    {
-      "name": "Contribution percentage",
-      "type": "text",
-      "required": false
-    },
-    {
-      "name": "Payment date",
-      "type": "text",
-      "required": false
-    }
-  ],
-  "uploadPath": ""
+    "serviceName": "Upload monthly pension return",
+    "fields": [
+        {
+            "name": "Title",
+            "required": false,
+            "type": "text"
+        },
+        {
+            "name": "First name",
+            "required": false,
+            "type": "text"
+        },
+        {
+            "name": "Surname",
+            "required": false,
+            "type": "text"
+        },
+        {
+            "name": "Employee number",
+            "required": false,
+            "type": "text"
+        },
+        {
+            "name": "Employment start date",
+            "required": false,
+            "type": "text"
+        },
+        {
+            "name": "Salary",
+            "required": false,
+            "type": "number"
+        },
+        {
+            "name": "Contribution percentage",
+            "required": false,
+            "type": "text"
+        },
+        {
+            "name": "Payment date",
+            "required": false,
+            "type": "text"
+        }
+    ]
 }
