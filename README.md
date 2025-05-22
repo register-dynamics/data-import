@@ -1,4 +1,4 @@
-# Data Design Kit
+# Data Upload Design Kit
 
 This repository contains code to aid in the user testing of the data import process, composed of
 
@@ -64,4 +64,3 @@ Create a new github release, making sure to:
 * Publish the release.
 
 The final stage of this process will result in github actions publishing this package to npm.
-
