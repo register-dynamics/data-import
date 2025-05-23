@@ -1,6 +1,6 @@
 {
   "meta": {
-    "name": "Data Design Kit",
+    "name": "Data Upload Design Kit",
     "description": "Quickly import, clean and review tabular data as part of a GOV.UK service and then access the data in pages of a prototype.",
     "helpLink": "/plugin-assets/%40register-dynamics%2Fimporter/assets/docs/"
   },
