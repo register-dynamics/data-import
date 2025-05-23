@@ -56,7 +56,7 @@
           </ul>
         </p>
 
-        <form action="{{importerUploadPath('/select_sheet')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{importerUploadPath('/select_sheet', '/select_header_row')}}" method="POST" enctype="multipart/form-data">
             <div>
                 {{ govukFileUpload({
                 id: "file-upload",
