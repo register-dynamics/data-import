@@ -1,6 +1,6 @@
 
 install:
-	pip install -r reqiurements.txt
+	pip install -r requirements.txt
 
 fetch:
 	@python dudk_stats
