@@ -80,7 +80,13 @@
         <p class="govuk-body">
             <ul class="govuk-list govuk-list--bullet">
                 {% for idx, warning in results.warnings %}
-                <li>Row {{ idx }}: {{ warning }}</li>
+                    {% for e in warning %}
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell"> {{idx}} </td>
+                        <td class="govuk-table__cell">  {{e.field}} </td>
+                        <td class="govuk-table__cell"> {{e.message}} </td>
+                    </tr>
+                    {% endfor %}
                 {% endfor %}
               </ul>
         </p>
