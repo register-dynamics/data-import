@@ -1,7 +1,8 @@
 
-{% macro importerTableView(data, caption=false, hideHeader=false ) %}
+{% macro importerTableView(data, caption=false, headers=[] ) %}
     {% set headers = data.headers %}
     {% set rows = data.rows %}
+    {% set row_length = rows[0].length %}
     {% set moreRowsAvailable = data.extraRecordCount > 0 %}
     {% set moreRowsCount = data.extraRecordCount %}
 
@@ -9,7 +10,7 @@
         {% if caption %}
           <caption class="govuk-table__caption govuk-table__caption--m">{{caption}}</caption>
         {% endif %}
-        {% if not hideHeader %}
+        {% if headers %}
         <thead>
             <tr>
             {% for h in headers %}
@@ -17,6 +18,14 @@
             {% endfor %}
             </tr>
         </thead>
+        {% else %}
+          <thead>
+              <tr>
+                {% for i in range(0, row_length) -%}
+                  <th>{{ i | encode_header }}</th>
+                {% endfor %}
+              </tr>
+          </thead>
         {% endif %}
         <tbody>
             {% for row in rows %}
