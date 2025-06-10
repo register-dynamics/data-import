@@ -60,7 +60,7 @@
             </div>
           {% else %}
             {% set caption = importerGetTableCaption(data, "First", 10, sheet.name) %}
-            {{ importerTableView(sheet.data, caption=caption, hideHeader=true) }}
+            {{ importerTableView(sheet.data, caption=caption) }}
           {% endif %}
         </div>
       {% endfor %}

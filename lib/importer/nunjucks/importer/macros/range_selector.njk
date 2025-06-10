@@ -8,17 +8,28 @@
     <input type="hidden" name="importer:selection:BRCol" id="importer:selection:BRCol"/>
 </div>
 
+    {% set row_length = rows[0].length %}
+
     <div class="rd-range-selector">
       <table class="selectable govuk-body"
              data-persist-selection="true"
              role="grid" aria-multiselectable="true"
              {% if caption %}
              aria-labelledby="tablecaption"
-             {% endif %}  
+             {% endif %}
       >
           {% if caption %}
           <caption id="tablecaption" class="govuk-table__caption govuk-table__caption--m">{{caption}}</caption>
           {% endif %}
+
+          <thead>
+            <tr>
+              {% for i in range(0, row_length) -%}
+                <th>{{ i | encode_header }}</th>
+              {% endfor %}
+            </tr>
+          </thead>
+
           <tbody role="rowgroup">
               {% for row in rows %}
               <tr role="row">
