@@ -1,5 +1,5 @@
 
-{% macro importerRangeSelector(rows, caption) %}
+{% macro importerRangeSelector(rows, caption, tableHeaders=[]) %}
 
 <div>
     <input type="hidden" name="importer:selection:TLRow" id="importer:selection:TLRow"/>
@@ -14,10 +14,20 @@
              role="grid" aria-multiselectable="true"
              {% if caption %}
              aria-labelledby="tablecaption"
-             {% endif %}  
+             {% endif %}
       >
           {% if caption %}
           <caption id="tablecaption" class="govuk-table__caption govuk-table__caption--m">{{caption}}</caption>
+          {% endif %}
+
+          {% if tableHeaders %}
+           <thead>
+            <tr>
+              {% for h in tableHeaders %}
+              <th role="col">{{ h }}</th>
+              {% endfor %}
+            </tr>
+          </thead>
           {% endif %}
           <tbody role="rowgroup">
               {% for row in rows %}
