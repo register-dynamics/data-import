@@ -25,12 +25,17 @@
         {% endif %}
         <tbody>
             {% for row in rows %}
-            <tr>
+            {% set errorCount = row | selectattr("error") | length %}
+            <tr {% if errorCount > 0 %}class="validation-error" {% endif %}>
                 {% if rowNumbers %}
                   <th scope="row">{{ rowNumbers + loop.index0 }}</th>
                 {% endif %}
                 {% for cell in row %}
                 <td
+                  {% if cell.error %}
+                    class="validation-error"
+                    title="{{ cell.error }}"
+                  {% endif %}
                   {% if cell.colspan %}
                     colspan="{{ cell.colspan }}"
                   {% endif %}
