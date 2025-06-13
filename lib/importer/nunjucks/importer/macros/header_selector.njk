@@ -1,7 +1,16 @@
 
 {% from "importer/macros/range_selector.njk" import importerRangeSelector %}
 
+{# Deprecated: Use dudkHeaderSelector instead #}
 {% macro importerHeaderSelector(data, start, count=10) %}
+    {{ dudkHeaderSelector({data: data, start: start, count: count}) }}
+{% endmacro %}
+
+{% macro dudkHeaderSelector(params) %}
+    {% set data = params.data %}
+    {% set start = params.start %}
+    {% set count = params.count %}
+
     {% set rows = importerGetRows(data, start, count) %}
     {% set caption = importerGetTableCaption(data, "First", count) %}
     {% set tableHeaders =  importerHeaderRowDisplay(data, "index") %}

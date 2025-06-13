@@ -1,5 +1,14 @@
 
+{# Deprecated: Use dudkRangeSelector instead #}
 {% macro importerRangeSelector(rows, caption, tableHeaders=[], showRowNumbers=false) %}
+  {{ dudkRangeSelector( {rows: rows, caption: caption, tableHeaders: tableHeaders, showRowNumbers: showRowNumbers}) }}
+{% endmacro %}
+
+{% macro dudkRangeSelector(params) %}
+    {% set rows = params.rows %}
+    {% set caption = params.caption %}
+    {% set tableHeaders = params.tableHeaders %}
+    {% set showRowNumbers = params.showRowNumbers %}
 
 <div>
     <input type="hidden" name="importer:selection:TLRow" id="importer:selection:TLRow"/>
@@ -43,7 +52,6 @@
                 {% if showRowNumbers %}
                   <th scope="row" class="rowIndex">{{ rowObj.index }}</th>
                 {% endif %}
-
                   {% for cell in rowObj.row %}
                   <td aria-selected="false"
                     {% if cell.colspan %}

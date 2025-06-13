@@ -1,7 +1,16 @@
 
 {% from "importer/macros/range_selector.njk" import importerRangeSelector %}
 
+{# Deprecated: Use dudkFooterSelector instead #}
 {% macro importerFooterSelector(data, count=10) %}
+    {{ dudkFooterSelector({data: data, count: count}) }}
+{% endmacro %}
+
+
+{% macro dudkFooterSelector(params) %}
+    {% set data = params.data %}
+    {% set count = params.count %}
+
     {% set rows = importerGetTrailingRows(data, count) %}
     {% set caption = importerGetTableCaption(data, "Last", count) %}
 

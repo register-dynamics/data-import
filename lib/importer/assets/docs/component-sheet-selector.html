@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Sheet selector – Data Upload Design Kit by Register Dynamics</title>
     <link href="/public/stylesheets/application.css" rel="stylesheet" type="text/css" />
+    <link href="../css/error.css" rel="stylesheet" type="text/css" />
     <link href="../css/sheet_selector.css" rel="stylesheet" type="text/css" />
     <link href="../css/selectable_table.css" rel="stylesheet" type="text/css" />
     <link href="./docs.css" rel="stylesheet" type="text/css" />
@@ -430,13 +431,13 @@
 &lt;/div&gt;</pre>
                 </div>
                 <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="nunjucks">
-                    <p>In the Prototype Kit, call the <code>importerSheetSelector</code> macro to
+                    <p>In the Prototype Kit, call the <code>dudkSheetSelector</code> macro to
                         automatically display a sheet selector and associated data previews.</p>
-                    <pre>{% from "importer/macros/sheet_selector.njk" import importerSheetSelector %}
-{{ importerSheetSelector(data) }}</pre>
+                    <pre>{% from "importer/macros/sheet_selector.njk" import dudkSheetSelector %}
+{{ dudkSheetSelector({data: data, legend: "A legend for the table") }}</pre>
                     <p>The macro accepts the following options:</p>
                     <table class="govuk-table">
-                        <caption class="govuk-table__caption"><code>importerSheetSelector</code> options</caption>
+                        <caption class="govuk-table__caption"><code>dudkSheetSelector</code> options</caption>
                         <thead class="govuk-table__head">
                             <tr class="govuk-table__row">
                                 <th class="govuk-table__header" scope="col">Name</th>

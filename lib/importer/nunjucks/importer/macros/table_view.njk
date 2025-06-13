@@ -1,10 +1,11 @@
 
+{# Deprecated: Use dudkTableView instead #}
 {% macro importerTableView(session, data, caption=false, headerMode="none" ) %}
     {% set moreRowsCount = data.extraRecordCount %}
     {% set headers = importerHeaderRowDisplay(session, headerMode) %}
 
     {{
-      tableView({
+      dudkTableView({
         caption: caption,
         showHeaders: true,
         headers: headers,
@@ -13,6 +14,10 @@
         moreRowsCount: moreRowsCount
         } )
     }}
+{% endmacro %}
+
+{% macro tableView(params) %}
+  {{ dudkTableView(params) }}
 {% endmacro %}
 
 {#
@@ -25,7 +30,8 @@ Renders a table view using the provided parameters to determine what is being sh
   * rows - The row data containing the values for each cell
   * moreRowsCount - How many more rows are available but now shown, useful when showing only n of many.
 #}
-{% macro tableView(params) %}
+{% macro dudkTableView(params) %}
+
     <table class="selectable govuk-body" data-persist-selection="true">
         {% if params.caption %}
           <caption class="govuk-table__caption govuk-table__caption--m">{{params.caption}}</caption>
@@ -44,8 +50,9 @@ Renders a table view using the provided parameters to determine what is being sh
         {% endif %}
         <tbody>
             {% for rowObj in params.rows %}
-            <tr>
-                {% if showRowNumbers %}
+            <tr class="govuk-table__row {% if importerRowHasHeader(rowObj) %}
+            validation-error{%endif%}">
+                {% if params.showRowNumbers %}
                   <th scope="row" class="rowIndex">{{ rowObj.index }}</th>
                 {% endif %}
                 {% for cell in rowObj.row %}
@@ -55,6 +62,10 @@ Renders a table view using the provided parameters to determine what is being sh
                   {% endif %}
                   {% if cell.rowspan %}
                     rowspan="{{ cell.rowspan }}"
+                  {% endif %}
+
+                  {% if cell.error %}
+                    class="validation-error"
                   {% endif %}
                 >{{cell.value }}</td>
                 {% endfor %}

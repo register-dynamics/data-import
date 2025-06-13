@@ -245,13 +245,13 @@
 &lt;/table&gt;</pre>
                 </div>
                 <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="nunjucks">
-                    <p>In the Prototype Kit, call the <code>importerTableView</code> macro to
+                    <p>In the Prototype Kit, call the <code>duTableView</code> macro to
                         automatically display a table of previously uploaded data.</p>
-                    <pre>{% from "importer/macros/table_view.njk" import importerTableView %}
-{{ importerTableView(data) }}</pre>
+                    <pre>{% from "importer/macros/table_view.njk" import dudkTableView %}
+{{ dudkTableView({data: data, caption: "A title"}) }}</pre>
                     <p>The macro accepts the following options:</p>
                     <table class="govuk-table">
-                        <caption class="govuk-table__caption"><code>importerTableView</code> options</caption>
+                        <caption class="govuk-table__caption"><code>dudkTableView</code> parameters</caption>
                         <thead class="govuk-table__head">
                             <tr class="govuk-table__row">
                                 <th class="govuk-table__header" scope="col">Name</th>
@@ -261,11 +261,9 @@
                         </thead>
                         <tbody class="govuk-table__body">
                             <tr class="govuk-table__row">
-                                <th class="govuk-table__header" scope="row">data</th>
+                                <th class="govuk-table__header" scope="row">rows</th>
                                 <td class="govuk-table__cell">Prototype Kit session</td>
-                                <td class="govuk-table__cell">The automatically
-                                    populated <code>data</code> variable containing
-                                    the user's uploaded sheet and options.</td>
+                                <td class="govuk-table__cell">The row containing data obtained from the library functions </td>
                             </tr>
                             <tr class="govuk-table__row">
                                 <th class="govuk-table__header" scope="row">caption</th>
@@ -275,7 +273,12 @@
                                     table view.</td>
                             </tr>
                             <tr class="govuk-table__row">
-                                <th class="govuk-table__header" scope="row">hideHeader</th>
+                                <th class="govuk-table__header" scope="row">headers</th>
+                                <td class="govuk-table__cell">List of text (optional, default: blank)</td>
+                                <td class="govuk-table__cell">The header values to display in the table</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header" scope="row">showHeaders</th>
                                 <td class="govuk-table__cell">True or false (optional, default: false)</td>
                                 <td class="govuk-table__cell">Whether the
                                     headers that the user has selected should be

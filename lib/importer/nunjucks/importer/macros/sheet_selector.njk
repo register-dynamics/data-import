@@ -17,7 +17,15 @@
 #}
 {% from "importer/macros/table_view.njk" import importerTableView %}
 
+{# Deprecated: Use dudkSheetSelector instead #}
 {% macro importerSheetSelector(data, legend) %}
+  {{ dudkSheetSelector({data: data, legend: legend})}}
+{% endmacro %}
+
+{% macro dudkSheetSelector(params) %}
+  {% set data = params.data %}
+  {% set legend = params.legend %}
+
   {% set selectedSheet = data['importer.session'].sheet %}
   {% set sheets = importSheetPreview(data) %}
   {% set tableRowIndex = sheets.length + 2 %}
