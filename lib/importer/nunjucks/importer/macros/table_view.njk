@@ -2,9 +2,11 @@
 {% macro importerTableView(data, caption=false, hideHeader=false ) %}
     {% set headers = data.headers %}
     {% set rows = data.rows %}
-    {% set moreRowsAvailable = data.extraRecordCount > 0 %}
     {% set moreRowsCount = data.extraRecordCount %}
+    {{ tableView(headers, rows, caption, hideHeader, moreRowsCount) }}
+{% endmacro %}
 
+{% macro tableView(headers, rows, caption=false, hideHeader=false, rowsBelow=0, rowNumbers=false) %}
     <table class="selectable govuk-body" data-persist-selection="true">
         {% if caption %}
           <caption class="govuk-table__caption govuk-table__caption--m">{{caption}}</caption>
@@ -12,8 +14,11 @@
         {% if not hideHeader %}
         <thead>
             <tr>
+            {% if rowNumbers %}
+                <th scope="row"></th>
+            {% endif %}
             {% for h in headers %}
-                <th>{{h}}</th>
+                <th scope="col">{{h}}</th>
             {% endfor %}
             </tr>
         </thead>
@@ -21,6 +26,9 @@
         <tbody>
             {% for row in rows %}
             <tr>
+                {% if rowNumbers %}
+                  <th scope="row">{{ rowNumbers + loop.index0 }}</th>
+                {% endif %}
                 {% for cell in row %}
                 <td
                   {% if cell.colspan %}
@@ -34,10 +42,10 @@
             </tr>
             {% endfor %}
         </tbody>
-        {% if moreRowsAvailable %}
+        {% if rowsBelow > 0 %}
         <tfoot>
           <tr>
-            <td colspan="{{headers.length}}">{{moreRowsCount}} other rows below</td>
+            <td colspan="{{headers.length}}">{{rowsBelow}} other row{{ "s" if rowsBelow != 1 }} below</td>
           </tr>
         </tfoot>
         {% endif %}
