@@ -45,7 +45,7 @@ Renders a table view using the provided parameters to determine what is being sh
         <tbody>
             {% for rowObj in params.rows %}
             <tr>
-                {% if showRowNumbers %}
+                {% if params.showRowNumbers %}
                   <th scope="row" class="rowIndex">{{ rowObj.index }}</th>
                 {% endif %}
                 {% for cell in rowObj.row %}
