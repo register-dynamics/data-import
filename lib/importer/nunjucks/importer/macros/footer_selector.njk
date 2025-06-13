@@ -5,5 +5,7 @@
     {% set rows = importerGetTrailingRows(data, count) %}
     {% set caption = importerGetTableCaption(data, "Last", count) %}
 
-    {{ importerRangeSelector(rows, caption) }}
+    {% set tableHeaders = importerHeaderRowDisplay(data, "source") %}
+
+    {{ importerRangeSelector(rows, caption, tableHeaders) }}
 {% endmacro %}

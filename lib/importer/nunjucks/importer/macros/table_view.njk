@@ -1,18 +1,21 @@
 
-{% macro importerTableView(data, caption=false, hideHeader=false ) %}
+{% macro importerTableView(session, data, caption=false, headerMode="none" ) %}
     {% set headers = data.headers %}
     {% set rows = data.rows %}
     {% set moreRowsAvailable = data.extraRecordCount > 0 %}
     {% set moreRowsCount = data.extraRecordCount %}
 
+    {% set tableHeaders = importerHeaderRowDisplay(session, headerMode) %}
+
     <table class="selectable govuk-body" data-persist-selection="true">
         {% if caption %}
           <caption class="govuk-table__caption govuk-table__caption--m">{{caption}}</caption>
         {% endif %}
-        {% if not hideHeader %}
+        {% if tableHeaders %}
         <thead>
+
             <tr>
-            {% for h in headers %}
+            {% for h in tableHeaders %}
                 <th>{{h}}</th>
             {% endfor %}
             </tr>
