@@ -4,6 +4,7 @@
 {% macro importerHeaderSelector(data, start, count=10) %}
     {% set rows = importerGetRows(data, start, count) %}
     {% set caption = importerGetTableCaption(data, "First", count) %}
+    {% set tableHeaders =  importerHeaderRowDisplay(data, "index") %}
 
-    {{ importerRangeSelector(rows, caption) }}
+    {{ importerRangeSelector(rows, caption, tableHeaders) }}
 {% endmacro %}
