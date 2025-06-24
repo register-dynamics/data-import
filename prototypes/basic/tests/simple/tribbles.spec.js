@@ -1,12 +1,12 @@
 import { test, expect } from '@playwright/test';
 
-import * as fixtures from "./helpers/fixtures";
+import * as fixtures from "../helpers/fixtures";
 
-import { UploadPage } from './helpers/upload_page';
-import { SheetSelectorPage } from './helpers/sheet_selector_page';
-import { HeaderSelectorPage } from './helpers/header_selector_page';
-import { FooterSelectorPage } from './helpers/footer_selector_page'
-import { MappingPage } from './helpers/mapping_page'
+import { UploadPage } from '../helpers/upload_page';
+import { SheetSelectorPage } from '../helpers/sheet_selector_page';
+import { HeaderSelectorPage } from '../helpers/header_selector_page';
+import { FooterSelectorPage } from '../helpers/footer_selector_page'
+import { MappingPage } from '../helpers/mapping_page'
 
 const path = require('node:path');
 
