@@ -1,0 +1,17 @@
+{% extends "../layouts/main.html" %}
+
+{% set pageName="Debug" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Debug views</h1>
+
+        <p class="govuk-body">
+            <a href="/importer/debug/valid">/fixtures/validation-test.csv</a> with headers specified and missing row warnings
+        </p>
+    </div>
+</div>
+
+{% endblock %}
