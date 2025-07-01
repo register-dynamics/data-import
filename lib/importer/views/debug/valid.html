@@ -1,0 +1,24 @@
+{% extends "../layouts/main.html" %}
+
+{% from "importer/macros/table_view.njk" import importerTableView %}
+
+{% set pageName="Debug - Valid" %}
+
+{% block beforeContent %}
+    <a href="/importer/debug" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Valid, with headers, only warnings</h1>
+
+        <p class="govuk-body">
+            {{ importerTableView(debug_data.session, debug_data.result, caption="test", headerMode="none") }}
+        </p>
+
+    </div>
+</div>
+
+{% endblock %}
