@@ -1,5 +1,7 @@
 {% extends "../layouts/main.html" %}
 
+{% from "importer/macros/table_view.njk" import importerTableView %}
+
 {% set pageName="Debug - Valid" %}
 
 {% block beforeContent %}
@@ -13,7 +15,7 @@
         <h1 class="govuk-heading-l">Valid, with headers, only warnings</h1>
 
         <p class="govuk-body">
-{{res}}
+            {{ importerTableView(debug_data.session, debug_data.result, caption="test", headerMode="none") }}
         </p>
 
     </div>

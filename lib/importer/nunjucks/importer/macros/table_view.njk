@@ -4,7 +4,7 @@
     {% set rows = data.rows %}
     {% set moreRowsAvailable = data.extraRecordCount > 0 %}
     {% set moreRowsCount = data.extraRecordCount %}
-
+<p>.{{data}}.</p>
     {% set tableHeaders = importerHeaderRowDisplay(session, headerMode) %}
 
     <table class="selectable govuk-body" data-persist-selection="true">
