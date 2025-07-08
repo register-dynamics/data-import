@@ -4,10 +4,10 @@
     {% set moreRowsCount = data.extraRecordCount %}
     {% set headers = importerHeaderRowDisplay(session, headerMode) %}
 
-    {{ tableView(headers, rows, caption, hideHeader, moreRowsCount) }}
+    {{ tableView(headers, rows, caption, moreRowsCount, 0, false) }}
 {% endmacro %}
 
-{% macro tableView(headers, rows, caption=false, hideHeader=false, rowsBelow=0, rowNumbers=false) %}
+{% macro tableView(headers, rows, caption=false, rowsBelow=0, rowNumbers=false) %}
     <table class="selectable govuk-body" data-persist-selection="true">
         {% if caption %}
           <caption class="govuk-table__caption govuk-table__caption--m">{{caption}}</caption>
