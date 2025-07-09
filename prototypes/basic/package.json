@@ -8,13 +8,13 @@
   "dependencies": {
     "@govuk-prototype-kit/common-templates": "2.0.1",
     "@register-dynamics/importer": "file:../../lib/importer",
-    "govuk-frontend": "5.9.0",
-    "govuk-prototype-kit": "13.16.2",
-    "playwright": "^1.50.1"
+    "govuk-frontend": "5.11.0",
+    "govuk-prototype-kit": "13.17.0",
+    "playwright": "^1.53.1"
   },
   "devDependencies": {
     "@flydotio/dockerfile": "^0.7.10",
-    "@playwright/test": "^1.50.1"
+    "@playwright/test": "^1.53.1"
   },
   "overrides": {
     "sass": "1.77.6"
