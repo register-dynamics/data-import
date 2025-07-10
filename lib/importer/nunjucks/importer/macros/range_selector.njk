@@ -30,9 +30,9 @@
           </thead>
           {% endif %}
           <tbody role="rowgroup">
-              {% for row in rows %}
+              {% for rowObj in rows %}
               <tr role="row">
-                  {% for cell in row %}
+                  {% for cell in rowObj.row %}
                   <td aria-selected="false"
                     {% if cell.colspan %}
                       colspan="{{ cell.colspan }}"
