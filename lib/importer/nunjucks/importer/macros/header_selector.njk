@@ -6,5 +6,5 @@
     {% set caption = importerGetTableCaption(data, "First", count) %}
     {% set tableHeaders =  importerHeaderRowDisplay(data, "index") %}
 
-    {{ importerRangeSelector(rows, caption, tableHeaders) }}
+    {{ importerRangeSelector(rows, caption, tableHeaders, true) }}
 {% endmacro %}

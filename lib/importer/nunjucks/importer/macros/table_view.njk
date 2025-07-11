@@ -48,7 +48,7 @@ Renders a table view using the provided parameters to determine what is being sh
             {% for rowObj in params.rows %}
             <tr>
                 {% if params.startingRowNumber %}
-                  <th scope="row">{{ params.startingRowNumber + loop.index0 }}</th>
+                  <th scope="row" class="rowIndex">{{ params.startingRowNumber + loop.index0 }}</th>
                 {% endif %}
                 {% for cell in rowObj.row %}
                 <td
