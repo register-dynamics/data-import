@@ -41,7 +41,7 @@
               {% for rowObj in rows %}
               <tr role="row">
                 {% if showRowNumbers %}
-                  <th scope="row">{{ rowObj.index }}</th>
+                  <th scope="row" class="rowIndex">{{ rowObj.index }}</th>
                 {% endif %}
 
                   {% for cell in rowObj.row %}
