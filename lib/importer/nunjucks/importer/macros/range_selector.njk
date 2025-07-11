@@ -20,7 +20,7 @@
           <caption id="tablecaption" class="govuk-table__caption govuk-table__caption--m">{{caption}}</caption>
           {% endif %}
 
-          {% if tableHeaders or showRowNumbers %}
+          {% if tableHeaders %}
            <thead>
             <tr>
           {% endif %}
@@ -33,7 +33,7 @@
                   <th scope="col">{{ h }}</th>
                 {% endfor %}
               {% endif %}
-          {% if tableHeaders or showRowNumbers %}
+          {% if tableHeaders  %}
             </tr>
           </thead>
             {% endif %}
