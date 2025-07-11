@@ -185,7 +185,22 @@ table.selectable tr::before {
     font-weight: bold;
     min-width: 20px;
     width: 20px;
-    padding-bottom: 2px
+    padding-bottom: 1px;
+    border-bottom: 1px solid rgb(238, 238, 238);
+}
+
+table.selectable tr th[scope=row],
+table.selectable thead th {
+    /* Headers have a thinner font
+       so they don't get too visually distracting: */
+    font-weight: lighter;
+    font-size: 80%;
+    /* So that row numbers are compact: */
+    min-width: unset;
+    /* No visible dividers between row numbers,
+       like the rest of the row header area: */
+    border-left: none;
+    border-bottom: 1px solid rgb(238, 238, 238);
 }
 
 table.selectable tr td:empty::before {
