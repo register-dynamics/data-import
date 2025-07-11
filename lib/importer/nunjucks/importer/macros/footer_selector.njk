@@ -7,5 +7,5 @@
 
     {% set tableHeaders = importerHeaderRowDisplay(data, "source") %}
 
-    {{ importerRangeSelector(rows, caption, tableHeaders) }}
+    {{ importerRangeSelector(rows, caption, tableHeaders, true) }}
 {% endmacro %}
