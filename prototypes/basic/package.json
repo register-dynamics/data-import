@@ -10,7 +10,7 @@
     "@register-dynamics/importer": "file:../../lib/importer",
     "govuk-frontend": "5.11.0",
     "govuk-prototype-kit": "13.17.0",
-    "playwright": "^1.53.1"
+    "playwright": "^1.54.1"
   },
   "devDependencies": {
     "@flydotio/dockerfile": "^0.7.10",
