@@ -9,7 +9,6 @@
         showHeaders: true,
         headers: headers,
         showRowNumbers: true,
-        startingRowNumber: 1,
         rows: data.rows,
         moreRowsCount: moreRowsCount
         } )
@@ -23,7 +22,6 @@ Renders a table view using the provided parameters to determine what is being sh
   * showHeaders - A boolean which determines whether headers are shown or not
   * headers - The headers for this table
   * showRowNumbers - A boolean which specifies whether to show row numbers in the left column or not
-  * startingRowNumber - When showing row numbers, which number to start from. NB: May be removed when rows themselves contain the index
   * rows - The row data containing the values for each cell
   * moreRowsCount - How many more rows are available but now shown, useful when showing only n of many.
 #}
@@ -47,8 +45,8 @@ Renders a table view using the provided parameters to determine what is being sh
         <tbody>
             {% for rowObj in params.rows %}
             <tr>
-                {% if params.startingRowNumber %}
-                  <th scope="row" class="rowIndex">{{ params.startingRowNumber + loop.index0 }}</th>
+                {% if showRowNumbers %}
+                  <th scope="row" class="rowIndex">{{ rowObj.index }}</th>
                 {% endif %}
                 {% for cell in rowObj.row %}
                 <td
