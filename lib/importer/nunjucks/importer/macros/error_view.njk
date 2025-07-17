@@ -11,8 +11,72 @@
 
 #}
 {% macro importerErrorView(session ) %}
-{# importerHeaderRowDisplay(session, "index") #}
+    {# set tableHeaders =   importerHeaderRowDisplay(session, "source") #}
     {% set tableHeaders =  ["A", "B", "C"] %}
+
+{#
+    The review page currently receives the following from importerMappedData.
+    Should we modify this or generate a new API call to get the data to be
+    rendered?
+
+    {
+        rows: mapResults.resultRecords,
+        headers: headers,
+        totalCount: mapResults.totalCount,
+        extraRecordCount: mapResults.extraRecordCount,
+        errorCount: mapResults.errorCount,
+        warningCount: mapResults.warningCount,
+        warnings: mapResults.warnings,
+        errors: mapResults.errors
+    };
+
+    May be easier to supply something like this to the table where:
+
+    * errors are grouped by column,
+    * the index of rows where this is a problem are included.
+
+    errors: [
+        {
+            column: "A",
+            message: "Field should be a number".
+            rows: [1,2 ]
+        },
+        {
+            column: "A",
+            message: "Field is required".
+            rows: [3, 4]
+        },
+    ]
+
+    This however means iterating through every cell in the
+    table and looking up the rows with errors in the array,
+    and then identifying the surrounding fields in the source
+    data.
+
+    We don't want the backend library to know about the
+    presentation of the errors and warnings, so perhaps it
+    should be the responsibility of the plugin (e.g. importerMappedData)
+    to normalise the data in a way where it can be displayed simply.
+    It should also (perhaps) mark the row cells that have triggered an
+    error/warning, by adding a new key alongside value etc to mark it as
+    having an issue?
+    #}
+
+
+    {# set results = importerMappedData(data) #}
+    {% set results = {
+        rows:  [{index: 1, row: [{value:"1"}, {value:"4"}, {value:"5"}]},
+                {index: 2, row: [{value:"2"}, {value:"3"}, {value:"6"}]}],
+        errorCount: 1,
+        warningCount: 1,
+        errors: [
+            { row: 2, field: "A", message: "An error occurred" }
+        ],
+        warnings: [
+            { row: 1, field: "B", message: "A warning is necessary" }
+        ]
+    } %}
+
 
     {% set rows = [
         {index: 1, row: [{value:"1"}, {value:"4"}, {value:"5"}]},
