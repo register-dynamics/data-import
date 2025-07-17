@@ -1,0 +1,22 @@
+{% from "importer/macros/table_view.njk" import importerTableView %}
+
+{% from "importer/macros/range_selector.njk" import importerRangeSelector %}
+
+{#
+    importerErrorView displays errors from the result of a mapping attempt.
+
+    These errors are grouped so that similar errors in the same column are
+    shown together, and each side of the error there should also be a single
+    row of non-erroring data for context where possible.
+
+    The expected error/warning structure from the API is as follows:
+
+#}
+{% macro importerErrorView(session ) %}
+    {% set rows = [[{value:"A"}, {value:"B"}], [{value:"A"}, {value:"B"}]] %}
+    {% set caption = "Errors!" %}
+    {% set tableHeaders =  ["A"] %}
+
+    {{ importerRangeSelector(rows, caption, tableHeaders) }}
+
+{% endmacro %}
