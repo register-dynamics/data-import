@@ -87,6 +87,10 @@
     {
       "macroName": "tableView",
       "importFrom": "importer/macros/table_view.njk"
+    },
+    {
+      "macroName": "importerErrorView",
+      "importFrom": "importer/macros/error_view.njk"
     }
   ]
 }
