@@ -14,56 +14,25 @@
     {# set tableHeaders =   importerHeaderRowDisplay(session, "source") #}
     {% set tableHeaders =  ["A", "B", "C"] %}
 
-{#
-    The review page currently receives the following from importerMappedData.
-    Should we modify this or generate a new API call to get the data to be
-    rendered?
+    {# set results = importerMappedData(data) #}
+    {#
+    The expected data structure is as follows:
 
-    {
-        rows: mapResults.resultRecords,
-        headers: headers,
-        totalCount: mapResults.totalCount,
-        extraRecordCount: mapResults.extraRecordCount,
-        errorCount: mapResults.errorCount,
-        warningCount: mapResults.warningCount,
-        warnings: mapResults.warnings,
-        errors: mapResults.errors
-    };
-
-    May be easier to supply something like this to the table where:
-
-    * errors are grouped by column,
-    * the index of rows where this is a problem are included.
-
-    errors: [
+    [
         {
-            column: "A",
-            message: "Field should be a number".
-            rows: [1,2 ]
+          message: "An error occurred",
+          fields: ["A"],
+          rows: [["A", "B", "C"]] }
         },
         {
-            column: "A",
-            message: "Field is required".
-            rows: [3, 4]
-        },
+          message: "A warning is necessary",
+          fields: ["B"],
+            rows: [["A"]]
+        }
     ]
 
-    This however means iterating through every cell in the
-    table and looking up the rows with errors in the array,
-    and then identifying the surrounding fields in the source
-    data.
-
-    We don't want the backend library to know about the
-    presentation of the errors and warnings, so perhaps it
-    should be the responsibility of the plugin (e.g. importerMappedData)
-    to normalise the data in a way where it can be displayed simply.
-    It should also (perhaps) mark the row cells that have triggered an
-    error/warning, by adding a new key alongside value etc to mark it as
-    having an issue?
     #}
 
-
-    {# set results = importerMappedData(data) #}
     {% set results = {
         rows:  [{index: 1, row: [{value:"1"}, {value:"4"}, {value:"5"}]},
                 {index: 2, row: [{value:"2"}, {value:"3"}, {value:"6"}]}],
@@ -74,24 +43,63 @@
         ],
         warnings: [
             { row: 1, field: "B", message: "A warning is necessary" }
-        ]
+        ],
+        errorsDisplay: [
+            {
+                message: "An error occurred",
+                fields: [ "A" ],
+                rows: [
+                    {index: 2, row: [{value:"11", error: true}, {value:"44"}, {value:"55"}]}
+                ]
+            },
+            {
+                message: "A different error occurred",
+                fields: ["A", "B"],
+                rows: [
+                    {index: 1, row: [{value:"21", error: true}, {value:"54"}, {value:"65"}] },
+                    {index:2, row: [{value:"12"}, {value:"45", error: true}, {value:"56"}] }
+                ]
+            }
+
+            ],
+
+        warningsDisplay: []
     } %}
 
+    {% if results.errorsDisplay %}
+        <h1 class="govuk-heading-l">Errors</h1>
+        {% for error in results.errorsDisplay %}
 
-    {% set rows = [
-        {index: 1, row: [{value:"1"}, {value:"4"}, {value:"5"}]},
-        {index: 2, row: [{value:"2"}, {value:"3"}, {value:"6"}]}
-    ] %}
-    {% set caption = "Errors!" %}
+                {{ tableView( {
+                        caption: error.message,
+                        showHeaders: true,
+                        headers: tableHeaders,
+                        showRowNumbers: true,
+                        rows: error.rows,
+                        moreRowsCount: 0
+                    } )
+                }}
+        {% endfor %}
+    {% endif %}
 
-    {{ tableView( {
-            caption: "Errors",
-            showHeaders: true,
-            headers: tableHeaders,
-            showRowNumbers: true,
-            rows: rows,
-            moreRowsCount: 0
-        } )
-    }}
+    {% if results.warningsDisplay %}
+        <h1 class="govuk-heading-l">Warnings</h1>
+        {% for error in results.warningsDisplay %}
+
+
+                {{ tableView( {
+                        caption: error.message,
+                        showHeaders: true,
+                        headers: tableHeaders,
+                        showRowNumbers: true,
+                        rows: error.rows,
+                        moreRowsCount: 0
+                    } )
+                }}
+        {% endfor %}
+    {% endif %}
+
 
 {% endmacro %}
+
+

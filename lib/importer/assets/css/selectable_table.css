@@ -345,3 +345,25 @@ table.selectable thead tr[data-key=text]>*:empty::after {
         height: calc((18px) + (4em))
     }
 }
+
+/* Validation errors */
+table.selectable td.validation-error {
+    text-decoration: red wavy underline;
+}
+
+table.selectable tr.validation-error::before,
+table.selectable tr.validation-error th[scope=row] {
+    background-color: lightpink;
+}
+
+table.selectable tr.validation-error:last-child::before {
+    border-bottom-left-radius: 10px;
+}
+
+/* Don't rely on coloured elements to distinguish rows, as this isn't accessible
+to people with some vision impairments. So display a dot next to invalid rows.
+*/
+table.selectable tr.validation-error::before {
+    content: "•";
+    padding-top: 3px;
+}

@@ -57,6 +57,10 @@ Renders a table view using the provided parameters to determine what is being sh
                   {% if cell.rowspan %}
                     rowspan="{{ cell.rowspan }}"
                   {% endif %}
+
+                  {% if cell.error %}
+                    class="validation-error"
+                  {% endif %}
                 >{{cell.value }}</td>
                 {% endfor %}
             </tr>
