@@ -1,5 +1,5 @@
 
-{% macro importerRangeSelector(rows, caption, tableHeaders=[]) %}
+{% macro importerRangeSelector(rows, caption, tableHeaders=[], showRowNumbers=false) %}
 
 <div>
     <input type="hidden" name="importer:selection:TLRow" id="importer:selection:TLRow"/>
@@ -23,16 +23,28 @@
           {% if tableHeaders %}
            <thead>
             <tr>
-              {% for h in tableHeaders %}
-              <th scope="col">{{ h }}</th>
-              {% endfor %}
+          {% endif %}
+              {% if showRowNumbers %}
+                <th scope="row"></th>
+              {% endif %}
+
+              {% if tableHeaders %}
+                {% for h in tableHeaders %}
+                  <th scope="col">{{ h }}</th>
+                {% endfor %}
+              {% endif %}
+          {% if tableHeaders  %}
             </tr>
           </thead>
-          {% endif %}
+            {% endif %}
           <tbody role="rowgroup">
-              {% for row in rows %}
+              {% for rowObj in rows %}
               <tr role="row">
-                  {% for cell in row %}
+                {% if showRowNumbers %}
+                  <th scope="row" class="rowIndex">{{ rowObj.index }}</th>
+                {% endif %}
+
+                  {% for cell in rowObj.row %}
                   <td aria-selected="false"
                     {% if cell.colspan %}
                       colspan="{{ cell.colspan }}"

@@ -1,30 +1,54 @@
 
 {% macro importerTableView(session, data, caption=false, headerMode="none" ) %}
-    {% set headers = data.headers %}
-    {% set rows = data.rows %}
-    {% set moreRowsAvailable = data.extraRecordCount > 0 %}
     {% set moreRowsCount = data.extraRecordCount %}
+    {% set headers = importerHeaderRowDisplay(session, headerMode) %}
 
-    {% set tableHeaders = importerHeaderRowDisplay(session, headerMode) %}
+    {{
+      tableView({
+        caption: caption,
+        showHeaders: true,
+        headers: headers,
+        showRowNumbers: true,
+        rows: data.rows,
+        moreRowsCount: moreRowsCount
+        } )
+    }}
+{% endmacro %}
 
+{#
+Renders a table view using the provided parameters to determine what is being shown and how.
+
+  * caption - A text caption for the table
+  * showHeaders - A boolean which determines whether headers are shown or not
+  * headers - The headers for this table
+  * showRowNumbers - A boolean which specifies whether to show row numbers in the left column or not
+  * rows - The row data containing the values for each cell
+  * moreRowsCount - How many more rows are available but now shown, useful when showing only n of many.
+#}
+{% macro tableView(params) %}
     <table class="selectable govuk-body" data-persist-selection="true">
-        {% if caption %}
-          <caption class="govuk-table__caption govuk-table__caption--m">{{caption}}</caption>
+        {% if params.caption %}
+          <caption class="govuk-table__caption govuk-table__caption--m">{{params.caption}}</caption>
         {% endif %}
-        {% if tableHeaders %}
+        {% if params.showHeaders and params.headers  %}
         <thead>
-
             <tr>
-            {% for h in tableHeaders %}
-                <th>{{h}}</th>
+            {% if params.showRowNumbers %}
+                <th scope="row"></th>
+            {% endif %}
+            {% for h in params.headers %}
+                <th scope="col">{{h}}</th>
             {% endfor %}
             </tr>
         </thead>
         {% endif %}
         <tbody>
-            {% for row in rows %}
+            {% for rowObj in params.rows %}
             <tr>
-                {% for cell in row %}
+                {% if showRowNumbers %}
+                  <th scope="row" class="rowIndex">{{ rowObj.index }}</th>
+                {% endif %}
+                {% for cell in rowObj.row %}
                 <td
                   {% if cell.colspan %}
                     colspan="{{ cell.colspan }}"
@@ -32,15 +56,15 @@
                   {% if cell.rowspan %}
                     rowspan="{{ cell.rowspan }}"
                   {% endif %}
-                >{{cell.value}}</td>
+                >{{cell.value }}</td>
                 {% endfor %}
             </tr>
             {% endfor %}
         </tbody>
-        {% if moreRowsAvailable %}
+        {% if params.moreRowsCount > 0 %}
         <tfoot>
           <tr>
-            <td colspan="{{headers.length}}">{{moreRowsCount}} other rows below</td>
+            <td colspan="{{params.headers.length}}">{{params.moreRowsCount}} other row{{ "s" if params.moreRowsCount != 1 }} below</td>
           </tr>
         </tfoot>
         {% endif %}
