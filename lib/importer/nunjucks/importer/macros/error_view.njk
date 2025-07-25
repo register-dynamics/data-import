@@ -39,12 +39,6 @@
         errorCount: 1,
         warningCount: 1,
         errors: [
-            { row: 2, field: "A", message: "An error occurred" }
-        ],
-        warnings: [
-            { row: 1, field: "B", message: "A warning is necessary" }
-        ],
-        errorsDisplay: [
             {
                 message: "An error occurred",
                 fields: [ "A" ],
@@ -57,18 +51,19 @@
                 fields: ["A", "B"],
                 rows: [
                     {index: 1, row: [{value:"21", error: true}, {value:"54"}, {value:"65"}] },
-                    {index:2, row: [{value:"12"}, {value:"45", error: true}, {value:"56"}] }
+                    {index:2, row: [{value:"12"}, {value:"45", error: true}, {value:"56"}] },
+                    {index:3, row: [{value:"1"}, {value:"2"}, {value:"3"}] }
                 ]
             }
 
             ],
 
-        warningsDisplay: []
+        warnings: []
     } %}
 
-    {% if results.errorsDisplay %}
+    {% if results.errors %}
         <h1 class="govuk-heading-l">Errors</h1>
-        {% for error in results.errorsDisplay %}
+        {% for error in results.errors %}
 
                 {{ tableView( {
                         caption: error.message,
@@ -82,9 +77,9 @@
         {% endfor %}
     {% endif %}
 
-    {% if results.warningsDisplay %}
+    {% if results.warnings %}
         <h1 class="govuk-heading-l">Warnings</h1>
-        {% for error in results.warningsDisplay %}
+        {% for error in results.warnings %}
 
 
                 {{ tableView( {

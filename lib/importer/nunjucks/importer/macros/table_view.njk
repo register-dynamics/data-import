@@ -45,7 +45,7 @@ Renders a table view using the provided parameters to determine what is being sh
         {% endif %}
         <tbody>
             {% for rowObj in params.rows %}
-            <tr class="govuk-table__row {% if rowObj.error %}
+            <tr class="govuk-table__row {% if importerRowHasHeader(rowObj) %}
             validation-error{%endif%}">
                 {% if params.showRowNumbers %}
                   <th scope="row" class="rowIndex">{{ rowObj.index }}</th>
