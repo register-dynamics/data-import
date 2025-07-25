@@ -65,8 +65,10 @@
         <h1 class="govuk-heading-l">Errors</h1>
         {% for error in results.errors %}
 
+            <div class="govuk-form-group govuk-form-group--error">
+                <h2 class="govuk-heading-m validation-error-message">{{error.message}}</h2>
                 {{ tableView( {
-                        caption: error.message,
+                        caption: false,
                         showHeaders: true,
                         headers: tableHeaders,
                         showRowNumbers: true,
@@ -74,6 +76,7 @@
                         moreRowsCount: 0
                     } )
                 }}
+            </div>
         {% endfor %}
     {% endif %}
 

@@ -348,7 +348,7 @@ table.selectable thead tr[data-key=text]>*:empty::after {
 
 /* Validation errors */
 table.selectable td.validation-error {
-    text-decoration: red wavy underline;
+    text-decoration: #d4351c wavy underline;
 }
 
 table.selectable tr.validation-error::before,
