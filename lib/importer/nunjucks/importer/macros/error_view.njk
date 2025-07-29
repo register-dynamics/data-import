@@ -42,6 +42,7 @@
             {
                 message: "An error occurred",
                 fields: [ "A" ],
+                meta: {count: 2, first: 1},
                 rows: [
                     {index: 2, row: [{value:"11", error: true}, {value:"44"}, {value:"55"}]}
                 ]
@@ -49,6 +50,7 @@
             {
                 message: "A different error occurred",
                 fields: ["A", "B"],
+                meta: {count: 2, first: 1},
                 rows: [
                     {index: 1, row: [{value:"21", error: true}, {value:"54"}, {value:"65"}] },
                     {index:2, row: [{value:"12"}, {value:"45", error: true}, {value:"56"}] },
@@ -58,7 +60,17 @@
 
             ],
 
-        warnings: []
+        warnings: [
+         {
+                message: "This is just a warning",
+                fields: ["A", "B"],
+                meta: {count: 2, first: 1},
+                rows: [
+                    {index: 1, row: [{value:"21", error: true}, {value:"54"}, {value:"65"}] },
+                    {index:2, row: [{value:"12"}, {value:"45", error: true}, {value:"56"}] },
+                    {index:3, row: [{value:"1"}, {value:"2"}, {value:"3"}] }
+                ]
+            }]
     } %}
 
     {% if results.errors %}
@@ -67,6 +79,8 @@
 
             <div class="govuk-form-group govuk-form-group--error">
                 <h2 class="govuk-heading-m validation-error-message">{{error.message}}</h2>
+                <p class="govuk-body">This error occurs {{error.meta.count | count_string}} in your data. The first time at row {{ error.meta.first}}:</p>
+
                 {{ tableView( {
                         caption: false,
                         showHeaders: true,
@@ -82,18 +96,22 @@
 
     {% if results.warnings %}
         <h1 class="govuk-heading-l">Warnings</h1>
-        {% for error in results.warnings %}
+        {% for warning in results.warnings %}
+            <div class="govuk-form-group govuk-form-group--error">
+                <h2 class="govuk-heading-m validation-error-message">{{warning.message}}</h2>
+                <p class="govuk-body">This warning occurs {{warning.meta.count | count_string}} in your data. The first time at row {{ warning.meta.first}}:</p>
 
 
                 {{ tableView( {
-                        caption: error.message,
+                        caption: false,
                         showHeaders: true,
                         headers: tableHeaders,
                         showRowNumbers: true,
-                        rows: error.rows,
+                        rows: warning.rows,
                         moreRowsCount: 0
                     } )
                 }}
+            </div>
         {% endfor %}
     {% endif %}
 
