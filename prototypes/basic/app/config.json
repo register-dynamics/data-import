@@ -28,7 +28,7 @@
         },
         {
             "name": "Salary",
-            "required": false,
+            "required": true,
             "type": "number"
         },
         {

@@ -9,15 +9,6 @@
 
     The expected error/warning structure from the API is as follows:
 
-#}
-{% macro importerErrorView(session ) %}
-    {# set tableHeaders =   importerHeaderRowDisplay(session, "source") #}
-    {% set tableHeaders =  ["A", "B", "C"] %}
-
-    {# set results = importerMappedData(data) #}
-    {#
-    The expected data structure is as follows:
-
     [
         {
           message: "An error occurred",
@@ -31,52 +22,17 @@
         }
     ]
 
-    #}
+#}
+{% macro importerErrorView(session, results ) %}
+    {% set tableHeaders =   importerHeaderRowDisplay(session, "source") %}
 
-    {% set results = {
-        rows:  [{index: 1, row: [{value:"1"}, {value:"4"}, {value:"5"}]},
-                {index: 2, row: [{value:"2"}, {value:"3"}, {value:"6"}]}],
-        errorCount: 1,
-        warningCount: 1,
-        errors: [
-            {
-                message: "An error occurred",
-                fields: [ "A" ],
-                meta: {count: 2, first: 1},
-                rows: [
-                    {index: 2, row: [{value:"11", error: true}, {value:"44"}, {value:"55"}]}
-                ]
-            },
-            {
-                message: "A different error occurred",
-                fields: ["A", "B"],
-                meta: {count: 2, first: 1},
-                rows: [
-                    {index: 1, row: [{value:"21", error: true}, {value:"54"}, {value:"65"}] },
-                    {index:2, row: [{value:"12"}, {value:"45", error: true}, {value:"56"}] },
-                    {index:3, row: [{value:"1"}, {value:"2"}, {value:"3"}] }
-                ]
-            }
+    <p class="govuk-body">
+        During import there were <strong>{{results.errorCount}}</strong> errors and <strong>{{results.warningCount}}</strong> warnings.
+    </p>
 
-            ],
-
-        warnings: [
-         {
-                message: "This is just a warning",
-                fields: ["A", "B"],
-                meta: {count: 2, first: 1},
-                rows: [
-                    {index: 1, row: [{value:"21", error: true}, {value:"54"}, {value:"65"}] },
-                    {index:2, row: [{value:"12"}, {value:"45", error: true}, {value:"56"}] },
-                    {index:3, row: [{value:"1"}, {value:"2"}, {value:"3"}] }
-                ]
-            }]
-    } %}
-
-    {% if results.errors %}
+    {% if results.errors.length > 0 %}
         <h1 class="govuk-heading-l">Errors</h1>
         {% for error in results.errors %}
-
             <div class="govuk-form-group govuk-form-group--error">
                 <h2 class="govuk-heading-m validation-error-message">{{error.message}}</h2>
                 <p class="govuk-body">This error occurs {{error.meta.count | count_string}} in your data. The first time at row {{ error.meta.first}}:</p>
@@ -94,7 +50,7 @@
         {% endfor %}
     {% endif %}
 
-    {% if results.warnings %}
+    {% if results.warnings.length > 0 %}
         <h1 class="govuk-heading-l">Warnings</h1>
         {% for warning in results.warnings %}
             <div class="govuk-form-group govuk-form-group--error">
@@ -114,7 +70,6 @@
             </div>
         {% endfor %}
     {% endif %}
-
 
 {% endmacro %}
 
