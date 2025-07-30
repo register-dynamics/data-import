@@ -30,6 +30,7 @@
         During import there were <strong>{{results.errorCount}}</strong> errors and <strong>{{results.warningCount}}</strong> warnings.
     </p>
 
+{{ results.errors | debug }}
     {% if results.errors.length > 0 %}
         <h1 class="govuk-heading-l">Errors</h1>
         {% for error in results.errors %}
