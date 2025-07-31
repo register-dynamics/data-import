@@ -1,6 +1,7 @@
 
 {% from "importer/macros/range_selector.njk" import importerRangeSelector %}
 
+{# Deprecated: Use dudkFooterSelector instead #}
 {% macro importerFooterSelector(data, count=10) %}
     {{ dudkFooterSelector({data: data, count: count}) }}
 {% endmacro %}

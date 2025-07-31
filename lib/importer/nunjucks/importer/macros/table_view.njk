@@ -1,4 +1,5 @@
 
+{# Deprecated: Use dudkTableView instead #}
 {% macro importerTableView(session, data, caption=false, headerMode="none" ) %}
     {% set moreRowsCount = data.extraRecordCount %}
     {% set headers = importerHeaderRowDisplay(session, headerMode) %}

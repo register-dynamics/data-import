@@ -1,6 +1,7 @@
 
 {% from "importer/macros/range_selector.njk" import importerRangeSelector %}
 
+{# Deprecated: Use dudkHeaderSelector instead #}
 {% macro importerHeaderSelector(data, start, count=10) %}
     {{ dudkHeaderSelector({data: data, start: start, count: count}) }}
 {% endmacro %}
