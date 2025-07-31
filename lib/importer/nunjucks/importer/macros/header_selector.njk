@@ -2,6 +2,10 @@
 {% from "importer/macros/range_selector.njk" import importerRangeSelector %}
 
 {% macro importerHeaderSelector(data, start, count=10) %}
+    {{ dudkHeaderSelector(data, start, count) }}
+{% endmacro %}
+
+{% macro dudkHeaderSelector(data, start, count=10) %}
     {% set rows = importerGetRows(data, start, count) %}
     {% set caption = importerGetTableCaption(data, "First", count) %}
     {% set tableHeaders =  importerHeaderRowDisplay(data, "index") %}

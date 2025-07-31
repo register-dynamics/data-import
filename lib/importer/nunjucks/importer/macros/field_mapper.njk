@@ -1,6 +1,10 @@
 
+{% macro importerFieldMapper(data, caption='', columnTitle='Column', examplesTitle='Example values', fieldsTitle='Fields') %}
+  {{ dudkFieldMapper(data, caption, columnTitle, examplesTitle, fieldsTitle) }}
+{% endmacro %}
+
 {#
-    importerFieldMapper shows each column heading from the current
+    dudkFieldMapper shows each column heading from the current
     spreadsheet alongside a drop-down containing each of the fields
     for our target object.  This allows the user to choose a target
     object field for each column to select how the column->field
@@ -14,7 +18,7 @@
     data submitted from forms to the backend, and also the current
     data import session.
 #}
-{% macro importerFieldMapper(data, caption='', columnTitle='Column', examplesTitle='Example values', fieldsTitle='Fields') %}
+{% macro dudkFieldMapper(data, caption='', columnTitle='Column', examplesTitle='Example values', fieldsTitle='Fields') %}
     {% set fields = data['importer.session']['fields'] %}
     {% set mapping = data['importer.session']['mapping'] %}
     {% set headings = importerGetHeaders(data) %}
