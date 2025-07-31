@@ -1,6 +1,6 @@
 
 {% macro importerFieldMapper(data, caption='', columnTitle='Column', examplesTitle='Example values', fieldsTitle='Fields') %}
-  {{ dudkFieldMapper(data, caption, columnTitle, examplesTitle, fieldsTitle) }}
+  {{ dudkFieldMapper({data: data, caption: caption, columnTitle: columnTitle, examplesTitle:  examplesTitle, fieldsTitle: fieldsTitle}) }}
 {% endmacro %}
 
 {#
@@ -18,7 +18,13 @@
     data submitted from forms to the backend, and also the current
     data import session.
 #}
-{% macro dudkFieldMapper(data, caption='', columnTitle='Column', examplesTitle='Example values', fieldsTitle='Fields') %}
+{% macro dudkFieldMapper(params) %}
+    {% set data = params.data %}
+    {% set caption = params.caption %}
+    {% set columnTitle = params.columnTitle %}
+    {% set examplesTitle = params.examplesTitle %}
+    {% set fieldsTitle = params.fieldsTitle %}
+
     {% set fields = data['importer.session']['fields'] %}
     {% set mapping = data['importer.session']['mapping'] %}
     {% set headings = importerGetHeaders(data) %}

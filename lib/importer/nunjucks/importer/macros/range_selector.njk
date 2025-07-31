@@ -1,9 +1,14 @@
 
 {% macro importerRangeSelector(rows, caption, tableHeaders=[], showRowNumbers=false) %}
-  {{ dudkRangeSelector( rows, caption, tableHeaders, showRowNumbers) }}
+  {{ dudkRangeSelector( {rows: rows, caption: caption, tableHeaders: tableHeaders, showRowNumbers: showRowNumbers}) }}
 {% endmacro %}
 
-{% macro dudkRangeSelector(rows, caption, tableHeaders=[], showRowNumbers=false) %}
+{% macro dudkRangeSelector(params) %}
+    {% set rows = params.rows %}
+    {% set caption = params.caption %}
+    {% set tableHeaders = params.tableHeaders %}
+    {% set showRowNumbers = params.showRowNumbers %}
+
 <div>
     <input type="hidden" name="importer:selection:TLRow" id="importer:selection:TLRow"/>
     <input type="hidden" name="importer:selection:TLCol" id="importer:selection:TLCol"/>
