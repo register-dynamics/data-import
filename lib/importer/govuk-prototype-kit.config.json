@@ -52,6 +52,7 @@
     "/assets/js/selectable_table.js"
   ],
   "stylesheets": [
+    "/assets/css/error.css",
     "/assets/css/sheet_selector.css",
     "/assets/css/range_selector.css",
     "/assets/css/selectable_table.css"
@@ -87,6 +88,10 @@
     {
       "macroName": "tableView",
       "importFrom": "importer/macros/table_view.njk"
+    },
+    {
+      "macroName": "importerErrorView",
+      "importFrom": "importer/macros/error_view.njk"
     }
   ]
 }
