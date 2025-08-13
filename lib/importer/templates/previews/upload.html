@@ -1,0 +1,24 @@
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
+
+{% macro show() %}
+<div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Upload your data</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+        <div>
+            {{ govukFileUpload({
+                id: "file-upload",
+                name: "file",
+                label: { text: "Upload an XLSX, ODS, or CSV file"},
+                attributes: { "accept":
+                ".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,.csv,text/csv,application/vnd.oasis.opendocument.spreadsheet,.ods"},
+                errorMessage: false })
+            }}
+        </div>
+        <div class="govuk-button-group">
+            {{ govukButton({ text: "Upload" }) }}
+        </div>
+    </form>
+</div>
+{% endmacro %}
