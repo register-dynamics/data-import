@@ -31,7 +31,7 @@
     </p>
 
     {% if results.errors.length > 0 %}
-        <h1 class="govuk-heading-l">Errors</h1>
+        <h2 class="govuk-heading-m">Errors</h2>
         {% for error in results.errors %}
             <div class="govuk-form-group govuk-form-group--error">
                 <h2 class="govuk-heading-m validation-error-message">{{error.message}}</h2>
@@ -51,7 +51,7 @@
     {% endif %}
 
     {% if results.warnings.length > 0 %}
-        <h1 class="govuk-heading-l">Warnings</h1>
+        <h2 class="govuk-heading-m">Warnings</h2>
         {% for warning in results.warnings %}
             <div class="govuk-form-group govuk-form-group--error">
                 <h2 class="govuk-heading-m validation-error-message">{{warning.message}}</h2>
