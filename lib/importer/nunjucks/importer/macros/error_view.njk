@@ -24,7 +24,7 @@
 
 #}
 {% macro importerErrorView(session, results ) %}
-    {% set tableHeaders =   importerHeaderRowDisplay(session, "source") %}
+    {% set tableHeaders =  importerHeaderRowDisplay(session, "source") %}
 
     <p class="govuk-body">
         During import there were <strong>{{results.errorCount}}</strong> errors and <strong>{{results.warningCount}}</strong> warnings.
