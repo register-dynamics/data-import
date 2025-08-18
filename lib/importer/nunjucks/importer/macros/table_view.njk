@@ -26,6 +26,7 @@ Renders a table view using the provided parameters to determine what is being sh
   * moreRowsCount - How many more rows are available but now shown, useful when showing only n of many.
 #}
 {% macro tableView(params) %}
+
     <table class="selectable govuk-body" data-persist-selection="true">
         {% if params.caption %}
           <caption class="govuk-table__caption govuk-table__caption--m">{{params.caption}}</caption>
@@ -44,8 +45,9 @@ Renders a table view using the provided parameters to determine what is being sh
         {% endif %}
         <tbody>
             {% for rowObj in params.rows %}
-            <tr>
-                {% if showRowNumbers %}
+            <tr class="govuk-table__row {% if importerRowHasHeader(rowObj) %}
+            validation-error{%endif%}">
+                {% if params.showRowNumbers %}
                   <th scope="row" class="rowIndex">{{ rowObj.index }}</th>
                 {% endif %}
                 {% for cell in rowObj.row %}
@@ -55,6 +57,10 @@ Renders a table view using the provided parameters to determine what is being sh
                   {% endif %}
                   {% if cell.rowspan %}
                     rowspan="{{ cell.rowspan }}"
+                  {% endif %}
+
+                  {% if cell.error %}
+                    class="validation-error"
                   {% endif %}
                 >{{cell.value }}</td>
                 {% endfor %}

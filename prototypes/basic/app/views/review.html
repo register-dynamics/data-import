@@ -1,8 +1,9 @@
 {% extends "layouts/main.html" %}
 
+{% from "importer/macros/error_view.njk" import importerErrorView %}
+
 {% block pageTitle %} {{ serviceName }} – GOV.UK Prototype Kit {% endblock %}
 {% block beforeContent %}
-
 
 
 {{
@@ -48,49 +49,8 @@
     <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-l">Review your data</h1>
 
-        <p class="govuk-body">
-            During import there were <strong>{{results.errorCount}}</strong> errors and <strong>{{results.warningCount}}</strong> warnings.
-        </p>
+        {{ importerErrorView(data, results) }}
 
-        {% if results.errorCount != 0 %}
-        <table class="govuk-table">
-            <caption class="govuk-table__caption govuk-table__caption--m">Errors</caption>
-            <thead class="govuk-table__head">
-                <tr class="govuk-table__row">
-                    <th scope="col" class="govuk-table__header">Row</th>
-                    <th scope="col" class="govuk-table__header">Field</th>
-                    <th scope="col" class="govuk-table__header">Error</th>
-                </tr>
-            </thead>
-            <tbody class="govuk-table__body">
-            {% for idx, errors in results.errors %}
-                {% for e in errors %}
-                <tr class="govuk-table__row">
-                    <td class="govuk-table__cell"> {{idx}} </td>
-                    <td class="govuk-table__cell">  {{e.field}} </td>
-                    <td class="govuk-table__cell"> {{e.message}} </td>
-                </tr>
-                {% endfor %}
-            {% endfor %}
-            </tbody>
-        </table>
-        {% endif %}
-
-        {% if results.warningCount != 0 %}
-        <p class="govuk-body">
-            <ul class="govuk-list govuk-list--bullet">
-                {% for idx, warning in results.warnings %}
-                    {% for e in warning %}
-                    <tr class="govuk-table__row">
-                        <td class="govuk-table__cell"> {{idx}} </td>
-                        <td class="govuk-table__cell">  {{e.field}} </td>
-                        <td class="govuk-table__cell"> {{e.message}} </td>
-                    </tr>
-                    {% endfor %}
-                {% endfor %}
-              </ul>
-        </p>
-        {% endif %}
 
         <p class="govuk-body">
             The uploaded data contains the following data:
