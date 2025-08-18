@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% from "importer/macros/error_view.njk" import importerErrorView %}
+{% from "importer/macros/table_view.njk" import tableView %}
 
 {% block pageTitle %} {{ serviceName }} – GOV.UK Prototype Kit {% endblock %}
 {% block beforeContent %}
@@ -49,7 +49,57 @@
     <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-l">Review your data</h1>
 
-        {{ importerErrorView(data, results) }}
+        <!-- Errors reported by processing -->
+        {% set tableHeaders =  importerHeaderRowDisplay(data, "source") %}
+
+        <p class="govuk-body">
+            During import there were <strong>{{results.errorCount}}</strong> errors and <strong>{{results.warningCount}}</strong> warnings.
+        </p>
+
+        {% if results.errors.length > 0 %}
+            <h2 class="govuk-heading-m">Errors</h2>
+            {% for error in results.errors %}
+                <div class="govuk-form-group govuk-form-group--error">
+                    <h2 class="govuk-heading-m validation-error-message">{{error.message}}</h2>
+                    <p class="govuk-body">This error occurs {{error.meta.count | count_string}} in your data. The first time at row {{ error.meta.first}}:</p>
+
+                    {{ tableView( {
+                            caption: false,
+                            showHeaders: true,
+                            headers: tableHeaders,
+                            showRowNumbers: true,
+                            rows: error.rows,
+                            moreRowsCount: 0
+                        } )
+                    }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        {% if results.warnings.length > 0 %}
+            <h2 class="govuk-heading-m">Warnings</h2>
+            {% for warning in results.warnings %}
+                <div class="govuk-form-group govuk-form-group--error">
+                    <h2 class="govuk-heading-m validation-error-message">{{warning.message}}</h2>
+                    <p class="govuk-body">This warning occurs {{warning.meta.count | count_string}} in your data. The first time at row {{ warning.meta.first}}:</p>
+
+
+                    {{ tableView( {
+                            caption: false,
+                            showHeaders: true,
+                            headers: tableHeaders,
+                            showRowNumbers: true,
+                            rows: warning.rows,
+                            moreRowsCount: 0
+                        } )
+                    }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+
+        <!-- End of errors -->
+
 
 
         <p class="govuk-body">

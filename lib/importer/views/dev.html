@@ -1,7 +1,5 @@
 {% extends "layouts/main.html" %}
 
-{% from "importer/macros/error_view.njk" import importerErrorView %}
-
 {% set pageName="Dev page" %}
 
 {% block content %}
@@ -11,8 +9,6 @@
     <h1 class="govuk-heading-xl">
         Development page
     </h1>
-
-  {{ importerErrorView(data) }}
 
   </div>
 </div>
