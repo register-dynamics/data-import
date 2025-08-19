@@ -50,7 +50,7 @@
         <h1 class="govuk-heading-l">Review your data</h1>
 
         <!-- Errors reported by processing -->
-        {% set tableHeaders =  importerHeaderRowDisplay(data, "source") %}
+        {% set tableHeaders =  importerHeaderRowDisplay(data, "index") %}
 
         <p class="govuk-body">
             During import there were <strong>{{results.errorCount}}</strong> errors and <strong>{{results.warningCount}}</strong> warnings.
