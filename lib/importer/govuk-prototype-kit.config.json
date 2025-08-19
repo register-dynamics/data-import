@@ -54,7 +54,6 @@
   "stylesheets": [
     "/assets/css/error.css",
     "/assets/css/sheet_selector.css",
-    "/assets/css/range_selector.css",
     "/assets/css/selectable_table.css"
   ],
   "nunjucksPaths": [
@@ -80,10 +79,6 @@
     {
       "macroName": "importerFooterSelector",
       "importFrom": "importer/macros/footer_selector.njk"
-    },
-    {
-      "macroName": "importerRangeSelector",
-      "importFrom": "importer/macros/range_selector.njk"
     },
     {
       "macroName": "tableView",

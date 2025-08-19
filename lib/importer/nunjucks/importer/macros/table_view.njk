@@ -1,6 +1,5 @@
 
-{% macro importerTableView(session, data, caption=false, headerMode="none" ) %}
-    {% set moreRowsCount = data.extraRecordCount %}
+{% macro importerTableView(session, rows, caption=false, headerMode="none", moreRowsCount=0 ) %}
     {% set headers = importerHeaderRowDisplay(session, headerMode) %}
 
     {{
@@ -9,10 +8,11 @@
         showHeaders: true,
         headers: headers,
         showRowNumbers: true,
-        rows: data.rows,
+        rows: rows,
         moreRowsCount: moreRowsCount
         } )
     }}
+
 {% endmacro %}
 
 {#
@@ -51,18 +51,18 @@ Renders a table view using the provided parameters to determine what is being sh
                   <th scope="row" class="rowIndex">{{ rowObj.index }}</th>
                 {% endif %}
                 {% for cell in rowObj.row %}
-                <td
-                  {% if cell.colspan %}
-                    colspan="{{ cell.colspan }}"
-                  {% endif %}
-                  {% if cell.rowspan %}
-                    rowspan="{{ cell.rowspan }}"
-                  {% endif %}
+                  <td
+                    {% if cell.colspan %}
+                      colspan="{{ cell.colspan }}"
+                    {% endif %}
+                    {% if cell.rowspan %}
+                      rowspan="{{ cell.rowspan }}"
+                    {% endif %}
 
-                  {% if cell.error %}
-                    class="validation-error"
-                  {% endif %}
-                >{{cell.value }}</td>
+                    {% if cell.error %}
+                      class="validation-error"
+                    {% endif %}
+                  >{{cell.value }}</td>
                 {% endfor %}
             </tr>
             {% endfor %}

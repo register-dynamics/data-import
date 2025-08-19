@@ -53,14 +53,15 @@
 
     <div class="rd-sheet-selector-previews">
       {% for sheet in sheets %}
+        {% set sheetData = sheet.data %}
         <div class="hidden">
-          {% if sheet.data.rows == null %}
+          {% if sheetData .rows == null %}
           <div class="govuk-body">
             Sheet '{{ sheet.name }}' is empty
             </div>
           {% else %}
             {% set caption = importerGetTableCaption(data, "First", 10, sheet.name) %}
-            {{ importerTableView(data, sheet.data, caption=caption, headerMode="none") }}
+            {{ importerTableView(data, sheetData.rows, caption=caption, headerMode="none") }}
           {% endif %}
         </div>
       {% endfor %}
