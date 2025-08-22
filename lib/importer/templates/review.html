@@ -61,7 +61,7 @@
             {% for error in results.errors %}
                 <div class="govuk-form-group govuk-form-group--error">
                     <h2 class="govuk-heading-m validation-error-message">{{error.message}}</h2>
-                    <p class="govuk-body">This error occurs {{error.meta.count | count_string}} in your data. The first time at row {{ error.meta.first}}:</p>
+                    <p class="govuk-body">This error occurs {{error.meta.count | count_string}} in your data. The first time is at row {{ error.meta.first}}:</p>
 
                     {{ tableView( {
                             caption: false,
@@ -81,7 +81,7 @@
             {% for warning in results.warnings %}
                 <div class="govuk-form-group govuk-form-group--error">
                     <h2 class="govuk-heading-m validation-error-message">{{warning.message}}</h2>
-                    <p class="govuk-body">This warning occurs {{warning.meta.count | count_string}} in your data. The first time at row {{ warning.meta.first}}:</p>
+                    <p class="govuk-body">This warning occurs {{warning.meta.count | count_string}} in your data. The first time is at row {{ warning.meta.first}}:</p>
 
 
                     {{ tableView( {
