@@ -10,7 +10,7 @@
 {{ govukBackLink({ text: "Back", href: "javascript:window.history.back()" }) }}
 {% endblock %}
 
-{% from "importer/macros/footer_selector.njk" import importerFooterSelector %}
+{% from "importer/macros/footer_selector.njk" import dudkFooterSelector %}
 
 {% block content %}
 <div class="govuk-grid-row">
@@ -31,7 +31,7 @@
 
         <form action="{{ importerSelectFooterPath('/mapping') }}" method="post">
             <div class="govuk-form-group">
-                {{ importerFooterSelector(data) }}
+                {{ dudkFooterSelector({data: data}) }}
             </div>
 
             <div class="govuk-button-group">
