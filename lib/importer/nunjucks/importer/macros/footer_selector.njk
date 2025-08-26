@@ -1,8 +1,8 @@
-{% from "importer/macros/table_view.njk" import importerTableView %}
+{% from "importer/macros/table_view.njk" import dudkTableView %}
 
-{% macro importerFooterSelector(data, count=10) %}
-    {% set rows = importerGetTrailingRows(data, count) %}
-    {% set caption = importerGetTableCaption(data, "Last", count) %}
+{% macro dudkFooterSelector(params) %}
+    {% set rows = importerGetTrailingRows(params.data, params.count) %}
+    {% set caption = importerGetTableCaption(params.data, "Last", params.count) %}
 
     <div>
         <input type="hidden" name="importer:selection:TLRow" id="importer:selection:TLRow"/>
@@ -12,7 +12,13 @@
     </div>
 
     <div class="rd-range-selector">
-        {{ importerTableView(data, rows, caption=caption, headerMode="none") }}
+        {{ dudkTableView({data: params.data, rows: rows, caption:caption, headerMode: "none"}) }}
     </div>
 
+{% endmacro %}
+
+
+{# Deprecated: Use dudkFooterSelector #}
+{% macro importerFooterSelector(data, count=10) %}
+    {{ dudkFooterSelector({data:data, count: count}) }}
 {% endmacro %}

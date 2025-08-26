@@ -1,4 +1,3 @@
-
 {#
     importerFieldMapper shows each column heading from the current
     spreadsheet alongside a drop-down containing each of the fields
@@ -14,12 +13,13 @@
     data submitted from forms to the backend, and also the current
     data import session.
 #}
-{% macro importerFieldMapper(data, caption='', columnTitle='Column', examplesTitle='Example values', fieldsTitle='Fields') %}
-    {% set fields = data['importer.session']['fields'] %}
-    {% set mapping = data['importer.session']['mapping'] %}
-    {% set headings = importerGetHeaders(data) %}
+
+{% macro dudkFieldMapper(params) %}
+    {% set fields = params.data['importer.session']['fields'] %}
+    {% set mapping = params.data['importer.session']['mapping'] %}
+    {% set headings = importerGetHeaders(params.data) %}
     {% set headingError = headings.error %}
-    {% set error = importerError(data) %}
+    {% set error = importerError(params.data) %}
 
     {% if headingError %}
     <p id="mapping-error" class="govuk-error-message">
@@ -47,14 +47,14 @@
     {% endif %}
 
 <table class="govuk-table">
-  {% if caption %}
-  <caption class="govuk-table__caption govuk-table__caption--m">{{caption}}</caption>
+  {% if params.caption %}
+  <caption class="govuk-table__caption govuk-table__caption--m">{{params.caption}}</caption>
   {% endif %}
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header">{{columnTitle}}</th>
-      <th scope="col" class="govuk-table__header">{{examplesTitle}}</th>
-      <th scope="col" class="govuk-table__header" style="padding-left: 1.5em">{{fieldsTitle}}</th>
+      <th scope="col" class="govuk-table__header">{{params.columnTitle}}</th>
+      <th scope="col" class="govuk-table__header">{{params.examplesTitle}}</th>
+      <th scope="col" class="govuk-table__header" style="padding-left: 1.5em">{{params.fieldsTitle}}</th>
     </tr>
   </thead>
   <tbody class="govuk-table__body">
@@ -80,5 +80,18 @@
     {% endfor %}
   </tbody>
 </table>
+{% endmacro %}
 
+
+{# Deprecated: Use dudkFieldMapper #}
+{% macro importerFieldMapper(data, caption='', columnTitle='Column', examplesTitle='Example values', fieldsTitle='Fields') %}
+  {{
+    dudkFieldMapper({
+      data: data,
+      caption: caption,
+      columnTitle: columnTitle,
+      examplesTitle: examplesTitle,
+      fieldsTitle: fieldsTitle
+    })
+  }}
 {% endmacro %}

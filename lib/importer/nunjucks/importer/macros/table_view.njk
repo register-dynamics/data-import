@@ -1,20 +1,3 @@
-
-{% macro importerTableView(session, rows, caption=false, headerMode="none", moreRowsCount=0 ) %}
-    {% set headers = importerHeaderRowDisplay(session, headerMode) %}
-
-    {{
-      tableView({
-        caption: caption,
-        showHeaders: true,
-        headers: headers,
-        showRowNumbers: true,
-        rows: rows,
-        moreRowsCount: moreRowsCount
-        } )
-    }}
-
-{% endmacro %}
-
 {#
 Renders a table view using the provided parameters to determine what is being shown and how.
 
@@ -25,8 +8,7 @@ Renders a table view using the provided parameters to determine what is being sh
   * rows - The row data containing the values for each cell
   * moreRowsCount - How many more rows are available but now shown, useful when showing only n of many.
 #}
-{% macro tableView(params) %}
-
+{% macro dudkTableView(params) %}
     <table class="selectable govuk-body" data-persist-selection="true">
         {% if params.caption %}
           <caption class="govuk-table__caption govuk-table__caption--m">{{params.caption}}</caption>
@@ -75,5 +57,25 @@ Renders a table view using the provided parameters to determine what is being sh
         </tfoot>
         {% endif %}
     </table>
-
 {% endmacro %}
+
+{# Deprecated: Use dudkTableView #}
+{% macro importerTableView(session, rows, caption=false, headerMode="none", moreRowsCount=0 ) %}
+    {% set headers = importerHeaderRowDisplay(session, headerMode) %}
+
+    {{
+      dudkTableView({
+        caption: caption,
+        showHeaders: true,
+        headers: headers,
+        showRowNumbers: true,
+        rows: rows,
+        moreRowsCount: moreRowsCount })
+    }}
+{% endmacro %}
+
+{# Deprecated: Use dudkTableView #}
+{% macro tableView(params) %}
+  {{ dudkTableView(params) }}
+{% endmacro %}
+
