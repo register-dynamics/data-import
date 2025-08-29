@@ -61,30 +61,30 @@
             {% for errorObject in results.errors %}
                 {% set error = errorObject.type %}
                 <div class="govuk-form-group govuk-form-group--error">
-                    <h2 class="govuk-heading-m validation-error-message">
+                     <h2 class="govuk-heading-m validation-error-message">
                         {% switch error.variant %}
                             {% case 'EmptyRow' %}
                                 An empty row was found
                             {% case 'FieldRequired' %}
                                 '{{error.field}}' must be supplied
                             {% case 'IncorrectType' %}
-                                {{error.field}} must be a '{{error.type}}', but we found '{{error.value}}'
+                                {{error.field}} must be a '{{error.type}}'
                             {% case 'UnknownDateFormat' %}
                                 The date format is not recognised
                             {% case 'UnrecognisableDateFormat' %}
-                                It was not possible to recognise the date format from '{{error.value}}'
+                                It was not possible to recognise the date format
                             {% case 'MonthUnrecognised' %}
-                                It was not possible to recognise the date format from '{{error.value}}'
+                                Months must either be numbers or recognised names
                             {% case 'MonthOutOfRange' %}
-                                Month numbers must be in the range 1-12, but we found '{{error.value}}'
+                                Month numbers must be in the range 1-12'
                             {% case 'DayOutOfRange' %}
-                                Day numbers must be in the range 1-31, but we found '{{error.value}}'
+                                Day numbers must be in the range 1-31'
                             {% case 'DayWrongType' %}
-                                Day must be a number, but we found '{{error.value}}'
+                                Day must be a number'
                             {% case 'DateGuessing20thCentury' %}
-                                Guessing a two-digit year '{{error.value}}' is in the 20th century
+                                Guessing a two-digit year is in the 20th century
                             {% case 'DateGuessing21stCentury' %}
-                                Guessing a two-digit year '{{error.value}}' is in the 21st century
+                                Guessing a two-digit year is in the 21st century
                             {% default %}
                                 An error `{{error.variant}}` occurred processing the data
                         {% endswitch %}
@@ -117,23 +117,23 @@
                             {% case 'FieldRequired' %}
                                 '{{warning.field}}' must be supplied
                             {% case 'IncorrectType' %}
-                                {{warning.field}} must be a '{{warning.type}}', but we found '{{warning.value}}'
+                                '{{warning.field}}'' must be a '{{warning.type}}'
                             {% case 'UnknownDateFormat' %}
                                 The date format is not recognised
                             {% case 'UnrecognisableDateFormat' %}
-                                It was not possible to recognise the date format from '{{error.value}}'
+                                It was not possible to recognise the date format
                             {% case 'MonthUnrecognised' %}
-                                It was not possible to recognise the date format from '{{warning.value}}'
+                                Months must either be numbers or recognised names
                             {% case 'MonthOutOfRange' %}
-                                Month numbers must be in the range 1-12, but we found '{{warning.value}}'
+                                Month numbers must be in the range 1-12
                             {% case 'DayOutOfRange' %}
-                                Day numbers must be in the range 1-31, but we found '{{warning.value}}'
+                                Day numbers must be in the range 1-31
                             {% case 'DayWrongType' %}
-                                Day must be a number, but we found '{{warning.value}}'
+                                Day must be a number
                             {% case 'DateGuessing20thCentury' %}
-                                Guessing a two-digit year '{{warning.value}}' is in the 20th century
+                                Guessing a two-digit year is in the 20th century
                             {% case 'DateGuessing21stCentury' %}
-                                Guessing a two-digit year '{{warning.value}}' is in the 21st century
+                                Guessing a two-digit year is in the 21st century
                             {% default %}
                                 An error `{{warning.variant}}` occurred processing the data
                         {% endswitch %}
