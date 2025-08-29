@@ -31,7 +31,7 @@
                             {% case 'FieldRequired' %}
                                 '{{error.field}}' must be supplied
                             {% case 'IncorrectType' %}
-                                {{error.field}} must be a '{{error.type}}'
+                                '{{error.field}}' must be a '{{error.type}}'
                             {% case 'UnknownDateFormat' %}
                                 The date format is not recognised
                             {% case 'UnrecognisableDateFormat' %}
@@ -39,9 +39,9 @@
                             {% case 'MonthUnrecognised' %}
                                 Months must either be numbers or recognised names
                             {% case 'MonthOutOfRange' %}
-                                Month numbers must be in the range 1-12'
+                                Month numbers must be in the range 1-12
                             {% case 'DayOutOfRange' %}
-                                Day numbers must be in the range 1-31'
+                                Day numbers must be in the range 1-31
                             {% case 'DayWrongType' %}
                                 Day must be a number'
                             {% case 'DateGuessing20thCentury' %}
@@ -82,7 +82,7 @@
                             {% case 'FieldRequired' %}
                                 '{{warning.field}}' must be supplied
                             {% case 'IncorrectType' %}
-                                '{{warning.field}}'' must be a '{{warning.type}}'
+                                '{{warning.field}}' must be a '{{warning.type}}'
                             {% case 'UnknownDateFormat' %}
                                 The date format is not recognised
                             {% case 'UnrecognisableDateFormat' %}
