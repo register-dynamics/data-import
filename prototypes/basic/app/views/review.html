@@ -58,17 +58,45 @@
 
         {% if results.errors.length > 0 %}
             <h2 class="govuk-heading-m">Errors</h2>
-            {% for error in results.errors %}
+            {% for errorObject in results.errors %}
+                {% set error = errorObject.type %}
                 <div class="govuk-form-group govuk-form-group--error">
-                    <h2 class="govuk-heading-m validation-error-message">{{error.message}}</h2>
-                    <p class="govuk-body">This error occurs {{error.meta.count | count_string}} in your data. The first time at row {{ error.meta.first}}:</p>
+                    <h2 class="govuk-heading-m validation-error-message">
+                        {% switch error.variant %}
+                            {% case 'EmptyRow' %}
+                                An empty row was found
+                            {% case 'FieldRequired' %}
+                                '{{error.field}}' must be supplied
+                            {% case 'IncorrectType' %}
+                                {{error.field}} must be a '{{error.type}}', but we found '{{error.value}}'
+                            {% case 'UnknownDateFormat' %}
+                                The date format is not recognised
+                            {% case 'UnrecognisableDateFormat' %}
+                                It was not possible to recognise the date format from '{{error.value}}'
+                            {% case 'MonthUnrecognised' %}
+                                It was not possible to recognise the date format from '{{error.value}}'
+                            {% case 'MonthOutOfRange' %}
+                                Month numbers must be in the range 1-12, but we found '{{error.value}}'
+                            {% case 'DayOutOfRange' %}
+                                Day numbers must be in the range 1-31, but we found '{{error.value}}'
+                            {% case 'DayWrongType' %}
+                                Day must be a number, but we found '{{error.value}}'
+                            {% case 'DateGuessing20thCentury' %}
+                                Guessing a two-digit year '{{error.value}}' is in the 20th century
+                            {% case 'DateGuessing21stCentury' %}
+                                Guessing a two-digit year '{{error.value}}' is in the 21st century
+                            {% default %}
+                                An error `{{error.variant}}` occurred processing the data
+                        {% endswitch %}
+                    </h2>
+                    <p class="govuk-body">This error occurs {{errorObject.meta.count | count_string}} in your data. The first time at row {{ errorObject.meta.first}}:</p>
 
                     {{ tableView( {
                             caption: false,
                             showHeaders: true,
                             headers: tableHeaders,
                             showRowNumbers: true,
-                            rows: error.rows,
+                            rows: errorObject.rows,
                             moreRowsCount: 0
                         } )
                     }}
@@ -78,10 +106,40 @@
 
         {% if results.warnings.length > 0 %}
             <h2 class="govuk-heading-m">Warnings</h2>
-            {% for warning in results.warnings %}
+            {% for warningObject in results.warnings %}
+                {% set warning = warningObject.type %}
+
                 <div class="govuk-form-group govuk-form-group--error">
-                    <h2 class="govuk-heading-m validation-error-message">{{warning.message}}</h2>
-                    <p class="govuk-body">This warning occurs {{warning.meta.count | count_string}} in your data. The first time at row {{ warning.meta.first}}:</p>
+                    <h2 class="govuk-heading-m validation-error-message">
+                        {% switch warning.variant %}
+                            {% case 'EmptyRow' %}
+                                An empty row was found
+                            {% case 'FieldRequired' %}
+                                '{{warning.field}}' must be supplied
+                            {% case 'IncorrectType' %}
+                                {{warning.field}} must be a '{{warning.type}}', but we found '{{warning.value}}'
+                            {% case 'UnknownDateFormat' %}
+                                The date format is not recognised
+                            {% case 'UnrecognisableDateFormat' %}
+                                It was not possible to recognise the date format from '{{error.value}}'
+                            {% case 'MonthUnrecognised' %}
+                                It was not possible to recognise the date format from '{{warning.value}}'
+                            {% case 'MonthOutOfRange' %}
+                                Month numbers must be in the range 1-12, but we found '{{warning.value}}'
+                            {% case 'DayOutOfRange' %}
+                                Day numbers must be in the range 1-31, but we found '{{warning.value}}'
+                            {% case 'DayWrongType' %}
+                                Day must be a number, but we found '{{warning.value}}'
+                            {% case 'DateGuessing20thCentury' %}
+                                Guessing a two-digit year '{{warning.value}}' is in the 20th century
+                            {% case 'DateGuessing21stCentury' %}
+                                Guessing a two-digit year '{{warning.value}}' is in the 21st century
+                            {% default %}
+                                An error `{{warning.variant}}` occurred processing the data
+                        {% endswitch %}
+
+                    </h2>
+                    <p class="govuk-body">This warning occurs {{warningObject.meta.count | count_string}} in your data. The first time at row {{ warningObject.meta.first}}:</p>
 
 
                     {{ tableView( {
@@ -89,7 +147,7 @@
                             showHeaders: true,
                             headers: tableHeaders,
                             showRowNumbers: true,
-                            rows: warning.rows,
+                            rows: warningObject.rows,
                             moreRowsCount: 0
                         } )
                     }}
