@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% from "importer/macros/table_view.njk" import tableView %}
+{% from "importer/macros/table_view.njk" import dudkTableView %}
 
 {% block pageTitle %} {{ serviceName }} – GOV.UK Prototype Kit {% endblock %}
 {% block beforeContent %}
@@ -63,7 +63,7 @@
                     <h2 class="govuk-heading-m validation-error-message">{{error.message}}</h2>
                     <p class="govuk-body">This error occurs {{error.meta.count | count_string}} in your data. The first time at row {{ error.meta.first}}:</p>
 
-                    {{ tableView( {
+                    {{ dudkTableView( {
                             caption: false,
                             showHeaders: true,
                             headers: tableHeaders,
@@ -84,7 +84,7 @@
                     <p class="govuk-body">This warning occurs {{warning.meta.count | count_string}} in your data. The first time at row {{ warning.meta.first}}:</p>
 
 
-                    {{ tableView( {
+                    {{ dudkTableView( {
                             caption: false,
                             showHeaders: true,
                             headers: tableHeaders,

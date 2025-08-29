@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% from "importer/macros/sheet_selector.njk" import importerSheetSelector %}
+{% from "importer/macros/sheet_selector.njk" import dudkSheetSelector %}
 
 {% block pageTitle %} {{ serviceName }} – GOV.UK Prototype Kit {% endblock %}
 {% block beforeContent %}
@@ -19,7 +19,7 @@
             </h1>
           </legend>
           <div class="govuk-radios" data-module="govuk-radios">
-            {{ importerSheetSelector(data) }}
+            {{ dudkSheetSelector({data: data}) }}
           </div>
         </fieldset>
       </div>

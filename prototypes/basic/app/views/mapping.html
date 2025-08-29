@@ -35,7 +35,7 @@
   }}
 {% endblock %}
 
-{% from "importer/macros/field_mapper.njk" import importerFieldMapper %}
+{% from "importer/macros/field_mapper.njk" import dudkFieldMapper %}
 
 {% block content %}
 <div class="govuk-grid-row">
@@ -51,7 +51,7 @@
 
         <form action="{{ importerMapDataPath('/review') }}" method="post">
 
-            {{ importerFieldMapper(data) }}
+            {{ dudkFieldMapper({data: data}) }}
 
             <div class="govuk-grid-column-two-thirds">
                 <div class="govuk-button-group">

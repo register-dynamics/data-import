@@ -83,6 +83,30 @@
     {
       "macroName": "tableView",
       "importFrom": "importer/macros/table_view.njk"
+    },
+    {
+      "macroName": "dudkSheetSelector",
+      "importFrom": "importer/macros/sheet_selector.njk"
+    },
+    {
+      "macroName": "dudkFieldMapper",
+      "importFrom": "importer/macros/field_mapper.njk"
+    },
+    {
+      "macroName": "dudkTableView",
+      "importFrom": "importer/macros/table_view.njk"
+    },
+    {
+      "macroName": "dudkHeaderSelector",
+      "importFrom": "importer/macros/header_selector.njk"
+    },
+    {
+      "macroName": "dudkFooterSelector",
+      "importFrom": "importer/macros/footer_selector.njk"
+    },
+    {
+      "macroName": "dudkTableView",
+      "importFrom": "importer/macros/table_view.njk"
     }
   ]
 }

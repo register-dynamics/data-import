@@ -1,9 +1,9 @@
 
-{% from "importer/macros/table_view.njk" import importerTableView %}
+{% from "importer/macros/table_view.njk" import dudkTableView %}
 
-{% macro importerHeaderSelector(data, start, count=10) %}
-    {% set rows = importerGetRows(data, start, count) %}
-    {% set caption = importerGetTableCaption(data, "First", count) %}
+{% macro dudkHeaderSelector(params) %}
+    {% set rows = importerGetRows(params.data, params.start, params.count) %}
+    {% set caption = importerGetTableCaption(params.data, "First", params.count) %}
 
     <div>
         <input type="hidden" name="importer:selection:TLRow" id="importer:selection:TLRow"/>
@@ -13,6 +13,11 @@
     </div>
 
     <div class="rd-range-selector">
-            {{ importerTableView(data, rows, caption=caption, headerMode="none") }}
+            {{ dudkTableView({data: params.data, rows: rows, caption: caption, headerMode: "none"}) }}
     </div>
+{% endmacro %}
+
+{# Deprecated: Use dudkHeaderSelector #}
+{% macro importerHeaderSelector(data, start, count=10) %}
+    {{ dudkHeaderSelector({data:data, start:start, count:count}) }}
 {% endmacro %}

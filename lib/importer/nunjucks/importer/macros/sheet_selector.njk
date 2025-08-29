@@ -1,6 +1,7 @@
+{% from "importer/macros/table_view.njk" import dudkTableView %}
 
 {#
-    importerSheetSelector generates a radio button list which allows the
+    dudkSheetSelector generates a radio button list which allows the
     user to choose which sheet is to be used to upload data. If there is
     only a single sheet then it is selected by default.
 
@@ -15,9 +16,9 @@
     legend is the text that should be used for the legend part of the
     radio buttons, if none is supplied, then a legend is not added.
 #}
-{% from "importer/macros/table_view.njk" import importerTableView %}
 
-{% macro importerSheetSelector(data, legend) %}
+{% macro dudkSheetSelector(params) %}
+  {% set data = params.data %}
   {% set selectedSheet = data['importer.session'].sheet %}
   {% set sheets = importSheetPreview(data) %}
   {% set tableRowIndex = sheets.length + 2 %}
@@ -25,10 +26,10 @@
 
   <div class="govuk-form {% if error %}govuk-form-group--error{% endif %}">
     <div class="govuk-form-group ">
-      {% if legend %}
+      {% if params.legend %}
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
         <h1 class="govuk-fieldset__heading">
-          {{ legend }}
+          {{ params.legend }}
         </h1>
       </legend>
       {% endif %}
@@ -61,10 +62,15 @@
             </div>
           {% else %}
             {% set caption = importerGetTableCaption(data, "First", 10, sheet.name) %}
-            {{ importerTableView(data, sheetData.rows, caption=caption, headerMode="none") }}
+            {{ dudkTableView({data: data, rows: sheetData.rows, caption: caption, headerMode: "none"}) }}
           {% endif %}
         </div>
       {% endfor %}
     </div>
   </div>
+{% endmacro %}
+
+{# Deprecated: Use dudkSheetSelector #}
+{% macro importerSheetSelector(data, legend) %}
+  {{ dudkSheetSelector({data:data, legend:legend}) }}
 {% endmacro %}
