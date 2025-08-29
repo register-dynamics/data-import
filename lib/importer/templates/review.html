@@ -28,8 +28,6 @@
                 <div class="govuk-form-group govuk-form-group--error">
                     <h2 class="govuk-heading-m validation-error-message">
                         {% switch error.variant %}
-                            {% case 'EmptyRow' %}
-                                An empty row was found
                             {% case 'FieldRequired' %}
                                 '{{error.field}}' must be supplied
                             {% case 'IncorrectType' %}
@@ -79,6 +77,8 @@
                         {% switch warning.variant %}
                             {% case 'EmptyRow' %}
                                 An empty row was found
+                            {% case 'ShortRow' %}
+                                A row was found with fewer columns than expected, wanted {{warning.expected}} but found {{warning.actual}}
                             {% case 'FieldRequired' %}
                                 '{{warning.field}}' must be supplied
                             {% case 'IncorrectType' %}
