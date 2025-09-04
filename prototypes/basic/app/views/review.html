@@ -64,9 +64,9 @@
                      <h2 class="govuk-heading-m validation-error-message">
                          {% switch error.variant %}
                             {% case 'FieldRequired' %}
-                                '{{error.field}}' must be supplied
+                                '{{errorObject.field}}' must be supplied
                             {% case 'IncorrectType' %}
-                                '{{error.field}}' must be a '{{error.type}}'
+                                '{{errorObject.field}}' must be a '{{error.type}}'
                             {% case 'MonthUnrecognised' %}
                                 Months must either be numbers or recognised names
                             {% case 'MonthOutOfRange' %}
