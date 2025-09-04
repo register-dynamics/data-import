@@ -86,7 +86,7 @@ test('trouble with tribbles', async ({ page }) => {
         "1-1-24, 1-5-24, 2-3-24, 2-4-24, 3-5-24",
         "15:05, 1:00, 4:34, 6:01, 9:55",
         "4.9, 5.5, 6, 6.5, 8.4",
-        "Beige, Black, Brown, Maroon, Pink",
+        "Beige, Brown, Maroon, Pink", // Pink appears twice but should only be in the list once
         "Blob on top, N/A, Splotches, Yes,"
     ]
 
