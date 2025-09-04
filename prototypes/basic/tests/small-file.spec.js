@@ -85,8 +85,9 @@ test('tiny files', async ({ page }) => {
     const examples = await mapping.getExamples()
     expect(examples).toStrictEqual(expectedExamples)
 
+    // One of these must be Salary as it is required, the other can be anything
     await mapping.setMapping('A', 'Title')
-    await mapping.setMapping('B', 'Surname')
+    await mapping.setMapping('B', 'Salary')
     await mapping.submit()
 
     // // ---------------------------------------------------------------------------

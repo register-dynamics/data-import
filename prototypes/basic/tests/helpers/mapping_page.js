@@ -11,7 +11,8 @@ export class MappingPage {
 
     getColumnNames = async() => {
         let tbl = await this.getTable()
-        let rowCount = await tbl.locator("tbody tr").count()
+
+        let rowCount = await tbl.locator("tbody tr").count();
         let names = new Array()
 
         for (let idx = 0; idx< rowCount; idx++) {
