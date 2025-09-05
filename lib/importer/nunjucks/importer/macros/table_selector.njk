@@ -1,0 +1,68 @@
+
+{#
+    importerTableSelector generates a radio button list which allows the
+    user to choose which table is to be used (if any). 
+
+    The list of table names is retrieved from the current spreadsheet
+    being uploaded.
+
+    It accepts a data object which is taken from the prototype kit's
+    session data which is made available on every page, and contains the
+    data submitted from forms to the backend, and also the current
+    data import session.
+
+    legend is the text that should be used for the legend part of the
+    radio buttons, if none is supplied, then a legend is not added.
+#}
+{% from "importer/macros/table_view.njk" import importerTableView %}
+
+{% macro importerTableSelector(data, legend) %}
+  {% set selectedTable = data['importer.session'].table %}
+  {% set tables = importTablePreview(data) %}
+  {% set tableRowIndex = tables.length + 2 %}
+  {% set error = importerError(data) %}
+
+  <div class="govuk-form {% if error %}govuk-form-group--error{% endif %}">
+    <div class="govuk-form-group ">
+      {% if legend %}
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <h1 class="govuk-fieldset__heading">
+          {{ legend }}
+        </h1>
+      </legend>
+      {% endif %}
+
+      {% if error %}
+      <p id="upload-error" class="govuk-error-message">
+        <span class="govuk-visually-hidden">Error:</span> {{ error.text }}
+      </p>
+      {% endif %}
+
+      <div class="govuk-radios rd-table-preview" data-module="govuk-radios">
+        {% for table in tables %}
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="{{table.name}}" name="table" type="radio" value="{{table.name}}" {% if selectedTable==table.name %}checked="checked"{% endif %} data-preview-index="{{loop.index0}}">
+          <label class="govuk-label govuk-radios__label" for="{{table.name}}">
+          {{table.name}}
+          </label>
+        </div> <!-- .govuk-radios__item  -->
+        {% endfor %}
+      </div> <!-- .govuk-radios  -->
+    </div>
+
+    <div class="rd-table-selector-previews">
+      {% for table in tables %}
+        <div class="hidden">
+          {% if table.data.rows == null %}
+          <div class="govuk-body">
+            Table '{{ table.name }}' is empty
+            </div>
+          {% else %}
+            {% set caption = importerGetTableCaption(data, "First", 10, table.name) %}
+            {{ importerTableView(data, table.data, caption=caption, headerMode="none") }}
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endmacro %}
