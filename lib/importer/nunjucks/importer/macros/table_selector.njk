@@ -14,7 +14,7 @@
     legend is the text that should be used for the legend part of the
     radio buttons, if none is supplied, then a legend is not added.
 #}
-{% from "importer/macros/table_view.njk" import importerTableView %}
+{% from "importer/macros/table_view.njk" import tableView %}
 
 {% macro importerTableSelector(data, legend) %}
   {% set selectedTable = data['importer.session'].table %}
@@ -38,7 +38,7 @@
       </p>
       {% endif %}
 
-      <div class="govuk-radios rd-table-preview" data-module="govuk-radios">
+      <div class="govuk-radios rd-sheet-preview" data-module="govuk-radios">
         {% for table in tables %}
         <div class="govuk-radios__item">
           <input class="govuk-radios__input" id="{{table.name}}" name="table" type="radio" value="{{table.name}}" {% if selectedTable==table.name %}checked="checked"{% endif %} data-preview-index="{{loop.index0}}">
@@ -50,7 +50,7 @@
       </div> <!-- .govuk-radios  -->
     </div>
 
-    <div class="rd-table-selector-previews">
+    <div class="rd-sheet-selector-previews">
       {% for table in tables %}
         <div class="hidden">
           {% if table.data.rows == null %}
@@ -58,8 +58,17 @@
             Table '{{ table.name }}' is empty
             </div>
           {% else %}
-            {% set caption = importerGetTableCaption(data, "First", 10, table.name) %}
-            {{ importerTableView(data, table.data, caption=caption, headerMode="none") }}
+            {% set caption = 'My caption' %}
+            {{ tableView({
+              caption: caption,
+              showHeaders: true,
+              headers: table.data.headers,
+              showRowNumbers: false,
+              rows: table.data.rows,
+              moreRowsCount: 0
+            } )}}
+
+            
           {% endif %}
         </div>
       {% endfor %}
