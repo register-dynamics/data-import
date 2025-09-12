@@ -58,7 +58,7 @@
             Table '{{ table.name }}' is empty
             </div>
           {% else %}
-            {% set caption = 'My caption' %}
+            {% set caption = 'Preview of selected table (maximum 10 rows)' %}
             {{ tableView({
               caption: caption,
               showHeaders: true,
