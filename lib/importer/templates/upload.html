@@ -12,6 +12,7 @@
     <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-l">Upload your data</h1>
 
+        <!-- Upload to select sheet, but in automatic mode, will go to header selection instead -->
         <form action="{{importerUploadPath('/select_sheet', '/select_header_row')}}" method="POST" enctype="multipart/form-data">
             <div>
                 {{ govukFileUpload({
