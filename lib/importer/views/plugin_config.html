@@ -97,6 +97,48 @@
 
     <div class="govuk-grid-column-full govuk-!-padding-top-6" >
         <h2 class="govuk-heading-l"></h2>
+ <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        Auto sheet selection
+      </h1>
+    </legend>
+
+    <div class="govuk-radios" data-module="govuk-radios">
+      <p class="govuk-body">
+      When a user uploads a spreadsheet and there is only a single sheet,
+      the plugin can either automatically select the first sheet
+      or allow the user to choose a specific sheet.
+
+      The default is to allow the user to choose the sheet,
+      but by selecting 'automatic' here the single sheet
+      will always be used without user intevention skipping the sheet
+      selection screen.
+      </p>
+
+      <div id="type-hint" class="govuk-hint">
+        Choose auto-sheet selection mode
+      </div>
+
+      <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="field-sheet-manual" name="sheetMode" type="radio" value="manual" {% if sheetMode == "manual" %}checked{% endif %}>
+          <label class="govuk-label govuk-radios__label" for="field-sheet-manual">
+            Manual
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="field-sheet-automatic" name="sheetMode" type="radio" value="automatic" {% if sheetMode == "automatic" %}checked{% endif %}>
+          <label class="govuk-label govuk-radios__label" for="field-sheet-automatic">
+            Automatic
+          </label>
+        </div>
+      </div>
+    </div> <!-- fieldset -->
+</div> <!-- form-group -->
+
+<div class="govuk-grid-column-full govuk-!-padding-top-6" >
+<h2 class="govuk-heading-l"></h2>
 
 <div class="govuk-form-group">
   <fieldset class="govuk-fieldset">
