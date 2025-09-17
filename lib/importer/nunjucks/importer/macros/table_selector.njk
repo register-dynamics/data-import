@@ -47,7 +47,14 @@
           </label>
         </div> <!-- .govuk-radios__item  -->
         {% endfor %}
-      </div> <!-- .govuk-radios  -->
+        <div class="govuk-radios__divider">or</div>
+        </div> <!-- .govuk-radios__item  -->
+        <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="no_table" name="table" type="radio" value="no_table" data-preview-index="{{loop.index0}}">
+        <label class="govuk-label govuk-radios__label" for="no_table">
+          I don't want to use a predefined table
+        </label>
+      </div> <!-- .govuk-radios__item  -->
     </div>
 
     <div class="rd-sheet-selector-previews">
@@ -58,7 +65,7 @@
             Table '{{ table.name }}' is empty
             </div>
           {% else %}
-            {% set caption = 'Preview of selected table (maximum 10 rows)' %}
+            {% set caption = importerGetTableCaption2(data, "First", 10, sheet.name, table.name) %}
             {{ tableView({
               caption: caption,
               showHeaders: true,
