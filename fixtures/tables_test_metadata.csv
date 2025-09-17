@@ -1,0 +1,9 @@
+﻿Table,Sheet,Name,Range ,Columns
+table1,Standard,Soldier,A1:I21,Level; Vitality; Attack; Defence; Fortitude; Reflex; Will; Feats granted; Feat
+table2,Standard,Scout,A23:I43,Level; Vitality; Attack; Defence; Fortitude; Reflex; Will; Feats granted; Feat
+table3,Standard,Scoundrel,A45:I65,Level; Vitality; Attack; Defence; Fortitude; Reflex; Will; Feats granted; Feat
+table4,Jedi,Guardian,A1:K21,Level; Vitality; Force Points; Attack; Defence; Fortitude; Reflex; Will; Feats granted; Feat; Force Powers
+table5,Jedi ,Sentinel,A23:K23,Level; Vitality; Force Points; Attack; Defence; Fortitude; Reflex; Will; Feats granted; Feat; Force Powers
+table6,Jedi ,Consular,A45:K65,Level; Vitality; Force Points; Attack; Defence; Fortitude; Reflex; Will; Feats granted; Feat; Force Powers
+,,,,
+There is also a third sheet called 'No tables' with no tables in it just a block of data,,,,

@@ -20,16 +20,15 @@
   "license": "ISC",
   "description": "The Data Upload Design Kit makes it easier for users to upload data about many things at once by uploading a file without the need for hard-coded Excel spreadsheet templates. Designed to work with the GOV.UK Prototype Kit, it makes it easier for service designers and developers to work with spreadsheets.",
   "dependencies": {
-    "multer": "2.0.1",
-    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.2/xlsx-0.20.2.tgz",
-    "fs-extra": "11.3.0"
+    "fs-extra": "11.3.0",
+    "multer": "2.0.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.32.0",
     "eslint": "^9.32.0",
     "eslint-plugin-jest": "^29.0.1",
     "globals": "^16.3.0",
-    "mock-fs": "^5.5.0",
-    "jest": "^30.0.5"
+    "jest": "^30.0.5",
+    "mock-fs": "^5.5.0"
   }
 }
