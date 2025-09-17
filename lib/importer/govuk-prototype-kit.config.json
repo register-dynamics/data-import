@@ -16,6 +16,11 @@
       "type": "nunjucks"
     },
     {
+      "name": "Select a table",
+      "path": "/templates/select_table.html",
+      "type": "nunjucks"
+    },
+    {
       "name": "Select header rows",
       "path": "/templates/select_header_row.html",
       "type": "nunjucks"
@@ -63,6 +68,10 @@
     {
       "macroName": "importerSheetSelector",
       "importFrom": "importer/macros/sheet_selector.njk"
+    },
+    {
+      "macroName": "importerTableSelector",
+      "importFrom": "importer/macros/table_selector.njk"
     },
     {
       "macroName": "importerFieldMapper",
