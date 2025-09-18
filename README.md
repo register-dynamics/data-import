@@ -53,7 +53,7 @@ Make sure you also run the demo prototype so that it discovers the new local ver
 
 ### Merge into main
 
-Following the usual process, and once approval is obtained for the change, merge the pull request into the `main` branch. This will result in the usual CI steps and followed by a deployment of the demo prototype.
+Following the usual process, and once approval is obtained for the change, merge the pull request into the `main` branch. This will result in the usual CI steps and followed by a deployment of the demo prototype to [https://data-importer.register-dynamics.co.uk](https://data-importer.register-dynamics.co.uk)
 
 ### Create a new github release
 
