@@ -1,5 +1,7 @@
 {% extends "layouts/main.html" %}
 
+{% from "govuk/components/footer/macro.njk" import govukFooter %}
+
 {% block pageTitle %}
   Error {% if serviceName %}– {{ serviceName }}{% endif %} – GOV.UK Prototype Kit
 {% endblock %}
