@@ -31,6 +31,11 @@
       "type": "nunjucks"
     },
     {
+      "name": "Choose field formats",
+      "path": "/templates/format.html",
+      "type": "nunjucks"
+    },
+    {
       "name": "Review your data",
       "path": "/templates/review.html",
       "type": "nunjucks"
