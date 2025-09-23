@@ -46,6 +46,9 @@ jobs:
         - language: javascript-typescript
           build-mode: none
           node-version: '22'
+        - language: javascript-typescript
+          build-mode: none
+          node-version: '24'
         - language: python
           build-mode: none
     steps:
