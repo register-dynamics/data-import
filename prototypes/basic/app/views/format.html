@@ -29,29 +29,31 @@
         {
             text: "Identify columns",
             href: "/mapping"
+        },
+        {
+	    text: "Choose formats",
+            href: "/format"
         }
       ]
     })
   }}
 {% endblock %}
 
-{% from "importer/macros/field_mapper.njk" import dudkFieldMapper %}
+{% from "importer/macros/format_picker.njk" import dudkFormatPicker %}
 
 {% block content %}
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
-        <h1 class="govuk-heading-l">Identify columns</h1>
+        <h1 class="govuk-heading-l">Choose formats</h1>
         <p class="govuk-body">
-            Select which columns from your sheet, which are shown on the left, contain the information required
-            by this service by choosing a value from the dropdown. You can ignore any columns that contain information
-            that this service doesn't need.
+            Select a format for any fields that need it. FIXME: Write better text here...
         </p>
 
         <h2 class="govuk-heading-m">{{sheet}}</h2>
 
-        <form action="{{ importerMapDataPath('/format','/review') }}" method="post">
+        <form action="{{ importerMapDataPath('/review') }}" method="post">
 
-            {{ dudkFieldMapper({data: data}) }}
+            {{ dudkFormatPicker({data: data}) }}
 
             <div class="govuk-grid-column-two-thirds">
                 <div class="govuk-button-group">
