@@ -54,6 +54,34 @@
     </p>
 
     <p class="govuk-body">
+      The following sample files are provided to demonstrate the upload process.
+      You can use these files to explore the service without needing to create your own data.
+    </p>
+
+    <p class="govuk-body">
+      <strong>Sample file 1:</strong> <a href="/download/pensions-data-sample.xlsx" class="govuk-link">pensions-data-sample.xlsx</a>
+      - an Excel spreadsheet containing 10 records with no errors.
+
+      <form action="{{ importerSamplePath('/select_sheet') }}" method="post">
+        <input type="hidden" name="samplefile" value="pensions-data-sample.xlsx">
+        <input type="submit" class="govuk-button govuk-button--secondary" value="Use pensions-data-sample.xlsx" name="submit">
+      </form>
+
+    </p>
+
+    <p class="govuk-body">
+      <strong>Sample file 2:</strong> <a href="/download/tribbles.xlsx" class="govuk-link">tribbles.xlsx</a>
+      - an Excel spreadsheet containing my favourite Star Trek aliens.
+
+      <form action="{{ importerSamplePath('/select_sheet') }}" method="post">
+        <input type="hidden" name="samplefile" value="tribbles.xlsx">
+        <input type="submit" class="govuk-button govuk-button--secondary" value="Use tribbles.xlsx" name="submit">
+      </form>
+
+    </p>
+
+
+    <p class="govuk-body">
       On completion, you will be provided with a reference number for the upload which should be quoted
       in any correspondence about this process.
     </p>

@@ -11,3 +11,8 @@ const router = govukPrototypeKit.requests.setupRouter();
 const importer = require("@register-dynamics/importer");
 const cfg = require("govuk-prototype-kit/lib/config");
 importer.Initialise(cfg.getConfig(), router, govukPrototypeKit);
+
+
+router.get("/download/:filename", function (req, res) {
+    res.sendFile(req.params.filename, { root: process.cwd() + "/samples/" });
+});
