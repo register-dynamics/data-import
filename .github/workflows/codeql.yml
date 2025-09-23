@@ -10,7 +10,7 @@ on:
 
 jobs:
   analyze:
-    name: Analyze (${{ matrix.language }})
+    name: Analyze (${{ matrix.language }}${{ matrix.node-version && format(' - Node.js {0}', matrix.node-version) || '' }})
     # Runner size impacts CodeQL analysis time. To learn more, please see:
     #   - https://gh.io/recommended-hardware-resources-for-running-codeql
     #   - https://gh.io/supported-runners-and-hardware-resources
@@ -36,11 +36,28 @@ jobs:
           build-mode: none
         - language: javascript-typescript
           build-mode: none
+          node-version: '16'
+        - language: javascript-typescript
+          build-mode: none
+          node-version: '18'
+        - language: javascript-typescript
+          build-mode: none
+          node-version: '20'
+        - language: javascript-typescript
+          build-mode: none
+          node-version: '22'
         - language: python
           build-mode: none
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+
+    # Setup Node.js for JavaScript/TypeScript analysis
+    - name: Setup Node.js
+      if: matrix.language == 'javascript-typescript'
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
 
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
