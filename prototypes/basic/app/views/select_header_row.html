@@ -53,7 +53,7 @@
 
         <form action="{{ importerSelectHeaderPath('/select_footer_row') }}" method="post">
             <div class="govuk-form-group">
-                {{ dudkHeaderSelector({data: data, start: 0, count: 10}) }}
+                {{ dudkHeaderSelector({data: data, start: 0, count: 10, current: importerCurrentHeaderSelection(data) }) }}
             </div>
 
             <div class="govuk-button-group">
