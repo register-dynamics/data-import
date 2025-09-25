@@ -54,20 +54,28 @@
     <tr class="govuk-table__row">
       <th scope="col" class="govuk-table__header">{{params.columnTitle}}</th>
       <th scope="col" class="govuk-table__header">{{params.examplesTitle}}</th>
+      <th scope="col" class="govuk-table__header">{{params.fieldAndTypeTitle}}</th>
       <th scope="col" class="govuk-table__header" style="padding-left: 1.5em">{{params.fieldsTitle}}</th>
     </tr>
   </thead>
   <tbody class="govuk-table__body">
     {% set mappingsLen = mapping | length %}
     {% set possibleFormatsByColumn = importerPossibleColumnFormats(params.data) %}
+    {% set mappedColumnDetails = importerMappedColumnDetails(params.data) %}
     {% for h in headings.data %}
       {% set hIndex = loop.index0 %}
       {% set currentValue = importerErrorMappingData(error, hIndex) %}
       {% set possibleFormats = possibleFormatsByColumn[hIndex] %}
+      {% set mapping = mappedColumnDetails[hIndex] %}
 
     <tr class="govuk-table__row" id="field-{{ h.name | slugify }}">
       <th scope="row" class="govuk-table__header">{{ h.name }}</th>
       <td class="govuk-table__cell">{{ h.examples }}</td>
+      <td class="govuk-table__cell">
+          {% if mapping %}
+              {{ mapping.fieldName }} ({{ mapping.typeName }})
+          {% endif %}
+      </td>
       <td class="govuk-table__cell govuk-table__cell--numeric">
          {% if possibleFormats %}
          <select class="govuk-select" style="float: right;" name="format-{{h.index}}">
