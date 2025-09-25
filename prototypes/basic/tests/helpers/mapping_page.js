@@ -39,7 +39,7 @@ export class MappingPage {
     setMapping = async(columnName, fieldName) => {
         let cols = await this.getColumnNames()
         let idx = cols.findIndex((x)=>x == columnName);
-        await this.p.locator(`[name='${idx}']`).selectOption(fieldName)
+        await this.p.locator(`[name='field-${idx}']`).selectOption(fieldName)
     }
 
     submit = async() => {
