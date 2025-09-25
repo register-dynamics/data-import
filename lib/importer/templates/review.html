@@ -24,6 +24,26 @@
         {% if results.errors.length > 0 %}
             <h2 class="govuk-heading-m">Errors</h2>
             {% for errorObject in results.errors %}
+
+                {#
+                    This error object is generated when there was a problem processing the
+                    data. The error object contains a type, meta information and the rows that
+                    caused the error with some surrounding rows for context.
+
+                    The meta information field contains:
+                        count - the number of times this error occurred
+                        first - the first row number where this error occurred
+
+                    The type field contains information about the error that occurred, including
+                    the variant of error, possible values for which are:
+                        * FieldRequired
+                        * IncorrectType
+                        * MonthUnrecognised
+                        * MonthOutOfRange
+                        * DayOutOfRange
+                        * DayWrongType
+                #}
+
                 {% set error = errorObject.type %}
                 <div class="govuk-form-group govuk-form-group--error">
                     <h2 class="govuk-heading-m validation-error-message">
@@ -62,6 +82,30 @@
         {% if results.warnings.length > 0 %}
             <h2 class="govuk-heading-m">Warnings</h2>
             {% for warningObject in results.warnings %}
+
+                {#
+                    This warning object is generated when there was a problem processing the
+                    data but it did not stop processing. These warnings are to alert the user to
+                    potential issues with the data.
+
+                    The error object contains a type, meta information and the rows that
+                    caused the error with some surrounding rows for context.
+
+                    The meta information field contains:
+                        count - the number of times this error occurred
+                        first - the first row number where this error occurred
+
+                    The type field contains information about the error that occurred, including
+                    the variant of error, possible values for which are:
+                        * EmptyRow
+                        * ShortRow
+                        * UnknownDateFormat
+                        * UnrecognisableDateFormat
+                        * DateGuessing20thCentury
+                        * DateGuessing21stCentury
+                #}
+
+
                 {% set warning = warningObject.type %}
 
                 <div class="govuk-form-group govuk-form-group--error">
