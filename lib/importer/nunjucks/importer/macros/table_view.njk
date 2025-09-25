@@ -28,9 +28,7 @@ Renders a table view using the provided parameters to determine what is being sh
         <tbody>
             {% for rowObj in params.rows %}
             <tr class="govuk-table__row {% if rowObj.error %}
-            validation-error{%endif%}">
-
-
+            validation-error{%endif%}" data-row-index="{{rowObj.index}}">
                 {% if params.showRowNumbers %}
                   <th scope="row" class="rowIndex">{{ rowObj.index }}</th>
                 {% endif %}
