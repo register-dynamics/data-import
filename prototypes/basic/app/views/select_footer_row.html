@@ -56,7 +56,7 @@
 
         <form action="{{ importerSelectFooterPath('/mapping') }}" method="post">
             <div class="govuk-form-group">
-                {{ dudkFooterSelector({data: data}) }}
+                {{ dudkFooterSelector({data: data, current: importerCurrentFooterSelection(data)}) }}
             </div>
 
             <div class="govuk-button-group">
