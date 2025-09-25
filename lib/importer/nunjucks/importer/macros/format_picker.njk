@@ -59,10 +59,11 @@
   </thead>
   <tbody class="govuk-table__body">
     {% set mappingsLen = mapping | length %}
+    {% set possibleFormatsByColumn = importerPossibleColumnFormats(params.data) %}
     {% for h in headings.data %}
       {% set hIndex = loop.index0 %}
       {% set currentValue = importerErrorMappingData(error, hIndex) %}
-      {% set possibleFormats = importerPossibleColumnFormats(params.data, hIndex) %}
+      {% set possibleFormats = possibleFormatsByColumn[hIndex] %}
 
     <tr class="govuk-table__row" id="field-{{ h.name | slugify }}">
       <th scope="row" class="govuk-table__header">{{ h.name }}</th>
@@ -70,10 +71,14 @@
       <td class="govuk-table__cell govuk-table__cell--numeric">
          {% if possibleFormats %}
          <select class="govuk-select" style="float: right;" name="format-{{h.index}}">
-                <option name=""></option>
                 {% for format in possibleFormats %}
-                    <option value="{{format.name}}" {% if format.name == currentValue %}selected{% endif %}>
-                      {{format.displayName}}
+                    <option value="{{format.name}}"
+                            {% if format.name == currentValue %}selected{% endif %}>
+                      {% if format.likely %}
+                         {{format.displayName}} (*)
+                      {% else %}
+                         {{format.displayName}}
+                      {% endif %}
                     </option>
                 {% endfor %}
          </select>
