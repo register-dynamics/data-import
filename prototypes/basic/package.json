@@ -9,7 +9,7 @@
     "@govuk-prototype-kit/common-templates": "2.0.1",
     "@register-dynamics/importer": "file:../../lib/importer",
     "govuk-frontend": "5.11.2",
-    "govuk-prototype-kit": "13.18.0",
+    "govuk-prototype-kit": "13.18.1",
     "playwright": "^1.54.1"
   },
   "devDependencies": {
