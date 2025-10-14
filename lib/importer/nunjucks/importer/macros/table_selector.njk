@@ -65,7 +65,7 @@
             Table '{{ table.name }}' is empty
             </div>
           {% else %}
-            {% set caption = importerGetTableCaption2(data, "First", 10, sheet.name, table.name) %}
+            {% set caption = importerGetTableCaption(data, "First", 10, sheet.name, table.name) %}
             {{ tableView({
               caption: caption,
               showHeaders: true,
