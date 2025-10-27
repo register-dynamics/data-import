@@ -4,11 +4,14 @@
     {% set rows = importerGetTrailingRows(params.data, params.count) %}
     {% set caption = importerGetTableCaption(params.data, "Last", params.count) %}
 
+    {% set currentSelection = params.current %}
+    {% set setSelectionValue = currentSelection.start.row > -1 %}
+
     <div>
-        <input type="hidden" name="importer:selection:TLRow" id="importer:selection:TLRow"/>
-        <input type="hidden" name="importer:selection:TLCol" id="importer:selection:TLCol"/>
-        <input type="hidden" name="importer:selection:BRRow" id="importer:selection:BRRow"/>
-        <input type="hidden" name="importer:selection:BRCol" id="importer:selection:BRCol"/>
+        <input type="hidden" name="importer:selection:TLRow" id="importer:selection:TLRow" {% if setSelectionValue %} value="{{ currentSelection.start.row }}" {% endif %}/>
+        <input type="hidden" name="importer:selection:TLCol" id="importer:selection:TLCol" {% if setSelectionValue %} value="{{ currentSelection.start.column }}" {% endif %}/>
+        <input type="hidden" name="importer:selection:BRRow" id="importer:selection:BRRow" {% if setSelectionValue %} value="{{ currentSelection.end.row }}" {% endif %}/>
+        <input type="hidden" name="importer:selection:BRCol" id="importer:selection:BRCol" {% if setSelectionValue %} value="{{ currentSelection.end.column }}" {% endif %}/>
     </div>
 
     <div class="rd-range-selector">

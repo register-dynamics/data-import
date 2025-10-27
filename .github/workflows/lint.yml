@@ -1,9 +1,9 @@
 name: Lint JS
 on:
   push:
-    branches: [main]
+    branches: [ main ]
   pull_request:
-    branches: [main]
+    branches: [ main ]
 jobs:
   lint-importer:
     defaults:
@@ -11,11 +11,15 @@ jobs:
         working-directory: ./lib/importer
     timeout-minutes: 5
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ '20', '22', '24' ]
+    name: Lint Importer (Node.js ${{ matrix.node-version }})
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
       with:
-        node-version: lts/*
+        node-version: ${{ matrix.node-version }}
     - name: Install dependencies
       run: npm i
     - name: Run linter
