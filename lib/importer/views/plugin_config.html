@@ -19,7 +19,6 @@
         {{ message }}
       </div>
     </div>
-
   {% endif %}
 
 
@@ -177,7 +176,18 @@
     </p>
   </fieldset>
 </div>
-    </div>
+</div>
+
+    <div class="govuk-grid-column-full govuk-!-padding-top-6" >
+      <h2 class="govuk-heading-l">Error messages</h2>
+
+      <p class="govuk-body">
+        To update the error messages shown when there is a problem with the uploaded data,
+        you can edit the messages in the review template, found in '<code>./app/views/review.html</code>'.
+        This template checks the type of error and shows a relevant message. You can modify these messages
+        to suit your needs.
+      </p>
+  </div>
 
 
     <div class="govuk-grid-column-full govuk-!-padding-top-6" >

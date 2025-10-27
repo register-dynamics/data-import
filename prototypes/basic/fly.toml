@@ -1,16 +1,12 @@
-# fly.toml app configuration file generated for rd-data-import on 2025-02-11T13:11:19Z
+# fly.toml app configuration file generated for basic-winter-mountain-1025 on 2025-09-18T11:43:39+01:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'rd-data-import'
+app = 'basic-winter-mountain-1025'
 primary_region = 'lhr'
 
 [build]
-
-[[mounts]]
-source = 'data'
-destination = '/data'
 
 [http_service]
 internal_port = 3000
