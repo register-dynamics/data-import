@@ -79,16 +79,22 @@
       <td class="govuk-table__cell govuk-table__cell--numeric">
          {% if possibleFormats %}
          <select class="govuk-select" style="float: right;" name="format-{{h.index}}">
-                {% for format in possibleFormats %}
+            <optgroup label="Matches every row">
+                {% for format in possibleFormats[0] %}
                     <option value="{{format.name}}"
-                            {% if format.name == currentValue %}selected{% endif %}>
-                      {% if format.likely %}
-                         {{format.displayName}} (*)
-                      {% else %}
-                         {{format.displayName}}
-                      {% endif %}
+                      {% if format.name == currentValue %}selected{% endif %}>
+                      {{format.displayName}}
                     </option>
                 {% endfor %}
+            </optgroup>
+            <optgroup label="Matches some rows">
+                {% for format in possibleFormats[1] %}
+                    <option value="{{format.name}}"
+                      {% if format.name == currentValue %}selected{% endif %}>
+                      {{format.displayName}}
+                    </option>
+                {% endfor %}
+            </optgroup>
          </select>
          {% endif %}
       </td>
