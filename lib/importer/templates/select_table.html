@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% from "importer/macros/sheet_selector.njk" import dudkSheetSelector %}
+{% from "importer/macros/table_selector.njk" import importerTableSelector %}
 
 {% block pageTitle %} {{ serviceName }} – GOV.UK Prototype Kit {% endblock %}
 {% block beforeContent %}
@@ -10,16 +10,16 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <form action="{{ importerSelectSheetPath('/select_table', '/select_header_row') }}" method="post">
+    <form action="{{ importerSelectTablePath('/select_header_row', '/select_footer_row') }}" method="post">
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading">
-              Which sheet do you wish to import?
+              Which table do you wish to import?
             </h1>
           </legend>
           <div class="govuk-radios" data-module="govuk-radios">
-            {{ dudkSheetSelector({data: data}) }}
+            {{ importerTableSelector(data) }}
           </div>
         </fieldset>
       </div>
