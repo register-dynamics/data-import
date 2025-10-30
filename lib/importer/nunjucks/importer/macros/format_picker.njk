@@ -1,12 +1,11 @@
 {#
-    dudkFieldMapper shows each column heading from the current
-    spreadsheet alongside a drop-down containing each of the fields
-    for our target object.  This allows the user to choose a target
-    object field for each column to select how the column->field
-    mapping should be applied.
+    dudkFormatPicker shows each column heading mapped to a field whose type has
+    format options from the current spreadsheet, alongside a drop-down containing
+    available formats.  This allows the user to choose a format for
+    each column that needs one, to select how the value mapping should be applied.
 
     The resulting data to be submitted to the 'importerMapDataPath'
-    will be a map of column indices to target field names.
+    will be a map of column indices to format names.
 
     It accepts a data object which is taken from the prototype kit's
     session data which is made available on every page, and contains the
@@ -14,7 +13,7 @@
     data import session.
 #}
 
-{% macro dudkFieldMapper(params) %}
+{% macro dudkFormatPicker(params) %}
     {% set fields = params.data['importer.session']['fields'] %}
     {% set mapping = params.data['importer.session']['mapping'] %}
     {% set headings = importerGetHeaders(params.data) %}
@@ -46,7 +45,7 @@
       </div>
     {% endif %}
 
-<input type="hidden" name="mappings-present" value="yes">
+<input type="hidden" name="formats-present" value="yes">
 <table class="govuk-table">
   {% if params.caption %}
   <caption class="govuk-table__caption govuk-table__caption--m">{{params.caption}}</caption>
@@ -55,27 +54,49 @@
     <tr class="govuk-table__row">
       <th scope="col" class="govuk-table__header">{{params.columnTitle}}</th>
       <th scope="col" class="govuk-table__header">{{params.examplesTitle}}</th>
+      <th scope="col" class="govuk-table__header">{{params.fieldAndTypeTitle}}</th>
       <th scope="col" class="govuk-table__header" style="padding-left: 1.5em">{{params.fieldsTitle}}</th>
     </tr>
   </thead>
   <tbody class="govuk-table__body">
     {% set mappingsLen = mapping | length %}
+    {% set possibleFormatsByColumn = importerPossibleColumnFormats(params.data) %}
+    {% set mappedColumnDetails = importerMappedColumnDetails(params.data) %}
     {% for h in headings.data %}
       {% set hIndex = loop.index0 %}
       {% set currentValue = importerErrorMappingData(error, hIndex) %}
+      {% set possibleFormats = possibleFormatsByColumn[hIndex] %}
+      {% set mapping = mappedColumnDetails[hIndex] %}
 
     <tr class="govuk-table__row" id="field-{{ h.name | slugify }}">
       <th scope="row" class="govuk-table__header">{{ h.name }}</th>
       <td class="govuk-table__cell">{{ h.examples }}</td>
+      <td class="govuk-table__cell">
+          {% if mapping %}
+              {{ mapping.fieldName }} ({{ mapping.typeName }})
+          {% endif %}
+      </td>
       <td class="govuk-table__cell govuk-table__cell--numeric">
-         <select class="govuk-select" style="float: right;" name="field-{{h.index}}">
-                <option name=""></option>
-                {% for field in fields %}
-                    <option value="{{field.name}}" {% if field.name == currentValue or (mappingsLen == 0 and field.name == h.name) %}selected{% endif %}>
-                      {{field.name}}
+         {% if possibleFormats %}
+         <select class="govuk-select" style="float: right;" name="format-{{h.index}}">
+            <optgroup label="Matches every row">
+                {% for format in possibleFormats[0] %}
+                    <option value="{{format.name}}"
+                      {% if format.name == currentValue %}selected{% endif %}>
+                      {{format.displayName}}
                     </option>
                 {% endfor %}
-            </select>
+            </optgroup>
+            <optgroup label="Matches some rows">
+                {% for format in possibleFormats[1] %}
+                    <option value="{{format.name}}"
+                      {% if format.name == currentValue %}selected{% endif %}>
+                      {{format.displayName}}
+                    </option>
+                {% endfor %}
+            </optgroup>
+         </select>
+         {% endif %}
       </td>
     </tr>
     {% endfor %}
@@ -83,16 +104,3 @@
 </table>
 {% endmacro %}
 
-
-{# Deprecated: Use dudkFieldMapper #}
-{% macro importerFieldMapper(data, caption='', columnTitle='Column', examplesTitle='Example values', fieldsTitle='Fields') %}
-  {{
-    dudkFieldMapper({
-      data: data,
-      caption: caption,
-      columnTitle: columnTitle,
-      examplesTitle: examplesTitle,
-      fieldsTitle: fieldsTitle
-    })
-  }}
-{% endmacro %}

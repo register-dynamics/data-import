@@ -6,23 +6,24 @@
 {{ govukBackLink({ text: "Back", href: "javascript:window.history.back()" }) }}
 {% endblock %}
 
-{% from "importer/macros/field_mapper.njk" import dudkFieldMapper %}
+{% from "importer/macros/format_picker.njk" import dudkFormatPicker %}
 
 {% block content %}
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
         <h1 class="govuk-heading-l">Identify columns</h1>
         <p class="govuk-body">
-            Select which columns from your sheet, which are shown on the left, contain the information required
-            by this service by choosing a value from the dropdown. You can ignore any columns that contain information
-            that this service doesn't need.
+            One or more columns may contain data represented in one of a number
+            of formats, such as dates. Please select the format your file uses
+            in the table below. Formats that appear to match the data found in
+            your file are marked with an asterisk (*).
         </p>
 
         <h2 class="govuk-heading-m">{{sheet}}</h2>
 
-        <form action="{{ importerMapDataPath('/format','/review') }}" method="post">
+        <form action="{{ importerMapDataPath('/review') }}" method="post">
 
-            {{ dudkFieldMapper({data: data}) }}
+            {{ dudkFormatPicker({data: data}) }}
 
             <div class="govuk-grid-column-two-thirds">
                 <div class="govuk-button-group">
