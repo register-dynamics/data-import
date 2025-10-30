@@ -1,0 +1,33 @@
+{% extends "layouts/main.html" %}
+
+{% from "importer/macros/table_selector.njk" import importerTableSelector %}
+
+{% block pageTitle %} {{ serviceName }} – GOV.UK Prototype Kit {% endblock %}
+{% block beforeContent %}
+{{ govukBackLink({ text: "Back", href: "javascript:window.history.back()" }) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <form action="{{ importerSelectTablePath('/select_header_row', '/select_footer_row') }}" method="post">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Which table do you wish to import?
+            </h1>
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            {{ importerTableSelector(data) }}
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="govuk-button-group">
+        {{ govukButton({ text: "Next" }) }}
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
