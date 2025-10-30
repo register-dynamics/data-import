@@ -1,8 +1,6 @@
 
 # Data Upload Design Kit
 
-## Description
-
 The Data Upload Design Kit makes it easier for users to upload data about many things at once by uploading a file without the need for hard-coded Excel spreadsheet templates. Designed to work with the [GOV.UK Prototype Kit](https://prototype-kit.service.gov.uk/), it makes it easier for service designers and developers to import spreadsheet data into their services.
 
 The kit achieves this by empowering the user to choose which sheet and data to use, and which columns to map to the required output data in an easy to use and configurable way. The kit currently supports the upload of:
