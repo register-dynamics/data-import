@@ -27,7 +27,9 @@ RUN jq 'del(.dependencies["@register-dynamics/importer"])' package.json > /tmp/p
 RUN mv /tmp/package.json .
 
 # Explicitly load the latest version
-RUN npm install --save "https://gitpkg.vercel.app/register-dynamics/data-import/lib/importer?main"
+# The ADD command stops Docker from caching the subsequent RUN command
+ADD "https://gitpkg.vercel.app/register-dynamics/data-import/lib/importer?main" latest.tgz
+RUN npm install --save latest.tgz
 RUN npm install
 
 # Copy application code
